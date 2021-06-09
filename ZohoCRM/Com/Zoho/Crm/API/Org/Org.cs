@@ -7,6 +7,7 @@ namespace Com.Zoho.Crm.API.Org
 	public class Org : Model
 	{
 		private string country;
+		private HierarchyPreference hierarchyPreferences;
 		private string photoId;
 		private string city;
 		private string description;
@@ -36,6 +37,7 @@ namespace Com.Zoho.Crm.API.Org
 		private string companyName;
 		private bool? privacySettings;
 		private string primaryEmail;
+		private bool? hipaaComplianceEnabled;
 		private string isoCode;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
@@ -55,6 +57,26 @@ namespace Com.Zoho.Crm.API.Org
 				 this.country=value;
 
 				 this.keyModified["country"] = 1;
+
+			}
+		}
+
+		public HierarchyPreference HierarchyPreferences
+		{
+			/// <summary>The method to get the hierarchyPreferences</summary>
+			/// <returns>Instance of HierarchyPreference</returns>
+			get
+			{
+				return  this.hierarchyPreferences;
+
+			}
+			/// <summary>The method to set the value to hierarchyPreferences</summary>
+			/// <param name="hierarchyPreferences">Instance of HierarchyPreference</param>
+			set
+			{
+				 this.hierarchyPreferences=value;
+
+				 this.keyModified["hierarchy_preferences"] = 1;
 
 			}
 		}
@@ -635,6 +657,26 @@ namespace Com.Zoho.Crm.API.Org
 				 this.primaryEmail=value;
 
 				 this.keyModified["primary_email"] = 1;
+
+			}
+		}
+
+		public bool? HipaaComplianceEnabled
+		{
+			/// <summary>The method to get the hipaaComplianceEnabled</summary>
+			/// <returns>bool? representing the hipaaComplianceEnabled</returns>
+			get
+			{
+				return  this.hipaaComplianceEnabled;
+
+			}
+			/// <summary>The method to set the value to hipaaComplianceEnabled</summary>
+			/// <param name="hipaaComplianceEnabled">bool?</param>
+			set
+			{
+				 this.hipaaComplianceEnabled=value;
+
+				 this.keyModified["hipaa_compliance_enabled"] = 1;
 
 			}
 		}

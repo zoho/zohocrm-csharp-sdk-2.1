@@ -62,8 +62,6 @@ namespace Com.Zoho.Crm.API
                     token = Initializer.initializer.Token;
 
                     sdkConfig = Initializer.initializer.SDKConfig;
-
-                    requestProxy = Initializer.initializer.RequestProxy;
                 }
             }
 
@@ -310,9 +308,9 @@ namespace Com.Zoho.Crm.API
 
             initializer.sdkConfig = sdkConfig;
 
-            initializer.resourcePath = Initializer.initializer.resourcePath;
-
             initializer.requestProxy = proxy;
+
+            initializer.resourcePath = Initializer.initializer.resourcePath;
 
             LOCAL.Value = initializer;
 
@@ -356,6 +354,18 @@ namespace Com.Zoho.Crm.API
         }
 
         /// <summary>
+        /// This is a getter method to get Proxy information.
+        /// </summary>
+        /// <returns>A RequestProxy class instance representing the API Proxy information.</returns>
+        public RequestProxy RequestProxy
+        {
+            get
+            {
+                return requestProxy;
+            }
+        }
+
+        /// <summary>
         /// This is a getter method to get OAuth client application information.
         /// </summary>
         /// <returns>A Token class instance representing the OAuth client application information.</returns>
@@ -364,18 +374,6 @@ namespace Com.Zoho.Crm.API
             get
             {
                 return token;
-            }
-        }
-
-        /// <summary>
-        /// This is a getter method to get the SDK Configuration
-        /// </summary>
-        /// <returns>A SDKConfig instance representing the configuration</returns>
-        public SDKConfig SDKConfig
-        {
-            get
-            {
-                return sdkConfig;
             }
         }
 
@@ -388,14 +386,14 @@ namespace Com.Zoho.Crm.API
         }
 
         /// <summary>
-        /// This is a getter method to get Proxy information.
+        /// This is a getter method to get the SDK Configuration
         /// </summary>
-        /// <returns>A RequestProxy class instance representing the API Proxy information.</returns>
-        public RequestProxy RequestProxy
+        /// <returns>A SDKConfig instance representing the configuration</returns>
+        public SDKConfig SDKConfig
         {
             get
             {
-                return requestProxy;
+                return sdkConfig;
             }
         }
 

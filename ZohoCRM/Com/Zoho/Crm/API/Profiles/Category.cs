@@ -9,6 +9,7 @@ namespace Com.Zoho.Crm.API.Profiles
 		private string displayLabel;
 		private List<string> permissionsDetails;
 		private string name;
+		private string module;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
@@ -67,6 +68,26 @@ namespace Com.Zoho.Crm.API.Profiles
 				 this.name=value;
 
 				 this.keyModified["name"] = 1;
+
+			}
+		}
+
+		public string Module
+		{
+			/// <summary>The method to get the module</summary>
+			/// <returns>string representing the module</returns>
+			get
+			{
+				return  this.module;
+
+			}
+			/// <summary>The method to set the value to module</summary>
+			/// <param name="module">string</param>
+			set
+			{
+				 this.module=value;
+
+				 this.keyModified["module"] = 1;
 
 			}
 		}

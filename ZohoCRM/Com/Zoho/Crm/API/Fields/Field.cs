@@ -35,11 +35,12 @@ namespace Com.Zoho.Crm.API.Fields
 		private AssociationDetails associationDetails;
 		private int? quickSequenceNumber;
 		private bool? businesscardSupported;
-		private Dictionary<string, object> multiModuleLookup;
+		private MultiModuleLookup multiModuleLookup;
 		private Currency currency;
 		private long? id;
 		private bool? customField;
 		private Module lookup;
+		private bool? filterable;
 		private bool? visible;
 		private bool? pickListValuesSortedLexically;
 		private int? length;
@@ -58,7 +59,6 @@ namespace Com.Zoho.Crm.API.Fields
 		private List<PickListValue> pickListValues;
 		private AutoNumber autoNumber;
 		private string defaultValue;
-		private int? sectionId;
 		private Dictionary<string, object> validationRule;
 		private Dictionary<string, object> convertMapping;
 		private string type;
@@ -587,17 +587,17 @@ namespace Com.Zoho.Crm.API.Fields
 			}
 		}
 
-		public Dictionary<string, object> MultiModuleLookup
+		public MultiModuleLookup MultiModuleLookup
 		{
 			/// <summary>The method to get the multiModuleLookup</summary>
-			/// <returns>Dictionary representing the multiModuleLookup<String,Object></returns>
+			/// <returns>Instance of MultiModuleLookup</returns>
 			get
 			{
 				return  this.multiModuleLookup;
 
 			}
 			/// <summary>The method to set the value to multiModuleLookup</summary>
-			/// <param name="multiModuleLookup">Dictionary<string,object></param>
+			/// <param name="multiModuleLookup">Instance of MultiModuleLookup</param>
 			set
 			{
 				 this.multiModuleLookup=value;
@@ -683,6 +683,26 @@ namespace Com.Zoho.Crm.API.Fields
 				 this.lookup=value;
 
 				 this.keyModified["lookup"] = 1;
+
+			}
+		}
+
+		public bool? Filterable
+		{
+			/// <summary>The method to get the filterable</summary>
+			/// <returns>bool? representing the filterable</returns>
+			get
+			{
+				return  this.filterable;
+
+			}
+			/// <summary>The method to set the value to filterable</summary>
+			/// <param name="filterable">bool?</param>
+			set
+			{
+				 this.filterable=value;
+
+				 this.keyModified["filterable"] = 1;
 
 			}
 		}
@@ -1043,26 +1063,6 @@ namespace Com.Zoho.Crm.API.Fields
 				 this.defaultValue=value;
 
 				 this.keyModified["default_value"] = 1;
-
-			}
-		}
-
-		public int? SectionId
-		{
-			/// <summary>The method to get the sectionId</summary>
-			/// <returns>int? representing the sectionId</returns>
-			get
-			{
-				return  this.sectionId;
-
-			}
-			/// <summary>The method to set the value to sectionId</summary>
-			/// <param name="sectionId">int?</param>
-			set
-			{
-				 this.sectionId=value;
-
-				 this.keyModified["section_id"] = 1;
 
 			}
 		}

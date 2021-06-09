@@ -18,6 +18,8 @@ using Com.Zoho.Crm.API.Logger;
 
 using Com.Zoho.Crm.API.Util;
 
+using Newtonsoft.Json;
+
 using Newtonsoft.Json.Linq;
 
 namespace Com.Zoho.API.Authenticator
@@ -89,6 +91,11 @@ namespace Com.Zoho.API.Authenticator
 
             public OAuthToken Build()
             {
+                if (this.grantToken == null && this.refreshToken == null && this.id == null)
+                {
+                    throw new SDKException(Constants.MANDATORY_VALUE_ERROR, Constants.MANDATORY_KEY_ERROR + "-" + JsonConvert.SerializeObject(Constants.OAUTH_MANDATORY_KEYS));
+                }
+
                 return new OAuthToken(this.clientId, this.clientSecret, this.grantToken, this.refreshToken, this.redirectURL, this.id);
             }
         }
@@ -112,44 +119,6 @@ namespace Com.Zoho.API.Authenticator
         private string id;
 
         /// <summary>
-        /// Creates an OAuthToken class instance with the specified parameters.
-        /// </summary>
-        /// <param name="clientID">A string containing the OAuth client id.</param>
-        /// <param name="clientSecret">A string containing the OAuth client secret.</param>
-        /// <param name="token">A string containing the REFRESH/GRANT token.</param>
-        /// <param name="type">A enum containing the given token type.</param>
-        /// <param name="redirectURL">A string containing the OAuth redirect URL.</param>
-        private OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id)
-        {
-            this.clientID = clientID;
-
-            this.clientSecret = clientSecret;
-
-            this.grantToken = grantToken;
-
-            this.refreshToken = refreshToken;
-
-            this.redirectURL = redirectURL;
-
-            this.id = id;
-        }
-
-        private void GenerateId()
-        {
-            StringBuilder builder = new StringBuilder();
-
-            string email = Initializer.GetInitializer().User.Email;
-
-            builder.Append("csharp_").Append(email.Substring(0, email.IndexOf("@"))).Append("_");
-
-            builder.Append(Initializer.GetInitializer().Environment.GetName()).Append("_");
-
-            builder.Append(this.refreshToken.Substring(this.refreshToken.Length - 4));
-
-            this.id = builder.ToString();
-        }
-
-        /// <summary>
         /// This is a getter method to get OAuth client id.
         /// </summary>
         /// <returns>A string representing the OAuth client id.</returns>
@@ -158,6 +127,10 @@ namespace Com.Zoho.API.Authenticator
             get
             {
                 return clientID;
+            }
+            set
+            {
+                clientID = value;
             }
         }
 
@@ -170,6 +143,10 @@ namespace Com.Zoho.API.Authenticator
             get
             {
                 return clientSecret;
+            }
+            set
+            {
+                clientSecret = value;
             }
         }
 
@@ -294,13 +271,20 @@ namespace Com.Zoho.API.Authenticator
 
                     OAuthToken oauthToken = null;
 
-                    if(this.id != null)
+                    if (this.accessToken == null)
                     {
-                        oauthToken = (OAuthToken)store.GetTokenById(this.id, this);
+                        if (this.id != null)
+                        {
+                            oauthToken = (OAuthToken)store.GetTokenById(this.id, this);
+                        }
+                        else
+                        {
+                            oauthToken = (OAuthToken)store.GetToken(user, this);
+                        }
                     }
                     else
                     {
-                        oauthToken = (OAuthToken)store.GetToken(initializer.User, this);
+                        oauthToken = this;
                     }
 
                     string token = "";
@@ -398,7 +382,10 @@ namespace Com.Zoho.API.Authenticator
 
                 ParseResponse(response);
 
-                GenerateId();
+                if(string.IsNullOrEmpty(this.id) || string.IsNullOrWhiteSpace(this.id))
+                {
+                    GenerateId();
+                }
 
                 store.SaveToken(user, this);
             }
@@ -495,6 +482,44 @@ namespace Com.Zoho.API.Authenticator
             {
                 throw ex;
             }
+        }
+
+        /// <summary>
+        /// Creates an OAuthToken class instance with the specified parameters.
+        /// </summary>
+        /// <param name="clientID">A string containing the OAuth client id.</param>
+        /// <param name="clientSecret">A string containing the OAuth client secret.</param>
+        /// <param name="token">A string containing the REFRESH/GRANT token.</param>
+        /// <param name="type">A enum containing the given token type.</param>
+        /// <param name="redirectURL">A string containing the OAuth redirect URL.</param>
+        private OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id)
+        {
+            this.clientID = clientID;
+
+            this.clientSecret = clientSecret;
+
+            this.grantToken = grantToken;
+
+            this.refreshToken = refreshToken;
+
+            this.redirectURL = redirectURL;
+
+            this.id = id;
+        }
+
+        private void GenerateId()
+        {
+            StringBuilder builder = new StringBuilder();
+
+            string email = Initializer.GetInitializer().User.Email;
+
+            builder.Append("csharp_").Append(email.Substring(0, email.IndexOf("@"))).Append("_");
+
+            builder.Append(Initializer.GetInitializer().Environment.GetName()).Append("_");
+
+            builder.Append(this.refreshToken.Substring(this.refreshToken.Length - 4));
+
+            this.id = builder.ToString();
         }
     }
 }

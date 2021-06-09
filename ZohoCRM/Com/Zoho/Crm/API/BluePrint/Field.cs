@@ -37,11 +37,12 @@ namespace Com.Zoho.Crm.API.BluePrint
 		private AssociationDetails associationDetails;
 		private int? quickSequenceNumber;
 		private bool? businesscardSupported;
-		private Dictionary<string, object> multiModuleLookup;
+		private MultiModuleLookup multiModuleLookup;
 		private Currency currency;
 		private long? id;
 		private bool? customField;
 		private Module lookup;
+		private bool? filterable;
 		private bool? visible;
 		private bool? pickListValuesSortedLexically;
 		private int? length;
@@ -607,17 +608,17 @@ namespace Com.Zoho.Crm.API.BluePrint
 			}
 		}
 
-		public Dictionary<string, object> MultiModuleLookup
+		public MultiModuleLookup MultiModuleLookup
 		{
 			/// <summary>The method to get the multiModuleLookup</summary>
-			/// <returns>Dictionary representing the multiModuleLookup<String,Object></returns>
+			/// <returns>Instance of MultiModuleLookup</returns>
 			get
 			{
 				return  this.multiModuleLookup;
 
 			}
 			/// <summary>The method to set the value to multiModuleLookup</summary>
-			/// <param name="multiModuleLookup">Dictionary<string,object></param>
+			/// <param name="multiModuleLookup">Instance of MultiModuleLookup</param>
 			set
 			{
 				 this.multiModuleLookup=value;
@@ -703,6 +704,26 @@ namespace Com.Zoho.Crm.API.BluePrint
 				 this.lookup=value;
 
 				 this.keyModified["lookup"] = 1;
+
+			}
+		}
+
+		public bool? Filterable
+		{
+			/// <summary>The method to get the filterable</summary>
+			/// <returns>bool? representing the filterable</returns>
+			get
+			{
+				return  this.filterable;
+
+			}
+			/// <summary>The method to set the value to filterable</summary>
+			/// <param name="filterable">bool?</param>
+			set
+			{
+				 this.filterable=value;
+
+				 this.keyModified["filterable"] = 1;
 
 			}
 		}

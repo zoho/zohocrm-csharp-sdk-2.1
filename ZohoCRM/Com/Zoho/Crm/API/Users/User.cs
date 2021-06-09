@@ -106,6 +106,30 @@ namespace Com.Zoho.Crm.API.Users
 			}
 		}
 
+		public string SortOrderPreference
+		{
+			/// <summary>The method to get the sortOrderPreference</summary>
+			/// <returns>string representing the sortOrderPreference</returns>
+			get
+			{
+				if((( this.GetKeyValue("sort_order_preference")) != (null)))
+				{
+					return (string) this.GetKeyValue("sort_order_preference");
+
+				}
+					return null;
+
+
+			}
+			/// <summary>The method to set the value to sortOrderPreference</summary>
+			/// <param name="sortOrderPreference">string</param>
+			set
+			{
+				 this.AddKeyValue("sort_order_preference", value);
+
+			}
+		}
+
 		public string City
 		{
 			/// <summary>The method to get the city</summary>
@@ -462,6 +486,30 @@ namespace Com.Zoho.Crm.API.Users
 			set
 			{
 				 this.AddKeyValue("country_locale", value);
+
+			}
+		}
+
+		public bool? Sandboxdeveloper
+		{
+			/// <summary>The method to get the sandboxdeveloper</summary>
+			/// <returns>bool? representing the sandboxdeveloper</returns>
+			get
+			{
+				if((( this.GetKeyValue("sandboxDeveloper")) != (null)))
+				{
+					return (bool?) this.GetKeyValue("sandboxDeveloper");
+
+				}
+					return null;
+
+
+			}
+			/// <summary>The method to set the value to sandboxdeveloper</summary>
+			/// <param name="sandboxdeveloper">bool?</param>
+			set
+			{
+				 this.AddKeyValue("sandboxDeveloper", value);
 
 			}
 		}

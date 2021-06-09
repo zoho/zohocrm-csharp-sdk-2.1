@@ -4,8 +4,6 @@ using System.Text.RegularExpressions;
 
 using Com.Zoho.API.Exception;
 
-using Com.Zoho.Crm.API.Logger;
-
 using Com.Zoho.Crm.API.Util;
 
 using Newtonsoft.Json.Linq;

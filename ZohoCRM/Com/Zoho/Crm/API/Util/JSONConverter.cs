@@ -187,7 +187,14 @@ namespace Com.Zoho.Crm.API.Util
 
                         if (requestInstance is FileDetails)
                         {
-                            requestJSON.Add(keyName.ToLower(), fieldValue != null ? JToken.FromObject(fieldValue) : JValue.CreateNull());
+                            if(fieldValue == null || (fieldValue is string && fieldValue.ToString().ToLower().Equals("null")))
+                            {
+                                requestJSON.Add(keyName.ToLower(), JValue.CreateNull());
+                            }
+                            else
+                            {
+                                requestJSON.Add(keyName.ToLower(), JToken.FromObject(fieldValue));
+                            }
                         }
                         else
                         {
@@ -1139,9 +1146,7 @@ namespace Com.Zoho.Crm.API.Util
 
             string recordFieldDetailsPath = Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY + Path.DirectorySeparatorChar + GetEncodedFileName();
 
-            moduleDetail = Utility.GetJSONObject(Initializer.GetJSON((recordFieldDetailsPath)), module);
-
-            return moduleDetail;
+            return Utility.GetJSONObject(Initializer.GetJSON((recordFieldDetailsPath)), module);
         }
 
         private object RedirectorForJSONToObject(object keyData)
@@ -1267,7 +1272,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static string BuildName(string memberName)
         {
-            List<string> name = memberName.Split('_').ToList();
+            List<string> name = memberName.ToLower().Split('_').ToList();
 
             string sdkName = "";
 

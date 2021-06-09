@@ -41,35 +41,50 @@ namespace Com.Zoho.API.Authenticator.Store
 
             public Builder PortNumber(string portNumber)
             {
-                this.portNumber = portNumber;
+                if(portNumber != null)
+                {
+                    this.portNumber = portNumber;
+                }
 
                 return this;
             }
 
             public Builder Password(string password)
             {
-                this.password = password;
+                if (password != null)
+                {
+                    this.password = password;
+                }
 
                 return this;
             }
 
             public Builder Host(string host)
             {
-                this.host = host;
+                if (host != null)
+                {
+                    this.host = host;
+                }
 
                 return this;
             }
 
             public Builder DatabaseName(string databaseName)
             {
-                this.databaseName = databaseName;
+                if (databaseName != null)
+                {
+                    this.databaseName = databaseName;
+                }
 
                 return this;
             }
 
             public Builder TableName(string tableName)
             {
-                this.tableName = tableName;
+                if (tableName != null)
+                {
+                    this.tableName = tableName;
+                }
 
                 return this;
             }
@@ -262,15 +277,13 @@ namespace Com.Zoho.API.Authenticator.Store
 
                                 string redirectURL = result[Constants.REDIRECT_URL] != null && !result[Constants.REDIRECT_URL].ToString().Equals(Constants.NULL_VALUE, System.StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(result[Constants.REDIRECT_URL].ToString()) ? result[Constants.REDIRECT_URL].ToString() : null;
 
-                                OAuthToken token = new OAuthToken.Builder().ClientId(result[Constants.CLIENT_ID].ToString()).ClientSecret(result[Constants.CLIENT_SECRET].ToString()).Build();
+                                OAuthToken token = new OAuthToken.Builder().ClientId(result[Constants.CLIENT_ID].ToString()).ClientSecret(result[Constants.CLIENT_SECRET].ToString()).RefreshToken(result[Constants.REFRESH_TOKEN].ToString()).Build();
 
                                 token.Id = result[Constants.ID].ToString();
 
                                 token.GrantToken = grantToken;
 
                                 token.UserMail = result[Constants.USER_MAIL].ToString();
-
-                                token.RefreshToken = result[Constants.REFRESH_TOKEN].ToString();
 
                                 token.AccessToken = result[Constants.ACCESS_TOKEN].ToString();
 
@@ -370,13 +383,17 @@ namespace Com.Zoho.API.Authenticator.Store
 
                                     string redirectURL = result[Constants.REDIRECT_URL] != null && !result[Constants.REDIRECT_URL].ToString().Equals(Constants.NULL_VALUE, System.StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(result[Constants.REDIRECT_URL].ToString()) ? result[Constants.REDIRECT_URL].ToString() : null;
 
-                                    oauthToken = new OAuthToken.Builder().Id(id).ClientId(result[Constants.CLIENT_ID].ToString()).ClientSecret(result[Constants.CLIENT_SECRET].ToString()).Build();
+                                    oauthToken.ClientId = result[Constants.CLIENT_ID].ToString();
+
+                                    oauthToken.ClientSecret = result[Constants.CLIENT_SECRET].ToString();
+
+                                    oauthToken.RefreshToken = result[Constants.REFRESH_TOKEN].ToString();
+
+                                    oauthToken.Id = id;
 
                                     oauthToken.GrantToken = grantToken;
 
                                     oauthToken.UserMail = result[Constants.USER_MAIL].ToString();
-
-                                    oauthToken.RefreshToken = result[Constants.REFRESH_TOKEN].ToString();
 
                                     oauthToken.AccessToken = result[Constants.ACCESS_TOKEN].ToString();
 

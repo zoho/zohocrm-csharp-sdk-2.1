@@ -16,6 +16,8 @@ namespace Com.Zoho.Crm.API.Wizards
 		private string color;
 		private string shape;
 		private string backgroundColor;
+		private string visibility;
+		private Transition transition;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
@@ -194,6 +196,46 @@ namespace Com.Zoho.Crm.API.Wizards
 				 this.backgroundColor=value;
 
 				 this.keyModified["background_color"] = 1;
+
+			}
+		}
+
+		public string Visibility
+		{
+			/// <summary>The method to get the visibility</summary>
+			/// <returns>string representing the visibility</returns>
+			get
+			{
+				return  this.visibility;
+
+			}
+			/// <summary>The method to set the value to visibility</summary>
+			/// <param name="visibility">string</param>
+			set
+			{
+				 this.visibility=value;
+
+				 this.keyModified["visibility"] = 1;
+
+			}
+		}
+
+		public Transition Transition
+		{
+			/// <summary>The method to get the transition</summary>
+			/// <returns>Instance of Transition</returns>
+			get
+			{
+				return  this.transition;
+
+			}
+			/// <summary>The method to set the value to transition</summary>
+			/// <param name="transition">Instance of Transition</param>
+			set
+			{
+				 this.transition=value;
+
+				 this.keyModified["transition"] = 1;
 
 			}
 		}

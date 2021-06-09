@@ -18,7 +18,6 @@ namespace Com.Zoho.Crm.API.Profiles
 		private bool? default1;
 		private string description;
 		private long? id;
-		private bool? category;
 		private bool? custom;
 		private User createdBy;
 		private List<Section> sections;
@@ -222,26 +221,6 @@ namespace Com.Zoho.Crm.API.Profiles
 				 this.id=value;
 
 				 this.keyModified["id"] = 1;
-
-			}
-		}
-
-		public bool? Category
-		{
-			/// <summary>The method to get the category</summary>
-			/// <returns>bool? representing the category</returns>
-			get
-			{
-				return  this.category;
-
-			}
-			/// <summary>The method to set the value to category</summary>
-			/// <param name="category">bool?</param>
-			set
-			{
-				 this.category=value;
-
-				 this.keyModified["category"] = 1;
 
 			}
 		}

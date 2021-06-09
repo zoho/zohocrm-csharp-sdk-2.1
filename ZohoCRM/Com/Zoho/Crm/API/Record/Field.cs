@@ -258,6 +258,7 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<string> TEAM=new Field<string>("Team");
 		public static readonly Field<long?> ID=new Field<long?>("id");
 		public static readonly Field<Choice<string>> CARRIER=new Field<Choice<string>>("Carrier");
+		public static readonly Field<List<Record>> QUOTED_ITEMS=new Field<List<Record>>("Quoted_Items");
 		public static readonly Field<Choice<string>> QUOTE_STAGE=new Field<Choice<string>>("Quote_Stage");
 		public static readonly Field<double?> GRAND_TOTAL=new Field<double?>("Grand_Total");
 		public static readonly Field<DateTimeOffset?> MODIFIED_TIME=new Field<DateTimeOffset?>("Modified_Time");
@@ -267,7 +268,6 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<string> TERMS_AND_CONDITIONS=new Field<string>("Terms_and_Conditions");
 		public static readonly Field<double?> SUB_TOTAL=new Field<double?>("Sub_Total");
 		public static readonly Field<string> BILLING_CODE=new Field<string>("Billing_Code");
-		public static readonly Field<List<InventoryLineItems>> PRODUCT_DETAILS=new Field<List<InventoryLineItems>>("Product_Details");
 		public static readonly Field<string> SUBJECT=new Field<string>("Subject");
 		public static readonly Field<Record> CONTACT_NAME=new Field<Record>("Contact_Name");
 		public static readonly Field<string> SHIPPING_CITY=new Field<string>("Shipping_City");
@@ -291,6 +291,7 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<double?> TAX=new Field<double?>("Tax");
 		public static readonly Field<DateTime?> INVOICE_DATE=new Field<DateTime?>("Invoice_Date");
 		public static readonly Field<User> MODIFIED_BY=new Field<User>("Modified_By");
+		public static readonly Field<List<Record>> INVOICED_ITEMS=new Field<List<Record>>("Invoiced_Items");
 		public static readonly Field<string> BILLING_COUNTRY=new Field<string>("Billing_Country");
 		public static readonly Field<Record> ACCOUNT_NAME=new Field<Record>("Account_Name");
 		public static readonly Field<long?> ID=new Field<long?>("id");
@@ -307,7 +308,6 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<double?> SUB_TOTAL=new Field<double?>("Sub_Total");
 		public static readonly Field<long?> INVOICE_NUMBER=new Field<long?>("Invoice_Number");
 		public static readonly Field<string> BILLING_CODE=new Field<string>("Billing_Code");
-		public static readonly Field<List<InventoryLineItems>> PRODUCT_DETAILS=new Field<List<InventoryLineItems>>("Product_Details");
 		public static readonly Field<string> SUBJECT=new Field<string>("Subject");
 		public static readonly Field<Record> CONTACT_NAME=new Field<Record>("Contact_Name");
 		public static readonly Field<double?> EXCISE_DUTY=new Field<double?>("Excise_Duty");
@@ -368,6 +368,7 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<Record> ACCOUNT_NAME=new Field<Record>("Account_Name");
 		public static readonly Field<long?> ID=new Field<long?>("id");
 		public static readonly Field<Choice<string>> CARRIER=new Field<Choice<string>>("Carrier");
+		public static readonly Field<List<Record>> ORDERED_ITEMS=new Field<List<Record>>("Ordered_Items");
 		public static readonly Field<Record> QUOTE_NAME=new Field<Record>("Quote_Name");
 		public static readonly Field<Choice<string>> STATUS=new Field<Choice<string>>("Status");
 		public static readonly Field<double?> SALES_COMMISSION=new Field<double?>("Sales_Commission");
@@ -380,7 +381,6 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<string> TERMS_AND_CONDITIONS=new Field<string>("Terms_and_Conditions");
 		public static readonly Field<double?> SUB_TOTAL=new Field<double?>("Sub_Total");
 		public static readonly Field<string> BILLING_CODE=new Field<string>("Billing_Code");
-		public static readonly Field<List<InventoryLineItems>> PRODUCT_DETAILS=new Field<List<InventoryLineItems>>("Product_Details");
 		public static readonly Field<string> SUBJECT=new Field<string>("Subject");
 		public static readonly Field<Record> CONTACT_NAME=new Field<Record>("Contact_Name");
 		public static readonly Field<double?> EXCISE_DUTY=new Field<double?>("Excise_Duty");
@@ -517,6 +517,7 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<DateTime?> PO_DATE=new Field<DateTime?>("PO_Date");
 		public static readonly Field<User> MODIFIED_BY=new Field<User>("Modified_By");
 		public static readonly Field<string> BILLING_COUNTRY=new Field<string>("Billing_Country");
+		public static readonly Field<List<Record>> PURCHASE_ITEMS=new Field<List<Record>>("Purchase_Items");
 		public static readonly Field<long?> ID=new Field<long?>("id");
 		public static readonly Field<Choice<string>> CARRIER=new Field<Choice<string>>("Carrier");
 		public static readonly Field<Choice<string>> STATUS=new Field<Choice<string>>("Status");
@@ -531,7 +532,6 @@ namespace Com.Zoho.Crm.API.Record
 		public static readonly Field<string> TERMS_AND_CONDITIONS=new Field<string>("Terms_and_Conditions");
 		public static readonly Field<double?> SUB_TOTAL=new Field<double?>("Sub_Total");
 		public static readonly Field<string> BILLING_CODE=new Field<string>("Billing_Code");
-		public static readonly Field<List<InventoryLineItems>> PRODUCT_DETAILS=new Field<List<InventoryLineItems>>("Product_Details");
 		public static readonly Field<string> SUBJECT=new Field<string>("Subject");
 		public static readonly Field<string> TRACKING_NUMBER=new Field<string>("Tracking_Number");
 		public static readonly Field<Record> CONTACT_NAME=new Field<Record>("Contact_Name");

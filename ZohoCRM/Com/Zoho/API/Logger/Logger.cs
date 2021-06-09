@@ -33,6 +33,7 @@ namespace Com.Zoho.Crm.API.Logger
                 return new Logger(this.level, this.filePath);
             }
         }
+
         private int level;
 
         private string filePath;

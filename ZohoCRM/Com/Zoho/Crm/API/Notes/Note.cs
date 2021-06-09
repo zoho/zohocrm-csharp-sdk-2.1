@@ -16,6 +16,7 @@ namespace Com.Zoho.Crm.API.Notes
 		private DateTimeOffset? createdTime;
 		private Record.Record parentId;
 		private bool? editable;
+		private string sharingPermission;
 		private string seModule;
 		private bool? isSharedToClient;
 		private User modifiedBy;
@@ -144,6 +145,26 @@ namespace Com.Zoho.Crm.API.Notes
 				 this.editable=value;
 
 				 this.keyModified["$editable"] = 1;
+
+			}
+		}
+
+		public string SharingPermission
+		{
+			/// <summary>The method to get the sharingPermission</summary>
+			/// <returns>string representing the sharingPermission</returns>
+			get
+			{
+				return  this.sharingPermission;
+
+			}
+			/// <summary>The method to set the value to sharingPermission</summary>
+			/// <param name="sharingPermission">string</param>
+			set
+			{
+				 this.sharingPermission=value;
+
+				 this.keyModified["$sharing_permission"] = 1;
 
 			}
 		}

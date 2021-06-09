@@ -10,6 +10,7 @@ namespace Com.Zoho.Crm.API.Record
 		private string name;
 		private long? id;
 		private double? value;
+		private string displayName;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public double? Percentage
@@ -88,6 +89,26 @@ namespace Com.Zoho.Crm.API.Record
 				 this.value=value;
 
 				 this.keyModified["value"] = 1;
+
+			}
+		}
+
+		public string DisplayName
+		{
+			/// <summary>The method to get the displayName</summary>
+			/// <returns>string representing the displayName</returns>
+			get
+			{
+				return  this.displayName;
+
+			}
+			/// <summary>The method to set the value to displayName</summary>
+			/// <param name="displayName">string</param>
+			set
+			{
+				 this.displayName=value;
+
+				 this.keyModified["display_name"] = 1;
 
 			}
 		}

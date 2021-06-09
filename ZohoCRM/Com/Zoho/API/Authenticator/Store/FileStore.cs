@@ -220,15 +220,13 @@ namespace Com.Zoho.API.Authenticator.Store
 
                     string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
-                    OAuthToken token = new OAuthToken.Builder().ClientId(nextRecord[2]).ClientSecret(nextRecord[3]).Build();
+                    OAuthToken token = new OAuthToken.Builder().ClientId(nextRecord[2]).ClientSecret(nextRecord[3]).RefreshToken(nextRecord[4]).Build();
 
                     token.Id = nextRecord[0];
 
                     token.GrantToken = grantToken;
 
                     token.UserMail = nextRecord[1];
-
-                    token.RefreshToken = nextRecord[4];
 
                     token.AccessToken = nextRecord[5];
 
@@ -308,7 +306,11 @@ namespace Com.Zoho.API.Authenticator.Store
 
                             string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
-                            oauthToken = new OAuthToken.Builder().ClientId(nextRecord[2]).ClientSecret(nextRecord[3]).RefreshToken(nextRecord[4]).Build();
+                            oauthToken.ClientId = nextRecord[2];
+
+                            oauthToken.ClientSecret = nextRecord[3];
+
+                            oauthToken.RefreshToken = nextRecord[4];
 
                             oauthToken.Id = id;
 

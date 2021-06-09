@@ -99,7 +99,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string ZOHO_SDK = "X-ZOHO-SDK";
 
-        public static readonly string SDK_VERSION = "4.0.0-beta";
+        public static readonly string SDK_VERSION = "4.0.0";
 
         public static readonly string MODULEPACKAGENAME = "modulePackageName";
 
@@ -171,8 +171,6 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string MAP_NAMESPACE = "System.Collections.Generic.Dictionary`2";
 
-        public static readonly string STRING_NAMESPACE = "System.Collections.Generic.Dictionary`2";
-
         public static readonly string CSHARP_STRING_NAME = "System.String";
 
         public static readonly string CSHARP_LONG_NAME = "System.Int64";
@@ -213,7 +211,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly Dictionary<string, string> DEFAULT_MODULENAME_VS_APINAME;
 
-        public static readonly List<string> PHOTO_SUPPORTED_MODULES = new List<string> { "Leads", "Contacts", "Accounts", "Products", "Vendors", "Deals", "Cases", "Solutions" };
+        public static readonly List<string> PHOTO_SUPPORTED_MODULES = new List<string> { "leads", "contacts", "accounts", "products", "vendors", "deals", "cases", "solutions" };
 
         static Constants()
         {
@@ -714,7 +712,18 @@ namespace Com.Zoho.Crm.API.Util
         public static readonly string TAX_NAMESPACE = "Com.Zoho.Crm.API.Record.Tax";
 
         public static readonly string TERRITORY = "Territory";
-        //TODO: Write enum class for RequestMethod and ResponseCode and implement their functions;
 
+        public static readonly List<string> OAUTH_MANDATORY_KEYS = new List<string>() { "grantToken", "refreshToken", "id" };
+
+        public static readonly string PRODUCT_NAME = "Product_Name";
+
+        public static readonly List<string> INVENTORY_MODULES_ITEMS = new List<string>(){"invoiced_items", "quoted_items","purchase_items","ordered_items"};
+
+        public static readonly string LINEITEM_PRODUCT = "Com.Zoho.Crm.API.Record.LineItemProduct";
+
+        public static readonly string DISCOUNT = "Discount";
+
+        public static readonly string LINETAX = "Com.Zoho.Crm.API.Record.LineTax";
+        //TODO: Write enum class for RequestMethod and ResponseCode and implement their functions;
     }
 }

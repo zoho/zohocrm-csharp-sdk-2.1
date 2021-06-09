@@ -205,7 +205,6 @@ namespace Com.Zoho.Crm.API.Util
                     check = varType.Equals(type, StringComparison.OrdinalIgnoreCase) ? true : varType.Equals(Constants.LIST_NAMESPACE);
                 }
             }
-
             else if (value is IDictionary)
 		    {
                 check = varType.Equals(type) ? true : varType.Equals(Constants.MAP_NAMESPACE, StringComparison.OrdinalIgnoreCase);
@@ -225,6 +224,7 @@ namespace Com.Zoho.Crm.API.Util
 
                 throw new SDKException(Constants.TYPE_ERROR, detailsJO);
             }
+
             if (keyDetails.ContainsKey(Constants.VALUES) && (!keyDetails.ContainsKey(Constants.PICKLIST) || ((bool)keyDetails[Constants.PICKLIST] && Initializer.GetInitializer().SDKConfig.PickListValidation)))
             {
                 JArray valuesJArray = (JArray)keyDetails.GetValue(Constants.VALUES);

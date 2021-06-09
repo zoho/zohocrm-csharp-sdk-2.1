@@ -16,10 +16,12 @@ namespace Com.Zoho.Crm.API.Attachments
 		private long? size;
 		private Record.Record parentId;
 		private bool? editable;
+		private string sharingPermission;
 		private string fileId;
 		private string type;
 		private string seModule;
 		private User modifiedBy;
+		private int? attachmentType;
 		private string state;
 		private string id;
 		private User createdBy;
@@ -168,6 +170,26 @@ namespace Com.Zoho.Crm.API.Attachments
 			}
 		}
 
+		public string SharingPermission
+		{
+			/// <summary>The method to get the sharingPermission</summary>
+			/// <returns>string representing the sharingPermission</returns>
+			get
+			{
+				return  this.sharingPermission;
+
+			}
+			/// <summary>The method to set the value to sharingPermission</summary>
+			/// <param name="sharingPermission">string</param>
+			set
+			{
+				 this.sharingPermission=value;
+
+				 this.keyModified["$sharing_permission"] = 1;
+
+			}
+		}
+
 		public string FileId
 		{
 			/// <summary>The method to get the fileId</summary>
@@ -244,6 +266,26 @@ namespace Com.Zoho.Crm.API.Attachments
 				 this.modifiedBy=value;
 
 				 this.keyModified["Modified_By"] = 1;
+
+			}
+		}
+
+		public int? AttachmentType
+		{
+			/// <summary>The method to get the attachmentType</summary>
+			/// <returns>int? representing the attachmentType</returns>
+			get
+			{
+				return  this.attachmentType;
+
+			}
+			/// <summary>The method to set the value to attachmentType</summary>
+			/// <param name="attachmentType">int?</param>
+			set
+			{
+				 this.attachmentType=value;
+
+				 this.keyModified["$attachment_type"] = 1;
 
 			}
 		}

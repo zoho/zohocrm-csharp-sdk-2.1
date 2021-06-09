@@ -22,6 +22,8 @@ namespace Com.Zoho.Crm.API
             {
 				this.timeout = timeout;
 
+				this.timeout = timeout != 100 ? timeout: 100;
+
 				return this;
             }
 

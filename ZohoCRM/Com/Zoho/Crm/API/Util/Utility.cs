@@ -51,6 +51,10 @@ namespace Com.Zoho.Crm.API.Util
 
         private static bool forceRefresh = false;
 
+        private static string moduleAPIName;
+
+        private static JObject apiSupportedModule = new JObject();
+
         public static void AssertNotNull(object value, string errorCode, string errorMessage)
         {
             if(value == null)
@@ -124,7 +128,6 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-
         private static string VerifyModuleAPIName(string moduleName)
         {
             if (moduleName != null && Constants.DEFAULT_MODULENAME_VS_APINAME.ContainsKey(moduleName.ToLower()))
@@ -147,11 +150,6 @@ namespace Com.Zoho.Crm.API.Util
             }
 
             return moduleName;
-        }
-
-        public static void GetFields(string moduleAPIName)
-        {
-            GetFields(moduleAPIName, null);
         }
 
         private static void SetHandlerAPIPath(string moduleAPIName, CommonAPIHandler handlerInstance)
@@ -185,13 +183,19 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
+        public static void GetFields(string moduleAPIName, CommonAPIHandler handlerInstance)
+        {
+            Utility.moduleAPIName = moduleAPIName;
+
+            GetFieldsInfo(moduleAPIName, handlerInstance);
+        }
 
         /// <summary>
         /// This method to fetch field details of the current module for the current user and store the result in a JSON file.
         /// </summary>
         /// <param name="moduleAPIName">A String containing the CRM module API name.</param>
 
-        public static void GetFields(string moduleAPIName, CommonAPIHandler handlerInstance)
+        public static void GetFieldsInfo(string moduleAPIName, CommonAPIHandler handlerInstance)
         {
             lock (LOCK)
             {
@@ -229,13 +233,13 @@ namespace Com.Zoho.Crm.API.Util
 
                         FillDataType();
 
-                        JObject apiSupportedModules = GetModules(null);
+                        apiSupportedModule = apiSupportedModule.Count > 0 ? apiSupportedModule : GetModules(null);
 
-                        JObject recordFieldDetailsJson = new JObject();
+                        JObject recordFieldDetailsJson = System.IO.File.Exists(recordFieldDetailsPath) ? Initializer.GetJSON(recordFieldDetailsPath) : new JObject();
 
                         recordFieldDetailsJson[Constants.FIELDS_LAST_MODIFIED_TIME] = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-                        foreach(var moduleData in apiSupportedModules)
+                        foreach(var moduleData in apiSupportedModule)
                         {
                             string moduleName = moduleData.Key;
 
@@ -439,7 +443,7 @@ namespace Com.Zoho.Crm.API.Util
 			    {
                     JObject moduleData = (JObject)moduleMetaData.Value;
 
-				    GetFields((string)moduleData.GetValue(Constants.API_NAME));
+				    GetFieldsInfo((string)moduleData.GetValue(Constants.API_NAME), null);
 			    }
 		    }
 	    }
@@ -532,7 +536,7 @@ namespace Com.Zoho.Crm.API.Util
 
                     JObject recordFieldDetailsJSON = Initializer.GetJSON(recordFieldDetailsPath);
 
-                    JArray modulerelatedList = (JArray)recordFieldDetailsJSON.GetValue(key);
+                    JArray modulerelatedList = recordFieldDetailsJSON.ContainsKey(key) ?(JArray)recordFieldDetailsJSON.GetValue(key) : new JArray();
 
                     if (!CheckRelatedListExists(relatedModuleName, modulerelatedList, commonAPIHandler) && !isNewData)
                     {
@@ -578,7 +582,7 @@ namespace Com.Zoho.Crm.API.Util
                     {
                         commonAPIHandler.ModuleAPIName = (string)relatedListJO[Constants.MODULE];
 
-                        GetFields((string)relatedListJO[Constants.MODULE], commonAPIHandler);
+                        GetFieldsInfo((string)relatedListJO[Constants.MODULE], commonAPIHandler);
                     }
 
 				    return true;
@@ -602,6 +606,7 @@ namespace Com.Zoho.Crm.API.Util
 			    {
 				    return relatedListJA;
 			    }
+
 			    if(response.IsExpected)
 			    {
 					ResponseHandler responseHandler = response.Object;
@@ -666,9 +671,7 @@ namespace Com.Zoho.Crm.API.Util
 
 		    FieldsOperations fieldOperation = new FieldsOperations(moduleAPIName);
 
-			ParameterMap parameterinstance = new ParameterMap();
-
-		    APIResponse<Com.Zoho.Crm.API.Fields.ResponseHandler> response = fieldOperation.GetFields(parameterinstance);
+		    APIResponse<Com.Zoho.Crm.API.Fields.ResponseHandler> response = fieldOperation.GetFields(new ParameterMap());
 
 		    if(response != null)
 		    {
@@ -744,8 +747,15 @@ namespace Com.Zoho.Crm.API.Util
 
 					    errorResponse.Add(Constants.MESSAGE, exception.Message.Value);
 
-					    throw new SDKException(Constants.API_EXCEPTION, errorResponse);
-				    }
+                        SDKException exception1 = new SDKException(Constants.API_EXCEPTION, errorResponse);
+
+                        if(Utility.moduleAPIName.Equals(moduleAPIName, StringComparison.OrdinalIgnoreCase))
+                        {
+                            throw exception1;
+                        }
+
+                        SDKLogger.LogError(JsonConvert.SerializeObject(exception1));
+                    }
 			    }
 			    else
 			    {
@@ -796,7 +806,7 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     moduleAPIName = VerifyModuleAPIName(moduleAPIName);
 
-                    if (Constants.PHOTO_SUPPORTED_MODULES.Contains(moduleAPIName))
+                    if (Constants.PHOTO_SUPPORTED_MODULES.Contains(moduleAPIName.ToLower()))
                     {
                         return true;
                     }
@@ -805,9 +815,9 @@ namespace Com.Zoho.Crm.API.Util
 
                     if(modules.ContainsKey(moduleAPIName.ToLower()))
                     {
-                        JObject moduleData = (JObject)modules.GetValue(moduleAPIName.ToLower());
+                        JObject moduleMetaData = (JObject)modules.GetValue(moduleAPIName.ToLower());
 
-                        if(!((string)moduleData.GetValue(Constants.GENERATED_TYPE)).Equals(Constants.GENERATED_TYPE_CUSTOM))
+                        if(moduleMetaData.ContainsKey(Constants.GENERATED_TYPE) && !((string)moduleMetaData.GetValue(Constants.GENERATED_TYPE)).Equals(Constants.GENERATED_TYPE_CUSTOM))
                         {
                             throw new SDKException(Constants.UPLOAD_PHOTO_UNSUPPORTED_ERROR, Constants.UPLOAD_PHOTO_UNSUPPORTED_MESSAGE + moduleAPIName);
                         }
@@ -852,9 +862,7 @@ namespace Com.Zoho.Crm.API.Util
 
             JObject recordFieldDetailsJson = Initializer.GetJSON(recordFieldDetailsPath);
 
-            moduleData = (JObject)recordFieldDetailsJson.GetValue(Constants.SDK_MODULE_METADATA);
-
-            return moduleData;
+            return (JObject)recordFieldDetailsJson.GetValue(Constants.SDK_MODULE_METADATA);
         }
 
         private static void WriteModuleMetaData(string recordFieldDetailsPath, JObject moduleData)
@@ -943,13 +951,19 @@ namespace Com.Zoho.Crm.API.Util
             {
                 try
                 {
+                    string resourcesPath = Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY;
+
+                    if (!Directory.Exists(resourcesPath))
+                    {
+                        Directory.CreateDirectory(resourcesPath);
+                    }
+
                     WriteModuleMetaData(GetFileName(), apiNames);
                 }
                 catch (IOException ex)
                 {
                     throw new SDKException(Constants.EXCEPTION, ex);
                 }
-
             }
 
 		    return apiNames;
@@ -961,7 +975,7 @@ namespace Com.Zoho.Crm.API.Util
             {
                 forceRefresh = true;
 
-                GetFields(null);
+                GetFieldsInfo(null, null);
 
                 forceRefresh = false;
             }
@@ -995,19 +1009,7 @@ namespace Com.Zoho.Crm.API.Util
                 fieldDetail.Add(Constants.REQUIRED, true);
             }
 
-            if (Constants.KEY_VS_INVENTORY_MODULE.ContainsKey(keyName) && moduleAPIName.Equals(Constants.KEY_VS_INVENTORY_MODULE[keyName], StringComparison.OrdinalIgnoreCase))
-            {
-                fieldDetail.Add(Constants.NAME, keyName);
-
-                fieldDetail.Add(Constants.TYPE, Constants.LIST_NAMESPACE);
-
-                fieldDetail.Add(Constants.STRUCTURE_NAME, Constants.INVENTORY_LINE_ITEMS);
-
-                fieldDetail.Add(Constants.SKIP_MANDATORY, true);
-
-                return;
-            }
-            else if (keyName.Equals(Constants.PRICING_DETAILS, StringComparison.OrdinalIgnoreCase) && moduleAPIName.Equals(Constants.PRICE_BOOKS, StringComparison.OrdinalIgnoreCase))
+            if (keyName.Equals(Constants.PRICING_DETAILS, StringComparison.OrdinalIgnoreCase) && moduleAPIName.Equals(Constants.PRICE_BOOKS, StringComparison.OrdinalIgnoreCase))
             {
                 fieldDetail.Add(Constants.NAME, keyName);
 
@@ -1031,7 +1033,6 @@ namespace Com.Zoho.Crm.API.Util
 
                 return;
             }
-
             else if (keyName.Equals(Constants.COMMENTS, StringComparison.OrdinalIgnoreCase) && (moduleAPIName.Equals(Constants.SOLUTIONS, StringComparison.OrdinalIgnoreCase) || moduleAPIName.Equals(Constants.CASES, StringComparison.OrdinalIgnoreCase)))
             {
                 fieldDetail.Add(Constants.NAME, keyName);
@@ -1070,6 +1071,26 @@ namespace Com.Zoho.Crm.API.Util
                 return;
 
             }
+            else if (keyName.Equals(Constants.PRODUCT_NAME, StringComparison.OrdinalIgnoreCase) && Constants.INVENTORY_MODULES_ITEMS.Contains(moduleAPIName.ToLower()))
+            {
+                fieldDetail.Add(Constants.NAME, keyName);
+
+                fieldDetail.Add(Constants.TYPE, Constants.LINEITEM_PRODUCT);
+
+                fieldDetail.Add(Constants.STRUCTURE_NAME, Constants.LINEITEM_PRODUCT);
+
+                fieldDetail.Add(Constants.LOOKUP, true);
+
+                return;
+            }
+            else if (keyName.Equals(Constants.DISCOUNT, StringComparison.OrdinalIgnoreCase) && Constants.INVENTORY_MODULES_ITEMS.Contains(moduleAPIName.ToLower()))
+            {
+                fieldDetail.Add(Constants.NAME, keyName);
+
+                fieldDetail.Add(Constants.TYPE, Constants.CSHARP_STRING_NAME);
+
+                return;
+            }
             else if (keyName.Equals(Constants.TAX, StringComparison.OrdinalIgnoreCase) && Constants.PRODUCTS.Equals(moduleAPIName, StringComparison.OrdinalIgnoreCase))
             {
                 fieldDetail.Add(Constants.NAME, keyName);
@@ -1090,7 +1111,7 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     string returnType = field.Formula.ReturnType;
 
-                    if(apiTypeVsdataType.ContainsKey(returnType) && apiTypeVsdataType[returnType] != null)
+                    if(returnType != null && apiTypeVsdataType.ContainsKey(returnType) && apiTypeVsdataType[returnType] != null)
                     {
                         fieldDetail[Constants.TYPE] = apiTypeVsdataType[returnType];
                     }
@@ -1117,16 +1138,13 @@ namespace Com.Zoho.Crm.API.Util
             {
                 fieldDetail[Constants.SKIP_MANDATORY] = true;
 
-                if(field.Multiselectlookup != null)
+                if(field.Multiselectlookup != null && field.Multiselectlookup.LinkingModule != null)
                 {
-                    if(field.Multiselectlookup.LinkingModule != null)
-                    {
-                        string linkingModule = field.Multiselectlookup.LinkingModule;
+                    string linkingModule = field.Multiselectlookup.LinkingModule;
 
-                        fieldDetail[Constants.MODULE] = linkingModule;
+                    fieldDetail[Constants.MODULE] = linkingModule;
 
-                        module = linkingModule;
-                    }
+                    module = linkingModule;
                 }
 
                 fieldDetail[Constants.SUBFORM] = true;
@@ -1136,16 +1154,13 @@ namespace Com.Zoho.Crm.API.Util
             {
                 fieldDetail[Constants.SKIP_MANDATORY] = true;
 
-                if (field.Multiuserlookup != null)
+                if (field.Multiuserlookup != null && field.Multiuserlookup.LinkingModule != null)
                 {
-                    if (field.Multiuserlookup.LinkingModule != null)
-                    {
-                        string linkingModule = field.Multiuserlookup.LinkingModule;
+                    string linkingModule = field.Multiuserlookup.LinkingModule;
 
-                        fieldDetail[Constants.MODULE] = linkingModule;
+                    fieldDetail[Constants.MODULE] = linkingModule;
 
-                        module = linkingModule;
-                    }
+                    module = linkingModule;
                 }
 
                 fieldDetail[Constants.SUBFORM] = true;
@@ -1156,7 +1171,7 @@ namespace Com.Zoho.Crm.API.Util
                 fieldDetail[Constants.STRUCTURE_NAME] = apiTypeVsStructureName[apiType];
             }
 
-            if(field.DataType.Equals(Constants.PICKLIST, StringComparison.OrdinalIgnoreCase) && (field.PickListValues != null && field.PickListValues.Count > 0))
+            if(apiType.Equals(Constants.PICKLIST, StringComparison.OrdinalIgnoreCase) && (field.PickListValues != null && field.PickListValues.Count > 0))
             {
                 fieldDetail.Add(Constants.PICKLIST, true);
 
@@ -1167,7 +1182,7 @@ namespace Com.Zoho.Crm.API.Util
                 fieldDetail[Constants.VALUES] = values;
             }
 
-            if(apiType.Equals(Constants.SUBFORM, StringComparison.OrdinalIgnoreCase))
+            if(apiType.Equals(Constants.SUBFORM, StringComparison.OrdinalIgnoreCase) && field.Subform != null)
             {
                 module = field.Subform.Module_1;
 
@@ -1178,7 +1193,7 @@ namespace Com.Zoho.Crm.API.Util
 			    fieldDetail[Constants.SUBFORM] = true;
             }
 
-            if(apiType.Equals(Constants.LOOKUP, StringComparison.OrdinalIgnoreCase))
+            if(apiType.Equals(Constants.LOOKUP, StringComparison.OrdinalIgnoreCase) && field.Lookup != null)
             {
                 module = field.Lookup.Module_1;
 
@@ -1201,7 +1216,7 @@ namespace Com.Zoho.Crm.API.Util
 
             if (module.Length > 0)
             {
-                Utility.GetFields(module);
+                Utility.GetFieldsInfo(module, null);
             }
 
             fieldDetail[Constants.NAME] = keyName;
@@ -1255,6 +1270,8 @@ namespace Com.Zoho.Crm.API.Util
             string[] fieldAPINameImageUpload = new string[] { "imageupload" };
 
             string[] fieldAPInameMultiSelectLookUp = new string[] { "multiselectlookup" };
+
+            string[] fieldAPINameLineTax = new string[] {"linetax"};
 
 
             foreach (string fieldAPIName in fieldAPINamesString)
@@ -1386,6 +1403,13 @@ namespace Com.Zoho.Crm.API.Util
                 apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECORD_NAMESPACE;
+            }
+
+            foreach (string fieldAPIName in fieldAPINameLineTax)
+            {
+                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+
+                apiTypeVsStructureName[fieldAPIName] = Constants.LINETAX;
             }
         }
     }

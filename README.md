@@ -56,7 +56,7 @@ You can include the SDK to your project using:
     - Package Manager
 
         ```sh
-        Install-Package ZCRMSDK -Version 4.0.0-beta
+        Install-Package ZCRMSDK -Version 4.0.0
         Install-Package MySql.Data -Version 6.9.12
         Install-Package Newtonsoft.Json -Version 11.0.1
         ```
@@ -64,7 +64,7 @@ You can include the SDK to your project using:
     - .NET  CLI
 
         ```sh
-        dotnet add package ZCRMSDK --version 4.0.0-beta
+        dotnet add package ZCRMSDK --version 4.0.0
         dotnet add package Newtonsoft.Json --version 11.0.1
         dotnet add package MySql.Data --version 6.9.12
         ```
@@ -75,7 +75,7 @@ You can include the SDK to your project using:
 
         ```sh
         <ItemGroup>
-            <PackageReference Include="ZCRMSDK" Version="4.0.0-beta" />
+            <PackageReference Include="ZCRMSDK" Version="4.0.0" />
             <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
             <PackageReference Include="MySql.Data" Version="6.9.12" />
         </ItemGroup>
@@ -113,7 +113,7 @@ The persistence is achieved by writing an implementation of the inbuilt **[Token
 
 - **DeleteTokens()** - The method to delete all the stored tokens.
 
-- **GetTokenById(string id, Token token)** - This method is used to retrieve the user token details based on unique ID.
+- **GetTokenById(string id, [Token](ZohoCRM/Com/Zoho/API/Authenticator/Token.cs) token)** - This method is used to retrieve the user token details based on unique ID.
 
 ### DataBase Persistence
 
@@ -141,6 +141,10 @@ In case the user prefers to use the default DataBase persistence, **MySQL** can 
 
   - redirect_url varchar(255)
 
+Note:
+
+- Custom database name and table name can be set in DBStore instance
+
 #### MySQL Query
 
 ```sql
@@ -162,22 +166,31 @@ CREATE TABLE oauthtoken (
 
 ```C#
 /*
-* 1 -> DataBase host name. Default value "localhost"
-* 2 -> DataBase name. Default  value "zohooauth"
-* 3 -> DataBase user name. Default value "root"
-* 4 -> DataBase password. Default value ""
-* 5 -> DataBase port number. Default value "3306"
+* Host -> DataBase host name. Default value "localhost"
+* DatabaseName -> DataBase name. Default  value "zohooauth"
+* UserName -> DataBase user name. Default value "root"
+* Password -> DataBase password. Default value ""
+* PortNumber -> DataBase port number. Default value "3306"
+* TableName -> Table Name. Default value "oauthtoken"
 */
-TokenStore tokenstore = new DBStore();
+TokenStore tokenstore = new DBStore.Builder().Build();
+
 //TokenStore interface
-TokenStore tokenstore = new DBStore("hostName", "dataBaseName", "userName", "password", "portNumber");
+TokenStore tokenstore = new DBStore.Builder()
+.Host("hostName")
+.DatabaseName("dataBaseName")
+.TableName("tableName")
+.UserName("userName")
+.Password("password")
+.PortNumber("portNumber")
+.Build();
 ```
 
 ### File Persistence
 
 In case of default File Persistence, the user can persist tokens in the local drive, by providing the the absolute file path to the FileStore object.
 
-- The File contains.
+- The File contains
 
   - id
 
@@ -262,7 +275,7 @@ namespace user.store
         /// <param name="id">A String representing the unique ID</param>
         /// <param name="token">A Token (Com.Zoho.API.Authenticator.OAuthToken) class instance.</param>
         /// <returns>A Token class instance representing the user token details.</returns>
-        public Token GetToken(string user, Token token)
+        public Token GetTokenById(string id, Token token)
         {
             // Add code to get the token using unique id
             return null;
@@ -279,11 +292,13 @@ Before you get started with creating your C# application, you need to register y
 
     ```C#
     /*
-        * Create an instance of Logger Class that takes two parameters
-        * 1 -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
-        * 2 -> Absolute file path, where messages need to be logged.
+    * Create an instance of Logger Class that requires the following
+    * Level -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
+    * FilePath -> Absolute file path, where messages need to be logged.
     */
-    Logger logger = new Logger.Builder().Level(Logger.Levels.ALL).FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
+    Logger logger = new Logger.Builder()
+    .Level(Logger.Levels.ALL)
+    .FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
     ```
 
 - Create an instance of **[UserSignature](ZohoCRM/Com/Zoho/Crm/API/UserSignature.cs)** that identifies the current user.
@@ -297,10 +312,10 @@ Before you get started with creating your C# application, you need to register y
 
     ```C#
     /*
-        * Configure the environment
-        * which is of the pattern Domain.Environment
-        * Available Domains: USDataCenter, EUDataCenter, INDataCenter, CNDataCenter, AUDataCenter
-        * Available Environments: PRODUCTION, DEVELOPER, SANDBOX
+    * Configure the environment
+    * which is of the pattern Domain.Environment
+    * Available Domains: USDataCenter, EUDataCenter, INDataCenter, CNDataCenter, AUDataCenter
+    * Available Environments: PRODUCTION, DEVELOPER, SANDBOX
     */
     Environment environment = USDataCenter.PRODUCTION;
     ```
@@ -309,19 +324,35 @@ Before you get started with creating your C# application, you need to register y
 
     ```C#
     /*
-        * Create a Token instance
-        * 1 -> OAuth client id.
-        * 2 -> OAuth client secret.
-        * 3 -> REFRESH/GRANT token.
-        * 4 -> Token type(REFRESH/GRANT).
-        * 5 -> OAuth redirect URL.
+    * Create a Token instance
+    * ClientId -> OAuth client id.
+    * ClientSecret -> OAuth client secret.
+    * GrantToken -> GRANT token.
+    * RefreshToken -> REFRESH token.
+    * RedirectURL -> OAuth redirect URL.
+    * Id -> User unique id.
+    * RedirectURL -> OAuth redirect URL.
     */
+    //Create a Token instance
+    // if refresh token is available
+    // The SDK throws an exception, if the given id is invalid.
     Token token = new OAuthToken.Builder()
-    //.Id("userID")
+    .Id("userID")
+    .Build();
+
+    // if grant token is available
+    Token token = new OAuthToken.Builder()
     .ClientId("clientId")
     .ClientSecret("clientSecret")
-    .GrantToken("GRANT token")
-    .RefreshToken("REFRESH token")
+    .GrantToken("grantToken")
+    .RedirectURL("redirectURL")
+    .Build();
+
+    // if ID (obtained from persistence) is available
+    Token token = new OAuthToken.Builder()
+    .ClientId("clientId")
+    .ClientSecret("clientSecret")
+    .RefreshToken("refreshToken")
     .RedirectURL("redirectURL")
     .Build();
     ```
@@ -330,12 +361,13 @@ Before you get started with creating your C# application, you need to register y
 
     ```C#
     /*
-        * Create an instance of TokenStore.
-        * 1 -> DataBase host name. Default "localhost"
-        * 2 -> DataBase name. Default "zohooauth"
-        * 3 -> DataBase user name. Default "root"
-        * 4 -> DataBase password. Default ""
-        * 5 -> DataBase port number. Default "3306"
+    * Create an instance of TokenStore.
+    * Host -> DataBase host name. Default "localhost"
+    * DatabaseName -> DataBase name. Default "zohooauth"
+    * UserName -> DataBase user name. Default "root"
+    * Password -> DataBase password. Default ""
+    * PortNumber -> DataBase port number. Default "3306"
+    * TableName -> Table Name. Default value "oauthtoken"
     */
     //TokenStore tokenstore = new DBStore.Builder().Build();
 
@@ -409,11 +441,14 @@ namespace Com.Zoho.Crm.Sample.Initializer
         public static void SDKInitialize()
         {
             /*
-            * Create an instance of Logger Class that takes two parameters
-            * 1 -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
-            * 2 -> Absolute file path, where messages need to be logged.
+            * Create an instance of Logger Class that requires the following
+            * Level -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
+            * FilePath -> Absolute file path, where messages need to be logged.
             */
-            Logger logger = new Logger.Builder().Level(Logger.Levels.ALL).FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
+            Logger logger = new Logger.Builder()
+            .Level(Logger.Levels.ALL)
+            .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+            .Build();
 
             //Create an UserSignature instance that takes user Email as parameter
             UserSignature user = new UserSignature("abc@zoho.com");
@@ -428,30 +463,35 @@ namespace Com.Zoho.Crm.Sample.Initializer
 
             /*
             * Create a Token instance
-            * 1 -> OAuth client id.
-            * 2 -> OAuth client secret.
-            * 3 -> REFRESH/GRANT token.
-            * 4 -> Token type(REFRESH/GRANT).
-            * 5 -> OAuth redirect URL.
+            * ClientId -> OAuth client id.
+            * ClientSecret -> OAuth client secret.
+            * GrantToken -> GRANT token.
+            * RedirectURL -> OAuth redirect URL.
             */
             Token token = new OAuthToken.Builder()
-            //.Id("userID")
             .ClientId("clientId")
             .ClientSecret("clientSecret")
             .GrantToken("GRANT token")
-            .RefreshToken("REFRESH token")
             .RedirectURL("redirectURL")
             .Build();
 
             /*
-                * Create an instance of TokenStore.
-                * 1 -> DataBase host name. Default "localhost"
-                * 2 -> DataBase name. Default "zohooauth"
-                * 3 -> DataBase user name. Default "root"
-                * 4 -> DataBase password. Default ""
-                * 5 -> DataBase port number. Default "3306"
+            * TokenStore can be any of the following
+            * DB Persistence - Create an instance of DBStore
+            * File Persistence - Create an instance of FileStore
+            * Custom Persistence - Create an instance of CustomStore
             */
-             //TokenStore tokenstore = new DBStore.Builder().Build();
+
+            /*
+            * Create an instance of DBStore.
+            * Host -> DataBase host name. Default "localhost"
+            * DatabaseName -> DataBase name. Default "zohooauth"
+            * UserName -> DataBase user name. Default "root"
+            * Password -> DataBase password. Default ""
+            * PortNumber -> DataBase port number. Default "3306"
+            * TableName -> Table Name. Default value "oauthtoken"
+            */
+            //TokenStore tokenstore = new DBStore.Builder().Build();
 
             TokenStore tokenstore = new DBStore.Builder()
             .Host("hostName")
@@ -479,11 +519,11 @@ namespace Com.Zoho.Crm.Sample.Initializer
 
             /**
             * Create an instance of RequestProxy class that takes the following parameters
-            * 1 -> Host
-            * 2 -> Port Number
-            * 3 -> User Name
-            * 4 -> Password
-            * 5 -> User Domain
+            * Host -> Host
+            * Port -> Port Number
+            * User -> User Name
+            * Password -> Password
+            * UserDomain -> User Domain
             */
             RequestProxy requestProxy = new RequestProxy.Builder()
             .Host("proxyHost")
@@ -495,18 +535,17 @@ namespace Com.Zoho.Crm.Sample.Initializer
 
             /*
             * The initialize method of Initializer class that takes the following arguments
-            * 1 -> UserSignature instance
-            * 2 -> Environment instance
-            * 3 -> Token instance
-            * 4 -> TokenStore instance
-            * 5 -> SDKConfig instance
-            * 6 -> resourcePath -A String
-            * 7 -> Logger instance
-            * 8 -> RequestProxy instance
+            * User -> UserSignature instance
+            * Environment -> Environment instance
+            * Token -> Token instance
+            * Store -> TokenStore instance
+            * SDKConfig -> SDKConfig instance
+            * ResourcePath -> resourcePath -A String
+            * Logger -> Logger instance
+            * RequestProxy -> RequestProxy instance
             */
 
-            // The following are the available initialize methods
-
+            // Set the following in InitializeBuilder
             new SDKInitializer.Builder()
             .User(user)
             .Environment(environment)
@@ -515,6 +554,7 @@ namespace Com.Zoho.Crm.Sample.Initializer
             .SDKConfig(config)
             .ResourcePath(resourcePath)
             .Logger(logger)
+            .RequestProxy(requestProxy)
             .Initialize();
         }
     }
@@ -568,11 +608,15 @@ All other exceptions such as SDK anomalies and other unexpected behaviours are t
 
   - **APIResponse&lt;MassUpdateResponseHandler&gt;**
 
+- For Transfer Pipeline operation
+
+  - **APIResponse&lt;TransferActionHandler&gt;**
+
 ### GET Requests
 
 - The **Object** Property of the returned APIResponse instance returns the response handler interface.
 
-- The **ResponseHandler interface** interface encompasses the following
+- The **ResponseHandler interface** encompasses the following
   - **ResponseWrapper class** (for **application/json** responses)
   - **FileBodyWrapper class** (for File download responses)
   - **APIException class**
@@ -627,18 +671,22 @@ All other exceptions such as SDK anomalies and other unexpected behaviours are t
   - **ConvertActionWrapper class** (for **application/json** responses)
   - **APIException class**
 
+- The **TransferActionHandler interface** encompasses the following
+  - **TransferActionWrapper class** (for **application/json** responses)
+  - **APIException class**
+
 ## Threading in the C# SDK
 
 Threads in a C# program help you achieve parallelism. By using multiple threads, you can make a C# program run faster and do multiple things simultaneously.
 
-The **C# SDK** (from version 3.x.x) supports both single threading and multi-threading irrespective of a single user or a multi-user app.
+The **C# SDK** (version 4.x.x) supports both single threading and multi-threading irrespective of a single user or a multi-user app.
 
 ### Multithreading in a Multi-User App
 
-Multi-threading for multi-users is achieved using Initializer's static **SwitchUser()**.
+Multi-users functionality is achieved using **SwitchUser()** method.
 
 ```C#
-new SDKInitializer.Builder()
+new Initializer.Builder()
 .User(user)
 .Environment(environment)
 .Token(token)
@@ -687,7 +735,10 @@ namespace Com.Zoho.Crm.Sample.Threading.MultiUser
 
         static void Main(string[] args)
         {
-            Logger logger = new Logger.Builder().Level(Logger.Levels.ALL).FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
+            Logger logger = new Logger.Builder()
+            .Level(Logger.Levels.ALL)
+            .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+            .Build();
 
             DataCenter.Environment environment1 = USDataCenter.PRODUCTION;
 
@@ -878,7 +929,10 @@ namespace Com.Zoho.Crm.Sample.Threading.SingleUser
     {
         static void Main(string[] args)
         {
-            Logger logger = new Logger.Builder().Level(Logger.Levels.ALL).FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
+            Logger logger = new Logger.Builder()
+            .Level(Logger.Levels.ALL)
+            .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+            .Build();
 
             DataCenter.Environment env = USDataCenter.PRODUCTION;
 
@@ -1109,10 +1163,13 @@ namespace TestAutomatedSDK
         {
             /*
              * Create an instance of Logger Class that takes two parameters
-             * 1 -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
-             * 2 -> Absolute file path, where messages need to be logged.
+             * Level -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
+             * FilePath -> Absolute file path, where messages need to be logged.
              */
-            Logger logger = new Logger.Builder().Level(Logger.Levels.ALL).FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
+            Logger logger = new Logger.Builder()
+            .Level(Logger.Levels.ALL)
+            .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+            .Build();
 
             //Create an UserSignature instance that takes user Email as parameter
             UserSignature user = new UserSignature("abc@zoho.com");
@@ -1167,13 +1224,13 @@ namespace TestAutomatedSDK
 
             /*
             * Call static initialize method of Initializer class that takes the arguments
-            * 1 -> UserSignature instance
-            * 2 -> Environment instance
-            * 3 -> Token instance
-            * 4 -> TokenStore instance
-            * 5 -> SDKConfig instance
-            * 6 -> resourcePath - A String
-            * 7 -> Logger instance
+            * User -> UserSignature instance
+            * Environment -> Environment instance
+            * Token -> Token instance
+            * Store -> TokenStore instance
+            * SDKConfig -> SDKConfig instance
+            * ResourcePath -> resourcePath - A String
+            * Logger -> Logger instance
             */
             new SDKInitializer.Builder()
             .User(user)

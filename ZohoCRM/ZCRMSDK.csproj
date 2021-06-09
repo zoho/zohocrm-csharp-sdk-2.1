@@ -17,7 +17,7 @@
 		</NuGetPackageImportStamp>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageId>ZCRMSDK</PackageId>
-		<PackageVersion>4.0.0-beta</PackageVersion>
+		<PackageVersion>4.0.0</PackageVersion>
 		<Authors>Zoho CRM API Team</Authors>
 		<Owners>Zoho CRM API Team</Owners>
 		<Description>Provides C# SDK support for Zoho CRM APIs.</Description>
@@ -25,8 +25,8 @@
 		<Summary>C# SDK offers a way to create client C# applications that can be integrated with Zoho CRM. This SDK makes the access and use of necessary CRM APIs with ease.</Summary>
 		<PackageTags>ZCRMSDK,zohocrm,sdk,zcrmsdk,zoho</PackageTags>
 		<Title>ZCRMSDK</Title>
-		<PackageReleaseNotes>Version 4 is a new beta version of the SDK that represents a significant effort to improve the capabilities of the SDK, by adopting the v2.1 APIs of Zoho CRM.
-The basic usage pattern of the SDK has not changed from Version 3 to Version 4.</PackageReleaseNotes>
+		<PackageReleaseNotes>C# SDK upgraded to support v2.1 APIs.
+Structural changes to aid the process of SDK configuration and initialization user-friendly.</PackageReleaseNotes>
   	</PropertyGroup>
   	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<Optimize>true</Optimize>
@@ -46,11 +46,14 @@ The basic usage pattern of the SDK has not changed from Version 3 to Version 4.<
 	</PropertyGroup>
 	<ItemGroup>
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Button.cs" />
+		<Compile Include="Com\Zoho\Crm\API\Fields\MultiModuleLookup.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\ChartData.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Wizard.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Connection.cs" />
+		<Compile Include="Com\Zoho\Crm\API\Org\HierarchyPreference.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Screen.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Fields\Maps.cs" />
+		<Compile Include="Com\Zoho\Crm\API\Wizards\Transition.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Node.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Segment.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\ResponseWrapper.cs" />
@@ -321,7 +324,6 @@ The basic usage pattern of the SDK has not changed from Version 3 to Version 4.<
 		<Compile Include="Com\Zoho\Crm\API\Record\Info.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Record\DownloadHandler.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Record\FileBodyWrapper.cs" />
-		<Compile Include="Com\Zoho\Crm\API\Record\InventoryLineItems.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Record\RecordOperations.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Record\MassUpdate.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Record\Field.cs" />
