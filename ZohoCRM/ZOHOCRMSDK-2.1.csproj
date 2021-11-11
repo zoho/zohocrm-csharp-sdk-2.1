@@ -10,23 +10,31 @@
 		<ProjectGuid>{7109D93A-24B3-4B64-A8FE-8486D211AFE1}</ProjectGuid>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<AssemblyName>ZCRMSDK</AssemblyName>
+		<AssemblyName>ZOHOCRMSDK-2.1</AssemblyName>
 		<TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
 		<FileAlignment>512</FileAlignment>
 		<NuGetPackageImportStamp>
 		</NuGetPackageImportStamp>
 		<NeutralLanguage>en-US</NeutralLanguage>
-		<PackageId>ZCRMSDK</PackageId>
-		<PackageVersion>4.0.0</PackageVersion>
+		<PackageId>ZOHOCRMSDK-2.1</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
 		<Authors>Zoho CRM API Team</Authors>
 		<Owners>Zoho CRM API Team</Owners>
 		<Description>Provides C# SDK support for Zoho CRM APIs.</Description>
 		<PackageProjectUrl>https://github.com/zoho/zohocrm-csharp-sdk-2.1</PackageProjectUrl>
 		<Summary>C# SDK offers a way to create client C# applications that can be integrated with Zoho CRM. This SDK makes the access and use of necessary CRM APIs with ease.</Summary>
-		<PackageTags>ZCRMSDK,zohocrm,sdk,zcrmsdk,zoho</PackageTags>
-		<Title>ZCRMSDK</Title>
-		<PackageReleaseNotes>C# SDK upgraded to support v2.1 APIs.
-Structural changes to aid the process of SDK configuration and initialization user-friendly.</PackageReleaseNotes>
+		<PackageTags>ZOHOCRMSDK-2.1,zohocrm,sdk,zcrmsdk,zoho</PackageTags>
+		<Title>ZOHOCRMSDK-2.1</Title>
+		<PackageReleaseNotes>1. C# SDK upgraded to support v2.1 APIs. 
+2. Structural changes to aid the process of SDK configuration and initialization user-friendly. 
+3. C# SDK improved to support the following new APIs 
+    - Assignment Rules 
+    - Email Templates 
+    - Field Attachments 
+    - Inventory Templates 
+    - Pipeline 
+    - Send Mail 
+    - Wizards</PackageReleaseNotes>
   	</PropertyGroup>
   	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<Optimize>true</Optimize>
@@ -48,11 +56,17 @@ Structural changes to aid the process of SDK configuration and initialization us
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Button.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Fields\MultiModuleLookup.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\ChartData.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\RecordBodyWrapper.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Wizard.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\RecordResponseHandler.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\RecordActionWrapper.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\ContactRoleWrapper.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\RecordResponseWrapper.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Connection.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Org\HierarchyPreference.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Screen.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Fields\Maps.cs" />
+		<Compile Include="Com\Zoho\Crm\API\ContactRoles\RecordActionHandler.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Transition.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Node.cs" />
 		<Compile Include="Com\Zoho\Crm\API\Wizards\Segment.cs" />

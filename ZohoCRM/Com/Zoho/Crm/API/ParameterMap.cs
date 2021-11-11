@@ -67,7 +67,7 @@ namespace Com.Zoho.Crm.API
                 paramValue = value.ToString();
             }
 
-            if (ParameterMaps.ContainsKey(paramName) && ! string.IsNullOrEmpty(ParameterMaps[paramName]))
+            if (ParameterMaps.ContainsKey(paramName) && !string.IsNullOrEmpty(ParameterMaps[paramName]))
             {
                 string existingParamValue = ParameterMaps[paramName];
 

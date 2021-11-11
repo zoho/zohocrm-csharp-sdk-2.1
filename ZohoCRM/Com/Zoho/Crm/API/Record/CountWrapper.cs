@@ -6,20 +6,20 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class CountWrapper : Model, CountHandler
 	{
-		private string count;
+		private long? count;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
-		public string Count
+		public long? Count
 		{
 			/// <summary>The method to get the count</summary>
-			/// <returns>string representing the count</returns>
+			/// <returns>long? representing the count</returns>
 			get
 			{
 				return  this.count;
 
 			}
 			/// <summary>The method to set the value to count</summary>
-			/// <param name="count">string</param>
+			/// <param name="count">long?</param>
 			set
 			{
 				 this.count=value;

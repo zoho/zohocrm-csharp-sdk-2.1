@@ -1,4 +1,4 @@
-# ZOHO CRM C# SDK - 2.1
+# ZOHO CRM C# SDK 2.1 for API version 2.1
 
 ## Table Of Contents
 
@@ -29,13 +29,13 @@ Since Zoho CRM APIs are authenticated with OAuth2 standards, you should register
 
 - Visit this page [https://api-console.zoho.com/](https://api-console.zoho.com)
 
-- Click on `ADD CLIENT`.
+- Click `ADD CLIENT`.
 
-- Choose a `Client Type`.
+- Choose the `Client Type`.
 
 - Enter **Client Name**, **Client Domain** or **Homepage URL** and **Authorized Redirect URIs**. Click `CREATE`.
 
-- Your Client app will be created and displayed.
+- Your Client app will be created.
 
 - Select the created OAuth client.
 
@@ -51,12 +51,12 @@ You can include the SDK to your project using:
 
 1. Install Visual Studio IDE from [Visual Studio](https://visualstudio.microsoft.com/downloads/) (if not installed).
 
-2. C# SDK is available as a Nuget package. The ZCRMSDK assembly can be installed through the Nuget Package Manager or through the following options:
+2. C# SDK is available as a Nuget package. The ZOHOCRMSDK-2.1 assembly can be installed through the Nuget Package Manager or through the following options:
 
     - Package Manager
 
         ```sh
-        Install-Package ZCRMSDK -Version 4.0.0
+        Install-Package ZOHOCRMSDK-2.1 -Version 1.0.0
         Install-Package MySql.Data -Version 6.9.12
         Install-Package Newtonsoft.Json -Version 11.0.1
         ```
@@ -64,7 +64,7 @@ You can include the SDK to your project using:
     - .NET  CLI
 
         ```sh
-        dotnet add package ZCRMSDK --version 4.0.0
+        dotnet add package ZOHOCRMSDK-2.1 --version 1.0.0
         dotnet add package Newtonsoft.Json --version 11.0.1
         dotnet add package MySql.Data --version 6.9.12
         ```
@@ -75,7 +75,7 @@ You can include the SDK to your project using:
 
         ```sh
         <ItemGroup>
-            <PackageReference Include="ZCRMSDK" Version="4.0.0" />
+            <PackageReference Include="ZOHOCRMSDK-2.1" Version="1.0.0" />
             <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
             <PackageReference Include="MySql.Data" Version="6.9.12" />
         </ItemGroup>
@@ -101,19 +101,19 @@ Token persistence refers to storing and utilizing the authentication tokens that
 
 Once the application is authorized, OAuth access and refresh tokens can be used for subsequent user data requests to Zoho CRM. Hence, they need to be persisted by the client app.
 
-The persistence is achieved by writing an implementation of the inbuilt **[TokenStore](ZohoCRM/Com/Zoho/API/Authenticator/Store/TokenStore.cs) interface**, which has the following callback methods.
+The persistence is achieved by writing an implementation of the inbuilt **TokenStore interface**, which has the following callback methods.
 
-- **GetToken([UserSignature](ZohoCRM/Com/Zoho/Crm/API/UserSignature.cs) user, [Token](ZohoCRM/Com/Zoho/API/Authenticator/Token.cs) token)** - invoked before firing a request to fetch the saved tokens. This method should return an implementation of **Token interface** object for the library to process it.
+- **GetToken(UserSignature user, Token token)** - invoked before firing a request to fetch the saved tokens. This method should return an implementation of **Token interface** object for the library to process it.
 
-- **SaveToken([UserSignature](ZohoCRM/Com/Zoho/Crm/API/UserSignature.cs) user, [Token](ZohoCRM/Com/Zoho/API/Authenticator/Token.cs) token)** - invoked after fetching access and refresh tokens from Zoho.
+- **SaveToken(UserSignature user, Token token)** - invoked after fetching access and refresh tokens from Zoho.
 
-- **DeleteToken([Token](ZohoCRM/Com/Zoho/API/Authenticator/Token.cs) token)** - invoked before saving the latest tokens.
+- **DeleteToken(Token token)** - invoked before saving the latest tokens.
 
 - **GetTokens()** - The method to retrieve all the stored tokens.
 
 - **DeleteTokens()** - The method to delete all the stored tokens.
 
-- **GetTokenById(string id, [Token](ZohoCRM/Com/Zoho/API/Authenticator/Token.cs) token)** - This method is used to retrieve the user token details based on unique ID.
+- **GetTokenById(string id, Token token)** - This method is used to retrieve the user token details based on unique ID.
 
 ### DataBase Persistence
 
@@ -166,6 +166,7 @@ CREATE TABLE oauthtoken (
 
 ```C#
 /*
+* Create an instance of TokenStore.
 * Host -> DataBase host name. Default value "localhost"
 * DatabaseName -> DataBase name. Default  value "zohooauth"
 * UserName -> DataBase user name. Default value "root"
@@ -288,20 +289,16 @@ namespace user.store
 
 Before you get started with creating your C# application, you need to register your client and authenticate the app with Zoho.
 
-- Create an instance of **[Logger](ZohoCRM/Com/Zoho/API/Logger/Logger.cs)** Class to log exception and API information.
+| Mandatory Keys    | Optional Keys |
+| :---------------- | :------------ |
+| user              | logger        |
+| environment       | store         |
+| token             | SDKConfig     |
+|                   | requestProxy  |
+|                   | resourcePath  |
+----
 
-    ```C#
-    /*
-    * Create an instance of Logger Class that requires the following
-    * Level -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
-    * FilePath -> Absolute file path, where messages need to be logged.
-    */
-    Logger logger = new Logger.Builder()
-    .Level(Logger.Levels.ALL)
-    .FilePath("/Users/user_name/Documents/csharp_sdk_log.log").Build();
-    ```
-
-- Create an instance of **[UserSignature](ZohoCRM/Com/Zoho/Crm/API/UserSignature.cs)** that identifies the current user.
+- Create an instance of **UserSignature** that identifies the current user.
 
     ```C#
     //Create an UserSignature instance that takes user Email as parameter
@@ -320,7 +317,7 @@ Before you get started with creating your C# application, you need to register y
     Environment environment = USDataCenter.PRODUCTION;
     ```
 
-- Create an instance of **[OAuthToken](ZohoCRM/Com/Zoho/API/Authenticator/OAuthToken.cs)** with the information that you get after registering your Zoho client.
+- Create an instance of **OAuthToken** with the information that you get after registering your Zoho client.
 
     ```C#
     /*
@@ -355,13 +352,32 @@ Before you get started with creating your C# application, you need to register y
     .RefreshToken("refreshToken")
     .RedirectURL("redirectURL")
     .Build();
+
+    // if access token is available
+    Token token = new OAuthToken.Builder()
+    .AccessToken("accessToken")
+    .Build();
     ```
 
-- Create an instance of **[TokenStore](ZohoCRM/Com/Zoho/API/Authenticator/Store/TokenStore.cs)** to persist tokens that are  used for authenticating all the requests.
+- Create an instance of **Logger** Class to log exception and API information. By default, the SDK constructs a Logger instance with level - INFO and file_path - (sdk_logs.log parallel to bin/(Debug or Release) folder )
 
     ```C#
     /*
-    * Create an instance of TokenStore.
+    * Create an instance of Logger Class that requires the following
+    * Level -> Level of the log messages to be logged. Can be configured by typing Levels "." and choose any level from the list displayed.
+    * FilePath -> Absolute file path, where messages need to be logged.
+    */
+    Logger logger = new Logger.Builder()
+    .Level(Logger.Levels.ALL)
+    .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+    .Build();
+    ```
+
+- Create an instance of **TokenStore** to persist tokens, used for authenticating all the requests. By default, the SDK creates the sdk_tokens.txt file (parallel to to bin/(Debug or Release) folder) to persist the tokens.
+
+    ```C#
+    /*
+    * Create an instance of DBStore that requires the following
     * Host -> DataBase host name. Default "localhost"
     * DatabaseName -> DataBase name. Default "zohooauth"
     * UserName -> DataBase user name. Default "root"
@@ -385,31 +401,44 @@ Before you get started with creating your C# application, you need to register y
     //TokenStore tokenStore = new CustomStore();
     ```
 
-- Create an instance of **[SDKConfig](ZohoCRM/Com/Zoho/Crm/API/SDKConfig.cs)** containing the SDK configuration.
+- Create an instance of **SDKConfig** containing the SDK configuration.
 
     ```C#
     /*
-    * autoRefreshFields
-    * if true - all the modules' fields will be auto-refreshed in the background, every    hour.
-    * if false - the fields will not be auto-refreshed in the background. The user can manually delete the file(s) or refresh the fields using methods from ModuleFieldsHandler(Com.Zoho.Crm.API.Util.ModuleFieldsHandler)
+    * By default, the SDK creates the SDKConfig instance
+    * autoRefreshFields (default - false)
+    * if true - all the modules' fields will be auto-refreshed in the background, every hour.
+    * if false - the fields will not be auto-refreshed in the background. The user can manually delete the file(s) or refresh the fields using methods from ModuleFieldsHandler(com.zoho.crm.api.util.ModuleFieldsHandler)
     *
-    * pickListValidation
+    * pickListValidation (default - true)
     * A boolean field that validates user input for a pick list field and allows or disallows the addition of a new value to the list.
-    * True - the SDK validates the input. If the value does not exist in the pick list, the SDK throws an error.
-    * False - the SDK does not validate the input and makes the API request with the user’s input to the pick list
+    * true - the SDK validates the input. If the value does not exist in the pick list, the SDK throws an error.
+    * false - the SDK does not validate the input and makes the API request with the user’s input to the pick list
     */
-    SDKConfig config = new SDKConfig.Builder().AutoRefreshFields(false).PickListValidation(true).Timeout(10).Build();
+    SDKConfig config = new SDKConfig.Builder()
+    .AutoRefreshFields(false)
+    .PickListValidation(true)
+    .Timeout(10)
+    .Build();
     ```
 
-- The path containing the absolute directory path to store user-specific files containing module fields information.
+- The path containing the absolute directory path to store user-specific files containing module fields information. By default, the SDK stores the user-specific files in a folder parallel to bin/(Debug or Release)
 
     ```C#
     string resourcePath = "/Users/user_name/Documents/csharpsdk-application";
     ```
 
-- Create an instance of **[RequestProxy](ZohoCRM/Com/Zoho/Crm/API/RequestProxy.cs)** containing the proxy properties of the user.
+- Create an instance of **RequestProxy** containing the proxy properties of the user.
 
     ```C#
+    /*
+    * Create an instance of RequestProxy
+    * host -> proxyHost
+    * port -> proxyPort
+    * user -> proxyUser
+    * password -> password
+    * userDomain -> userDomain
+    */
     RequestProxy requestProxy = new RequestProxy.Builder()
     .Host("proxyHost")
     .Port(proxyPort)

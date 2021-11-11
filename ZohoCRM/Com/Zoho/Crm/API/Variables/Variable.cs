@@ -11,6 +11,7 @@ namespace Com.Zoho.Crm.API.Variables
 		private string name;
 		private string description;
 		private long? id;
+		private string source;
 		private string type;
 		private VariableGroup variableGroup;
 		private object value;
@@ -92,6 +93,26 @@ namespace Com.Zoho.Crm.API.Variables
 				 this.id=value;
 
 				 this.keyModified["id"] = 1;
+
+			}
+		}
+
+		public string Source
+		{
+			/// <summary>The method to get the source</summary>
+			/// <returns>string representing the source</returns>
+			get
+			{
+				return  this.source;
+
+			}
+			/// <summary>The method to set the value to source</summary>
+			/// <param name="source">string</param>
+			set
+			{
+				 this.source=value;
+
+				 this.keyModified["source"] = 1;
 
 			}
 		}

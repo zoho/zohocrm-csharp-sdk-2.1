@@ -78,15 +78,27 @@ namespace Com.Zoho.API.Authenticator.Store
 
                         if (CheckTokenExists(user.Email, oauthToken, nextRecord))
                         {
-                            oauthToken.AccessToken = nextRecord[5];
+                            string grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
 
-                            oauthToken.ExpiresIn = nextRecord[7];
-
-                            oauthToken.RefreshToken = nextRecord[4];
+                            string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
                             oauthToken.Id = nextRecord[0];
 
                             oauthToken.UserMail = nextRecord[1];
+
+                            oauthToken.ClientId = nextRecord[2];
+
+                            oauthToken.ClientSecret = nextRecord[3];
+
+                            oauthToken.RefreshToken = nextRecord[4];
+
+                            oauthToken.AccessToken = nextRecord[5];
+
+                            oauthToken.GrantToken = grantToken;
+
+                            oauthToken.ExpiresIn = nextRecord[7];
+
+                            oauthToken.RedirectURL = redirectURL;
 
                             return oauthToken;
                         }
@@ -224,8 +236,6 @@ namespace Com.Zoho.API.Authenticator.Store
 
                     token.Id = nextRecord[0];
 
-                    token.GrantToken = grantToken;
-
                     token.UserMail = nextRecord[1];
 
                     token.AccessToken = nextRecord[5];
@@ -233,6 +243,8 @@ namespace Com.Zoho.API.Authenticator.Store
                     token.ExpiresIn = nextRecord[7];
 
                     token.RedirectURL = redirectURL;
+
+                    token.GrantToken = grantToken;
 
                     tokens.Add(token);
                 }
@@ -306,19 +318,19 @@ namespace Com.Zoho.API.Authenticator.Store
 
                             string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
+                            oauthToken.Id = id;
+
+                            oauthToken.UserMail = nextRecord[1];
+                            
                             oauthToken.ClientId = nextRecord[2];
 
                             oauthToken.ClientSecret = nextRecord[3];
 
                             oauthToken.RefreshToken = nextRecord[4];
 
-                            oauthToken.Id = id;
+                            oauthToken.AccessToken = nextRecord[5];
 
                             oauthToken.GrantToken = grantToken;
-
-                            oauthToken.UserMail = nextRecord[1];
-
-                            oauthToken.AccessToken = nextRecord[5];
 
                             oauthToken.ExpiresIn = nextRecord[7];
 

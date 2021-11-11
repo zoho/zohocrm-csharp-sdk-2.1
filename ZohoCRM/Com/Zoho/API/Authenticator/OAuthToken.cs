@@ -37,9 +37,11 @@ namespace Com.Zoho.API.Authenticator
 
             private string redirectURL;
 
+            private string refreshToken;
+
             private string grantToken;
 
-            private string refreshToken;
+            private string accessToken;
 
             private string id;
 
@@ -75,13 +77,6 @@ namespace Com.Zoho.API.Authenticator
                 return this;
             }
 
-            public Builder GrantToken(string grantToken)
-            {
-                this.grantToken = grantToken;
-
-                return this;
-            }
-
             public Builder RefreshToken(string refreshToken)
             {
                 this.refreshToken = refreshToken;
@@ -89,14 +84,28 @@ namespace Com.Zoho.API.Authenticator
                 return this;
             }
 
+            public Builder GrantToken(string grantToken)
+            {
+                this.grantToken = grantToken;
+
+                return this;
+            }
+
+            public Builder AccessToken(string accessToken)
+            {
+                this.accessToken = accessToken;
+
+                return this;
+            }
+
             public OAuthToken Build()
             {
-                if (this.grantToken == null && this.refreshToken == null && this.id == null)
+                if (this.grantToken == null && this.refreshToken == null && this.id == null && this.accessToken == null)
                 {
                     throw new SDKException(Constants.MANDATORY_VALUE_ERROR, Constants.MANDATORY_KEY_ERROR + "-" + JsonConvert.SerializeObject(Constants.OAUTH_MANDATORY_KEYS));
                 }
 
-                return new OAuthToken(this.clientId, this.clientSecret, this.grantToken, this.refreshToken, this.redirectURL, this.id);
+                return new OAuthToken(this.clientId, this.clientSecret, this.grantToken, this.refreshToken, this.redirectURL, this.id, this.accessToken);
             }
         }
 
@@ -293,7 +302,7 @@ namespace Com.Zoho.API.Authenticator
                     {
                         token = this.refreshToken != null ? this.RefreshAccessToken(user, store).AccessToken : this.GenerateAccessToken(user, store).AccessToken;
                     }
-                    else if (GetExpiryLapseInMillis(oauthToken.ExpiresIn) < 5L)//access token will expire in next 5 seconds or less
+                    else if (oauthToken.ExpiresIn != null && GetExpiryLapseInMillis(oauthToken.ExpiresIn) < 5L)//access token will expire in next 5 seconds or less
                     {
                         SDKLogger.LogInfo(Constants.REFRESH_TOKEN_MESSAGE);
 
@@ -330,7 +339,14 @@ namespace Com.Zoho.API.Authenticator
                 {
                     foreach (KeyValuePair<string, string> param in requestParams)
                     {
-                        urlParameters += "&" + param.Key + "=" + param.Value;
+                        if (urlParameters == null)
+                        {
+                            urlParameters = param.Key + "=" + param.Value;
+                        }
+                        else
+                        {
+                            urlParameters += "&" + param.Key + "=" + param.Value;
+                        }
                     }
                 }
 
@@ -368,11 +384,6 @@ namespace Com.Zoho.API.Authenticator
                 requestParams.Add(Constants.CLIENT_ID, ClientId);
 
                 requestParams.Add(Constants.CLIENT_SECRET, ClientSecret);
-
-                if(RedirectURL != null)
-                {
-                    requestParams.Add(Constants.REDIRECT_URI, RedirectURL);
-                }
 
                 requestParams.Add(Constants.GRANT_TYPE, Constants.REFRESH_TOKEN);
 
@@ -419,9 +430,11 @@ namespace Com.Zoho.API.Authenticator
 
                 string response = GetResponseFromServer(requestParams);
 
+                ParseResponse(response);
+                
                 GenerateId();
 
-                store.SaveToken(user, ParseResponse(response));
+                store.SaveToken(user, this);
             }
             catch (System.Exception ex) when (!(ex is SDKException))
             {
@@ -492,7 +505,7 @@ namespace Com.Zoho.API.Authenticator
         /// <param name="token">A string containing the REFRESH/GRANT token.</param>
         /// <param name="type">A enum containing the given token type.</param>
         /// <param name="redirectURL">A string containing the OAuth redirect URL.</param>
-        private OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id)
+        private OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id, string accessToken)
         {
             this.clientID = clientID;
 
@@ -504,6 +517,8 @@ namespace Com.Zoho.API.Authenticator
 
             this.redirectURL = redirectURL;
 
+            this.accessToken = accessToken;
+
             this.id = id;
         }
 
@@ -513,7 +528,7 @@ namespace Com.Zoho.API.Authenticator
 
             string email = Initializer.GetInitializer().User.Email;
 
-            builder.Append("csharp_").Append(email.Substring(0, email.IndexOf("@"))).Append("_");
+            builder.Append(Constants.CSHARP).Append(email.Substring(0, email.IndexOf("@"))).Append("_");
 
             builder.Append(Initializer.GetInitializer().Environment.GetName()).Append("_");
 

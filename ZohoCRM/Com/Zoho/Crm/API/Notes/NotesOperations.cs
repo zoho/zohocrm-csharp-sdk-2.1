@@ -203,6 +203,8 @@ namespace Com.Zoho.Crm.API.Notes
 			public static readonly Param<int?> PAGE=new Param<int?>("page", "com.zoho.crm.api.Notes.GetNotesParam");
 			public static readonly Param<int?> PER_PAGE=new Param<int?>("per_page", "com.zoho.crm.api.Notes.GetNotesParam");
 			public static readonly Param<string> FIELDS=new Param<string>("fields", "com.zoho.crm.api.Notes.GetNotesParam");
+			public static readonly Param<string> SORT_ORDER=new Param<string>("sort_order", "com.zoho.crm.api.Notes.GetNotesParam");
+			public static readonly Param<string> SORT_BY=new Param<string>("sort_by", "com.zoho.crm.api.Notes.GetNotesParam");
 		}
 
 

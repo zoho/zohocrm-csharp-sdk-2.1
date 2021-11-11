@@ -17,7 +17,7 @@ namespace Com.Zoho.Crm.API.Util
     /// </summary>
     public class Downloader : Converter
     {
-        public Downloader(CommonAPIHandler commonAPIHandler):base(commonAPIHandler) {}
+        public Downloader(CommonAPIHandler commonAPIHandler) : base(commonAPIHandler) {}
 
         public override object FormRequest(object requestObject, string pack, int? instanceNumber, JObject memberDetail)
         {

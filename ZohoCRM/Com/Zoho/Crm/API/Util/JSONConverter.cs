@@ -1228,6 +1228,10 @@ namespace Com.Zoho.Crm.API.Util
                         {
                             matches++;
                         }
+                        else if (keyName.Equals(Constants.COUNT, StringComparison.OrdinalIgnoreCase) && type.Equals(Constants.CSHARP_INT_NAME, StringComparison.OrdinalIgnoreCase) && tokenType == JTokenType.Integer)
+                        {
+                            matches++;
+                        }
                         else if (((string)memberDetail[Constants.TYPE]).Equals(Constants.CHOICE_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                         {
                             JArray values = (JArray)memberDetail[Constants.VALUES];

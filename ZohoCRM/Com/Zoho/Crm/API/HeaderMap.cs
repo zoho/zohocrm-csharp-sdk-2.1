@@ -72,7 +72,7 @@ namespace Com.Zoho.Crm.API
                 headerValue = value.ToString();
             }
 
-            if (headerMap.ContainsKey(headerName) && ! string.IsNullOrEmpty(headerMap[headerName]))
+            if (headerMap.ContainsKey(headerName) && !string.IsNullOrEmpty(headerMap[headerName]))
             {
                 string existingHeaderValue = this.headerMap[headerName];
 

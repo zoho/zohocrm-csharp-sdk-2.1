@@ -73,11 +73,20 @@ namespace Com.Zoho.Crm.API
 
                 Utility.AssertNotNull(token, errorMessage, Constants.TOKEN_ERROR_MESSAGE);
 
-                Utility.AssertNotNull(store, errorMessage, Constants.STORE_ERROR_MESSAGE);
+                if (store == null)
+                {
+                    store = new FileStore(Path.GetDirectoryName(Assembly.GetCallingAssembly().Location) + Path.DirectorySeparatorChar + Constants.TOKEN_FILE);
+                }
 
-                Utility.AssertNotNull(sdkConfig, errorMessage, Constants.SDK_CONFIG_ERROR_MESSAGE);
+                if (sdkConfig == null)
+                {
+                    sdkConfig = new SDKConfig.Builder().Build();
+                }
 
-                Utility.AssertNotNull(resourcePath, errorMessage, Constants.RESOURCE_PATH_ERROR_MESSAGE);
+                if (resourcePath == null)
+                {
+                    resourcePath = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
+                }
 
                 if (logger == null)
                 {
@@ -113,8 +122,6 @@ namespace Com.Zoho.Crm.API
 
             public Builder SDKConfig(SDKConfig sdkConfig)
             {
-                Utility.AssertNotNull(sdkConfig, errorMessage, Constants.SDK_CONFIG_ERROR_MESSAGE);
-
 			    this.sdkConfig = sdkConfig;
 
 			    return this;
@@ -129,12 +136,7 @@ namespace Com.Zoho.Crm.API
 
             public Builder ResourcePath(string resourcePath)
             {
-                if (string.IsNullOrEmpty(resourcePath) || string.IsNullOrWhiteSpace(resourcePath))
-                {
-                    throw new SDKException(errorMessage, Constants.RESOURCE_PATH_ERROR_MESSAGE);
-                }
-
-                if(!Directory.Exists(resourcePath))
+                if(resourcePath != null && !Directory.Exists(resourcePath))
                 {
                     throw new SDKException(errorMessage, Constants.RESOURCE_PATH_INVALID_ERROR_MESSAGE);
                 }
@@ -155,8 +157,6 @@ namespace Com.Zoho.Crm.API
 
             public Builder Store(TokenStore store)
             {
-                Utility.AssertNotNull(store, errorMessage, Constants.STORE_ERROR_MESSAGE);
-
 			    this.store = store;
 
 			    return this;
@@ -257,36 +257,6 @@ namespace Com.Zoho.Crm.API
         }
 
         /// <summary>
-        /// This method to get record field information details.
-        /// </summary>
-        /// <param name="filePath">A String containing the class information details file path.</param>
-        /// <returns></returns>
-        public static JObject GetJSON(string filePath)
-        {
-            StreamReader sr = new StreamReader(filePath);
-
-            string fileContent = sr.ReadToEnd();
-
-            sr.Close();
-
-            return JObject.Parse(fileContent);
-        }
-
-        /// <summary>
-        /// This method to get Initializer class instance.
-        /// </summary>
-        /// <returns>A Initializer class instance representing the SDK configuration details.</returns>
-        public static Initializer GetInitializer()
-        {
-            if (Initializer.LOCAL.Value != null)
-            {
-                return Initializer.LOCAL.Value;
-            }
-
-            return initializer;
-        }
-
-        /// <summary>
         /// The method to switch the different user in SDK environment.
         /// </summary>
         /// <param name="user">A User class instance represents the CRM user.</param>
@@ -315,6 +285,36 @@ namespace Com.Zoho.Crm.API
             LOCAL.Value = initializer;
 
             SDKLogger.LogInfo(Constants.INITIALIZATION_SWITCHED + initializer.ToString());
+        }
+
+        /// <summary>
+        /// This method to get record field information details.
+        /// </summary>
+        /// <param name="filePath">A String containing the class information details file path.</param>
+        /// <returns></returns>
+        public static JObject GetJSON(string filePath)
+        {
+            StreamReader sr = new StreamReader(filePath);
+
+            string fileContent = sr.ReadToEnd();
+
+            sr.Close();
+
+            return JObject.Parse(fileContent);
+        }
+
+        /// <summary>
+        /// This method to get Initializer class instance.
+        /// </summary>
+        /// <returns>A Initializer class instance representing the SDK configuration details.</returns>
+        public static Initializer GetInitializer()
+        {
+            if (Initializer.LOCAL.Value != null)
+            {
+                return Initializer.LOCAL.Value;
+            }
+
+            return initializer;
         }
 
         /// <summary>
@@ -354,18 +354,6 @@ namespace Com.Zoho.Crm.API
         }
 
         /// <summary>
-        /// This is a getter method to get Proxy information.
-        /// </summary>
-        /// <returns>A RequestProxy class instance representing the API Proxy information.</returns>
-        public RequestProxy RequestProxy
-        {
-            get
-            {
-                return requestProxy;
-            }
-        }
-
-        /// <summary>
         /// This is a getter method to get OAuth client application information.
         /// </summary>
         /// <returns>A Token class instance representing the OAuth client application information.</returns>
@@ -384,7 +372,19 @@ namespace Com.Zoho.Crm.API
                 return resourcePath;
             }
         }
-
+        
+        /// <summary>
+        /// This is a getter method to get Proxy information.
+        /// </summary>
+        /// <returns>A RequestProxy class instance representing the API Proxy information.</returns>
+        public RequestProxy RequestProxy
+        {
+            get
+            {
+                return requestProxy;
+            }
+        }
+        
         /// <summary>
         /// This is a getter method to get the SDK Configuration
         /// </summary>

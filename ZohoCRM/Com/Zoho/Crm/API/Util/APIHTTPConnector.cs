@@ -315,7 +315,6 @@ namespace Com.Zoho.Crm.API.Util
 
             return stringBuilder.ToString();
         }
-
         private string ProxyLog(RequestProxy requestProxy)
         {
             StringBuilder proxyStringBuilder = new StringBuilder();

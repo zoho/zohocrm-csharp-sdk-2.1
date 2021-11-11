@@ -39,7 +39,7 @@ namespace Com.Zoho.Crm.API.Util
     {
         private static object LOCK = new object();
 
-        private static Dictionary<string, string> apiTypeVsdataType = new Dictionary<string, string>();
+        private static Dictionary<string, string> apiTypeVsDataType = new Dictionary<string, string>();
 
         private static Dictionary<string, string> apiTypeVsStructureName = new Dictionary<string, string>();
 
@@ -165,7 +165,7 @@ namespace Com.Zoho.Crm.API.Util
             {
                 string[] apiPathSplit = apiPath.Split('/');
 
-                for(int i=0; i< apiPathSplit.Length; i++)
+                for(int i = 0; i < apiPathSplit.Length; i++)
                 {
                     if(apiPathSplit[i].Equals(moduleAPIName, StringComparison.OrdinalIgnoreCase))
                     {
@@ -220,6 +220,11 @@ namespace Com.Zoho.Crm.API.Util
                     moduleAPIName = VerifyModuleAPIName(moduleAPIName);
 
                     SetHandlerAPIPath(moduleAPIName, handlerInstance);
+
+                    if (handlerInstance != null && handlerInstance.ModuleAPIName == null && !Constants.SKIP_MODULES.Contains(moduleAPIName.ToLower()))
+                    {
+                        return;
+                    }
 
                     recordFieldDetailsPath = GetFileName();
 
@@ -516,6 +521,8 @@ namespace Com.Zoho.Crm.API.Util
                     {
                         isNewData = true;
 
+                        moduleAPIName = Utility.VerifyModuleAPIName(moduleAPIName);
+
                         JArray relatedListValues = GetRelatedListDetails(moduleAPIName);
 
                         JObject recordFieldDetailsJSON1 = System.IO.File.Exists(recordFieldDetailsPath) ? Initializer.GetJSON(recordFieldDetailsPath) : new JObject();
@@ -536,7 +543,7 @@ namespace Com.Zoho.Crm.API.Util
 
                     JObject recordFieldDetailsJSON = Initializer.GetJSON(recordFieldDetailsPath);
 
-                    JArray modulerelatedList = recordFieldDetailsJSON.ContainsKey(key) ?(JArray)recordFieldDetailsJSON.GetValue(key) : new JArray();
+                    JArray modulerelatedList = recordFieldDetailsJSON.ContainsKey(key) ? (JArray)recordFieldDetailsJSON.GetValue(key) : new JArray();
 
                     if (!CheckRelatedListExists(relatedModuleName, modulerelatedList, commonAPIHandler) && !isNewData)
                     {
@@ -1079,7 +1086,7 @@ namespace Com.Zoho.Crm.API.Util
 
                 fieldDetail.Add(Constants.STRUCTURE_NAME, Constants.LINEITEM_PRODUCT);
 
-                fieldDetail.Add(Constants.LOOKUP, true);
+                fieldDetail.Add(Constants.SKIP_MANDATORY, true);
 
                 return;
             }
@@ -1101,9 +1108,9 @@ namespace Com.Zoho.Crm.API.Util
 
                 return;
             }
-            else if(apiTypeVsdataType.ContainsKey(apiType))
+            else if(apiTypeVsDataType.ContainsKey(apiType))
             {
-                fieldDetail[Constants.TYPE] = apiTypeVsdataType[apiType];
+                fieldDetail[Constants.TYPE] = apiTypeVsDataType[apiType];
             }
             else if(apiType.Equals(Constants.FORMULA, StringComparison.OrdinalIgnoreCase))
             {
@@ -1111,9 +1118,9 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     string returnType = field.Formula.ReturnType;
 
-                    if(returnType != null && apiTypeVsdataType.ContainsKey(returnType) && apiTypeVsdataType[returnType] != null)
+                    if(returnType != null && apiTypeVsDataType.ContainsKey(returnType) && apiTypeVsDataType[returnType] != null)
                     {
-                        fieldDetail[Constants.TYPE] = apiTypeVsdataType[returnType];
+                        fieldDetail[Constants.TYPE] = apiTypeVsDataType[returnType];
                     }
                 }
 
@@ -1129,7 +1136,7 @@ namespace Com.Zoho.Crm.API.Util
                 fieldDetail[Constants.LOOKUP] = true;
             }
 
-            if (apiType.ToLower().Equals(Constants.CONSENT_LOOKUP, StringComparison.OrdinalIgnoreCase))
+            if (apiType.ToLower().Equals(Constants.CONSENT_LOOKUP, StringComparison.OrdinalIgnoreCase) || apiType.ToLower().Equals(Constants.OWNER_LOOKUP, StringComparison.OrdinalIgnoreCase))
             {
                 fieldDetail[Constants.SKIP_MANDATORY] =  true;
             }
@@ -1224,12 +1231,12 @@ namespace Com.Zoho.Crm.API.Util
 
         private static void FillDataType()
         {
-            if (apiTypeVsdataType.Count > 0)
+            if (apiTypeVsDataType.Count > 0)
             {
                 return;
             }
 
-            string[] fieldAPINamesString = new string[] { "textarea", "text", "website", "email", "phone", "mediumtext", "multiselectlookup", "profileimage", "autonumber"};
+            string[] fieldAPINamesString = new string[] { "textarea", "text", "website", "email", "phone", "mediumtext", "profileimage", "autonumber"};
 
             string[] fieldAPINamesInteger = new string[] { "integer" };
 
@@ -1276,138 +1283,138 @@ namespace Com.Zoho.Crm.API.Util
 
             foreach (string fieldAPIName in fieldAPINamesString)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CSHARP_STRING_NAME;
+                apiTypeVsDataType[fieldAPIName] = Constants.CSHARP_STRING_NAME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesInteger)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CSHARP_INT_NAME;
+                apiTypeVsDataType[fieldAPIName] = Constants.CSHARP_INT_NAME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesBoolean)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CSHARP_BOOLEAN_NAME;
+                apiTypeVsDataType[fieldAPIName] = Constants.CSHARP_BOOLEAN_NAME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesLong)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CSHARP_LONG_NAME;
+                apiTypeVsDataType[fieldAPIName] = Constants.CSHARP_LONG_NAME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesDouble)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CSHARP_DOUBLE_NAME;
+                apiTypeVsDataType[fieldAPIName] = Constants.CSHARP_DOUBLE_NAME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesDateTime)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.SYSTEM_DATETIME_OFFSET;
+                apiTypeVsDataType[fieldAPIName] = Constants.SYSTEM_DATETIME_OFFSET;
             }
 
             foreach (string fieldAPIName in fieldAPINamesDate)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.SYSTEM_DATETIME;
+                apiTypeVsDataType[fieldAPIName] = Constants.SYSTEM_DATETIME;
             }
 
             foreach (string fieldAPIName in fieldAPINamesLookup)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.RECORD_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.RECORD_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECORD_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesPickList)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.CHOICE_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.CHOICE_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesMultiSelectPickList)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.CHOICE_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesSubForm)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECORD_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesOwnerLookUp)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.USER_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.USER_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.USER_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesMultiUserLookUp)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECORD_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesMultiModuleLookUp)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.MODULE_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINamesFieldFile)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.FIELD_FILE_NAMESPACE;
             }
 
             foreach(string fieldAPIName in fieldAPINameTaskRemindAt)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.REMINDAT_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.REMINDAT_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.REMINDAT_NAMESPACE;
             }
 
             foreach(string fieldAPIName in fieldAPINameRecurringActivity)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.RECURRING_ACTIVITY_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.RECURRING_ACTIVITY_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECURRING_ACTIVITY_NAMESPACE;
             }
 
             foreach(string fieldAPIName in fieldAPINameReminder)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.REMINDER_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINameConsentLookUp)
             {
-                apiTypeVsdataType.Add(fieldAPIName, Constants.CONSENT_NAMESPACE);
+                apiTypeVsDataType.Add(fieldAPIName, Constants.CONSENT_NAMESPACE);
 
                 apiTypeVsStructureName.Add(fieldAPIName, Constants.CONSENT_NAMESPACE);
             }
 
             foreach (string fieldAPIName in fieldAPINameImageUpload)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.IMAGEUPLOAD_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPInameMultiSelectLookUp)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.RECORD_NAMESPACE;
             }
 
             foreach (string fieldAPIName in fieldAPINameLineTax)
             {
-                apiTypeVsdataType[fieldAPIName] = Constants.LIST_NAMESPACE;
+                apiTypeVsDataType[fieldAPIName] = Constants.LIST_NAMESPACE;
 
                 apiTypeVsStructureName[fieldAPIName] = Constants.LINETAX;
             }

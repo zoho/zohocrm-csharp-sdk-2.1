@@ -16,16 +16,7 @@ namespace Com.Zoho.Crm.API
 
 			private bool pickListValidation = true;
 
-			private int timeout = 100;
-
-			public Builder Timeout(int timeout)
-            {
-				this.timeout = timeout;
-
-				this.timeout = timeout != 100 ? timeout: 100;
-
-				return this;
-            }
+			private int timeout = 100000;//The number of milliseconds to wait before the request times out. The default value is 100,000 milliseconds (100 seconds).
 
 			/// <summary>
 			/// This is a setter method to set autoRefreshFields.
@@ -52,6 +43,18 @@ namespace Com.Zoho.Crm.API
 			}
 
 			/// <summary>
+			/// This is a setter method to set timeout.
+			/// </summary>
+			/// <param name="timeout">A int</param>
+			/// <returns>An instance of Builder</returns>
+			public Builder Timeout(int timeout)
+			{
+				this.timeout = timeout != 100000 ? timeout: 100000;
+
+				return this;
+			}
+
+			/// <summary>
 			/// The method to build the SDKConfig instance
 			/// </summary>
 			/// <returns>An instance of SDKConfig</returns>
@@ -65,7 +68,7 @@ namespace Com.Zoho.Crm.API
 
 		private bool pickListValidation;
 
-		private int timeout;
+		private int timeout = 100000;
 
 		/// <summary>
 		/// Creates an instance of SDKConfig with the given parameters
@@ -106,6 +109,10 @@ namespace Com.Zoho.Crm.API
 			}
 		}
 
+		/// <summary>
+		/// This is a getter method to get timeout.
+		/// </summary>
+		/// <returns>A int representing timeout</returns>
 		public int Timeout
         {
 			get

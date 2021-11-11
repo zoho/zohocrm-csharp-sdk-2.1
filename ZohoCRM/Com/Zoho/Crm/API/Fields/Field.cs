@@ -42,6 +42,7 @@ namespace Com.Zoho.Crm.API.Fields
 		private Module lookup;
 		private bool? filterable;
 		private bool? visible;
+		private bool? displayField;
 		private bool? pickListValuesSortedLexically;
 		private int? length;
 		private ViewType viewType;
@@ -723,6 +724,26 @@ namespace Com.Zoho.Crm.API.Fields
 				 this.visible=value;
 
 				 this.keyModified["visible"] = 1;
+
+			}
+		}
+
+		public bool? DisplayField
+		{
+			/// <summary>The method to get the displayField</summary>
+			/// <returns>bool? representing the displayField</returns>
+			get
+			{
+				return  this.displayField;
+
+			}
+			/// <summary>The method to set the value to displayField</summary>
+			/// <param name="displayField">bool?</param>
+			set
+			{
+				 this.displayField=value;
+
+				 this.keyModified["display_field"] = 1;
 
 			}
 		}

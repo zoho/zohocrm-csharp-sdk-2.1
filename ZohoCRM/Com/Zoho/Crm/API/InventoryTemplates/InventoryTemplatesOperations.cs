@@ -6,21 +6,17 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 	public class InventoryTemplatesOperations
 	{
-		private string module;
 		private string sortBy;
 		private string sortOrder;
 		private string category;
 
 		/// <summary>		/// Creates an instance of InventoryTemplatesOperations with the given parameters
-		/// <param name="module">string</param>
 		/// <param name="sortBy">string</param>
 		/// <param name="sortOrder">string</param>
 		/// <param name="category">string</param>
 		
-		public InventoryTemplatesOperations(string module, string sortBy, string sortOrder, string category)
+		public InventoryTemplatesOperations(string sortBy, string sortOrder, string category)
 		{
-			 this.module=module;
-
 			 this.sortBy=sortBy;
 
 			 this.sortOrder=sortOrder;
@@ -31,8 +27,9 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 		}
 
 		/// <summary>The method to get inventory templates</summary>
+		/// <param name="paramInstance">Instance of ParameterMap</param>
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
-		public APIResponse<ResponseHandler> GetInventoryTemplates()
+		public APIResponse<ResponseHandler> GetInventoryTemplates(ParameterMap paramInstance)
 		{
 			CommonAPIHandler handlerInstance=new CommonAPIHandler();
 
@@ -46,13 +43,13 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatesParam"),  this.module);
-
 			handlerInstance.AddParam(new Param<string>("sort_by", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatesParam"),  this.sortBy);
 
 			handlerInstance.AddParam(new Param<string>("sort_order", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatesParam"),  this.sortOrder);
 
 			handlerInstance.AddParam(new Param<string>("category", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatesParam"),  this.category);
+
+			handlerInstance.Param=paramInstance;
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -78,8 +75,6 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatebyIDParam"),  this.module);
-
 			handlerInstance.AddParam(new Param<string>("sort_by", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatebyIDParam"),  this.sortBy);
 
 			handlerInstance.AddParam(new Param<string>("sort_order", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatebyIDParam"),  this.sortOrder);
@@ -94,6 +89,7 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 		public static class GetInventoryTemplatesParam
 		{
+			public static readonly Param<string> MODULE=new Param<string>("module", "com.zoho.crm.api.InventoryTemplates.GetInventoryTemplatesParam");
 		}
 
 

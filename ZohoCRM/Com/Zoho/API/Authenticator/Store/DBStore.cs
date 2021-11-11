@@ -41,50 +41,35 @@ namespace Com.Zoho.API.Authenticator.Store
 
             public Builder PortNumber(string portNumber)
             {
-                if(portNumber != null)
-                {
-                    this.portNumber = portNumber;
-                }
+                this.portNumber = portNumber;
 
                 return this;
             }
 
             public Builder Password(string password)
             {
-                if (password != null)
-                {
-                    this.password = password;
-                }
+                this.password = password;
 
                 return this;
             }
 
             public Builder Host(string host)
             {
-                if (host != null)
-                {
-                    this.host = host;
-                }
+                this.host = host;
 
                 return this;
             }
 
             public Builder DatabaseName(string databaseName)
             {
-                if (databaseName != null)
-                {
-                    this.databaseName = databaseName;
-                }
+                this.databaseName = databaseName;
 
                 return this;
             }
 
             public Builder TableName(string tableName)
             {
-                if (tableName != null)
-                {
-                    this.tableName = tableName;
-                }
+                this.tableName = tableName;
 
                 return this;
             }
@@ -156,15 +141,27 @@ namespace Com.Zoho.API.Authenticator.Store
                             {
                                 while (result.Read())
                                 {
+                                    string grantToken = result[Constants.GRANT_TOKEN] != null && !result[Constants.GRANT_TOKEN].ToString().Equals(Constants.NULL_VALUE, System.StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(result[Constants.GRANT_TOKEN].ToString()) ? result[Constants.GRANT_TOKEN].ToString() : null;
+
+                                    string redirectURL = result[Constants.REDIRECT_URL] != null && !result[Constants.REDIRECT_URL].ToString().Equals(Constants.NULL_VALUE, System.StringComparison.OrdinalIgnoreCase) && !string.IsNullOrEmpty(result[Constants.REDIRECT_URL].ToString()) ? result[Constants.REDIRECT_URL].ToString() : null;
+
+                                    oauthToken.ClientId = result[Constants.CLIENT_ID].ToString();
+
+                                    oauthToken.ClientSecret = result[Constants.CLIENT_SECRET].ToString();
+
+                                    oauthToken.RefreshToken = result[Constants.REFRESH_TOKEN].ToString();
+
                                     oauthToken.Id = result[Constants.ID].ToString();
+
+                                    oauthToken.GrantToken = grantToken;
+
+                                    oauthToken.UserMail = result[Constants.USER_MAIL].ToString();
 
                                     oauthToken.AccessToken = result[Constants.ACCESS_TOKEN].ToString();
 
                                     oauthToken.ExpiresIn = result[Constants.EXPIRY_TIME].ToString();
 
-                                    oauthToken.RefreshToken = result[Constants.REFRESH_TOKEN].ToString();
-
-                                    oauthToken.UserMail = result[Constants.USER_MAIL].ToString();
+                                    oauthToken.RedirectURL = redirectURL;
 
                                     return oauthToken;
                                 }

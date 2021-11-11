@@ -1018,6 +1018,30 @@ namespace Com.Zoho.Crm.API.Users
 			}
 		}
 
+		public string Category
+		{
+			/// <summary>The method to get the category</summary>
+			/// <returns>string representing the category</returns>
+			get
+			{
+				if((( this.GetKeyValue("category")) != (null)))
+				{
+					return (string) this.GetKeyValue("category");
+
+				}
+					return null;
+
+
+			}
+			/// <summary>The method to set the value to category</summary>
+			/// <param name="category">string</param>
+			set
+			{
+				 this.AddKeyValue("category", value);
+
+			}
+		}
+
 
 	}
 }

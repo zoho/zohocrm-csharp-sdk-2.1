@@ -95,25 +95,27 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string GMT = "GMT";
 
-        public static readonly string LOG_FILE_NAME = "LogFile.log";
+        public static readonly string LOG_FILE_NAME = "sdk_logs.log";
+
+        public static readonly string TOKEN_FILE = "sdk_tokens.txt";
 
         public static readonly string ZOHO_SDK = "X-ZOHO-SDK";
 
-        public static readonly string SDK_VERSION = "4.0.0";
+        public static readonly string SDK_VERSION = "1.0.0";
 
         public static readonly string MODULEPACKAGENAME = "modulePackageName";
 
         public static readonly string MODULEDETAILS = "moduleDetails";
 
-        public static readonly string DATATYPECONVERTER = "Com.Zoho.Crm.API.Util.DataTypeConverter`1[[$type]], ZCRMSDK";
+        public static readonly string DATATYPECONVERTER = "Com.Zoho.Crm.API.Util.DataTypeConverter`1[[$type]], ZOHOCRMSDK-2.1";
 
-        public static readonly string CHOICE = "Com.Zoho.Crm.API.Util.Choice`1[[$type]], ZCRMSDK";
+        public static readonly string CHOICE = "Com.Zoho.Crm.API.Util.Choice`1[[$type]], ZOHOCRMSDK-2.1";
 
         public static readonly string CHOICE_NAME = "Choice";
 
         public static readonly string CHOICE_NAMESPACE = "Com.Zoho.Crm.API.Util.Choice";
 
-        public static readonly string RECORD_TYPE = "Com.Zoho.Crm.API.Record.Record, ZCRMSDK";
+        public static readonly string RECORD_TYPE = "Com.Zoho.Crm.API.Record.Record, ZOHOCRMSDK-2.1";
 
         public static readonly int MAX_ALLOWED_FILE_SIZE_IN_MB = 20;
 
@@ -211,7 +213,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly Dictionary<string, string> DEFAULT_MODULENAME_VS_APINAME;
 
-        public static readonly List<string> PHOTO_SUPPORTED_MODULES = new List<string> { "leads", "contacts", "accounts", "products", "vendors", "deals", "cases", "solutions" };
+        public static readonly List<string> PHOTO_SUPPORTED_MODULES = new List<string> { "leads", "contacts", "accounts", "products", "vendors" };
 
         static Constants()
         {
@@ -545,7 +547,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string API_EXCEPTION = "API_EXCEPTION";
 
-        public static readonly List<string> KEYSTOSKIP = new List<string>(){"Created_Time", "Modified_Time", "Created_By", "Modified_By", "Tag"};
+        public static readonly List<string> KEYSTOSKIP = new List<string>() { "Created_Time", "Modified_Time", "Created_By", "Modified_By", "Tag" };
 
         public static readonly string LINE_TAX = "$line_tax";
 
@@ -593,7 +595,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string UNSUPPORTED_IN_API = "API UNSUPPORTED OPERATION";
 
-	    public static readonly string UNSUPPORTED_IN_API_MESSAGE = " Operation is not supported by API";
+        public static readonly string UNSUPPORTED_IN_API_MESSAGE = " Operation is not supported by API";
 
         public static readonly string NOTES = "Notes";
 
@@ -607,17 +609,17 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string HEADER_NULL_ERROR = "NULL HEADER ERROR";
 
-	    public static readonly string PARAM_NAME_NULL_ERROR = "NULL PARAM NAME ERROR";
+        public static readonly string PARAM_NAME_NULL_ERROR = "NULL PARAM NAME ERROR";
 
-	    public static readonly string HEADER_NAME_NULL_ERROR = "NULL HEADER NAME ERROR";
+        public static readonly string HEADER_NAME_NULL_ERROR = "NULL HEADER NAME ERROR";
 
-	    public static readonly string PARAM_NAME_NULL_ERROR_MESSAGE = "Param Name MUST NOT be null";
+        public static readonly string PARAM_NAME_NULL_ERROR_MESSAGE = "Param Name MUST NOT be null";
 
-	    public static readonly string HEADER_NAME_NULL_ERROR_MESSAGE = "Header Name MUST NOT be null";
+        public static readonly string HEADER_NAME_NULL_ERROR_MESSAGE = "Header Name MUST NOT be null";
 
         public static readonly string PARAM_INSTANCE_NULL_ERROR = "Param<T> Instance MUST NOT be null";
 
-	    public static readonly string HEADER_INSTANCE_NULL_ERROR = "Header<T> Instance MUST NOT be null";
+        public static readonly string HEADER_INSTANCE_NULL_ERROR = "Header<T> Instance MUST NOT be null";
 
         public static readonly string NULL_VALUE_ERROR_MESSAGE = " MUST NOT be null";
 
@@ -647,17 +649,17 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string PROXY_SETTINGS = "Proxy settings - ";
 
-	    public static readonly string PROXY_HOST = "Host: ";
+        public static readonly string PROXY_HOST = "Host: ";
 
-	    public static readonly string PROXY_PORT = "Port: ";
+        public static readonly string PROXY_PORT = "Port: ";
 
-	    public static readonly string PROXY_USER = "User: ";
+        public static readonly string PROXY_USER = "User: ";
 
-	    public static readonly string PROXY_DOMAIN = "Domain: ";
+        public static readonly string PROXY_DOMAIN = "Domain: ";
 
         public static readonly string USER_MAIL_NULL_ERROR = "USER MAIL NULL ERROR";
 
-	    public static readonly string USER_MAIL_NULL_ERROR_MESSAGE = "User Mail MUST NOT be null. Use setUserMail() to set value.";
+        public static readonly string USER_MAIL_NULL_ERROR_MESSAGE = "User Mail MUST NOT be null. Use setUserMail() to set value.";
 
         public static readonly string JSON_FILE_EXTENSION = ".json";
 
@@ -671,7 +673,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string CONSENT_LOOKUP = "consent_lookup";
 
-        public static readonly string TOKEN_ERROR = "TOKEN ERROR" ;
+        public static readonly string TOKEN_ERROR = "TOKEN ERROR";
 
         public static readonly string CLIENT_ID_NULL_ERROR_MESSAGE = "ClientId MUST NOT be null";
 
@@ -713,17 +715,23 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string TERRITORY = "Territory";
 
-        public static readonly List<string> OAUTH_MANDATORY_KEYS = new List<string>() { "grantToken", "refreshToken", "id" };
+        public static readonly List<string> OAUTH_MANDATORY_KEYS = new List<string>() { "grantToken", "refreshToken", "id", "accessToken" };
 
         public static readonly string PRODUCT_NAME = "Product_Name";
 
-        public static readonly List<string> INVENTORY_MODULES_ITEMS = new List<string>(){"invoiced_items", "quoted_items","purchase_items","ordered_items"};
+        public static readonly List<string> INVENTORY_MODULES_ITEMS = new List<string>() { "invoiced_items", "quoted_items", "purchase_items", "ordered_items" };
 
         public static readonly string LINEITEM_PRODUCT = "Com.Zoho.Crm.API.Record.LineItemProduct";
 
         public static readonly string DISCOUNT = "Discount";
 
         public static readonly string LINETAX = "Com.Zoho.Crm.API.Record.LineTax";
+
+        public static readonly string CSHARP = "csharp_";
+
+        public static readonly string OWNER_LOOKUP = "ownerlookup";
+
+        public static readonly List<string> SKIP_MODULES = new List<string>(){"deals"};
         //TODO: Write enum class for RequestMethod and ResponseCode and implement their functions;
     }
 }

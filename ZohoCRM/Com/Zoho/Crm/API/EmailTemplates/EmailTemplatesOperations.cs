@@ -6,21 +6,10 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 	public class EmailTemplatesOperations
 	{
-		private string module;
-
-		/// <summary>		/// Creates an instance of EmailTemplatesOperations with the given parameters
-		/// <param name="module">string</param>
-		
-		public EmailTemplatesOperations(string module)
-		{
-			 this.module=module;
-
-
-		}
-
 		/// <summary>The method to get email templates</summary>
+		/// <param name="paramInstance">Instance of ParameterMap</param>
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
-		public APIResponse<ResponseHandler> GetEmailTemplates()
+		public APIResponse<ResponseHandler> GetEmailTemplates(ParameterMap paramInstance)
 		{
 			CommonAPIHandler handlerInstance=new CommonAPIHandler();
 
@@ -34,7 +23,7 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.EmailTemplates.GetEmailTemplatesParam"),  this.module);
+			handlerInstance.Param=paramInstance;
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -60,8 +49,6 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.EmailTemplates.GetEmailTemplatebyIDParam"),  this.module);
-
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
 
@@ -70,11 +57,7 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 		public static class GetEmailTemplatesParam
 		{
-		}
-
-
-		public static class GetEmailTemplatebyIDParam
-		{
+			public static readonly Param<string> MODULE=new Param<string>("module", "com.zoho.crm.api.EmailTemplates.GetEmailTemplatesParam");
 		}
 
 	}

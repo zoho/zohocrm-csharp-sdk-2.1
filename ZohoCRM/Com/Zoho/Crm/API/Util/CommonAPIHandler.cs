@@ -304,7 +304,7 @@ namespace Com.Zoho.Crm.API.Util
 
             Converter convertInstance = null;
 
-            if (contentType != null && Constants.GENERATE_REQUEST_BODY.Contains(httpMethod))
+            if (contentType != null && Constants.GENERATE_REQUEST_BODY.Contains(httpMethod.ToUpper()))
             {
                 object request;
 
@@ -335,7 +335,7 @@ namespace Com.Zoho.Crm.API.Util
             try
             {
                 connector.AddHeader(Constants.ZOHO_SDK,  Environment.OSVersion.Platform.ToString() + "/" +
-                                                    Environment.OSVersion.Version.ToString() + " CSharp/" +
+                                                    Environment.OSVersion.Version.ToString() + "/csharp-2.1/" +
                                                     Environment.Version.Major.ToString() + "." +
                                                     Environment.Version.Minor.ToString() + ":" + Constants.SDK_VERSION);
 
@@ -399,21 +399,6 @@ namespace Com.Zoho.Crm.API.Util
 
                 throw exception;
             }
-        }
-
-        private bool IsExpectedType(Model model, string className)
-        {
-            Type[] interfaces = model.GetType().GetInterfaces();
-
-            foreach(Type interfaceDetails in interfaces)
-            {
-                if(interfaceDetails.FullName.Equals(className))
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         /// <summary>
@@ -483,6 +468,47 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
+        /// <summary>
+        /// This method to get API response headers.
+        /// </summary>
+        /// <param name="headers">A System.Net.WebHeaderCollection class instance containing the API response headers.</param>
+        /// <returns>A Dictionary&lt;String,String&gt; representing the API response headers.</returns>
+        public Dictionary<string, string> GetHeaders(WebHeaderCollection headers)
+        {
+            Dictionary<string, string> headerMap = new Dictionary<string, string>();
+
+            for (int i = 0; i < headers.Count; ++i)
+            {
+                string headerKey = headers.GetKey(i);
+
+                string headerValue = "";
+
+                foreach (string value in headers.GetValues(i))
+                {
+                    headerValue = string.Concat(headerValue, value);
+                }
+
+                headerMap.Add(headerKey, headerValue);
+            }
+
+            return headerMap;
+        }
+
+        private bool IsExpectedType(Model model, string className)
+        {
+            Type[] interfaces = model.GetType().GetInterfaces();
+
+            foreach(Type interfaceDetails in interfaces)
+            {
+                if(interfaceDetails.FullName.Equals(className))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void SetAPIURL(APIHTTPConnector connector)
         {
             string APIPath = "";
@@ -527,32 +553,6 @@ namespace Com.Zoho.Crm.API.Util
             }
 
             connector.URL = APIPath;
-        }
-
-        /// <summary>
-        /// This method to get API response headers.
-        /// </summary>
-        /// <param name="headers">A System.Net.WebHeaderCollection class instance containing the API response headers.</param>
-        /// <returns>A Dictionary&lt;String,String&gt; representing the API response headers.</returns>
-        public Dictionary<string, string> GetHeaders(WebHeaderCollection headers)
-        {
-            Dictionary<string, string> headerMap = new Dictionary<string, string>();
-
-            for (int i = 0; i < headers.Count; ++i)
-            {
-                string headerKey = headers.GetKey(i);
-
-                string headerValue = "";
-
-                foreach (string value in headers.GetValues(i))
-                {
-                    headerValue = string.Concat(headerValue, value);
-                }
-
-                headerMap.Add(headerKey, headerValue);
-            }
-
-            return headerMap;
         }
     }
 }

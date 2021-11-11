@@ -13,6 +13,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 		private string name;
 		private string systemName;
 		private string displayValue;
+		private DateTimeOffset? createdTime;
 		private string accessType;
 		private string category;
 		private string sortBy;
@@ -105,6 +106,26 @@ namespace Com.Zoho.Crm.API.CustomViews
 				 this.displayValue=value;
 
 				 this.keyModified["display_value"] = 1;
+
+			}
+		}
+
+		public DateTimeOffset? CreatedTime
+		{
+			/// <summary>The method to get the createdTime</summary>
+			/// <returns>DateTimeOffset? representing the createdTime</returns>
+			get
+			{
+				return  this.createdTime;
+
+			}
+			/// <summary>The method to set the value to createdTime</summary>
+			/// <param name="createdTime">DateTimeOffset?</param>
+			set
+			{
+				 this.createdTime=value;
+
+				 this.keyModified["created_time"] = 1;
 
 			}
 		}

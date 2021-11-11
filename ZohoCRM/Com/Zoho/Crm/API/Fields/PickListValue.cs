@@ -7,13 +7,16 @@ namespace Com.Zoho.Crm.API.Fields
 	public class PickListValue : Model
 	{
 		private string displayValue;
+		private int? probability;
+		private long? forecastCategory;
+		private string actualValue;
+		private long? id;
+		private string forecastType;
 		private int? sequenceNumber;
 		private string expectedDataType;
 		private List<Maps> maps;
-		private string actualValue;
 		private string sysRefName;
 		private string type;
-		private long? id;
 		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayValue
@@ -32,6 +35,106 @@ namespace Com.Zoho.Crm.API.Fields
 				 this.displayValue=value;
 
 				 this.keyModified["display_value"] = 1;
+
+			}
+		}
+
+		public int? Probability
+		{
+			/// <summary>The method to get the probability</summary>
+			/// <returns>int? representing the probability</returns>
+			get
+			{
+				return  this.probability;
+
+			}
+			/// <summary>The method to set the value to probability</summary>
+			/// <param name="probability">int?</param>
+			set
+			{
+				 this.probability=value;
+
+				 this.keyModified["probability"] = 1;
+
+			}
+		}
+
+		public long? ForecastCategory
+		{
+			/// <summary>The method to get the forecastCategory</summary>
+			/// <returns>long? representing the forecastCategory</returns>
+			get
+			{
+				return  this.forecastCategory;
+
+			}
+			/// <summary>The method to set the value to forecastCategory</summary>
+			/// <param name="forecastCategory">long?</param>
+			set
+			{
+				 this.forecastCategory=value;
+
+				 this.keyModified["forecast_category"] = 1;
+
+			}
+		}
+
+		public string ActualValue
+		{
+			/// <summary>The method to get the actualValue</summary>
+			/// <returns>string representing the actualValue</returns>
+			get
+			{
+				return  this.actualValue;
+
+			}
+			/// <summary>The method to set the value to actualValue</summary>
+			/// <param name="actualValue">string</param>
+			set
+			{
+				 this.actualValue=value;
+
+				 this.keyModified["actual_value"] = 1;
+
+			}
+		}
+
+		public long? Id
+		{
+			/// <summary>The method to get the id</summary>
+			/// <returns>long? representing the id</returns>
+			get
+			{
+				return  this.id;
+
+			}
+			/// <summary>The method to set the value to id</summary>
+			/// <param name="id">long?</param>
+			set
+			{
+				 this.id=value;
+
+				 this.keyModified["id"] = 1;
+
+			}
+		}
+
+		public string ForecastType
+		{
+			/// <summary>The method to get the forecastType</summary>
+			/// <returns>string representing the forecastType</returns>
+			get
+			{
+				return  this.forecastType;
+
+			}
+			/// <summary>The method to set the value to forecastType</summary>
+			/// <param name="forecastType">string</param>
+			set
+			{
+				 this.forecastType=value;
+
+				 this.keyModified["forecast_type"] = 1;
 
 			}
 		}
@@ -96,26 +199,6 @@ namespace Com.Zoho.Crm.API.Fields
 			}
 		}
 
-		public string ActualValue
-		{
-			/// <summary>The method to get the actualValue</summary>
-			/// <returns>string representing the actualValue</returns>
-			get
-			{
-				return  this.actualValue;
-
-			}
-			/// <summary>The method to set the value to actualValue</summary>
-			/// <param name="actualValue">string</param>
-			set
-			{
-				 this.actualValue=value;
-
-				 this.keyModified["actual_value"] = 1;
-
-			}
-		}
-
 		public string SysRefName
 		{
 			/// <summary>The method to get the sysRefName</summary>
@@ -152,26 +235,6 @@ namespace Com.Zoho.Crm.API.Fields
 				 this.type=value;
 
 				 this.keyModified["type"] = 1;
-
-			}
-		}
-
-		public long? Id
-		{
-			/// <summary>The method to get the id</summary>
-			/// <returns>long? representing the id</returns>
-			get
-			{
-				return  this.id;
-
-			}
-			/// <summary>The method to set the value to id</summary>
-			/// <param name="id">long?</param>
-			set
-			{
-				 this.id=value;
-
-				 this.keyModified["id"] = 1;
 
 			}
 		}
