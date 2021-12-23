@@ -10,54 +10,54 @@ namespace Com.Zoho.Crm.API.Modules
 
 	public class Module : Model
 	{
-		private string name;
-		private bool? globalSearchSupported;
-		private bool? kanbanView;
-		private bool? deletable;
-		private string description;
-		private bool? creatable;
-		private bool? filterStatus;
-		private bool? inventoryTemplateSupported;
-		private DateTimeOffset? modifiedTime;
-		private string pluralLabel;
-		private bool? presenceSubMenu;
-		private bool? isblueprintsupported;
-		private bool? triggersSupported;
-		private long? id;
-		private RelatedListProperties relatedListProperties;
-		private List<string> properties;
-		private List<string> onDemandProperties;
-		private int? perPage;
-		private int? visibility;
-		private bool? visible;
-		private bool? convertable;
-		private bool? editable;
-		private bool? emailtemplateSupport;
-		private List<Profile> profiles;
-		private bool? filterSupported;
-		private string displayField;
-		private List<string> searchLayoutFields;
-		private bool? kanbanViewSupported;
-		private bool? showAsTab;
-		private string webLink;
-		private int? sequenceNumber;
-		private string singularLabel;
-		private bool? viewable;
-		private bool? apiSupported;
-		private string apiName;
-		private bool? quickCreate;
-		private User modifiedBy;
-		private Choice<string> generatedType;
-		private bool? feedsRequired;
-		private bool? scoringSupported;
-		private bool? webformSupported;
-		private List<Argument> arguments;
-		private string moduleName;
-		private int? businessCardFieldLimit;
-		private CustomView customView;
-		private Module parentModule;
-		private Territory territory;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string name;
+		bool? globalSearchSupported;
+		bool? kanbanView;
+		bool? deletable;
+		string description;
+		bool? creatable;
+		bool? filterStatus;
+		bool? inventoryTemplateSupported;
+		DateTimeOffset? modifiedTime;
+		string pluralLabel;
+		bool? presenceSubMenu;
+		bool? isblueprintsupported;
+		bool? triggersSupported;
+		long? id;
+		RelatedListProperties relatedListProperties;
+		List<string> properties;
+		List<string> onDemandProperties;
+		int? perPage;
+		int? visibility;
+		bool? visible;
+		bool? convertable;
+		bool? editable;
+		bool? emailtemplateSupport;
+		List<Profile> profiles;
+		bool? filterSupported;
+		string displayField;
+		List<string> searchLayoutFields;
+		bool? kanbanViewSupported;
+		bool? showAsTab;
+		string webLink;
+		int? sequenceNumber;
+		string singularLabel;
+		bool? viewable;
+		bool? apiSupported;
+		string apiName;
+		bool? quickCreate;
+		User modifiedBy;
+		Choice<string> generatedType;
+		bool? feedsRequired;
+		bool? scoringSupported;
+		bool? webformSupported;
+		List<Argument> arguments;
+		string moduleName;
+		int? businessCardFieldLimit;
+		CustomView customView;
+		Module parentModule;
+		Territory territory;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Name
 		{
@@ -65,16 +65,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -85,16 +85,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the globalSearchSupported</returns>
 			get
 			{
-				return  this.globalSearchSupported;
+				return  globalSearchSupported;
 
 			}
 			/// <summary>The method to set the value to globalSearchSupported</summary>
 			/// <param name="globalSearchSupported">bool?</param>
 			set
 			{
-				 this.globalSearchSupported=value;
+				 globalSearchSupported=value;
 
-				 this.keyModified["global_search_supported"] = 1;
+				 keyModified["global_search_supported"] = 1;
 
 			}
 		}
@@ -105,16 +105,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the kanbanView</returns>
 			get
 			{
-				return  this.kanbanView;
+				return  kanbanView;
 
 			}
 			/// <summary>The method to set the value to kanbanView</summary>
 			/// <param name="kanbanView">bool?</param>
 			set
 			{
-				 this.kanbanView=value;
+				 kanbanView=value;
 
-				 this.keyModified["kanban_view"] = 1;
+				 keyModified["kanban_view"] = 1;
 
 			}
 		}
@@ -125,16 +125,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the deletable</returns>
 			get
 			{
-				return  this.deletable;
+				return  deletable;
 
 			}
 			/// <summary>The method to set the value to deletable</summary>
 			/// <param name="deletable">bool?</param>
 			set
 			{
-				 this.deletable=value;
+				 deletable=value;
 
-				 this.keyModified["deletable"] = 1;
+				 keyModified["deletable"] = 1;
 
 			}
 		}
@@ -145,16 +145,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -165,16 +165,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the creatable</returns>
 			get
 			{
-				return  this.creatable;
+				return  creatable;
 
 			}
 			/// <summary>The method to set the value to creatable</summary>
 			/// <param name="creatable">bool?</param>
 			set
 			{
-				 this.creatable=value;
+				 creatable=value;
 
-				 this.keyModified["creatable"] = 1;
+				 keyModified["creatable"] = 1;
 
 			}
 		}
@@ -185,16 +185,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the filterStatus</returns>
 			get
 			{
-				return  this.filterStatus;
+				return  filterStatus;
 
 			}
 			/// <summary>The method to set the value to filterStatus</summary>
 			/// <param name="filterStatus">bool?</param>
 			set
 			{
-				 this.filterStatus=value;
+				 filterStatus=value;
 
-				 this.keyModified["filter_status"] = 1;
+				 keyModified["filter_status"] = 1;
 
 			}
 		}
@@ -205,16 +205,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the inventoryTemplateSupported</returns>
 			get
 			{
-				return  this.inventoryTemplateSupported;
+				return  inventoryTemplateSupported;
 
 			}
 			/// <summary>The method to set the value to inventoryTemplateSupported</summary>
 			/// <param name="inventoryTemplateSupported">bool?</param>
 			set
 			{
-				 this.inventoryTemplateSupported=value;
+				 inventoryTemplateSupported=value;
 
-				 this.keyModified["inventory_template_supported"] = 1;
+				 keyModified["inventory_template_supported"] = 1;
 
 			}
 		}
@@ -225,16 +225,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -245,16 +245,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the pluralLabel</returns>
 			get
 			{
-				return  this.pluralLabel;
+				return  pluralLabel;
 
 			}
 			/// <summary>The method to set the value to pluralLabel</summary>
 			/// <param name="pluralLabel">string</param>
 			set
 			{
-				 this.pluralLabel=value;
+				 pluralLabel=value;
 
-				 this.keyModified["plural_label"] = 1;
+				 keyModified["plural_label"] = 1;
 
 			}
 		}
@@ -265,16 +265,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the presenceSubMenu</returns>
 			get
 			{
-				return  this.presenceSubMenu;
+				return  presenceSubMenu;
 
 			}
 			/// <summary>The method to set the value to presenceSubMenu</summary>
 			/// <param name="presenceSubMenu">bool?</param>
 			set
 			{
-				 this.presenceSubMenu=value;
+				 presenceSubMenu=value;
 
-				 this.keyModified["presence_sub_menu"] = 1;
+				 keyModified["presence_sub_menu"] = 1;
 
 			}
 		}
@@ -285,16 +285,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the isblueprintsupported</returns>
 			get
 			{
-				return  this.isblueprintsupported;
+				return  isblueprintsupported;
 
 			}
 			/// <summary>The method to set the value to isblueprintsupported</summary>
 			/// <param name="isblueprintsupported">bool?</param>
 			set
 			{
-				 this.isblueprintsupported=value;
+				 isblueprintsupported=value;
 
-				 this.keyModified["isBlueprintSupported"] = 1;
+				 keyModified["isBlueprintSupported"] = 1;
 
 			}
 		}
@@ -305,16 +305,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the triggersSupported</returns>
 			get
 			{
-				return  this.triggersSupported;
+				return  triggersSupported;
 
 			}
 			/// <summary>The method to set the value to triggersSupported</summary>
 			/// <param name="triggersSupported">bool?</param>
 			set
 			{
-				 this.triggersSupported=value;
+				 triggersSupported=value;
 
-				 this.keyModified["triggers_supported"] = 1;
+				 keyModified["triggers_supported"] = 1;
 
 			}
 		}
@@ -325,16 +325,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -345,16 +345,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of RelatedListProperties</returns>
 			get
 			{
-				return  this.relatedListProperties;
+				return  relatedListProperties;
 
 			}
 			/// <summary>The method to set the value to relatedListProperties</summary>
 			/// <param name="relatedListProperties">Instance of RelatedListProperties</param>
 			set
 			{
-				 this.relatedListProperties=value;
+				 relatedListProperties=value;
 
-				 this.keyModified["related_list_properties"] = 1;
+				 keyModified["related_list_properties"] = 1;
 
 			}
 		}
@@ -365,16 +365,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.properties;
+				return  properties;
 
 			}
 			/// <summary>The method to set the value to properties</summary>
 			/// <param name="properties">Instance of List<string></param>
 			set
 			{
-				 this.properties=value;
+				 properties=value;
 
-				 this.keyModified["$properties"] = 1;
+				 keyModified["$properties"] = 1;
 
 			}
 		}
@@ -385,16 +385,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.onDemandProperties;
+				return  onDemandProperties;
 
 			}
 			/// <summary>The method to set the value to onDemandProperties</summary>
 			/// <param name="onDemandProperties">Instance of List<string></param>
 			set
 			{
-				 this.onDemandProperties=value;
+				 onDemandProperties=value;
 
-				 this.keyModified["$on_demand_properties"] = 1;
+				 keyModified["$on_demand_properties"] = 1;
 
 			}
 		}
@@ -405,16 +405,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>int? representing the perPage</returns>
 			get
 			{
-				return  this.perPage;
+				return  perPage;
 
 			}
 			/// <summary>The method to set the value to perPage</summary>
 			/// <param name="perPage">int?</param>
 			set
 			{
-				 this.perPage=value;
+				 perPage=value;
 
-				 this.keyModified["per_page"] = 1;
+				 keyModified["per_page"] = 1;
 
 			}
 		}
@@ -425,16 +425,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>int? representing the visibility</returns>
 			get
 			{
-				return  this.visibility;
+				return  visibility;
 
 			}
 			/// <summary>The method to set the value to visibility</summary>
 			/// <param name="visibility">int?</param>
 			set
 			{
-				 this.visibility=value;
+				 visibility=value;
 
-				 this.keyModified["visibility"] = 1;
+				 keyModified["visibility"] = 1;
 
 			}
 		}
@@ -445,16 +445,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the visible</returns>
 			get
 			{
-				return  this.visible;
+				return  visible;
 
 			}
 			/// <summary>The method to set the value to visible</summary>
 			/// <param name="visible">bool?</param>
 			set
 			{
-				 this.visible=value;
+				 visible=value;
 
-				 this.keyModified["visible"] = 1;
+				 keyModified["visible"] = 1;
 
 			}
 		}
@@ -465,16 +465,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the convertable</returns>
 			get
 			{
-				return  this.convertable;
+				return  convertable;
 
 			}
 			/// <summary>The method to set the value to convertable</summary>
 			/// <param name="convertable">bool?</param>
 			set
 			{
-				 this.convertable=value;
+				 convertable=value;
 
-				 this.keyModified["convertable"] = 1;
+				 keyModified["convertable"] = 1;
 
 			}
 		}
@@ -485,16 +485,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the editable</returns>
 			get
 			{
-				return  this.editable;
+				return  editable;
 
 			}
 			/// <summary>The method to set the value to editable</summary>
 			/// <param name="editable">bool?</param>
 			set
 			{
-				 this.editable=value;
+				 editable=value;
 
-				 this.keyModified["editable"] = 1;
+				 keyModified["editable"] = 1;
 
 			}
 		}
@@ -505,16 +505,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the emailtemplateSupport</returns>
 			get
 			{
-				return  this.emailtemplateSupport;
+				return  emailtemplateSupport;
 
 			}
 			/// <summary>The method to set the value to emailtemplateSupport</summary>
 			/// <param name="emailtemplateSupport">bool?</param>
 			set
 			{
-				 this.emailtemplateSupport=value;
+				 emailtemplateSupport=value;
 
-				 this.keyModified["emailTemplate_support"] = 1;
+				 keyModified["emailTemplate_support"] = 1;
 
 			}
 		}
@@ -525,16 +525,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<Profile></returns>
 			get
 			{
-				return  this.profiles;
+				return  profiles;
 
 			}
 			/// <summary>The method to set the value to profiles</summary>
 			/// <param name="profiles">Instance of List<Profile></param>
 			set
 			{
-				 this.profiles=value;
+				 profiles=value;
 
-				 this.keyModified["profiles"] = 1;
+				 keyModified["profiles"] = 1;
 
 			}
 		}
@@ -545,16 +545,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the filterSupported</returns>
 			get
 			{
-				return  this.filterSupported;
+				return  filterSupported;
 
 			}
 			/// <summary>The method to set the value to filterSupported</summary>
 			/// <param name="filterSupported">bool?</param>
 			set
 			{
-				 this.filterSupported=value;
+				 filterSupported=value;
 
-				 this.keyModified["filter_supported"] = 1;
+				 keyModified["filter_supported"] = 1;
 
 			}
 		}
@@ -565,16 +565,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the displayField</returns>
 			get
 			{
-				return  this.displayField;
+				return  displayField;
 
 			}
 			/// <summary>The method to set the value to displayField</summary>
 			/// <param name="displayField">string</param>
 			set
 			{
-				 this.displayField=value;
+				 displayField=value;
 
-				 this.keyModified["display_field"] = 1;
+				 keyModified["display_field"] = 1;
 
 			}
 		}
@@ -585,16 +585,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.searchLayoutFields;
+				return  searchLayoutFields;
 
 			}
 			/// <summary>The method to set the value to searchLayoutFields</summary>
 			/// <param name="searchLayoutFields">Instance of List<string></param>
 			set
 			{
-				 this.searchLayoutFields=value;
+				 searchLayoutFields=value;
 
-				 this.keyModified["search_layout_fields"] = 1;
+				 keyModified["search_layout_fields"] = 1;
 
 			}
 		}
@@ -605,16 +605,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the kanbanViewSupported</returns>
 			get
 			{
-				return  this.kanbanViewSupported;
+				return  kanbanViewSupported;
 
 			}
 			/// <summary>The method to set the value to kanbanViewSupported</summary>
 			/// <param name="kanbanViewSupported">bool?</param>
 			set
 			{
-				 this.kanbanViewSupported=value;
+				 kanbanViewSupported=value;
 
-				 this.keyModified["kanban_view_supported"] = 1;
+				 keyModified["kanban_view_supported"] = 1;
 
 			}
 		}
@@ -625,16 +625,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the showAsTab</returns>
 			get
 			{
-				return  this.showAsTab;
+				return  showAsTab;
 
 			}
 			/// <summary>The method to set the value to showAsTab</summary>
 			/// <param name="showAsTab">bool?</param>
 			set
 			{
-				 this.showAsTab=value;
+				 showAsTab=value;
 
-				 this.keyModified["show_as_tab"] = 1;
+				 keyModified["show_as_tab"] = 1;
 
 			}
 		}
@@ -645,16 +645,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the webLink</returns>
 			get
 			{
-				return  this.webLink;
+				return  webLink;
 
 			}
 			/// <summary>The method to set the value to webLink</summary>
 			/// <param name="webLink">string</param>
 			set
 			{
-				 this.webLink=value;
+				 webLink=value;
 
-				 this.keyModified["web_link"] = 1;
+				 keyModified["web_link"] = 1;
 
 			}
 		}
@@ -665,16 +665,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -685,16 +685,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the singularLabel</returns>
 			get
 			{
-				return  this.singularLabel;
+				return  singularLabel;
 
 			}
 			/// <summary>The method to set the value to singularLabel</summary>
 			/// <param name="singularLabel">string</param>
 			set
 			{
-				 this.singularLabel=value;
+				 singularLabel=value;
 
-				 this.keyModified["singular_label"] = 1;
+				 keyModified["singular_label"] = 1;
 
 			}
 		}
@@ -705,16 +705,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the viewable</returns>
 			get
 			{
-				return  this.viewable;
+				return  viewable;
 
 			}
 			/// <summary>The method to set the value to viewable</summary>
 			/// <param name="viewable">bool?</param>
 			set
 			{
-				 this.viewable=value;
+				 viewable=value;
 
-				 this.keyModified["viewable"] = 1;
+				 keyModified["viewable"] = 1;
 
 			}
 		}
@@ -725,16 +725,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the apiSupported</returns>
 			get
 			{
-				return  this.apiSupported;
+				return  apiSupported;
 
 			}
 			/// <summary>The method to set the value to aPISupported</summary>
 			/// <param name="apiSupported">bool?</param>
 			set
 			{
-				 this.apiSupported=value;
+				 apiSupported=value;
 
-				 this.keyModified["api_supported"] = 1;
+				 keyModified["api_supported"] = 1;
 
 			}
 		}
@@ -745,16 +745,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -765,16 +765,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the quickCreate</returns>
 			get
 			{
-				return  this.quickCreate;
+				return  quickCreate;
 
 			}
 			/// <summary>The method to set the value to quickCreate</summary>
 			/// <param name="quickCreate">bool?</param>
 			set
 			{
-				 this.quickCreate=value;
+				 quickCreate=value;
 
-				 this.keyModified["quick_create"] = 1;
+				 keyModified["quick_create"] = 1;
 
 			}
 		}
@@ -785,16 +785,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -805,16 +805,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.generatedType;
+				return  generatedType;
 
 			}
 			/// <summary>The method to set the value to generatedType</summary>
 			/// <param name="generatedType">Instance of Choice<string></param>
 			set
 			{
-				 this.generatedType=value;
+				 generatedType=value;
 
-				 this.keyModified["generated_type"] = 1;
+				 keyModified["generated_type"] = 1;
 
 			}
 		}
@@ -825,16 +825,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the feedsRequired</returns>
 			get
 			{
-				return  this.feedsRequired;
+				return  feedsRequired;
 
 			}
 			/// <summary>The method to set the value to feedsRequired</summary>
 			/// <param name="feedsRequired">bool?</param>
 			set
 			{
-				 this.feedsRequired=value;
+				 feedsRequired=value;
 
-				 this.keyModified["feeds_required"] = 1;
+				 keyModified["feeds_required"] = 1;
 
 			}
 		}
@@ -845,16 +845,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the scoringSupported</returns>
 			get
 			{
-				return  this.scoringSupported;
+				return  scoringSupported;
 
 			}
 			/// <summary>The method to set the value to scoringSupported</summary>
 			/// <param name="scoringSupported">bool?</param>
 			set
 			{
-				 this.scoringSupported=value;
+				 scoringSupported=value;
 
-				 this.keyModified["scoring_supported"] = 1;
+				 keyModified["scoring_supported"] = 1;
 
 			}
 		}
@@ -865,16 +865,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the webformSupported</returns>
 			get
 			{
-				return  this.webformSupported;
+				return  webformSupported;
 
 			}
 			/// <summary>The method to set the value to webformSupported</summary>
 			/// <param name="webformSupported">bool?</param>
 			set
 			{
-				 this.webformSupported=value;
+				 webformSupported=value;
 
-				 this.keyModified["webform_supported"] = 1;
+				 keyModified["webform_supported"] = 1;
 
 			}
 		}
@@ -885,16 +885,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<Argument></returns>
 			get
 			{
-				return  this.arguments;
+				return  arguments;
 
 			}
 			/// <summary>The method to set the value to arguments</summary>
 			/// <param name="arguments">Instance of List<Argument></param>
 			set
 			{
-				 this.arguments=value;
+				 arguments=value;
 
-				 this.keyModified["arguments"] = 1;
+				 keyModified["arguments"] = 1;
 
 			}
 		}
@@ -905,16 +905,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the moduleName</returns>
 			get
 			{
-				return  this.moduleName;
+				return  moduleName;
 
 			}
 			/// <summary>The method to set the value to moduleName</summary>
 			/// <param name="moduleName">string</param>
 			set
 			{
-				 this.moduleName=value;
+				 moduleName=value;
 
-				 this.keyModified["module_name"] = 1;
+				 keyModified["module_name"] = 1;
 
 			}
 		}
@@ -925,16 +925,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>int? representing the businessCardFieldLimit</returns>
 			get
 			{
-				return  this.businessCardFieldLimit;
+				return  businessCardFieldLimit;
 
 			}
 			/// <summary>The method to set the value to businessCardFieldLimit</summary>
 			/// <param name="businessCardFieldLimit">int?</param>
 			set
 			{
-				 this.businessCardFieldLimit=value;
+				 businessCardFieldLimit=value;
 
-				 this.keyModified["business_card_field_limit"] = 1;
+				 keyModified["business_card_field_limit"] = 1;
 
 			}
 		}
@@ -945,16 +945,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of CustomView</returns>
 			get
 			{
-				return  this.customView;
+				return  customView;
 
 			}
 			/// <summary>The method to set the value to customView</summary>
 			/// <param name="customView">Instance of CustomView</param>
 			set
 			{
-				 this.customView=value;
+				 customView=value;
 
-				 this.keyModified["custom_view"] = 1;
+				 keyModified["custom_view"] = 1;
 
 			}
 		}
@@ -965,16 +965,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.parentModule;
+				return  parentModule;
 
 			}
 			/// <summary>The method to set the value to parentModule</summary>
 			/// <param name="parentModule">Instance of Module</param>
 			set
 			{
-				 this.parentModule=value;
+				 parentModule=value;
 
-				 this.keyModified["parent_module"] = 1;
+				 keyModified["parent_module"] = 1;
 
 			}
 		}
@@ -985,16 +985,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of Territory</returns>
 			get
 			{
-				return  this.territory;
+				return  territory;
 
 			}
 			/// <summary>The method to set the value to territory</summary>
 			/// <param name="territory">Instance of Territory</param>
 			set
 			{
-				 this.territory=value;
+				 territory=value;
 
-				 this.keyModified["territory"] = 1;
+				 keyModified["territory"] = 1;
 
 			}
 		}
@@ -1004,9 +1004,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -1019,7 +1019,7 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

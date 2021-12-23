@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class MassUpdate : Model, MassUpdateResponse
 	{
-		private Choice<string> status;
-		private int? failedCount;
-		private int? updatedCount;
-		private int? notUpdatedCount;
-		private int? totalCount;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> status;
+		int? failedCount;
+		int? updatedCount;
+		int? notUpdatedCount;
+		int? totalCount;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Status
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">Instance of Choice<string></param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["Status"] = 1;
+				 keyModified["Status"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>int? representing the failedCount</returns>
 			get
 			{
-				return  this.failedCount;
+				return  failedCount;
 
 			}
 			/// <summary>The method to set the value to failedCount</summary>
 			/// <param name="failedCount">int?</param>
 			set
 			{
-				 this.failedCount=value;
+				 failedCount=value;
 
-				 this.keyModified["Failed_Count"] = 1;
+				 keyModified["Failed_Count"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>int? representing the updatedCount</returns>
 			get
 			{
-				return  this.updatedCount;
+				return  updatedCount;
 
 			}
 			/// <summary>The method to set the value to updatedCount</summary>
 			/// <param name="updatedCount">int?</param>
 			set
 			{
-				 this.updatedCount=value;
+				 updatedCount=value;
 
-				 this.keyModified["Updated_Count"] = 1;
+				 keyModified["Updated_Count"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>int? representing the notUpdatedCount</returns>
 			get
 			{
-				return  this.notUpdatedCount;
+				return  notUpdatedCount;
 
 			}
 			/// <summary>The method to set the value to notUpdatedCount</summary>
 			/// <param name="notUpdatedCount">int?</param>
 			set
 			{
-				 this.notUpdatedCount=value;
+				 notUpdatedCount=value;
 
-				 this.keyModified["Not_Updated_Count"] = 1;
+				 keyModified["Not_Updated_Count"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>int? representing the totalCount</returns>
 			get
 			{
-				return  this.totalCount;
+				return  totalCount;
 
 			}
 			/// <summary>The method to set the value to totalCount</summary>
 			/// <param name="totalCount">int?</param>
 			set
 			{
-				 this.totalCount=value;
+				 totalCount=value;
 
-				 this.keyModified["Total_Count"] = 1;
+				 keyModified["Total_Count"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -7,7 +7,7 @@ namespace Com.Zoho.Crm.API.Profiles
 
 	public class ProfilesOperations
 	{
-		private DateTimeOffset? ifModifiedSince;
+		DateTimeOffset? ifModifiedSince;
 
 		/// <summary>		/// Creates an instance of ProfilesOperations with the given parameters
 		/// <param name="ifModifiedSince">DateTimeOffset?</param>
@@ -23,9 +23,9 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetProfiles()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/profiles");
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Profiles
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<DateTimeOffset?>("If-Modified-Since", "com.zoho.crm.api.Profiles.GetProfilesHeader"),  this.ifModifiedSince);
+			handlerInstance.AddHeader(new Header<DateTimeOffset?>("If-Modified-Since", "com.zoho.crm.api.Profiles.GetProfilesHeader"),  ifModifiedSince);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -47,9 +47,9 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetProfile(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/profiles/");
 
@@ -61,7 +61,7 @@ namespace Com.Zoho.Crm.API.Profiles
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<DateTimeOffset?>("If-Modified-Since", "com.zoho.crm.api.Profiles.GetProfileHeader"),  this.ifModifiedSince);
+			handlerInstance.AddHeader(new Header<DateTimeOffset?>("If-Modified-Since", "com.zoho.crm.api.Profiles.GetProfileHeader"),  ifModifiedSince);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 

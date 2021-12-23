@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class File : Model
 	{
-		private Choice<string> status;
-		private string name;
-		private int? addedCount;
-		private int? skippedCount;
-		private int? updatedCount;
-		private int? totalCount;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> status;
+		string name;
+		int? addedCount;
+		int? skippedCount;
+		int? updatedCount;
+		int? totalCount;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Status
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">Instance of Choice<string></param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the addedCount</returns>
 			get
 			{
-				return  this.addedCount;
+				return  addedCount;
 
 			}
 			/// <summary>The method to set the value to addedCount</summary>
 			/// <param name="addedCount">int?</param>
 			set
 			{
-				 this.addedCount=value;
+				 addedCount=value;
 
-				 this.keyModified["added_count"] = 1;
+				 keyModified["added_count"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the skippedCount</returns>
 			get
 			{
-				return  this.skippedCount;
+				return  skippedCount;
 
 			}
 			/// <summary>The method to set the value to skippedCount</summary>
 			/// <param name="skippedCount">int?</param>
 			set
 			{
-				 this.skippedCount=value;
+				 skippedCount=value;
 
-				 this.keyModified["skipped_count"] = 1;
+				 keyModified["skipped_count"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the updatedCount</returns>
 			get
 			{
-				return  this.updatedCount;
+				return  updatedCount;
 
 			}
 			/// <summary>The method to set the value to updatedCount</summary>
 			/// <param name="updatedCount">int?</param>
 			set
 			{
-				 this.updatedCount=value;
+				 updatedCount=value;
 
-				 this.keyModified["updated_count"] = 1;
+				 keyModified["updated_count"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the totalCount</returns>
 			get
 			{
-				return  this.totalCount;
+				return  totalCount;
 
 			}
 			/// <summary>The method to set the value to totalCount</summary>
 			/// <param name="totalCount">int?</param>
 			set
 			{
-				 this.totalCount=value;
+				 totalCount=value;
 
-				 this.keyModified["total_count"] = 1;
+				 keyModified["total_count"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

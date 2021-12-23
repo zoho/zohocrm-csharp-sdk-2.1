@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<AssignmentRule> assignmentRules;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<AssignmentRule> assignmentRules;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<AssignmentRule> AssignmentRules
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>Instance of List<AssignmentRule></returns>
 			get
 			{
-				return  this.assignmentRules;
+				return  assignmentRules;
 
 			}
 			/// <summary>The method to set the value to assignmentRules</summary>
 			/// <param name="assignmentRules">Instance of List<AssignmentRule></param>
 			set
 			{
-				 this.assignmentRules=value;
+				 assignmentRules=value;
 
-				 this.keyModified["assignment_rules"] = 1;
+				 keyModified["assignment_rules"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

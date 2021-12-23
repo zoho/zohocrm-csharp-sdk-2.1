@@ -5,8 +5,8 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class BluePrintOperations
 	{
-		private string moduleAPIName;
-		private long? recordId;
+		string moduleAPIName;
+		long? recordId;
 
 		/// <summary>		/// Creates an instance of BluePrintOperations with the given parameters
 		/// <param name="recordId">long?</param>
@@ -25,17 +25,17 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetBlueprint()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/blueprint");
 
@@ -55,17 +55,17 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>Instance of APIResponse<ActionResponse></returns>
 		public APIResponse<ActionResponse> UpdateBlueprint(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/blueprint");
 

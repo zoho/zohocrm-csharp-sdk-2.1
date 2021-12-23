@@ -9,9 +9,9 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetTerritories()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/territories");
 
@@ -31,9 +31,9 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetTerritory(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/territories/");
 

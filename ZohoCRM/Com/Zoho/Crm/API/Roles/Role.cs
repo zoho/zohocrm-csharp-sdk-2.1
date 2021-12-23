@@ -7,15 +7,15 @@ namespace Com.Zoho.Crm.API.Roles
 
 	public class Role : Model
 	{
-		private string displayLabel;
-		private User forecastManager;
-		private bool? shareWithPeers;
-		private string name;
-		private string description;
-		private long? id;
-		private User reportingTo;
-		private bool? adminUser;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		User forecastManager;
+		bool? shareWithPeers;
+		string name;
+		string description;
+		long? id;
+		User reportingTo;
+		bool? adminUser;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -23,16 +23,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -43,16 +43,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.forecastManager;
+				return  forecastManager;
 
 			}
 			/// <summary>The method to set the value to forecastManager</summary>
 			/// <param name="forecastManager">Instance of User</param>
 			set
 			{
-				 this.forecastManager=value;
+				 forecastManager=value;
 
-				 this.keyModified["forecast_manager"] = 1;
+				 keyModified["forecast_manager"] = 1;
 
 			}
 		}
@@ -63,16 +63,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>bool? representing the shareWithPeers</returns>
 			get
 			{
-				return  this.shareWithPeers;
+				return  shareWithPeers;
 
 			}
 			/// <summary>The method to set the value to shareWithPeers</summary>
 			/// <param name="shareWithPeers">bool?</param>
 			set
 			{
-				 this.shareWithPeers=value;
+				 shareWithPeers=value;
 
-				 this.keyModified["share_with_peers"] = 1;
+				 keyModified["share_with_peers"] = 1;
 
 			}
 		}
@@ -83,16 +83,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -103,16 +103,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -123,16 +123,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -143,16 +143,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.reportingTo;
+				return  reportingTo;
 
 			}
 			/// <summary>The method to set the value to reportingTo</summary>
 			/// <param name="reportingTo">Instance of User</param>
 			set
 			{
-				 this.reportingTo=value;
+				 reportingTo=value;
 
-				 this.keyModified["reporting_to"] = 1;
+				 keyModified["reporting_to"] = 1;
 
 			}
 		}
@@ -163,16 +163,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>bool? representing the adminUser</returns>
 			get
 			{
-				return  this.adminUser;
+				return  adminUser;
 
 			}
 			/// <summary>The method to set the value to adminUser</summary>
 			/// <param name="adminUser">bool?</param>
 			set
 			{
-				 this.adminUser=value;
+				 adminUser=value;
 
-				 this.keyModified["admin_user"] = 1;
+				 keyModified["admin_user"] = 1;
 
 			}
 		}
@@ -182,9 +182,9 @@ namespace Com.Zoho.Crm.API.Roles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -197,7 +197,7 @@ namespace Com.Zoho.Crm.API.Roles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

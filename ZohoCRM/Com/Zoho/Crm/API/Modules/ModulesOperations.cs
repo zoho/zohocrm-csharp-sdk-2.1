@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetModules(HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules");
 
@@ -36,9 +36,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetModule(string apiName)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 
@@ -61,9 +61,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateModuleByAPIName(string apiName, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 
@@ -90,9 +90,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateModuleById(long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 

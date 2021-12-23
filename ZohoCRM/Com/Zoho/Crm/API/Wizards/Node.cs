@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Node : Model
 	{
-		private int? posY;
-		private int? posX;
-		private bool? startNode;
-		private Screen screen;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		int? posY;
+		int? posX;
+		bool? startNode;
+		Screen screen;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public int? PosY
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the posY</returns>
 			get
 			{
-				return  this.posY;
+				return  posY;
 
 			}
 			/// <summary>The method to set the value to posY</summary>
 			/// <param name="posY">int?</param>
 			set
 			{
-				 this.posY=value;
+				 posY=value;
 
-				 this.keyModified["pos_y"] = 1;
+				 keyModified["pos_y"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the posX</returns>
 			get
 			{
-				return  this.posX;
+				return  posX;
 
 			}
 			/// <summary>The method to set the value to posX</summary>
 			/// <param name="posX">int?</param>
 			set
 			{
-				 this.posX=value;
+				 posX=value;
 
-				 this.keyModified["pos_x"] = 1;
+				 keyModified["pos_x"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>bool? representing the startNode</returns>
 			get
 			{
-				return  this.startNode;
+				return  startNode;
 
 			}
 			/// <summary>The method to set the value to startNode</summary>
 			/// <param name="startNode">bool?</param>
 			set
 			{
-				 this.startNode=value;
+				 startNode=value;
 
-				 this.keyModified["start_node"] = 1;
+				 keyModified["start_node"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Screen</returns>
 			get
 			{
-				return  this.screen;
+				return  screen;
 
 			}
 			/// <summary>The method to set the value to screen</summary>
 			/// <param name="screen">Instance of Screen</param>
 			set
 			{
-				 this.screen=value;
+				 screen=value;
 
-				 this.keyModified["screen"] = 1;
+				 keyModified["screen"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class ToolTip : Model
 	{
-		private string name;
-		private string value;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string name;
+		string value;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Name
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -36,7 +36,7 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the value</returns>
 			get
 			{
-				return  this.value;
+				return  value;
 
 			}
 			/// <summary>The method to set the value to value</summary>
@@ -45,7 +45,7 @@ namespace Com.Zoho.Crm.API.Fields
 			{
 				 this.value=value;
 
-				 this.keyModified["value"] = 1;
+				 keyModified["value"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

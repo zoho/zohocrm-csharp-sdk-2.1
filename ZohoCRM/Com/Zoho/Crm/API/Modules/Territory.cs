@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Modules
 
 	public class Territory : Model
 	{
-		private long? id;
-		private string name;
-		private bool? subordinates;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		string name;
+		bool? subordinates;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>bool? representing the subordinates</returns>
 			get
 			{
-				return  this.subordinates;
+				return  subordinates;
 
 			}
 			/// <summary>The method to set the value to subordinates</summary>
 			/// <param name="subordinates">bool?</param>
 			set
 			{
-				 this.subordinates=value;
+				 subordinates=value;
 
-				 this.keyModified["subordinates"] = 1;
+				 keyModified["subordinates"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

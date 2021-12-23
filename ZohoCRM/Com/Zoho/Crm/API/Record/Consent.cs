@@ -14,9 +14,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of User</returns>
 			get
 			{
-				if((( this.GetKeyValue("Owner")) != (null)))
+				if((( GetKeyValue("Owner")) != (null)))
 				{
-					return (User) this.GetKeyValue("Owner");
+					return (User) GetKeyValue("Owner");
 
 				}
 					return null;
@@ -27,7 +27,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="owner">Instance of User</param>
 			set
 			{
-				 this.AddKeyValue("Owner", value);
+				 AddKeyValue("Owner", value);
 
 			}
 		}
@@ -38,9 +38,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the contactThroughEmail</returns>
 			get
 			{
-				if((( this.GetKeyValue("Contact_Through_Email")) != (null)))
+				if((( GetKeyValue("Contact_Through_Email")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("Contact_Through_Email");
+					return (bool?) GetKeyValue("Contact_Through_Email");
 
 				}
 					return null;
@@ -51,7 +51,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="contactThroughEmail">bool?</param>
 			set
 			{
-				 this.AddKeyValue("Contact_Through_Email", value);
+				 AddKeyValue("Contact_Through_Email", value);
 
 			}
 		}
@@ -62,9 +62,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the contactThroughSocial</returns>
 			get
 			{
-				if((( this.GetKeyValue("Contact_Through_Social")) != (null)))
+				if((( GetKeyValue("Contact_Through_Social")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("Contact_Through_Social");
+					return (bool?) GetKeyValue("Contact_Through_Social");
 
 				}
 					return null;
@@ -75,7 +75,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="contactThroughSocial">bool?</param>
 			set
 			{
-				 this.AddKeyValue("Contact_Through_Social", value);
+				 AddKeyValue("Contact_Through_Social", value);
 
 			}
 		}
@@ -86,9 +86,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the contactThroughSurvey</returns>
 			get
 			{
-				if((( this.GetKeyValue("Contact_Through_Survey")) != (null)))
+				if((( GetKeyValue("Contact_Through_Survey")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("Contact_Through_Survey");
+					return (bool?) GetKeyValue("Contact_Through_Survey");
 
 				}
 					return null;
@@ -99,7 +99,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="contactThroughSurvey">bool?</param>
 			set
 			{
-				 this.AddKeyValue("Contact_Through_Survey", value);
+				 AddKeyValue("Contact_Through_Survey", value);
 
 			}
 		}
@@ -110,9 +110,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the contactThroughPhone</returns>
 			get
 			{
-				if((( this.GetKeyValue("Contact_Through_Phone")) != (null)))
+				if((( GetKeyValue("Contact_Through_Phone")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("Contact_Through_Phone");
+					return (bool?) GetKeyValue("Contact_Through_Phone");
 
 				}
 					return null;
@@ -123,7 +123,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="contactThroughPhone">bool?</param>
 			set
 			{
-				 this.AddKeyValue("Contact_Through_Phone", value);
+				 AddKeyValue("Contact_Through_Phone", value);
 
 			}
 		}
@@ -134,9 +134,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTimeOffset? representing the mailSentTime</returns>
 			get
 			{
-				if((( this.GetKeyValue("Mail_Sent_Time")) != (null)))
+				if((( GetKeyValue("Mail_Sent_Time")) != (null)))
 				{
-					return (DateTimeOffset?) this.GetKeyValue("Mail_Sent_Time");
+					return (DateTimeOffset?) GetKeyValue("Mail_Sent_Time");
 
 				}
 					return null;
@@ -147,7 +147,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="mailSentTime">DateTimeOffset?</param>
 			set
 			{
-				 this.AddKeyValue("Mail_Sent_Time", value);
+				 AddKeyValue("Mail_Sent_Time", value);
 
 			}
 		}
@@ -158,9 +158,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTime? representing the consentDate</returns>
 			get
 			{
-				if((( this.GetKeyValue("Consent_Date")) != (null)))
+				if((( GetKeyValue("Consent_Date")) != (null)))
 				{
-					return (DateTime?) this.GetKeyValue("Consent_Date");
+					return (DateTime?) GetKeyValue("Consent_Date");
 
 				}
 					return null;
@@ -171,7 +171,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="consentDate">DateTime?</param>
 			set
 			{
-				 this.AddKeyValue("Consent_Date", value);
+				 AddKeyValue("Consent_Date", value);
 
 			}
 		}
@@ -182,9 +182,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the consentRemarks</returns>
 			get
 			{
-				if((( this.GetKeyValue("Consent_Remarks")) != (null)))
+				if((( GetKeyValue("Consent_Remarks")) != (null)))
 				{
-					return (string) this.GetKeyValue("Consent_Remarks");
+					return (string) GetKeyValue("Consent_Remarks");
 
 				}
 					return null;
@@ -195,7 +195,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="consentRemarks">string</param>
 			set
 			{
-				 this.AddKeyValue("Consent_Remarks", value);
+				 AddKeyValue("Consent_Remarks", value);
 
 			}
 		}
@@ -206,9 +206,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the consentThrough</returns>
 			get
 			{
-				if((( this.GetKeyValue("Consent_Through")) != (null)))
+				if((( GetKeyValue("Consent_Through")) != (null)))
 				{
-					return (string) this.GetKeyValue("Consent_Through");
+					return (string) GetKeyValue("Consent_Through");
 
 				}
 					return null;
@@ -219,7 +219,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="consentThrough">string</param>
 			set
 			{
-				 this.AddKeyValue("Consent_Through", value);
+				 AddKeyValue("Consent_Through", value);
 
 			}
 		}
@@ -230,9 +230,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the dataProcessingBasis</returns>
 			get
 			{
-				if((( this.GetKeyValue("Data_Processing_Basis")) != (null)))
+				if((( GetKeyValue("Data_Processing_Basis")) != (null)))
 				{
-					return (string) this.GetKeyValue("Data_Processing_Basis");
+					return (string) GetKeyValue("Data_Processing_Basis");
 
 				}
 					return null;
@@ -243,7 +243,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="dataProcessingBasis">string</param>
 			set
 			{
-				 this.AddKeyValue("Data_Processing_Basis", value);
+				 AddKeyValue("Data_Processing_Basis", value);
 
 			}
 		}

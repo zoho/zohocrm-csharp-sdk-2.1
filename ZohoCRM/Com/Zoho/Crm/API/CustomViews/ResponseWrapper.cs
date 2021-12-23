@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<CustomView> customViews;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<CustomView> customViews;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<CustomView> CustomViews
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of List<CustomView></returns>
 			get
 			{
-				return  this.customViews;
+				return  customViews;
 
 			}
 			/// <summary>The method to set the value to customViews</summary>
 			/// <param name="customViews">Instance of List<CustomView></param>
 			set
 			{
-				 this.customViews=value;
+				 customViews=value;
 
-				 this.keyModified["custom_views"] = 1;
+				 keyModified["custom_views"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

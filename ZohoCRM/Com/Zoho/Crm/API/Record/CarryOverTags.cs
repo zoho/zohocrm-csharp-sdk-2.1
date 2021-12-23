@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class CarryOverTags : Model
 	{
-		private List<string> contacts;
-		private List<string> accounts;
-		private List<string> deals;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<string> contacts;
+		List<string> accounts;
+		List<string> deals;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<string> Contacts
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.contacts;
+				return  contacts;
 
 			}
 			/// <summary>The method to set the value to contacts</summary>
 			/// <param name="contacts">Instance of List<string></param>
 			set
 			{
-				 this.contacts=value;
+				 contacts=value;
 
-				 this.keyModified["Contacts"] = 1;
+				 keyModified["Contacts"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.accounts;
+				return  accounts;
 
 			}
 			/// <summary>The method to set the value to accounts</summary>
 			/// <param name="accounts">Instance of List<string></param>
 			set
 			{
-				 this.accounts=value;
+				 accounts=value;
 
-				 this.keyModified["Accounts"] = 1;
+				 keyModified["Accounts"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.deals;
+				return  deals;
 
 			}
 			/// <summary>The method to set the value to deals</summary>
 			/// <param name="deals">Instance of List<string></param>
 			set
 			{
-				 this.deals=value;
+				 deals=value;
 
-				 this.keyModified["Deals"] = 1;
+				 keyModified["Deals"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

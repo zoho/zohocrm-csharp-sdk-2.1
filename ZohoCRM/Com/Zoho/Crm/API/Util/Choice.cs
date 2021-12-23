@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Util
 {
     public class Choice<T>
     {
-        private T value;
+        T value;
 
-        private Choice()
+        Choice()
         {
         }
 
@@ -21,7 +21,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.value;
+                return value;
             }
         }
     }

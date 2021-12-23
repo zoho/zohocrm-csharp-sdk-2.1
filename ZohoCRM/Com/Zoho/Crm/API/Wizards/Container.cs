@@ -7,11 +7,11 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Container : Model
 	{
-		private long? id;
-		private Layout layout;
-		private ChartData chartData;
-		private List<Screen> screens;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		Layout layout;
+		ChartData chartData;
+		List<Screen> screens;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Layout</returns>
 			get
 			{
-				return  this.layout;
+				return  layout;
 
 			}
 			/// <summary>The method to set the value to layout</summary>
 			/// <param name="layout">Instance of Layout</param>
 			set
 			{
-				 this.layout=value;
+				 layout=value;
 
-				 this.keyModified["layout"] = 1;
+				 keyModified["layout"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of ChartData</returns>
 			get
 			{
-				return  this.chartData;
+				return  chartData;
 
 			}
 			/// <summary>The method to set the value to chartData</summary>
 			/// <param name="chartData">Instance of ChartData</param>
 			set
 			{
-				 this.chartData=value;
+				 chartData=value;
 
-				 this.keyModified["chart_data"] = 1;
+				 keyModified["chart_data"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Screen></returns>
 			get
 			{
-				return  this.screens;
+				return  screens;
 
 			}
 			/// <summary>The method to set the value to screens</summary>
 			/// <param name="screens">Instance of List<Screen></param>
 			set
 			{
-				 this.screens=value;
+				 screens=value;
 
-				 this.keyModified["screens"] = 1;
+				 keyModified["screens"] = 1;
 
 			}
 		}
@@ -98,9 +98,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -113,7 +113,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

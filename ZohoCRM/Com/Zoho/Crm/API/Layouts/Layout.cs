@@ -9,21 +9,21 @@ namespace Com.Zoho.Crm.API.Layouts
 
 	public class Layout : Model
 	{
-		private DateTimeOffset? createdTime;
-		private Dictionary<string, object> convertMapping;
-		private DateTimeOffset? modifiedTime;
-		private bool? visible;
-		private User createdFor;
-		private string name;
-		private User modifiedBy;
-		private List<Profile> profiles;
-		private long? id;
-		private User createdBy;
-		private List<Section> sections;
-		private int? status;
-		private int? displayType;
-		private bool? showBusinessCard;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? createdTime;
+		Dictionary<string, object> convertMapping;
+		DateTimeOffset? modifiedTime;
+		bool? visible;
+		User createdFor;
+		string name;
+		User modifiedBy;
+		List<Profile> profiles;
+		long? id;
+		User createdBy;
+		List<Section> sections;
+		int? status;
+		int? displayType;
+		bool? showBusinessCard;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? CreatedTime
 		{
@@ -31,16 +31,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -51,16 +51,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Dictionary representing the convertMapping<String,Object></returns>
 			get
 			{
-				return  this.convertMapping;
+				return  convertMapping;
 
 			}
 			/// <summary>The method to set the value to convertMapping</summary>
 			/// <param name="convertMapping">Dictionary<string,object></param>
 			set
 			{
-				 this.convertMapping=value;
+				 convertMapping=value;
 
-				 this.keyModified["convert_mapping"] = 1;
+				 keyModified["convert_mapping"] = 1;
 
 			}
 		}
@@ -71,16 +71,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -91,16 +91,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>bool? representing the visible</returns>
 			get
 			{
-				return  this.visible;
+				return  visible;
 
 			}
 			/// <summary>The method to set the value to visible</summary>
 			/// <param name="visible">bool?</param>
 			set
 			{
-				 this.visible=value;
+				 visible=value;
 
-				 this.keyModified["visible"] = 1;
+				 keyModified["visible"] = 1;
 
 			}
 		}
@@ -111,16 +111,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdFor;
+				return  createdFor;
 
 			}
 			/// <summary>The method to set the value to createdFor</summary>
 			/// <param name="createdFor">Instance of User</param>
 			set
 			{
-				 this.createdFor=value;
+				 createdFor=value;
 
-				 this.keyModified["created_for"] = 1;
+				 keyModified["created_for"] = 1;
 
 			}
 		}
@@ -131,16 +131,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -151,16 +151,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -171,16 +171,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of List<Profile></returns>
 			get
 			{
-				return  this.profiles;
+				return  profiles;
 
 			}
 			/// <summary>The method to set the value to profiles</summary>
 			/// <param name="profiles">Instance of List<Profile></param>
 			set
 			{
-				 this.profiles=value;
+				 profiles=value;
 
-				 this.keyModified["profiles"] = 1;
+				 keyModified["profiles"] = 1;
 
 			}
 		}
@@ -191,16 +191,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -211,16 +211,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -231,16 +231,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of List<Section></returns>
 			get
 			{
-				return  this.sections;
+				return  sections;
 
 			}
 			/// <summary>The method to set the value to sections</summary>
 			/// <param name="sections">Instance of List<Section></param>
 			set
 			{
-				 this.sections=value;
+				 sections=value;
 
-				 this.keyModified["sections"] = 1;
+				 keyModified["sections"] = 1;
 
 			}
 		}
@@ -251,16 +251,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the status</returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">int?</param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -271,16 +271,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the displayType</returns>
 			get
 			{
-				return  this.displayType;
+				return  displayType;
 
 			}
 			/// <summary>The method to set the value to displayType</summary>
 			/// <param name="displayType">int?</param>
 			set
 			{
-				 this.displayType=value;
+				 displayType=value;
 
-				 this.keyModified["display_type"] = 1;
+				 keyModified["display_type"] = 1;
 
 			}
 		}
@@ -291,16 +291,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>bool? representing the showBusinessCard</returns>
 			get
 			{
-				return  this.showBusinessCard;
+				return  showBusinessCard;
 
 			}
 			/// <summary>The method to set the value to showBusinessCard</summary>
 			/// <param name="showBusinessCard">bool?</param>
 			set
 			{
-				 this.showBusinessCard=value;
+				 showBusinessCard=value;
 
-				 this.keyModified["show_business_card"] = 1;
+				 keyModified["show_business_card"] = 1;
 
 			}
 		}
@@ -310,9 +310,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -325,7 +325,7 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

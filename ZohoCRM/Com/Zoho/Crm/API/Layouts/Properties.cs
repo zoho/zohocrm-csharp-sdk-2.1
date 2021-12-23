@@ -7,10 +7,10 @@ namespace Com.Zoho.Crm.API.Layouts
 
 	public class Properties : Model
 	{
-		private bool? reorderRows;
-		private ToolTip tooltip;
-		private int? maximumRows;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? reorderRows;
+		ToolTip tooltip;
+		int? maximumRows;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? ReorderRows
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>bool? representing the reorderRows</returns>
 			get
 			{
-				return  this.reorderRows;
+				return  reorderRows;
 
 			}
 			/// <summary>The method to set the value to reorderRows</summary>
 			/// <param name="reorderRows">bool?</param>
 			set
 			{
-				 this.reorderRows=value;
+				 reorderRows=value;
 
-				 this.keyModified["reorder_rows"] = 1;
+				 keyModified["reorder_rows"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of ToolTip</returns>
 			get
 			{
-				return  this.tooltip;
+				return  tooltip;
 
 			}
 			/// <summary>The method to set the value to tooltip</summary>
 			/// <param name="tooltip">Instance of ToolTip</param>
 			set
 			{
-				 this.tooltip=value;
+				 tooltip=value;
 
-				 this.keyModified["tooltip"] = 1;
+				 keyModified["tooltip"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the maximumRows</returns>
 			get
 			{
-				return  this.maximumRows;
+				return  maximumRows;
 
 			}
 			/// <summary>The method to set the value to maximumRows</summary>
 			/// <param name="maximumRows">int?</param>
 			set
 			{
-				 this.maximumRows=value;
+				 maximumRows=value;
 
-				 this.keyModified["maximum_rows"] = 1;
+				 keyModified["maximum_rows"] = 1;
 
 			}
 		}
@@ -77,9 +77,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -92,7 +92,7 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

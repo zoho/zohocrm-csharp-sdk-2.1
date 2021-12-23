@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Currencies
 
 	public class BodyWrapper : Model
 	{
-		private List<Currency> currencies;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Currency> currencies;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Currency> Currencies
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of List<Currency></returns>
 			get
 			{
-				return  this.currencies;
+				return  currencies;
 
 			}
 			/// <summary>The method to set the value to currencies</summary>
 			/// <param name="currencies">Instance of List<Currency></param>
 			set
 			{
-				 this.currencies=value;
+				 currencies=value;
 
-				 this.keyModified["currencies"] = 1;
+				 keyModified["currencies"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

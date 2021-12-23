@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Attachments
 
 	public class AttachmentsOperations
 	{
-		private long? recordId;
-		private string moduleAPIName;
+		long? recordId;
+		string moduleAPIName;
 
 		/// <summary>		/// Creates an instance of AttachmentsOperations with the given parameters
 		/// <param name="moduleAPIName">string</param>
@@ -27,17 +27,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> DownloadAttachment(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments/");
 
@@ -59,17 +59,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteAttachment(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments/");
 
@@ -91,17 +91,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetAttachments(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments");
 
@@ -123,17 +123,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UploadAttachment(FileBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments");
 
@@ -159,17 +159,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UploadLinkAttachment(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments");
 
@@ -193,17 +193,17 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteAttachments(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/Attachments");
 

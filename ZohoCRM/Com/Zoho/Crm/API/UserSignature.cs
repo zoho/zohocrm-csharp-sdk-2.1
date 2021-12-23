@@ -15,7 +15,7 @@ namespace Com.Zoho.Crm.API
     /// </summary>
     public class UserSignature
     {
-        private string email;
+        string email;
 
         /// <summary>
         /// Creates an User class instance with the specified user email.
@@ -23,15 +23,15 @@ namespace Com.Zoho.Crm.API
         /// <param name="email">A String containing the CRM user email</param>
         public UserSignature(string email)
         {
-            bool isEmail = Regex.IsMatch(email, Constants.EMAIL_REGEX, RegexOptions.IgnoreCase);
+            var isEmail = Regex.IsMatch(email, Constants.EMAIL_REGEX, RegexOptions.IgnoreCase);
 
             if (!isEmail)
             {
-                JObject error = new JObject();
-
-                error.Add(Constants.FIELD, Constants.EMAIL);
-
-                error.Add(Constants.EXPECTED_TYPE, Constants.EMAIL);
+                var error = new JObject
+                {
+                    { Constants.FIELD, Constants.EMAIL },
+                    { Constants.EXPECTED_TYPE, Constants.EMAIL }
+                };
 
                 throw new SDKException(Constants.USER_SIGNATURE_ERROR, error);
             }

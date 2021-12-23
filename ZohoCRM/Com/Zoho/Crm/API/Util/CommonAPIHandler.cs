@@ -26,23 +26,23 @@ namespace Com.Zoho.Crm.API.Util
     /// </summary>
     public class CommonAPIHandler
     {
-        private string apiPath;
+        string apiPath;
 
-        private ParameterMap param = new ParameterMap();
+        ParameterMap param = new ParameterMap();
 
-        private HeaderMap header = new HeaderMap();
+        HeaderMap header = new HeaderMap();
 
-        private object request;
+        object request;
 
-        private string httpMethod;
+        string httpMethod;
 
-        private string moduleAPIName;
+        string moduleAPIName;
 
-        private string contentType;
+        string contentType;
 
-        private string categoryMethod;
+        string categoryMethod;
 
-        private bool mandatoryChecker;
+        bool mandatoryChecker;
 
         public string CategoryMethod
         {
@@ -245,7 +245,7 @@ namespace Com.Zoho.Crm.API.Util
                 throw new SDKException(Constants.SDK_UNINITIALIZATION_ERROR, Constants.SDK_UNINITIALIZATION_MESSAGE);
             }
 
-            APIHTTPConnector connector = new APIHTTPConnector
+            var connector = new APIHTTPConnector
             {
                 RequestMethod = httpMethod
             };
@@ -262,7 +262,7 @@ namespace Com.Zoho.Crm.API.Util
             }
             catch (Exception e)
             {
-                SDKException exception = new SDKException(e);
+                var exception = new SDKException(e);
 
                 SDKLogger.LogError(Constants.SET_API_URL_EXCEPTION + JsonConvert.SerializeObject(exception));
 
@@ -293,14 +293,14 @@ namespace Com.Zoho.Crm.API.Util
             }
             catch (Exception e)
             {
-                SDKException exception = new SDKException(e);
+                var exception = new SDKException(e);
 
                 SDKLogger.LogError(Constants.AUTHENTICATION_EXCEPTION + JsonConvert.SerializeObject(exception));
 
                 throw exception;
             }
 
-            string pack = className.FullName;
+            var pack = className.FullName;
 
             Converter convertInstance = null;
 
@@ -322,7 +322,7 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 catch (Exception e)
                 {
-                    SDKException exception = new SDKException(e);
+                    var exception = new SDKException(e);
 
                     SDKLogger.LogError(Constants.FORM_REQUEST_EXCEPTION + JsonConvert.SerializeObject(exception));
 
@@ -339,17 +339,17 @@ namespace Com.Zoho.Crm.API.Util
                                                     Environment.Version.Major.ToString() + "." +
                                                     Environment.Version.Minor.ToString() + ":" + Constants.SDK_VERSION);
 
-                HttpWebResponse response = connector.FireRequest(convertInstance);
+                var response = connector.FireRequest(convertInstance);
 
-                int statusCode = (int)response.StatusCode;
+                var statusCode = (int)response.StatusCode;
 
-                string statusDescription = response.StatusDescription;
+                var statusDescription = response.StatusDescription;
 
-                Dictionary<string, string> headerMap = GetHeaders(response.Headers);
+                var headerMap = GetHeaders(response.Headers);
 
-                bool isModel = false;
+                var isModel = false;
 
-                string mimeType = response.ContentType;
+                var mimeType = response.ContentType;
 
                 Model returnObject = null;
 
@@ -373,9 +373,9 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     if(response != null)
                     {
-                        HttpWebResponse responseEntity = ((HttpWebResponse)response);
+                        var responseEntity = ((HttpWebResponse)response);
 
-                        string responseString = new StreamReader(responseEntity.GetResponseStream()).ReadToEnd();
+                        var responseString = new StreamReader(responseEntity.GetResponseStream()).ReadToEnd();
 
                         SDKLogger.LogError(Constants.API_ERROR_RESPONSE + responseString);
 
@@ -393,7 +393,7 @@ namespace Com.Zoho.Crm.API.Util
             }
             catch (Exception e)
             {
-                SDKException exception = new SDKException(e);
+                var exception = new SDKException(e);
 
                 SDKLogger.LogError(Constants.API_CALL_EXCEPTION + JsonConvert.SerializeObject(exception));
 
@@ -475,15 +475,15 @@ namespace Com.Zoho.Crm.API.Util
         /// <returns>A Dictionary&lt;String,String&gt; representing the API response headers.</returns>
         public Dictionary<string, string> GetHeaders(WebHeaderCollection headers)
         {
-            Dictionary<string, string> headerMap = new Dictionary<string, string>();
+            var headerMap = new Dictionary<string, string>();
 
-            for (int i = 0; i < headers.Count; ++i)
+            for (var i = 0; i < headers.Count; ++i)
             {
-                string headerKey = headers.GetKey(i);
+                var headerKey = headers.GetKey(i);
 
-                string headerValue = "";
+                var headerValue = "";
 
-                foreach (string value in headers.GetValues(i))
+                foreach (var value in headers.GetValues(i))
                 {
                     headerValue = string.Concat(headerValue, value);
                 }
@@ -494,11 +494,11 @@ namespace Com.Zoho.Crm.API.Util
             return headerMap;
         }
 
-        private bool IsExpectedType(Model model, string className)
+        bool IsExpectedType(Model model, string className)
         {
-            Type[] interfaces = model.GetType().GetInterfaces();
+            var interfaces = model.GetType().GetInterfaces();
 
-            foreach(Type interfaceDetails in interfaces)
+            foreach(var interfaceDetails in interfaces)
             {
                 if(interfaceDetails.FullName.Equals(className))
                 {
@@ -509,9 +509,9 @@ namespace Com.Zoho.Crm.API.Util
             return false;
         }
 
-        private void SetAPIURL(APIHTTPConnector connector)
+        void SetAPIURL(APIHTTPConnector connector)
         {
-            string APIPath = "";
+            var APIPath = "";
 
             if (apiPath.Contains(Constants.HTTP))
             {
@@ -526,9 +526,9 @@ namespace Com.Zoho.Crm.API.Util
                         APIPath = string.Concat(APIPath, uri.AbsolutePath);
 
                     }
-                    catch (System.Exception ex)
+                    catch (Exception ex)
                     {
-                        SDKException excp = new SDKException(ex);
+                        var excp = new SDKException(ex);
 
                         SDKLogger.LogError(Constants.INVALID_URL_ERROR + JsonConvert.SerializeObject(excp));
 

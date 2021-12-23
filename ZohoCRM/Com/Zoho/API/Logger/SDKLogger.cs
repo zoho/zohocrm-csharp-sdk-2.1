@@ -13,11 +13,11 @@ namespace Com.Zoho.Crm.API.Logger
     /// </summary>
     public class SDKLogger
     {
-        private static SDKLogger logger;
+        static SDKLogger logger;
 
-        private static TraceSwitch logSwitch;
+        static TraceSwitch logSwitch;
 
-        private static TextWriterTraceListener defaultTrace;
+        static TextWriterTraceListener defaultTrace;
 
         public SDKLogger()
         {
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Logger
             }
         }
 
-        private void Log(string message, string messageHeader)
+        void Log(string message, string messageHeader)
         {
-            string timestamp = GetTimeStamp();
+            var timestamp = GetTimeStamp();
 
             if (Trace.Listeners.Count > 1 && defaultTrace != null)
             {
@@ -87,17 +87,17 @@ namespace Com.Zoho.Crm.API.Logger
             }
         }
 
-        internal static void LogError(System.Exception exception)
+        internal static void LogError(Exception exception)
         {
-            StackTrace stackTrace = new StackTrace(exception, true);
+            var stackTrace = new StackTrace(exception, true);
 
-            int frameCount = stackTrace.FrameCount;
+            var frameCount = stackTrace.FrameCount;
 
-            StringBuilder errorMessage = new StringBuilder();
+            var errorMessage = new StringBuilder();
 
-            for (int i = 0; i < frameCount; i++)
+            for (var i = 0; i < frameCount; i++)
             {
-                StackFrame frame = stackTrace.GetFrame(i);
+                var frame = stackTrace.GetFrame(i);
 
                 errorMessage.AppendLine("Exception in Type: " + frame.GetMethod().DeclaringType.Name + " at Method: " + frame.GetMethod() + " in File: " + frame.GetFileName() + " at Line: " + frame.GetFileLineNumber());
             }
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Logger
             LogError(errorMessage.ToString());
         }
 
-        private static string GetTimeStamp()
+        static string GetTimeStamp()
         {
             return DateTime.Now.ToString("yy-MM-dd HH:mm:ss");
         }

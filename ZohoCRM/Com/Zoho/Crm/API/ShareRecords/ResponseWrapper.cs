@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<ShareRecord> share;
-		private List<User> shareableUser;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ShareRecord> share;
+		List<User> shareableUser;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ShareRecord> Share
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of List<ShareRecord></returns>
 			get
 			{
-				return  this.share;
+				return  share;
 
 			}
 			/// <summary>The method to set the value to share</summary>
 			/// <param name="share">Instance of List<ShareRecord></param>
 			set
 			{
-				 this.share=value;
+				 share=value;
 
-				 this.keyModified["share"] = 1;
+				 keyModified["share"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of List<User></returns>
 			get
 			{
-				return  this.shareableUser;
+				return  shareableUser;
 
 			}
 			/// <summary>The method to set the value to shareableUser</summary>
 			/// <param name="shareableUser">Instance of List<User></param>
 			set
 			{
-				 this.shareableUser=value;
+				 shareableUser=value;
 
-				 this.keyModified["shareable_user"] = 1;
+				 keyModified["shareable_user"] = 1;
 
 			}
 		}
@@ -56,9 +56,9 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

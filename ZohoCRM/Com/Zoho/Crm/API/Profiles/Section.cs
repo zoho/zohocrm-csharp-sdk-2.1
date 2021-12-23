@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Profiles
 
 	public class Section : Model
 	{
-		private string name;
-		private List<Category> categories;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string name;
+		List<Category> categories;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Name
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of List<Category></returns>
 			get
 			{
-				return  this.categories;
+				return  categories;
 
 			}
 			/// <summary>The method to set the value to categories</summary>
 			/// <param name="categories">Instance of List<Category></param>
 			set
 			{
-				 this.categories=value;
+				 categories=value;
 
-				 this.keyModified["categories"] = 1;
+				 keyModified["categories"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

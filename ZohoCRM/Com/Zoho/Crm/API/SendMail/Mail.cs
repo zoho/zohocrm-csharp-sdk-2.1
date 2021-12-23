@@ -8,27 +8,27 @@ namespace Com.Zoho.Crm.API.SendMail
 
 	public class Mail : Model
 	{
-		private UserAddress from;
-		private List<UserAddress> to;
-		private List<UserAddress> cc;
-		private List<UserAddress> bcc;
-		private UserAddress replyTo;
-		private Template template;
-		private int? email;
-		private long? id;
-		private string inReplyTo;
-		private DateTimeOffset? scheduledTime;
-		private string subject;
-		private string content;
-		private string paperType;
-		private string viewType;
-		private string mailFormat;
-		private bool? consentEmail;
-		private bool? orgEmail;
-		private List<Attachment> attachments;
-		private InventoryDetails inventoryDetails;
-		private DataSubjectRequest dataSubjectRequest;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		UserAddress from;
+		List<UserAddress> to;
+		List<UserAddress> cc;
+		List<UserAddress> bcc;
+		UserAddress replyTo;
+		Template template;
+		int? email;
+		long? id;
+		string inReplyTo;
+		DateTimeOffset? scheduledTime;
+		string subject;
+		string content;
+		string paperType;
+		string viewType;
+		string mailFormat;
+		bool? consentEmail;
+		bool? orgEmail;
+		List<Attachment> attachments;
+		InventoryDetails inventoryDetails;
+		DataSubjectRequest dataSubjectRequest;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public UserAddress From
 		{
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of UserAddress</returns>
 			get
 			{
-				return  this.from;
+				return  from;
 
 			}
 			/// <summary>The method to set the value to from</summary>
 			/// <param name="from">Instance of UserAddress</param>
 			set
 			{
-				 this.from=value;
+				 from=value;
 
-				 this.keyModified["from"] = 1;
+				 keyModified["from"] = 1;
 
 			}
 		}
@@ -56,16 +56,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<UserAddress></returns>
 			get
 			{
-				return  this.to;
+				return  to;
 
 			}
 			/// <summary>The method to set the value to to</summary>
 			/// <param name="to">Instance of List<UserAddress></param>
 			set
 			{
-				 this.to=value;
+				 to=value;
 
-				 this.keyModified["to"] = 1;
+				 keyModified["to"] = 1;
 
 			}
 		}
@@ -76,16 +76,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<UserAddress></returns>
 			get
 			{
-				return  this.cc;
+				return  cc;
 
 			}
 			/// <summary>The method to set the value to cc</summary>
 			/// <param name="cc">Instance of List<UserAddress></param>
 			set
 			{
-				 this.cc=value;
+				 cc=value;
 
-				 this.keyModified["cc"] = 1;
+				 keyModified["cc"] = 1;
 
 			}
 		}
@@ -96,16 +96,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<UserAddress></returns>
 			get
 			{
-				return  this.bcc;
+				return  bcc;
 
 			}
 			/// <summary>The method to set the value to bcc</summary>
 			/// <param name="bcc">Instance of List<UserAddress></param>
 			set
 			{
-				 this.bcc=value;
+				 bcc=value;
 
-				 this.keyModified["bcc"] = 1;
+				 keyModified["bcc"] = 1;
 
 			}
 		}
@@ -116,16 +116,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of UserAddress</returns>
 			get
 			{
-				return  this.replyTo;
+				return  replyTo;
 
 			}
 			/// <summary>The method to set the value to replyTo</summary>
 			/// <param name="replyTo">Instance of UserAddress</param>
 			set
 			{
-				 this.replyTo=value;
+				 replyTo=value;
 
-				 this.keyModified["reply_to"] = 1;
+				 keyModified["reply_to"] = 1;
 
 			}
 		}
@@ -136,16 +136,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of Template</returns>
 			get
 			{
-				return  this.template;
+				return  template;
 
 			}
 			/// <summary>The method to set the value to template</summary>
 			/// <param name="template">Instance of Template</param>
 			set
 			{
-				 this.template=value;
+				 template=value;
 
-				 this.keyModified["template"] = 1;
+				 keyModified["template"] = 1;
 
 			}
 		}
@@ -156,16 +156,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>int? representing the email</returns>
 			get
 			{
-				return  this.email;
+				return  email;
 
 			}
 			/// <summary>The method to set the value to email</summary>
 			/// <param name="email">int?</param>
 			set
 			{
-				 this.email=value;
+				 email=value;
 
-				 this.keyModified["email"] = 1;
+				 keyModified["email"] = 1;
 
 			}
 		}
@@ -176,16 +176,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -196,16 +196,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the inReplyTo</returns>
 			get
 			{
-				return  this.inReplyTo;
+				return  inReplyTo;
 
 			}
 			/// <summary>The method to set the value to inReplyTo</summary>
 			/// <param name="inReplyTo">string</param>
 			set
 			{
-				 this.inReplyTo=value;
+				 inReplyTo=value;
 
-				 this.keyModified["in_reply_to"] = 1;
+				 keyModified["in_reply_to"] = 1;
 
 			}
 		}
@@ -216,16 +216,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>DateTimeOffset? representing the scheduledTime</returns>
 			get
 			{
-				return  this.scheduledTime;
+				return  scheduledTime;
 
 			}
 			/// <summary>The method to set the value to scheduledTime</summary>
 			/// <param name="scheduledTime">DateTimeOffset?</param>
 			set
 			{
-				 this.scheduledTime=value;
+				 scheduledTime=value;
 
-				 this.keyModified["scheduled_time"] = 1;
+				 keyModified["scheduled_time"] = 1;
 
 			}
 		}
@@ -236,16 +236,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the subject</returns>
 			get
 			{
-				return  this.subject;
+				return  subject;
 
 			}
 			/// <summary>The method to set the value to subject</summary>
 			/// <param name="subject">string</param>
 			set
 			{
-				 this.subject=value;
+				 subject=value;
 
-				 this.keyModified["subject"] = 1;
+				 keyModified["subject"] = 1;
 
 			}
 		}
@@ -256,16 +256,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the content</returns>
 			get
 			{
-				return  this.content;
+				return  content;
 
 			}
 			/// <summary>The method to set the value to content</summary>
 			/// <param name="content">string</param>
 			set
 			{
-				 this.content=value;
+				 content=value;
 
-				 this.keyModified["content"] = 1;
+				 keyModified["content"] = 1;
 
 			}
 		}
@@ -276,16 +276,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the paperType</returns>
 			get
 			{
-				return  this.paperType;
+				return  paperType;
 
 			}
 			/// <summary>The method to set the value to paperType</summary>
 			/// <param name="paperType">string</param>
 			set
 			{
-				 this.paperType=value;
+				 paperType=value;
 
-				 this.keyModified["paper_type"] = 1;
+				 keyModified["paper_type"] = 1;
 
 			}
 		}
@@ -296,16 +296,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the viewType</returns>
 			get
 			{
-				return  this.viewType;
+				return  viewType;
 
 			}
 			/// <summary>The method to set the value to viewType</summary>
 			/// <param name="viewType">string</param>
 			set
 			{
-				 this.viewType=value;
+				 viewType=value;
 
-				 this.keyModified["view_type"] = 1;
+				 keyModified["view_type"] = 1;
 
 			}
 		}
@@ -316,16 +316,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the mailFormat</returns>
 			get
 			{
-				return  this.mailFormat;
+				return  mailFormat;
 
 			}
 			/// <summary>The method to set the value to mailFormat</summary>
 			/// <param name="mailFormat">string</param>
 			set
 			{
-				 this.mailFormat=value;
+				 mailFormat=value;
 
-				 this.keyModified["mail_format"] = 1;
+				 keyModified["mail_format"] = 1;
 
 			}
 		}
@@ -336,16 +336,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>bool? representing the consentEmail</returns>
 			get
 			{
-				return  this.consentEmail;
+				return  consentEmail;
 
 			}
 			/// <summary>The method to set the value to consentEmail</summary>
 			/// <param name="consentEmail">bool?</param>
 			set
 			{
-				 this.consentEmail=value;
+				 consentEmail=value;
 
-				 this.keyModified["consent_email"] = 1;
+				 keyModified["consent_email"] = 1;
 
 			}
 		}
@@ -356,16 +356,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>bool? representing the orgEmail</returns>
 			get
 			{
-				return  this.orgEmail;
+				return  orgEmail;
 
 			}
 			/// <summary>The method to set the value to orgEmail</summary>
 			/// <param name="orgEmail">bool?</param>
 			set
 			{
-				 this.orgEmail=value;
+				 orgEmail=value;
 
-				 this.keyModified["org_email"] = 1;
+				 keyModified["org_email"] = 1;
 
 			}
 		}
@@ -376,16 +376,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<Attachment></returns>
 			get
 			{
-				return  this.attachments;
+				return  attachments;
 
 			}
 			/// <summary>The method to set the value to attachments</summary>
 			/// <param name="attachments">Instance of List<Attachment></param>
 			set
 			{
-				 this.attachments=value;
+				 attachments=value;
 
-				 this.keyModified["attachments"] = 1;
+				 keyModified["attachments"] = 1;
 
 			}
 		}
@@ -396,16 +396,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of InventoryDetails</returns>
 			get
 			{
-				return  this.inventoryDetails;
+				return  inventoryDetails;
 
 			}
 			/// <summary>The method to set the value to inventoryDetails</summary>
 			/// <param name="inventoryDetails">Instance of InventoryDetails</param>
 			set
 			{
-				 this.inventoryDetails=value;
+				 inventoryDetails=value;
 
-				 this.keyModified["inventory_details"] = 1;
+				 keyModified["inventory_details"] = 1;
 
 			}
 		}
@@ -416,16 +416,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of DataSubjectRequest</returns>
 			get
 			{
-				return  this.dataSubjectRequest;
+				return  dataSubjectRequest;
 
 			}
 			/// <summary>The method to set the value to dataSubjectRequest</summary>
 			/// <param name="dataSubjectRequest">Instance of DataSubjectRequest</param>
 			set
 			{
-				 this.dataSubjectRequest=value;
+				 dataSubjectRequest=value;
 
-				 this.keyModified["data_subject_request"] = 1;
+				 keyModified["data_subject_request"] = 1;
 
 			}
 		}
@@ -435,9 +435,9 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -450,7 +450,7 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -23,17 +23,17 @@ namespace Com.Zoho.Crm.API.Util
     /// </summary>
     public class APIHTTPConnector
     {
-        private string url;
+        string url;
 
-        private string requestMethod;
+        string requestMethod;
 
-        private Dictionary<string, string> headers = new Dictionary<string, string>();
+        Dictionary<string, string> headers = new Dictionary<string, string>();
 
-        private Dictionary<string, string> parameters = new Dictionary<string, string>();
+        Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-        private object requestBody;
+        object requestBody;
 
-        private string contentType;
+        string contentType;
 
         /// <summary>
         /// Gets or sets the ContentType.
@@ -151,11 +151,11 @@ namespace Com.Zoho.Crm.API.Util
         {
             SetQueryParams();
 
-            HttpWebRequest requestObj = (HttpWebRequest)WebRequest.Create(url);
+            var requestObj = (HttpWebRequest)WebRequest.Create(url);
 
             requestObj.Timeout = (Initializer.GetInitializer().SDKConfig.Timeout) * 1000;
 
-            RequestProxy requestProxy = Initializer.GetInitializer().RequestProxy;
+            var requestProxy = Initializer.GetInitializer().RequestProxy;
 
             if(requestProxy != null)
             {
@@ -173,14 +173,14 @@ namespace Com.Zoho.Crm.API.Util
                 //Set proxy
                 requestObj.Proxy = new WebProxy(proxyURI, true, null, credentials);
 
-                SDKLogger.LogInfo(this.ProxyLog(requestProxy));
+                SDKLogger.LogInfo(ProxyLog(requestProxy));
             }
 
             SetRequestMethod(requestObj);
 
             if (contentType != null)
             {
-                this.SetContentTypeHeader(ref requestObj);
+                SetContentTypeHeader(ref requestObj);
             }
 
             SetQueryHeaders(ref requestObj);
@@ -208,7 +208,7 @@ namespace Com.Zoho.Crm.API.Util
             return response;
         }
 
-        private void SetRequestMethod(HttpWebRequest request)
+        void SetRequestMethod(HttpWebRequest request)
         {
             switch (requestMethod)
             {
@@ -245,9 +245,9 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private void SetQueryHeaders(ref HttpWebRequest request)
+        void SetQueryHeaders(ref HttpWebRequest request)
         {
-            foreach (KeyValuePair<string, string> headersMap in Headers)
+            foreach (var headersMap in Headers)
             {
                 if (!string.IsNullOrEmpty(headersMap.Value))
                 {
@@ -255,7 +255,7 @@ namespace Com.Zoho.Crm.API.Util
                     {
                         if (headersMap.Key.Equals(Constants.IF_MODIFIED_SINCE))
                         {
-                            DateTime dateConversion = XmlConvert.ToDateTime(RemoveEscaping(JsonConvert.SerializeObject(headersMap.Value)), XmlDateTimeSerializationMode.Utc);
+                            var dateConversion = XmlConvert.ToDateTime(RemoveEscaping(JsonConvert.SerializeObject(headersMap.Value)), XmlDateTimeSerializationMode.Utc);
 
                             request.IfModifiedSince = dateConversion;
                         }
@@ -268,11 +268,11 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private void SetQueryParams()
+        void SetQueryParams()
         {
             if (Params.Count == 0) { return; }
 
-            this.url = url + "?" + string.Join("&", Params.Select(pp => pp.Key + "=" + Uri.EscapeDataString(pp.Value)));
+            url = url + "?" + string.Join("&", Params.Select(pp => pp.Key + "=" + Uri.EscapeDataString(pp.Value)));
         }
 
         public static string RemoveEscaping(string input)
@@ -284,13 +284,13 @@ namespace Com.Zoho.Crm.API.Util
             return input;
         }
 
-        private void SetContentTypeHeader(ref HttpWebRequest request)
+        void SetContentTypeHeader(ref HttpWebRequest request)
         {
-            foreach (string contentType in Constants.SET_CONTENT_TYPE_HEADER)
+            foreach (var contentType in Constants.SET_CONTENT_TYPE_HEADER)
             {
                 if (url.Contains(contentType))
                 {
-                    request.ContentType = this.ContentType;
+                    request.ContentType = ContentType;
 
                     return;
                 }
@@ -299,11 +299,11 @@ namespace Com.Zoho.Crm.API.Util
 
         public override string ToString()
         {
-            Dictionary<string, string> reqHeaders = new Dictionary<string, string>(Headers);
+            var reqHeaders = new Dictionary<string, string>(Headers);
 
             reqHeaders[Constants.AUTHORIZATION] = Constants.CANT_DISCLOSE;
 
-            StringBuilder stringBuilder = new StringBuilder();
+            var stringBuilder = new StringBuilder();
 
             stringBuilder.Append(requestMethod.ToString()).Append(" - ");
 
@@ -315,9 +315,10 @@ namespace Com.Zoho.Crm.API.Util
 
             return stringBuilder.ToString();
         }
-        private string ProxyLog(RequestProxy requestProxy)
+
+        string ProxyLog(RequestProxy requestProxy)
         {
-            StringBuilder proxyStringBuilder = new StringBuilder();
+            var proxyStringBuilder = new StringBuilder();
 
             proxyStringBuilder.Append(Constants.PROXY_SETTINGS);
 

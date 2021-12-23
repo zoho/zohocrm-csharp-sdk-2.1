@@ -21,13 +21,13 @@ namespace Com.Zoho.Crm.API.Util
 	/// </summary>
 	public class ModuleFieldsHandler
 	{
-		private static object LOCK = new object();
+		static object LOCK = new object();
 
 		/// <summary>
 		/// The method to obtain resources directory path.
 		/// </summary>
 		/// <returns>A String representing the directory's absolute path.</returns>
-		private static string GetDirectory()
+		static string GetDirectory()
 	    {
 		    return Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY;
 	    }
@@ -41,7 +41,7 @@ namespace Com.Zoho.Crm.API.Util
             {
 				try
 				{
-					string recordFieldDetailsPath = GetDirectory() + Path.DirectorySeparatorChar + GetEncodedFileName();
+					var recordFieldDetailsPath = GetDirectory() + Path.DirectorySeparatorChar + GetEncodedFileName();
 
 					if (System.IO.File.Exists(recordFieldDetailsPath))
 					{
@@ -50,7 +50,7 @@ namespace Com.Zoho.Crm.API.Util
 				}
 				catch (Exception e)
 				{
-					SDKException exception = new SDKException(e);
+					var exception = new SDKException(e);
 
 					SDKLogger.LogError(Constants.DELETE_FIELD_FILE_ERROR + JsonConvert.SerializeObject(exception));
 
@@ -70,11 +70,11 @@ namespace Com.Zoho.Crm.API.Util
 				{
 					if (Directory.Exists(GetDirectory()))
 					{
-						string[] files = Directory.GetFiles(GetDirectory());
+						var files = Directory.GetFiles(GetDirectory());
 
 						if (files != null)
 						{
-							foreach (string file in files)
+							foreach (var file in files)
 							{
 								if(file.EndsWith(Constants.JSON_FILE_EXTENSION))
                                 {
@@ -86,7 +86,7 @@ namespace Com.Zoho.Crm.API.Util
 				}
 				catch (Exception e)
 				{
-					SDKException exception = new SDKException(e);
+					var exception = new SDKException(e);
 
 					SDKLogger.LogError(Constants.DELETE_FIELD_FILES_ERROR + JsonConvert.SerializeObject(exception));
 
@@ -103,19 +103,19 @@ namespace Com.Zoho.Crm.API.Util
 	    {
 		    try
 		    {
-			    string recordFieldDetailsPath = GetDirectory() + Path.DirectorySeparatorChar + GetEncodedFileName();
+			    var recordFieldDetailsPath = GetDirectory() + Path.DirectorySeparatorChar + GetEncodedFileName();
 
 				if (System.IO.File.Exists(recordFieldDetailsPath))
 				{
-				    JObject recordFieldDetailsJson = Initializer.GetJSON(recordFieldDetailsPath);
+				    var recordFieldDetailsJson = Initializer.GetJSON(recordFieldDetailsPath);
 
-				    if(recordFieldDetailsJson.ContainsKey(module.ToLower()))
+				    if((recordFieldDetailsJson).ContainsKey(module.ToLower()))
 				    {
 						Utility.DeleteFields(recordFieldDetailsJson, module);
 
-						using (StreamWriter sw = System.IO.File.CreateText(recordFieldDetailsPath))
+						using (var sw = System.IO.File.CreateText(recordFieldDetailsPath))
 						{
-							JsonSerializer serializer = new JsonSerializer();
+							var serializer = new JsonSerializer();
 
 							serializer.Serialize(sw, recordFieldDetailsJson);
 
@@ -128,7 +128,7 @@ namespace Com.Zoho.Crm.API.Util
 		    }
 		    catch (Exception e)
 		    {
-				SDKException exception = new SDKException(e);
+				var exception = new SDKException(e);
 
 				throw exception;
 			}
@@ -156,7 +156,7 @@ namespace Com.Zoho.Crm.API.Util
 				}
 				catch (Exception e)
 				{
-					SDKException exception = new SDKException(e);
+					var exception = new SDKException(e);
 
 					SDKLogger.LogError(Constants.REFRESH_SINGLE_MODULE_FIELDS_ERROR + module + JsonConvert.SerializeObject(exception));
 
@@ -185,7 +185,7 @@ namespace Com.Zoho.Crm.API.Util
 				}
 				catch (Exception e)
 				{
-					SDKException exception = new SDKException(e);
+					var exception = new SDKException(e);
 
 					SDKLogger.LogError(Constants.REFRESH_ALL_MODULE_FIELDS_ERROR + JsonConvert.SerializeObject(exception));
 
@@ -196,13 +196,13 @@ namespace Com.Zoho.Crm.API.Util
 
 		public static string GetEncodedFileName()
         {
-	        string fileName = Initializer.GetInitializer().User.Email;
+	        var fileName = Initializer.GetInitializer().User.Email;
 
 	        fileName = fileName.Substring(0, fileName.IndexOf("@")) + Initializer.GetInitializer().Environment.GetUrl();
 
-	        byte[] input = Encoding.UTF8.GetBytes(fileName);
+	        var input = Encoding.UTF8.GetBytes(fileName);
 
-	        string str = Convert.ToBase64String(input);
+	        var str = Convert.ToBase64String(input);
 
 	        return str + ".json";
         }

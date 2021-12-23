@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Crypt : Model
 	{
-		private string mode;
-		private string column;
-		private List<string> encfldids;
-		private string notify;
-		private string table;
-		private int? status;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string mode;
+		string column;
+		List<string> encfldids;
+		string notify;
+		string table;
+		int? status;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Mode
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the mode</returns>
 			get
 			{
-				return  this.mode;
+				return  mode;
 
 			}
 			/// <summary>The method to set the value to mode</summary>
 			/// <param name="mode">string</param>
 			set
 			{
-				 this.mode=value;
+				 mode=value;
 
-				 this.keyModified["mode"] = 1;
+				 keyModified["mode"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the column</returns>
 			get
 			{
-				return  this.column;
+				return  column;
 
 			}
 			/// <summary>The method to set the value to column</summary>
 			/// <param name="column">string</param>
 			set
 			{
-				 this.column=value;
+				 column=value;
 
-				 this.keyModified["column"] = 1;
+				 keyModified["column"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.encfldids;
+				return  encfldids;
 
 			}
 			/// <summary>The method to set the value to encfldids</summary>
 			/// <param name="encfldids">Instance of List<string></param>
 			set
 			{
-				 this.encfldids=value;
+				 encfldids=value;
 
-				 this.keyModified["encFldIds"] = 1;
+				 keyModified["encFldIds"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the notify</returns>
 			get
 			{
-				return  this.notify;
+				return  notify;
 
 			}
 			/// <summary>The method to set the value to notify</summary>
 			/// <param name="notify">string</param>
 			set
 			{
-				 this.notify=value;
+				 notify=value;
 
-				 this.keyModified["notify"] = 1;
+				 keyModified["notify"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the table</returns>
 			get
 			{
-				return  this.table;
+				return  table;
 
 			}
 			/// <summary>The method to set the value to table</summary>
 			/// <param name="table">string</param>
 			set
 			{
-				 this.table=value;
+				 table=value;
 
-				 this.keyModified["table"] = 1;
+				 keyModified["table"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>int? representing the status</returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">int?</param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

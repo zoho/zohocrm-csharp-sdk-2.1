@@ -10,9 +10,9 @@ namespace Com.Zoho.Crm.API.Logger
     {
         public class Builder
         {
-            private Levels level;
+            Levels level;
 
-            private string filePath;
+            string filePath;
 
             public Builder Level(Levels level)
             {
@@ -30,13 +30,13 @@ namespace Com.Zoho.Crm.API.Logger
 
             public Logger Build()
             {
-                return new Logger(this.level, this.filePath);
+                return new Logger(level, filePath);
             }
         }
 
-        private int level;
+        int level;
 
-        private string filePath;
+        string filePath;
 
         /// <summary>
         /// Creates an Logger class instance with the specified log level and file path.
@@ -44,7 +44,7 @@ namespace Com.Zoho.Crm.API.Logger
         /// <param name="level">A enum containing the log level.</param>
         /// <param name="filePath">A String containing the log file path.</param>
         /// <returns></returns>
-        private Logger(Levels level, string filePath)
+        Logger(Levels level, string filePath)
         {
             this.level = (int)level;
 

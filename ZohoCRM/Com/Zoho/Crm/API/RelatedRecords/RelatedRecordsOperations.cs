@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 	public class RelatedRecordsOperations
 	{
-		private string moduleAPIName;
-		private string relatedListAPIName;
-		private string xExternal;
+		string moduleAPIName;
+		string relatedListAPIName;
+		string xExternal;
 
 		/// <summary>		/// Creates an instance of RelatedRecordsOperations with the given parameters
 		/// <param name="relatedListAPIName">string</param>
@@ -34,13 +34,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedRecords(long? recordId, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -48,7 +48,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -56,13 +56,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordsHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordsHeader"),  xExternal);
 
 			handlerInstance.Param=paramInstance;
 
 			handlerInstance.Header=headerInstance;
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -75,13 +75,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRelatedRecords(long? recordId, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -89,7 +89,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -101,9 +101,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.Request=request;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordsHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordsHeader"),  xExternal);
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -116,13 +116,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DelinkRecords(long? recordId, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -130,7 +130,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -138,11 +138,11 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_METHOD_DELETE;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DelinkRecordsHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DelinkRecordsHeader"),  xExternal);
 
 			handlerInstance.Param=paramInstance;
 
-			Utility.GetFields( this.moduleAPIName, handlerInstance);
+			Utility.GetFields( moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -156,13 +156,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedRecordsUsingExternalId(string externalValue, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -170,7 +170,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -178,13 +178,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordsUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordsUsingExternalIDHeader"),  xExternal);
 
 			handlerInstance.Param=paramInstance;
 
 			handlerInstance.Header=headerInstance;
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -197,13 +197,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRelatedRecordsUsingExternalId(string externalValue, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -211,7 +211,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -223,9 +223,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.Request=request;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordsUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordsUsingExternalIDHeader"),  xExternal);
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -238,13 +238,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteRelatedRecordsUsingExternalId(string externalValue, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -252,7 +252,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			handlerInstance.APIPath=apiPath;
 
@@ -260,11 +260,11 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_METHOD_DELETE;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DeleteRelatedRecordsUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DeleteRelatedRecordsUsingExternalIDHeader"),  xExternal);
 
 			handlerInstance.Param=paramInstance;
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -278,13 +278,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedRecord(long? relatedRecordId, long? recordId, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -292,7 +292,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -304,11 +304,11 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordHeader"),  xExternal);
 
 			handlerInstance.Header=headerInstance;
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -322,13 +322,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRelatedRecord(long? relatedRecordId, long? recordId, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -336,7 +336,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -352,9 +352,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.Request=request;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordHeader"),  xExternal);
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -367,13 +367,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DelinkRecord(long? relatedRecordId, long? recordId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -381,7 +381,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -393,9 +393,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_METHOD_DELETE;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DelinkRecordHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DelinkRecordHeader"),  xExternal);
 
-			Utility.GetFields( this.moduleAPIName, handlerInstance);
+			Utility.GetFields( moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -409,13 +409,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedRecordUsingExternalId(string externalFieldValue, string externalValue, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -423,7 +423,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -435,11 +435,11 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.GetRelatedRecordUsingExternalIDHeader"),  xExternal);
 
 			handlerInstance.Header=headerInstance;
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -453,13 +453,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRelatedRecordUsingExternalId(string externalFieldValue, string externalValue, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -467,7 +467,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -483,9 +483,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.Request=request;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.UpdateRelatedRecordUsingExternalIDHeader"),  xExternal);
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -498,13 +498,13 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteRelatedRecordUsingExternalId(string externalFieldValue, string externalValue)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -512,7 +512,7 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.relatedListAPIName.ToString());
+			apiPath=string.Concat(apiPath,  relatedListAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
@@ -524,9 +524,9 @@ namespace Com.Zoho.Crm.API.RelatedRecords
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_METHOD_DELETE;
 
-			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DeleteRelatedRecordUsingExternalIDHeader"),  this.xExternal);
+			handlerInstance.AddHeader(new Header<string>("X-EXTERNAL", "com.zoho.crm.api.RelatedRecords.DeleteRelatedRecordUsingExternalIDHeader"),  xExternal);
 
-			Utility.GetRelatedLists( this.relatedListAPIName,  this.moduleAPIName, handlerInstance);
+			Utility.GetRelatedLists( relatedListAPIName,  moduleAPIName, handlerInstance);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 

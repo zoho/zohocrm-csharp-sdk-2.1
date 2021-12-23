@@ -6,15 +6,15 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class LeadConverter : Model
 	{
-		private bool? overwrite;
-		private bool? notifyLeadOwner;
-		private bool? notifyNewEntityOwner;
-		private string accounts;
-		private string contacts;
-		private string assignTo;
-		private Record deals;
-		private CarryOverTags carryOverTags;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? overwrite;
+		bool? notifyLeadOwner;
+		bool? notifyNewEntityOwner;
+		string accounts;
+		string contacts;
+		string assignTo;
+		Record deals;
+		CarryOverTags carryOverTags;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? Overwrite
 		{
@@ -22,16 +22,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the overwrite</returns>
 			get
 			{
-				return  this.overwrite;
+				return  overwrite;
 
 			}
 			/// <summary>The method to set the value to overwrite</summary>
 			/// <param name="overwrite">bool?</param>
 			set
 			{
-				 this.overwrite=value;
+				 overwrite=value;
 
-				 this.keyModified["overwrite"] = 1;
+				 keyModified["overwrite"] = 1;
 
 			}
 		}
@@ -42,16 +42,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the notifyLeadOwner</returns>
 			get
 			{
-				return  this.notifyLeadOwner;
+				return  notifyLeadOwner;
 
 			}
 			/// <summary>The method to set the value to notifyLeadOwner</summary>
 			/// <param name="notifyLeadOwner">bool?</param>
 			set
 			{
-				 this.notifyLeadOwner=value;
+				 notifyLeadOwner=value;
 
-				 this.keyModified["notify_lead_owner"] = 1;
+				 keyModified["notify_lead_owner"] = 1;
 
 			}
 		}
@@ -62,16 +62,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the notifyNewEntityOwner</returns>
 			get
 			{
-				return  this.notifyNewEntityOwner;
+				return  notifyNewEntityOwner;
 
 			}
 			/// <summary>The method to set the value to notifyNewEntityOwner</summary>
 			/// <param name="notifyNewEntityOwner">bool?</param>
 			set
 			{
-				 this.notifyNewEntityOwner=value;
+				 notifyNewEntityOwner=value;
 
-				 this.keyModified["notify_new_entity_owner"] = 1;
+				 keyModified["notify_new_entity_owner"] = 1;
 
 			}
 		}
@@ -82,16 +82,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the accounts</returns>
 			get
 			{
-				return  this.accounts;
+				return  accounts;
 
 			}
 			/// <summary>The method to set the value to accounts</summary>
 			/// <param name="accounts">string</param>
 			set
 			{
-				 this.accounts=value;
+				 accounts=value;
 
-				 this.keyModified["Accounts"] = 1;
+				 keyModified["Accounts"] = 1;
 
 			}
 		}
@@ -102,16 +102,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the contacts</returns>
 			get
 			{
-				return  this.contacts;
+				return  contacts;
 
 			}
 			/// <summary>The method to set the value to contacts</summary>
 			/// <param name="contacts">string</param>
 			set
 			{
-				 this.contacts=value;
+				 contacts=value;
 
-				 this.keyModified["Contacts"] = 1;
+				 keyModified["Contacts"] = 1;
 
 			}
 		}
@@ -122,16 +122,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the assignTo</returns>
 			get
 			{
-				return  this.assignTo;
+				return  assignTo;
 
 			}
 			/// <summary>The method to set the value to assignTo</summary>
 			/// <param name="assignTo">string</param>
 			set
 			{
-				 this.assignTo=value;
+				 assignTo=value;
 
-				 this.keyModified["assign_to"] = 1;
+				 keyModified["assign_to"] = 1;
 
 			}
 		}
@@ -142,16 +142,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Record</returns>
 			get
 			{
-				return  this.deals;
+				return  deals;
 
 			}
 			/// <summary>The method to set the value to deals</summary>
 			/// <param name="deals">Instance of Record</param>
 			set
 			{
-				 this.deals=value;
+				 deals=value;
 
-				 this.keyModified["Deals"] = 1;
+				 keyModified["Deals"] = 1;
 
 			}
 		}
@@ -162,16 +162,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of CarryOverTags</returns>
 			get
 			{
-				return  this.carryOverTags;
+				return  carryOverTags;
 
 			}
 			/// <summary>The method to set the value to carryOverTags</summary>
 			/// <param name="carryOverTags">Instance of CarryOverTags</param>
 			set
 			{
-				 this.carryOverTags=value;
+				 carryOverTags=value;
 
-				 this.keyModified["carry_over_tags"] = 1;
+				 keyModified["carry_over_tags"] = 1;
 
 			}
 		}
@@ -181,9 +181,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -196,7 +196,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

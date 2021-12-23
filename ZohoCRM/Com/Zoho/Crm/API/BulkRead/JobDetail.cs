@@ -8,15 +8,15 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class JobDetail : Model
 	{
-		private long? id;
-		private string operation;
-		private Choice<string> state;
-		private Query query;
-		private User createdBy;
-		private DateTimeOffset? createdTime;
-		private Result result;
-		private string fileType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		string operation;
+		Choice<string> state;
+		Query query;
+		User createdBy;
+		DateTimeOffset? createdTime;
+		Result result;
+		string fileType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -24,16 +24,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -44,16 +44,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>string representing the operation</returns>
 			get
 			{
-				return  this.operation;
+				return  operation;
 
 			}
 			/// <summary>The method to set the value to operation</summary>
 			/// <param name="operation">string</param>
 			set
 			{
-				 this.operation=value;
+				 operation=value;
 
-				 this.keyModified["operation"] = 1;
+				 keyModified["operation"] = 1;
 
 			}
 		}
@@ -64,16 +64,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.state;
+				return  state;
 
 			}
 			/// <summary>The method to set the value to state</summary>
 			/// <param name="state">Instance of Choice<string></param>
 			set
 			{
-				 this.state=value;
+				 state=value;
 
-				 this.keyModified["state"] = 1;
+				 keyModified["state"] = 1;
 
 			}
 		}
@@ -84,16 +84,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Query</returns>
 			get
 			{
-				return  this.query;
+				return  query;
 
 			}
 			/// <summary>The method to set the value to query</summary>
 			/// <param name="query">Instance of Query</param>
 			set
 			{
-				 this.query=value;
+				 query=value;
 
-				 this.keyModified["query"] = 1;
+				 keyModified["query"] = 1;
 
 			}
 		}
@@ -104,16 +104,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -124,16 +124,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -144,16 +144,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Result</returns>
 			get
 			{
-				return  this.result;
+				return  result;
 
 			}
 			/// <summary>The method to set the value to result</summary>
 			/// <param name="result">Instance of Result</param>
 			set
 			{
-				 this.result=value;
+				 result=value;
 
-				 this.keyModified["result"] = 1;
+				 keyModified["result"] = 1;
 
 			}
 		}
@@ -164,16 +164,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>string representing the fileType</returns>
 			get
 			{
-				return  this.fileType;
+				return  fileType;
 
 			}
 			/// <summary>The method to set the value to fileType</summary>
 			/// <param name="fileType">string</param>
 			set
 			{
-				 this.fileType=value;
+				 fileType=value;
 
-				 this.keyModified["file_type"] = 1;
+				 keyModified["file_type"] = 1;
 
 			}
 		}
@@ -183,9 +183,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -198,7 +198,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

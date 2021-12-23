@@ -6,18 +6,18 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class ProcessInfo : Model
 	{
-		private string fieldId;
-		private bool? isContinuous;
-		private string apiName;
-		private bool? continuous;
-		private string fieldLabel;
-		private string name;
-		private string columnName;
-		private string fieldValue;
-		private long? id;
-		private string fieldName;
-		private Escalation escalation;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string fieldId;
+		bool? isContinuous;
+		string apiName;
+		bool? continuous;
+		string fieldLabel;
+		string name;
+		string columnName;
+		string fieldValue;
+		long? id;
+		string fieldName;
+		Escalation escalation;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string FieldId
 		{
@@ -25,16 +25,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the fieldId</returns>
 			get
 			{
-				return  this.fieldId;
+				return  fieldId;
 
 			}
 			/// <summary>The method to set the value to fieldId</summary>
 			/// <param name="fieldId">string</param>
 			set
 			{
-				 this.fieldId=value;
+				 fieldId=value;
 
-				 this.keyModified["field_id"] = 1;
+				 keyModified["field_id"] = 1;
 
 			}
 		}
@@ -45,16 +45,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the isContinuous</returns>
 			get
 			{
-				return  this.isContinuous;
+				return  isContinuous;
 
 			}
 			/// <summary>The method to set the value to isContinuous</summary>
 			/// <param name="isContinuous">bool?</param>
 			set
 			{
-				 this.isContinuous=value;
+				 isContinuous=value;
 
-				 this.keyModified["is_continuous"] = 1;
+				 keyModified["is_continuous"] = 1;
 
 			}
 		}
@@ -65,16 +65,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -85,16 +85,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the continuous</returns>
 			get
 			{
-				return  this.continuous;
+				return  continuous;
 
 			}
 			/// <summary>The method to set the value to continuous</summary>
 			/// <param name="continuous">bool?</param>
 			set
 			{
-				 this.continuous=value;
+				 continuous=value;
 
-				 this.keyModified["continuous"] = 1;
+				 keyModified["continuous"] = 1;
 
 			}
 		}
@@ -105,16 +105,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the fieldLabel</returns>
 			get
 			{
-				return  this.fieldLabel;
+				return  fieldLabel;
 
 			}
 			/// <summary>The method to set the value to fieldLabel</summary>
 			/// <param name="fieldLabel">string</param>
 			set
 			{
-				 this.fieldLabel=value;
+				 fieldLabel=value;
 
-				 this.keyModified["field_label"] = 1;
+				 keyModified["field_label"] = 1;
 
 			}
 		}
@@ -125,16 +125,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -145,16 +145,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the columnName</returns>
 			get
 			{
-				return  this.columnName;
+				return  columnName;
 
 			}
 			/// <summary>The method to set the value to columnName</summary>
 			/// <param name="columnName">string</param>
 			set
 			{
-				 this.columnName=value;
+				 columnName=value;
 
-				 this.keyModified["column_name"] = 1;
+				 keyModified["column_name"] = 1;
 
 			}
 		}
@@ -165,16 +165,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the fieldValue</returns>
 			get
 			{
-				return  this.fieldValue;
+				return  fieldValue;
 
 			}
 			/// <summary>The method to set the value to fieldValue</summary>
 			/// <param name="fieldValue">string</param>
 			set
 			{
-				 this.fieldValue=value;
+				 fieldValue=value;
 
-				 this.keyModified["field_value"] = 1;
+				 keyModified["field_value"] = 1;
 
 			}
 		}
@@ -185,16 +185,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -205,16 +205,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the fieldName</returns>
 			get
 			{
-				return  this.fieldName;
+				return  fieldName;
 
 			}
 			/// <summary>The method to set the value to fieldName</summary>
 			/// <param name="fieldName">string</param>
 			set
 			{
-				 this.fieldName=value;
+				 fieldName=value;
 
-				 this.keyModified["field_name"] = 1;
+				 keyModified["field_name"] = 1;
 
 			}
 		}
@@ -225,16 +225,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Escalation</returns>
 			get
 			{
-				return  this.escalation;
+				return  escalation;
 
 			}
 			/// <summary>The method to set the value to escalation</summary>
 			/// <param name="escalation">Instance of Escalation</param>
 			set
 			{
-				 this.escalation=value;
+				 escalation=value;
 
-				 this.keyModified["escalation"] = 1;
+				 keyModified["escalation"] = 1;
 
 			}
 		}
@@ -244,9 +244,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -259,7 +259,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

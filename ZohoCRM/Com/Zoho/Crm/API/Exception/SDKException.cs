@@ -10,13 +10,13 @@ namespace Com.Zoho.API.Exception
     /// </summary>
     public class SDKException : System.Exception
     {
-        private string code;
+        string code;
 
-        private string message;
+        string message;
 
-        private System.Exception cause;
+        System.Exception cause;
 
-        private JObject details;
+        JObject details;
 
         /// <summary>
         /// Creates an SDKException class instance with the specified parameters.
@@ -131,11 +131,11 @@ namespace Com.Zoho.API.Exception
 
         public override string ToString()
         {
-            string returnMsg = typeof(SDKException).FullName + ". Caused by : ";
+            var returnMsg = typeof(SDKException).FullName + ". Caused by : ";
 
-            if (this.details != null)
+            if (details != null)
             {
-                this.message = this.message != null ? this.message + JsonConvert.SerializeObject(this.details) : JsonConvert.SerializeObject(this.details);
+                message = message != null ? message + JsonConvert.SerializeObject(details) : JsonConvert.SerializeObject(details);
             }
 
             if (Code != null)

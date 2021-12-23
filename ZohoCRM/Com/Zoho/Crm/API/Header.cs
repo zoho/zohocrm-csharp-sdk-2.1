@@ -8,9 +8,9 @@ namespace Com.Zoho.Crm.API
     /// <typeparam name="T">A CSharp DataType</typeparam>
     public class Header<T>
     {
-        private string name;
+        string name;
 
-        private string className;
+        string className;
 
         /// <summary>
         /// Creates an Header class instance with the specified header name.
@@ -32,7 +32,7 @@ namespace Com.Zoho.Crm.API
         {
             get
             {
-                return this.name;
+                return name;
             }
         }
 
@@ -44,7 +44,7 @@ namespace Com.Zoho.Crm.API
         {
             get
             {
-                return this.className;
+                return className;
             }
         }
     }

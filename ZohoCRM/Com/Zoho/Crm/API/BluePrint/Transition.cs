@@ -8,19 +8,19 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class Transition : Model
 	{
-		private List<NextTransition> nextTransitions;
-		private Transition parentTransition;
-		private double? percentPartialSave;
-		private Record.Record data;
-		private string nextFieldValue;
-		private string name;
-		private bool? criteriaMatched;
-		private long? id;
-		private List<Field> fields;
-		private string criteriaMessage;
-		private string type;
-		private DateTimeOffset? executionTime;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<NextTransition> nextTransitions;
+		Transition parentTransition;
+		double? percentPartialSave;
+		Record.Record data;
+		string nextFieldValue;
+		string name;
+		bool? criteriaMatched;
+		long? id;
+		List<Field> fields;
+		string criteriaMessage;
+		string type;
+		DateTimeOffset? executionTime;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<NextTransition> NextTransitions
 		{
@@ -28,16 +28,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of List<NextTransition></returns>
 			get
 			{
-				return  this.nextTransitions;
+				return  nextTransitions;
 
 			}
 			/// <summary>The method to set the value to nextTransitions</summary>
 			/// <param name="nextTransitions">Instance of List<NextTransition></param>
 			set
 			{
-				 this.nextTransitions=value;
+				 nextTransitions=value;
 
-				 this.keyModified["next_transitions"] = 1;
+				 keyModified["next_transitions"] = 1;
 
 			}
 		}
@@ -48,16 +48,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Transition</returns>
 			get
 			{
-				return  this.parentTransition;
+				return  parentTransition;
 
 			}
 			/// <summary>The method to set the value to parentTransition</summary>
 			/// <param name="parentTransition">Instance of Transition</param>
 			set
 			{
-				 this.parentTransition=value;
+				 parentTransition=value;
 
-				 this.keyModified["parent_transition"] = 1;
+				 keyModified["parent_transition"] = 1;
 
 			}
 		}
@@ -68,16 +68,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>double? representing the percentPartialSave</returns>
 			get
 			{
-				return  this.percentPartialSave;
+				return  percentPartialSave;
 
 			}
 			/// <summary>The method to set the value to percentPartialSave</summary>
 			/// <param name="percentPartialSave">double?</param>
 			set
 			{
-				 this.percentPartialSave=value;
+				 percentPartialSave=value;
 
-				 this.keyModified["percent_partial_save"] = 1;
+				 keyModified["percent_partial_save"] = 1;
 
 			}
 		}
@@ -88,16 +88,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Record</returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of Record</param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -108,16 +108,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the nextFieldValue</returns>
 			get
 			{
-				return  this.nextFieldValue;
+				return  nextFieldValue;
 
 			}
 			/// <summary>The method to set the value to nextFieldValue</summary>
 			/// <param name="nextFieldValue">string</param>
 			set
 			{
-				 this.nextFieldValue=value;
+				 nextFieldValue=value;
 
-				 this.keyModified["next_field_value"] = 1;
+				 keyModified["next_field_value"] = 1;
 
 			}
 		}
@@ -128,16 +128,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -148,16 +148,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the criteriaMatched</returns>
 			get
 			{
-				return  this.criteriaMatched;
+				return  criteriaMatched;
 
 			}
 			/// <summary>The method to set the value to criteriaMatched</summary>
 			/// <param name="criteriaMatched">bool?</param>
 			set
 			{
-				 this.criteriaMatched=value;
+				 criteriaMatched=value;
 
-				 this.keyModified["criteria_matched"] = 1;
+				 keyModified["criteria_matched"] = 1;
 
 			}
 		}
@@ -168,16 +168,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -188,16 +188,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of List<Field></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<Field></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -208,16 +208,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the criteriaMessage</returns>
 			get
 			{
-				return  this.criteriaMessage;
+				return  criteriaMessage;
 
 			}
 			/// <summary>The method to set the value to criteriaMessage</summary>
 			/// <param name="criteriaMessage">string</param>
 			set
 			{
-				 this.criteriaMessage=value;
+				 criteriaMessage=value;
 
-				 this.keyModified["criteria_message"] = 1;
+				 keyModified["criteria_message"] = 1;
 
 			}
 		}
@@ -228,16 +228,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -248,16 +248,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>DateTimeOffset? representing the executionTime</returns>
 			get
 			{
-				return  this.executionTime;
+				return  executionTime;
 
 			}
 			/// <summary>The method to set the value to executionTime</summary>
 			/// <param name="executionTime">DateTimeOffset?</param>
 			set
 			{
-				 this.executionTime=value;
+				 executionTime=value;
 
-				 this.keyModified["execution_time"] = 1;
+				 keyModified["execution_time"] = 1;
 
 			}
 		}
@@ -267,9 +267,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -282,7 +282,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

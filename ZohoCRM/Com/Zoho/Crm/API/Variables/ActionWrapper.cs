@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Variables
 
 	public class ActionWrapper : Model, ActionHandler
 	{
-		private List<ActionResponse> variables;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ActionResponse> variables;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ActionResponse> Variables
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>Instance of List<ActionResponse></returns>
 			get
 			{
-				return  this.variables;
+				return  variables;
 
 			}
 			/// <summary>The method to set the value to variables</summary>
 			/// <param name="variables">Instance of List<ActionResponse></param>
 			set
 			{
-				 this.variables=value;
+				 variables=value;
 
-				 this.keyModified["variables"] = 1;
+				 keyModified["variables"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Variables
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Variables
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

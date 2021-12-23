@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class ChartData : Model
 	{
-		private List<Node> nodes;
-		private List<Connection> connections;
-		private int? canvasWidth;
-		private int? canvasHeight;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Node> nodes;
+		List<Connection> connections;
+		int? canvasWidth;
+		int? canvasHeight;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Node> Nodes
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Node></returns>
 			get
 			{
-				return  this.nodes;
+				return  nodes;
 
 			}
 			/// <summary>The method to set the value to nodes</summary>
 			/// <param name="nodes">Instance of List<Node></param>
 			set
 			{
-				 this.nodes=value;
+				 nodes=value;
 
-				 this.keyModified["nodes"] = 1;
+				 keyModified["nodes"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Connection></returns>
 			get
 			{
-				return  this.connections;
+				return  connections;
 
 			}
 			/// <summary>The method to set the value to connections</summary>
 			/// <param name="connections">Instance of List<Connection></param>
 			set
 			{
-				 this.connections=value;
+				 connections=value;
 
-				 this.keyModified["connections"] = 1;
+				 keyModified["connections"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the canvasWidth</returns>
 			get
 			{
-				return  this.canvasWidth;
+				return  canvasWidth;
 
 			}
 			/// <summary>The method to set the value to canvasWidth</summary>
 			/// <param name="canvasWidth">int?</param>
 			set
 			{
-				 this.canvasWidth=value;
+				 canvasWidth=value;
 
-				 this.keyModified["canvas_width"] = 1;
+				 keyModified["canvas_width"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the canvasHeight</returns>
 			get
 			{
-				return  this.canvasHeight;
+				return  canvasHeight;
 
 			}
 			/// <summary>The method to set the value to canvasHeight</summary>
 			/// <param name="canvasHeight">int?</param>
 			set
 			{
-				 this.canvasHeight=value;
+				 canvasHeight=value;
 
-				 this.keyModified["canvas_height"] = 1;
+				 keyModified["canvas_height"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

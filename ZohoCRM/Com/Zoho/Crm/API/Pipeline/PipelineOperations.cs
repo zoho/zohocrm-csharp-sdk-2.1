@@ -6,7 +6,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 	public class PipelineOperations
 	{
-		private long? layoutId;
+		long? layoutId;
 
 		/// <summary>		/// Creates an instance of PipelineOperations with the given parameters
 		/// <param name="layoutId">long?</param>
@@ -23,9 +23,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<TransferActionHandler></returns>
 		public APIResponse<TransferActionHandler> TransferAndDelete(TransferAndDeleteWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/actions/transfer");
 
@@ -41,7 +41,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.MandatoryChecker=true;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.TransferAndDeleteParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.TransferAndDeleteParam"),  layoutId);
 
 			return handlerInstance.APICall<TransferActionHandler>(typeof(TransferActionHandler), "application/json");
 
@@ -52,9 +52,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetPipelines()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
@@ -64,7 +64,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.GetPipelinesParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.GetPipelinesParam"),  layoutId);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreatePipelines(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
@@ -94,7 +94,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.MandatoryChecker=true;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.CreatePipelinesParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.CreatePipelinesParam"),  layoutId);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -106,9 +106,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdatePipelines(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
@@ -124,7 +124,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.MandatoryChecker=true;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.UpdatePipelinesParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.UpdatePipelinesParam"),  layoutId);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 
@@ -136,9 +136,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetPipeline(long? pipelineId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/");
 
@@ -150,7 +150,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.GetPipelineParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.GetPipelineParam"),  layoutId);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -163,9 +163,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdatePipeline(long? pipelineId, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/");
 
@@ -181,7 +181,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			handlerInstance.Request=request;
 
-			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.UpdatePipelineParam"),  this.layoutId);
+			handlerInstance.AddParam(new Param<long?>("layout_id", "com.zoho.crm.api.Pipeline.UpdatePipelineParam"),  layoutId);
 
 			return handlerInstance.APICall<ActionHandler>(typeof(ActionHandler), "application/json");
 

@@ -7,18 +7,18 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Button : Model
 	{
-		private long? id;
-		private int? sequenceNumber;
-		private string displayLabel;
-		private Criteria criteria;
-		private Screen targetScreen;
-		private string type;
-		private string color;
-		private string shape;
-		private string backgroundColor;
-		private string visibility;
-		private Transition transition;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		int? sequenceNumber;
+		string displayLabel;
+		Criteria criteria;
+		Screen targetScreen;
+		string type;
+		string color;
+		string shape;
+		string backgroundColor;
+		string visibility;
+		Transition transition;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -26,16 +26,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -46,16 +46,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -66,16 +66,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -86,16 +86,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.criteria;
+				return  criteria;
 
 			}
 			/// <summary>The method to set the value to criteria</summary>
 			/// <param name="criteria">Instance of Criteria</param>
 			set
 			{
-				 this.criteria=value;
+				 criteria=value;
 
-				 this.keyModified["criteria"] = 1;
+				 keyModified["criteria"] = 1;
 
 			}
 		}
@@ -106,16 +106,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Screen</returns>
 			get
 			{
-				return  this.targetScreen;
+				return  targetScreen;
 
 			}
 			/// <summary>The method to set the value to targetScreen</summary>
 			/// <param name="targetScreen">Instance of Screen</param>
 			set
 			{
-				 this.targetScreen=value;
+				 targetScreen=value;
 
-				 this.keyModified["target_screen"] = 1;
+				 keyModified["target_screen"] = 1;
 
 			}
 		}
@@ -126,16 +126,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -146,16 +146,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the color</returns>
 			get
 			{
-				return  this.color;
+				return  color;
 
 			}
 			/// <summary>The method to set the value to color</summary>
 			/// <param name="color">string</param>
 			set
 			{
-				 this.color=value;
+				 color=value;
 
-				 this.keyModified["color"] = 1;
+				 keyModified["color"] = 1;
 
 			}
 		}
@@ -166,16 +166,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the shape</returns>
 			get
 			{
-				return  this.shape;
+				return  shape;
 
 			}
 			/// <summary>The method to set the value to shape</summary>
 			/// <param name="shape">string</param>
 			set
 			{
-				 this.shape=value;
+				 shape=value;
 
-				 this.keyModified["shape"] = 1;
+				 keyModified["shape"] = 1;
 
 			}
 		}
@@ -186,16 +186,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the backgroundColor</returns>
 			get
 			{
-				return  this.backgroundColor;
+				return  backgroundColor;
 
 			}
 			/// <summary>The method to set the value to backgroundColor</summary>
 			/// <param name="backgroundColor">string</param>
 			set
 			{
-				 this.backgroundColor=value;
+				 backgroundColor=value;
 
-				 this.keyModified["background_color"] = 1;
+				 keyModified["background_color"] = 1;
 
 			}
 		}
@@ -206,16 +206,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the visibility</returns>
 			get
 			{
-				return  this.visibility;
+				return  visibility;
 
 			}
 			/// <summary>The method to set the value to visibility</summary>
 			/// <param name="visibility">string</param>
 			set
 			{
-				 this.visibility=value;
+				 visibility=value;
 
-				 this.keyModified["visibility"] = 1;
+				 keyModified["visibility"] = 1;
 
 			}
 		}
@@ -226,16 +226,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Transition</returns>
 			get
 			{
-				return  this.transition;
+				return  transition;
 
 			}
 			/// <summary>The method to set the value to transition</summary>
 			/// <param name="transition">Instance of Transition</param>
 			set
 			{
-				 this.transition=value;
+				 transition=value;
 
-				 this.keyModified["transition"] = 1;
+				 keyModified["transition"] = 1;
 
 			}
 		}
@@ -245,9 +245,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -260,7 +260,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

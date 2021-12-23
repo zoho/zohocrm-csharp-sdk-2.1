@@ -13,9 +13,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetNotes(ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
 
@@ -39,9 +39,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreateNotes(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
 
@@ -67,9 +67,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateNotes(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
 
@@ -95,9 +95,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteNotes(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
 
@@ -121,9 +121,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetNote(long? id, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
 
@@ -150,9 +150,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateNote(long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
 
@@ -178,9 +178,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteNote(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
 

@@ -33,15 +33,15 @@ namespace Com.Zoho.Crm.API.Util
     {
         public JSONConverter(CommonAPIHandler commonAPIHandler) : base(commonAPIHandler) { }
 
-        private Dictionary<string, List<object>> uniqueValuesMap = new Dictionary<string, List<object>>();
+        Dictionary<string, List<object>> uniqueValuesMap = new Dictionary<string, List<object>>();
 
         public override void AppendToRequest(HttpWebRequest requestBase, object requestObject)
         {
-            string dataString = requestObject.ToString();
+            var dataString = requestObject.ToString();
 
             var data = Encoding.UTF8.GetBytes(dataString);
 
-            int dataLength = data.Length;
+            var dataLength = data.Length;
 
             requestBase.ContentLength = dataLength;
 
@@ -53,13 +53,13 @@ namespace Com.Zoho.Crm.API.Util
 
         public override object FormRequest(object requestInstance, string pack, int? instanceNumber, JObject memberDetail)
         {
-            JObject classDetail = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
+            var classDetail = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
 
             if (classDetail.ContainsKey(Constants.INTERFACE) && (bool)classDetail.GetValue(Constants.INTERFACE))
             {
-                JArray classes = (JArray)classDetail[Constants.CLASSES];
+                var classes = (JArray)classDetail[Constants.CLASSES];
 
-                string requestObjectClassName = requestInstance.GetType().FullName;
+                var requestObjectClassName = requestInstance.GetType().FullName;
 
                 foreach (object className in classes)
                 {
@@ -74,11 +74,11 @@ namespace Com.Zoho.Crm.API.Util
 
             if (requestInstance is Record.Record)
             {
-                string moduleAPIName = this.commonAPIHandler.ModuleAPIName;
+                var moduleAPIName = commonAPIHandler.ModuleAPIName;
 
-                JObject requestJSON = IsRecordRequest(requestInstance, classDetail, instanceNumber, memberDetail);
+                var requestJSON = IsRecordRequest(requestInstance, classDetail, instanceNumber, memberDetail);
 
-                this.commonAPIHandler.ModuleAPIName = moduleAPIName;
+                commonAPIHandler.ModuleAPIName = moduleAPIName;
 
                 return requestJSON;
             }
@@ -88,38 +88,38 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private JObject IsNotRecordRequest(object requestInstance, JObject classDetail, int? instanceNumber, JObject classMemberDetail)
+        JObject IsNotRecordRequest(object requestInstance, JObject classDetail, int? instanceNumber, JObject classMemberDetail)
         {
-            bool lookUp = false;
+            var lookUp = false;
 
-            bool skipMandatory = false;
+            var skipMandatory = false;
 
             string classMemberName = null;
 
             if (classMemberDetail != null)
             {
-                lookUp = classMemberDetail.ContainsKey(Constants.LOOKUP) ? (bool)classMemberDetail[Constants.LOOKUP] : false;
+                lookUp = classMemberDetail.ContainsKey(Constants.LOOKUP) && (bool)classMemberDetail[Constants.LOOKUP];
 
-                skipMandatory = classMemberDetail.ContainsKey(Constants.SKIP_MANDATORY) ? (bool)classMemberDetail[Constants.SKIP_MANDATORY] : false;
+                skipMandatory = classMemberDetail.ContainsKey(Constants.SKIP_MANDATORY) && (bool)classMemberDetail[Constants.SKIP_MANDATORY];
 
-                string name = classMemberDetail.ContainsKey(Constants.NAME) ? classMemberDetail[Constants.NAME].ToString() : "";
+                var name = classMemberDetail.ContainsKey(Constants.NAME) ? classMemberDetail[Constants.NAME].ToString() : "";
 
                 classMemberName = BuildName(name);
             }
 
-            JObject requestJSON = new JObject();
+            var requestJSON = new JObject();
 
-            Dictionary<string, bool> requiredKeys = new Dictionary<string, bool>();
+            var requiredKeys = new Dictionary<string, bool>();
 
-            Dictionary<string, bool> primaryKeys = new Dictionary<string, bool>();
+            var primaryKeys = new Dictionary<string, bool>();
 
-            Dictionary<string, bool> requiredInUpdateKeys = new Dictionary<string, bool>();
+            var requiredInUpdateKeys = new Dictionary<string, bool>();
 
-            foreach (KeyValuePair<string, JToken> data in classDetail) // all members
+            foreach (var data in classDetail) // all members
             {
-                string memberName = data.Key;
+                var memberName = data.Key;
 
-                JObject memberDetail = (JObject)data.Value;
+                var memberDetail = (JObject)data.Value;
 
                 object modification = null;
 
@@ -128,13 +128,13 @@ namespace Com.Zoho.Crm.API.Util
                     continue;
                 }
 
-                string keyName = (string)memberDetail[Constants.NAME];
+                var keyName = (string)memberDetail[Constants.NAME];
 
                 try
                 {
-                    MethodInfo isKeyModified = requestInstance.GetType().GetMethod(Constants.IS_KEY_MODIFIED);
+                    var isKeyModified = requestInstance.GetType().GetMethod(Constants.IS_KEY_MODIFIED);
 
-                    object[] param = new object[1];
+                    var param = new object[1];
 
                     param[0] = memberDetail.GetValue(Constants.NAME).ToString();
 
@@ -145,63 +145,60 @@ namespace Com.Zoho.Crm.API.Util
                     throw new SDKException(Constants.EXCEPTION_IS_KEY_MODIFIED, ex);
                 }
 
-                bool required = memberDetail.ContainsKey(Constants.REQUIRED) ? (bool)memberDetail[Constants.REQUIRED] : false;
+                var required = memberDetail.ContainsKey(Constants.REQUIRED) && (bool)memberDetail[Constants.REQUIRED];
 
                 if (memberDetail.ContainsKey(Constants.REQUIRED) && required)
                 {
                     requiredKeys.Add(keyName, true);
                 }
 
-                bool requiredInUpdate = memberDetail.ContainsKey(Constants.REQUIRED_IN_UPDATE) ? (bool)memberDetail[Constants.REQUIRED_IN_UPDATE] : false;
+                var requiredInUpdate = memberDetail.ContainsKey(Constants.REQUIRED_IN_UPDATE) && (bool)memberDetail[Constants.REQUIRED_IN_UPDATE];
 
                 if (requiredInUpdate)
                 {
                     requiredInUpdateKeys.Add(keyName, true);
                 }
 
-                bool primary = memberDetail.ContainsKey(Constants.PRIMARY) ? (bool)memberDetail[Constants.PRIMARY] : false;
+                var primary = memberDetail.ContainsKey(Constants.PRIMARY) && (bool)memberDetail[Constants.PRIMARY];
 
                 if (memberDetail.ContainsKey(Constants.PRIMARY) && primary && (!memberDetail.ContainsKey(Constants.REQUIRED_IN_UPDATE) || (bool)memberDetail[Constants.REQUIRED_IN_UPDATE]))
                 {
                     primaryKeys.Add(keyName, true);
                 }
 
-                object fieldValue = null;
+                if (modification == null || (int)modification == 0) continue;
+                
+                var field = GetPrivateFieldInfo(requestInstance.GetType(), memberName);
 
-                if (modification != null && (int)modification != 0)
+                var fieldValue = field.GetValue(requestInstance);
+
+                if (ValueChecker(requestInstance.GetType().FullName, memberName, memberDetail, fieldValue, uniqueValuesMap, instanceNumber) == true)// set if not null
                 {
-                    FieldInfo field = GetPrivateFieldInfo(requestInstance.GetType(), memberName);
-
-                    fieldValue = field.GetValue(requestInstance);// value of the member
-
-                    if (this.ValueChecker(requestInstance.GetType().FullName, memberName, memberDetail, fieldValue, uniqueValuesMap, instanceNumber) == true)// set if not null
+                    if (fieldValue != null)
                     {
-                        if (fieldValue != null)
+                        requiredKeys.Remove(keyName);
+
+                        primaryKeys.Remove(keyName);
+
+                        requiredInUpdateKeys.Remove(keyName);
+                    }
+
+                    if (requestInstance is FileDetails)
+                    {
+                        if(fieldValue == null || (fieldValue is string && fieldValue.ToString().ToLower().Equals("null")))
                         {
-                            requiredKeys.Remove(keyName);
-
-                            primaryKeys.Remove(keyName);
-
-                            requiredInUpdateKeys.Remove(keyName);
-                        }
-
-                        if (requestInstance is FileDetails)
-                        {
-                            if(fieldValue == null || (fieldValue is string && fieldValue.ToString().ToLower().Equals("null")))
-                            {
-                                requestJSON.Add(keyName.ToLower(), JValue.CreateNull());
-                            }
-                            else
-                            {
-                                requestJSON.Add(keyName.ToLower(), JToken.FromObject(fieldValue));
-                            }
+                            requestJSON.Add(keyName.ToLower(), JValue.CreateNull());
                         }
                         else
                         {
-                            object recordData = SetData(memberDetail, fieldValue);
-
-                            requestJSON.Add((string)memberDetail.GetValue(Constants.NAME), recordData != null ? JToken.FromObject(recordData) : JValue.CreateNull());
+                            requestJSON.Add(keyName.ToLower(), JToken.FromObject(fieldValue));
                         }
+                    }
+                    else
+                    {
+                        var recordData = SetData(memberDetail, fieldValue);
+
+                        requestJSON.Add((string)memberDetail.GetValue(Constants.NAME) ?? throw new InvalidOperationException(), recordData != null ? JToken.FromObject(recordData) : JValue.CreateNull());
                     }
                 }
             }
@@ -214,17 +211,16 @@ namespace Com.Zoho.Crm.API.Util
             return requestJSON;
         }
 
-        private bool CheckException(string memberName, object requestInstance, int? instanceNumber, bool lookUp, Dictionary<string, bool> requiredKeys, Dictionary<string, bool> primaryKeys, Dictionary<string, bool> requiredInUpdateKeys)
+        bool CheckException(string memberName, object requestInstance, int? instanceNumber, bool lookUp, Dictionary<string, bool> requiredKeys, Dictionary<string, bool> primaryKeys, Dictionary<string, bool> requiredInUpdateKeys)
         {
-            if (requiredInUpdateKeys.Count() > 0 && this.commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase))
+            if (requiredInUpdateKeys.Any() && commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase))
             {
-                JObject error = new JObject();
-
-                error.Add(Constants.FIELD, memberName);
-
-                error.Add(Constants.TYPE, requestInstance.GetType().FullName);
-
-                error.Add(Constants.KEYS, string.Join(",", requiredInUpdateKeys.Keys));
+                var error = new JObject
+                {
+                    { Constants.FIELD, memberName },
+                    { Constants.TYPE, requestInstance.GetType().FullName },
+                    { Constants.KEYS, string.Join(",", requiredInUpdateKeys.Keys) }
+                };
 
                 if (instanceNumber != null)
                 {
@@ -236,19 +232,18 @@ namespace Com.Zoho.Crm.API.Util
 
             if (commonAPIHandler.MandatoryChecker)
             {
-                if (this.commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_CREATE, StringComparison.OrdinalIgnoreCase))
+                if (commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_CREATE, StringComparison.OrdinalIgnoreCase))
                 {
                     if (lookUp)
                     {
                         if (primaryKeys.Count > 0)
                         {
-                            JObject error = new JObject();
-
-                            error.Add(Constants.FIELD, memberName);
-
-                            error.Add(Constants.TYPE, requestInstance.GetType().FullName);
-
-                            error.Add(Constants.KEYS, string.Join(",", primaryKeys.Keys));
+                            var error = new JObject
+                            {
+                                { Constants.FIELD, memberName },
+                                { Constants.TYPE, requestInstance.GetType().FullName },
+                                { Constants.KEYS, string.Join(",", primaryKeys.Keys) }
+                            };
 
                             if (instanceNumber != null)
                             {
@@ -260,13 +255,12 @@ namespace Com.Zoho.Crm.API.Util
                     }
                     else if (requiredKeys.Count > 0)
                     {
-                        JObject error = new JObject();
-
-                        error.Add(Constants.FIELD, memberName);
-
-                        error.Add(Constants.TYPE, requestInstance.GetType().FullName);
-
-                        error.Add(Constants.KEYS, string.Join(",", requiredKeys.Keys));
+                        var error = new JObject
+                        {
+                            { Constants.FIELD, memberName },
+                            { Constants.TYPE, requestInstance.GetType().FullName },
+                            { Constants.KEYS, string.Join(",", requiredKeys.Keys) }
+                        };
 
                         if (instanceNumber != null)
                         {
@@ -277,15 +271,14 @@ namespace Com.Zoho.Crm.API.Util
                     }
                 }
 
-                if (this.commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase) && primaryKeys.Count > 0)
+                if (commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase) && primaryKeys.Count > 0)
                 {
-                    JObject error = new JObject();
-
-                    error.Add(Constants.FIELD, memberName);
-
-                    error.Add(Constants.TYPE, requestInstance.GetType().FullName);
-
-                    error.Add(Constants.KEYS, string.Join(",", primaryKeys.Keys));
+                    var error = new JObject
+                    {
+                        { Constants.FIELD, memberName },
+                        { Constants.TYPE, requestInstance.GetType().FullName },
+                        { Constants.KEYS, string.Join(",", primaryKeys.Keys) }
+                    };
 
                     if (instanceNumber != null)
                     {
@@ -295,17 +288,16 @@ namespace Com.Zoho.Crm.API.Util
                     throw new SDKException(Constants.MANDATORY_VALUE_ERROR, Constants.PRIMARY_KEY_ERROR, error, null);
                 }
             }
-            else if (lookUp && this.commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase))
+            else if (lookUp && commonAPIHandler.CategoryMethod.Equals(Constants.REQUEST_CATEGORY_UPDATE, StringComparison.OrdinalIgnoreCase))
             {
                 if (primaryKeys.Count > 0)
                 {
-                    JObject error = new JObject();
-
-                    error.Add(Constants.FIELD, memberName);
-
-                    error.Add(Constants.TYPE, requestInstance.GetType().FullName);
-
-                    error.Add(Constants.KEYS, string.Join(",", primaryKeys.Keys));
+                    var error = new JObject
+                    {
+                        { Constants.FIELD, memberName },
+                        { Constants.TYPE, requestInstance.GetType().FullName },
+                        { Constants.KEYS, string.Join(",", primaryKeys.Keys) }
+                    };
 
                     if(instanceNumber != null)
                     {
@@ -319,11 +311,11 @@ namespace Com.Zoho.Crm.API.Util
             return true;
         }
 
-        private JObject IsRecordRequest(object recordInstance, JObject classDetail, int? instanceNumber, JObject memberDetail)
+        JObject IsRecordRequest(object recordInstance, JObject classDetail, int? instanceNumber, JObject memberDetail)
         {
-            bool lookUp = false;
+            var lookUp = false;
 
-            bool skipMandatory = false;
+            var skipMandatory = false;
 
             string classMemberName = null;
 
@@ -336,17 +328,17 @@ namespace Com.Zoho.Crm.API.Util
                 classMemberName = memberDetail.ContainsKey(Constants.NAME) ? memberDetail[Constants.NAME].ToString() : "";
             }
 
-            JObject requestJSON = new JObject();
+            var requestJSON = new JObject();
 
-            JObject moduleDetail = new JObject();
+            var moduleDetail = new JObject();
 
-            string moduleAPIName = this.commonAPIHandler.ModuleAPIName;
+            var moduleAPIName = commonAPIHandler.ModuleAPIName;
 
             if (moduleAPIName != null)// entry
             {
-                this.commonAPIHandler.ModuleAPIName = null;
+                commonAPIHandler.ModuleAPIName = null;
 
-                JObject fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
+                var fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
 
                 if (fullDetail != null)// from Jsondetails
                 {
@@ -364,34 +356,34 @@ namespace Com.Zoho.Crm.API.Util
                 classDetail = (JObject)Initializer.jsonDetails[Constants.RECORD_NAMESPACE];
             } // class detail must contain record structure at this point
 
-            Type cl = recordInstance.GetType();
+            var cl = recordInstance.GetType();
 
-            Type scl = cl.BaseType;
+            var scl = cl.BaseType;
 
             if (scl.FullName.Equals(Constants.RECORD_NAMESPACE))
             {
                 cl = scl;
             }
 
-            FieldInfo keyValueField = GetPrivateFieldInfo(cl, Constants.KEY_VALUES);
+            var keyValueField = GetPrivateFieldInfo(cl, Constants.KEY_VALUES);
 
-            FieldInfo keyModifiedField = GetPrivateFieldInfo(cl, Constants.KEY_MODIFIED);
+            var keyModifiedField = GetPrivateFieldInfo(cl, Constants.KEY_MODIFIED);
 
-            Dictionary<string, object> keyValues = (Dictionary<string, object>)keyValueField.GetValue(recordInstance);
+            var keyValues = (Dictionary<string, object>)keyValueField.GetValue(recordInstance);
 
-            Dictionary<string, int?> keyModified = (Dictionary<string, int?>)keyModifiedField.GetValue(recordInstance);
+            var keyModified = (Dictionary<string, int?>)keyModifiedField.GetValue(recordInstance);
 
-            Dictionary<string, bool> requiredKeys = new Dictionary<string, bool>();
+            var requiredKeys = new Dictionary<string, bool>();
 
-            Dictionary<string, bool> primaryKeys = new Dictionary<string, bool>();
+            var primaryKeys = new Dictionary<string, bool>();
 
             if (!skipMandatory)
             {
-                foreach (KeyValuePair<string,JToken> keyDetail in moduleDetail)
+                foreach (var keyDetail in moduleDetail)
                 {
-                    JObject keyDetails = (JObject)keyDetail.Value;
+                    var keyDetails = (JObject)keyDetail.Value;
 
-                    string name = (string)keyDetails[Constants.NAME];
+                    var name = (string)keyDetails[Constants.NAME];
 
                     if (keyDetails.ContainsKey(Constants.REQUIRED) && (bool)keyDetails[Constants.REQUIRED])
                     {
@@ -404,11 +396,11 @@ namespace Com.Zoho.Crm.API.Util
                     }
                 }
 
-                foreach (KeyValuePair<string, JToken> keyDetail in classDetail)
+                foreach (var keyDetail in classDetail)
                 {
-                    JObject keyDetails = (JObject)keyDetail.Value;
+                    var keyDetails = (JObject)keyDetail.Value;
 
-                    string name = keyDetail.Key;
+                    var name = keyDetail.Key;
 
                     if (keyDetails.ContainsKey(Constants.REQUIRED) && (bool)keyDetails[Constants.REQUIRED])
                     {
@@ -422,22 +414,22 @@ namespace Com.Zoho.Crm.API.Util
                 }
             }
 
-            foreach (KeyValuePair<string, int?> keyDetail in keyModified)
+            foreach (var keyDetail in keyModified)
             {
-                string keyName = keyDetail.Key;
+                var keyName = keyDetail.Key;
 
                 if (keyDetail.Value != null && keyDetail.Value != 1)
                 {
                     continue;
                 }
 
-                JObject keyDetails = new JObject();
+                var keyDetails = new JObject();
 
-                object keyValue = keyValues.ContainsKey(keyName) ? keyValues[keyName] : null;
+                var keyValue = keyValues.ContainsKey(keyName) ? keyValues[keyName] : null;
 
                 object jsonValue = null;
 
-                string memberName = BuildName(keyName);
+                var memberName = BuildName(keyName);
 
                 if (moduleDetail.Count > 0 && (moduleDetail.ContainsKey(keyName) || moduleDetail.ContainsKey(memberName)))
                 {
@@ -462,7 +454,7 @@ namespace Com.Zoho.Crm.API.Util
                         continue;
                     }
 
-                    if (this.ValueChecker(cl.GetType().FullName, memberName, keyDetails, keyValue, uniqueValuesMap, instanceNumber) == true)
+                    if (ValueChecker(cl.GetType().FullName, memberName, keyDetails, keyValue, uniqueValuesMap, instanceNumber) == true)
                     {
                         jsonValue = SetData(keyDetails, keyValue);
                     }
@@ -490,11 +482,11 @@ namespace Com.Zoho.Crm.API.Util
             return requestJSON;
         }
 
-        private object SetData(JObject memberDetail, object fieldValue)
+        object SetData(JObject memberDetail, object fieldValue)
         {
             if (fieldValue != null)
             {
-                string type = (string)memberDetail[Constants.TYPE];
+                var type = (string)memberDetail[Constants.TYPE];
 
                 if (type.Equals(Constants.LIST_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                 {
@@ -506,9 +498,9 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else if (type.Equals(Constants.CHOICE_NAMESPACE) || (memberDetail.ContainsKey(Constants.STRUCTURE_NAME) && ((string)memberDetail[Constants.STRUCTURE_NAME]).Equals(Constants.CHOICE_NAMESPACE)))
                 {
-                    Type t = fieldValue.GetType();
+                    var t = fieldValue.GetType();
 
-                    PropertyInfo prop = t.GetProperty("Value");
+                    var prop = t.GetProperty("Value");
 
                     return prop.GetValue(fieldValue);
                 }
@@ -522,9 +514,9 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else
                 {
-                    Type t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
+                    var t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
 
-                    MethodInfo method = t.GetMethod(Constants.POST_CONVERT);
+                    var method = t.GetMethod(Constants.POST_CONVERT);
 
                     return method.Invoke(null, new object[] { fieldValue, type });
                 }
@@ -533,11 +525,11 @@ namespace Com.Zoho.Crm.API.Util
             return JValue.CreateNull();
         }
 
-        private JObject SetJSONObject(object fieldValue, JObject memberDetail)
+        JObject SetJSONObject(object fieldValue, JObject memberDetail)
         {
-            JObject jsonObject = new JObject();
+            var jsonObject = new JObject();
 
-            IDictionary requestObject = (IDictionary)fieldValue;
+            var requestObject = (IDictionary)fieldValue;
 
             if (requestObject.Count > 0)
             {
@@ -545,7 +537,7 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     foreach (var key in requestObject.Keys)
                     {
-                        object data = RedirectorForObjectToJSON(requestObject[key]);
+                        var data = RedirectorForObjectToJSON(requestObject[key]);
 
                         jsonObject.Add((string)key, data != null ? JToken.FromObject(data) : JValue.CreateNull());
                     }
@@ -554,13 +546,13 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     if (memberDetail.ContainsKey(Constants.KEYS))
                     {
-                        JArray keysDetail = (JArray)memberDetail.GetValue(Constants.KEYS);
+                        var keysDetail = (JArray)memberDetail.GetValue(Constants.KEYS);
 
-                        for (int keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
+                        for (var keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
                         {
-                            JObject keyDetail = (JObject)keysDetail[keyIndex];
+                            var keyDetail = (JObject)keysDetail[keyIndex];
 
-                            string keyName = (string)keyDetail.GetValue(Constants.NAME);
+                            var keyName = (string)keyDetail.GetValue(Constants.NAME);
 
                             object keyValue = null;
 
@@ -578,39 +570,39 @@ namespace Com.Zoho.Crm.API.Util
             return jsonObject;
         }
 
-        private JArray SetJSONArray(object fieldValue, JObject memberDetail)
+        JArray SetJSONArray(object fieldValue, JObject memberDetail)
         {
-            JArray jsonArray = new JArray();
+            var jsonArray = new JArray();
 
-            IList requestObjects = (IList)fieldValue;
+            var requestObjects = (IList)fieldValue;
 
             if (requestObjects.Count > 0)
             {
                 if (memberDetail == null || (memberDetail != null && !memberDetail.ContainsKey(Constants.STRUCTURE_NAME)))
                 {
-                    foreach (object request in requestObjects)
+                    foreach (var request in requestObjects)
                     {
                         jsonArray.Add(RedirectorForObjectToJSON(request));
                     }
                 }
                 else
                 {
-                    string pack = (string)memberDetail.GetValue(Constants.STRUCTURE_NAME);
+                    var pack = (string)memberDetail.GetValue(Constants.STRUCTURE_NAME);
 
                     if (pack.Equals(Constants.CHOICE_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                     {
-                        foreach (object request in requestObjects)
+                        foreach (var request in requestObjects)
                         {
-                            FieldInfo field = GetPrivateFieldInfo(request.GetType(), "value");
+                            var field = GetPrivateFieldInfo(request.GetType(), "value");
 
                             jsonArray.Add(field.GetValue(request));
                         }
                     }
                     else if (memberDetail.ContainsKey(Constants.MODULE) && memberDetail[Constants.MODULE] != null)
                     {
-                        int instanceCount = 0;
+                        var instanceCount = 0;
 
-                        foreach (object request in requestObjects)
+                        foreach (var request in requestObjects)
                         {
                             jsonArray.Add(IsRecordRequest(request, GetModuleDetailFromUserSpecJSON((string)memberDetail[Constants.MODULE]), instanceCount, memberDetail));
 
@@ -619,9 +611,9 @@ namespace Com.Zoho.Crm.API.Util
                     }
                     else
                     {
-                        int instanceCount = 0;
+                        var instanceCount = 0;
 
-                        foreach (object request in requestObjects)
+                        foreach (var request in requestObjects)
                         {
                             jsonArray.Add(FormRequest(request, pack, instanceCount, memberDetail));
 
@@ -634,7 +626,7 @@ namespace Com.Zoho.Crm.API.Util
             return jsonArray;
         }
 
-        private object RedirectorForObjectToJSON(object request)
+        object RedirectorForObjectToJSON(object request)
         {
             if (request is IList)
             {
@@ -652,27 +644,27 @@ namespace Com.Zoho.Crm.API.Util
 
         public override object GetWrappedResponse(object response, string pack)
         {
-            HttpWebResponse responseEntity = ((HttpWebResponse)response);
+            var responseEntity = ((HttpWebResponse)response);
 
-            string responseString = new StreamReader(responseEntity.GetResponseStream()).ReadToEnd();
+            var responseString = new StreamReader(responseEntity.GetResponseStream()).ReadToEnd();
 
             responseEntity.Close();
 
             if (responseString != null && !string.IsNullOrEmpty(responseString) && !string.IsNullOrWhiteSpace(responseString))
             {
                 // convert string to stream
-                byte[] byteArray = Encoding.UTF8.GetBytes(responseString);
+                var byteArray = Encoding.UTF8.GetBytes(responseString);
 
-                MemoryStream stream = new MemoryStream(byteArray);
+                var stream = new MemoryStream(byteArray);
 
-                JsonTextReader responseStream = new JsonTextReader(new StreamReader(stream));
+                var responseStream = new JsonTextReader(new StreamReader(stream));
 
-                JsonSerializer serializer = new JsonSerializer
+                var serializer = new JsonSerializer
                 {
                     DateParseHandling = DateParseHandling.None
                 };
 
-                JObject responseJson = serializer.Deserialize<JObject>(responseStream);
+                var responseJson = serializer.Deserialize<JObject>(responseStream);
 
                 return GetResponse(responseJson, pack);
             }
@@ -682,22 +674,22 @@ namespace Com.Zoho.Crm.API.Util
 
         public override object GetResponse(object response, string packageName)
         {
-            JObject classDetail = (JObject)Initializer.jsonDetails.GetValue(packageName); // JSONdetails of class
+            var classDetail = (JObject)Initializer.jsonDetails.GetValue(packageName); // JSONdetails of class
 
-            JValue value = response is JValue ? (JValue)response : null;
+            var value = response is JValue jValue ? jValue : null;
 
             if (response == null || response.ToString().Equals("null") || (response.ToString().Trim()).Length == 0 || (value != null && value.Value == null))
             {
                 return null;
             }
 
-            JObject responseJson = (JObject)response;
+            var responseJson = (JObject)response;
 
             object instance = null;
 
             if (classDetail.ContainsKey(Constants.INTERFACE) && (bool)classDetail[Constants.INTERFACE])// if interface
             {
-                JArray classes = (JArray)classDetail[Constants.CLASSES];
+                var classes = (JArray)classDetail[Constants.CLASSES];
 
                 instance = FindMatch(classes, responseJson);// find match returns instance(calls getresponse() recursively)
             }
@@ -715,11 +707,11 @@ namespace Com.Zoho.Crm.API.Util
 
                 if (instance is Record.Record)
                 {
-                    string moduleAPIName = this.commonAPIHandler.ModuleAPIName;
+                    var moduleAPIName = commonAPIHandler.ModuleAPIName;
 
                     instance = IsRecordResponse(responseJson, classDetail, packageName);
 
-                    this.commonAPIHandler.ModuleAPIName = moduleAPIName;
+                    commonAPIHandler.ModuleAPIName = moduleAPIName;
                 }
                 else
                 {
@@ -730,23 +722,23 @@ namespace Com.Zoho.Crm.API.Util
             return instance;
         }
 
-        private object NotRecordResponse(object instance, JObject responseJson, JObject classDetail)
+        object NotRecordResponse(object instance, JObject responseJson, JObject classDetail)
         {
-            foreach (KeyValuePair<string, JToken> member in classDetail)
+            foreach (var member in classDetail)
             {
-                string memberName = member.Key;
+                var memberName = member.Key;
 
-                JObject keyDetail = (JObject)classDetail[memberName];// JSONdetails of the member
+                var keyDetail = (JObject)classDetail[memberName];// JSONdetails of the member
 
-                string keyName = keyDetail.ContainsKey(Constants.NAME) ? (string)keyDetail[Constants.NAME] : null;// api-name of the member
+                var keyName = keyDetail.ContainsKey(Constants.NAME) ? (string)keyDetail[Constants.NAME] : null;// api-name of the member
 
                 if ((keyName != null && !string.IsNullOrEmpty(keyName) && !string.IsNullOrWhiteSpace(keyName)) && responseJson.ContainsKey(keyName) && responseJson[keyName] != null)
                 {
                     object keyData = responseJson[keyName];
 
-                    FieldInfo field = GetPrivateFieldInfo(instance.GetType(), memberName);
+                    var field = GetPrivateFieldInfo(instance.GetType(), memberName);
 
-                    object memberValue = GetData(keyData, keyDetail, field);
+                    var memberValue = GetData(keyData, keyDetail, field);
 
                     field.SetValue(instance, memberValue);
                 }
@@ -755,19 +747,19 @@ namespace Com.Zoho.Crm.API.Util
             return instance;
         }
 
-        private object IsRecordResponse(JObject responseJSON, JObject classDetail, String pack)
+        object IsRecordResponse(JObject responseJSON, JObject classDetail, String pack)
         {
-            object recordInstance = Activator.CreateInstance(Type.GetType(pack));
+            var recordInstance = Activator.CreateInstance(Type.GetType(pack));
 
-            string moduleAPIName = this.commonAPIHandler.ModuleAPIName;
+            var moduleAPIName = commonAPIHandler.ModuleAPIName;
 
-            JObject moduleDetail = new JObject();
+            var moduleDetail = new JObject();
 
             if (moduleAPIName != null)// entry
             {
-                this.commonAPIHandler.ModuleAPIName = null;
+                commonAPIHandler.ModuleAPIName = null;
 
-                JObject fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
+                var fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
 
                 if (fullDetail != null)// from Jsondetails
                 {
@@ -787,30 +779,30 @@ namespace Com.Zoho.Crm.API.Util
                 MergeArrayHandling = MergeArrayHandling.Union
             });
 
-            JObject recordDetail = (JObject)Initializer.jsonDetails[Constants.RECORD_NAMESPACE];
+            var recordDetail = (JObject)Initializer.jsonDetails[Constants.RECORD_NAMESPACE];
 
             // after above steps, recordDetail must always contain record structure detail,module detail could be any,entry case pack detail is record
 
-            Type cl = recordInstance.GetType();
+            var cl = recordInstance.GetType();
 
-            Type scl = cl.BaseType;
+            var scl = cl.BaseType;
 
             if (scl.FullName.Equals(Constants.RECORD_NAMESPACE))
             {
                 cl = scl;
             }
 
-            FieldInfo field = GetPrivateFieldInfo(cl, Constants.KEY_VALUES);
+            var field = GetPrivateFieldInfo(cl, Constants.KEY_VALUES);
 
-            Dictionary<string, object> keyValues = new Dictionary<string, object>();
+            var keyValues = new Dictionary<string, object>();
 
-            foreach (KeyValuePair<string, JToken> member in responseJSON)
+            foreach (var member in responseJSON)
             {
-                string keyName = member.Key;
+                var keyName = member.Key;
 
-                string memberName = BuildName(keyName);
+                var memberName = BuildName(keyName);
 
-                JObject keyDetail = new JObject();
+                var keyDetail = new JObject();
 
                 if (moduleDetail.Count > 0 && (moduleDetail.ContainsKey(keyName) || moduleDetail.ContainsKey(memberName)))
                 {
@@ -851,18 +843,18 @@ namespace Com.Zoho.Crm.API.Util
             return recordInstance;
         }
 
-        private object GetData(object keyData, JObject memberDetail, FieldInfo field)
+        object GetData(object keyData, JObject memberDetail, FieldInfo field)
         {
             object memberValue = null;
 
             if (keyData != null)
             {
-                if ((keyData is JValue && ((JValue)keyData).Value == null) || keyData.ToString() == Constants.NULL_VALUE)
+                if ((keyData is JValue value && value.Value == null) || keyData.ToString() == Constants.NULL_VALUE)
                 {
                     return memberValue;
                 }
 
-                string type = (string)memberDetail[Constants.TYPE];
+                var type = (string)memberDetail[Constants.TYPE];
 
                 if (type.Equals(Constants.LIST_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                 {
@@ -876,15 +868,15 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     if(field != null && field.FieldType.FullName.Contains(Constants.CSHARP_NULL_TYPE_NAME))
                     {
-                        Type t = Type.GetType(CSharpName(field.FieldType));
+                        var t = Type.GetType(CSharpName(field.FieldType));
 
                         memberValue = Activator.CreateInstance(field.FieldType, ChangeType(((JValue)keyData).Value, t));
                     }
                     else
                     {
-                        string valueType = ((JValue)keyData).Value.GetType().FullName;
+                        var valueType = ((JValue)keyData).Value.GetType().FullName;
 
-                        Type t = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, valueType));
+                        var t = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, valueType));
 
                         memberValue = Activator.CreateInstance(t, ((JValue)keyData).Value);
                     }
@@ -899,9 +891,9 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else
                 {
-                    Type t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
+                    var t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
 
-                    MethodInfo method = t.GetMethod(Constants.PRE_CONVERT);
+                    var method = t.GetMethod(Constants.PRE_CONVERT);
 
                     memberValue = method.Invoke(null, new object[] { keyData, type });
                 }
@@ -937,7 +929,7 @@ namespace Com.Zoho.Crm.API.Util
 
             if (!type.IsGenericType) return name;
 
-            foreach(Type genericArgument in type.GenericTypeArguments)
+            foreach(var genericArgument in type.GenericTypeArguments)
             {
                 var sb1 = new StringBuilder();
 
@@ -945,7 +937,7 @@ namespace Com.Zoho.Crm.API.Util
 
                 if (sb1.ToString().Equals(Constants.CSHARP_NULL_TYPE_NAME, StringComparison.OrdinalIgnoreCase))
                 {
-                    foreach (Type genericArgument1 in genericArgument.GenericTypeArguments)
+                    foreach (var genericArgument1 in genericArgument.GenericTypeArguments)
                     {
                         sb.Append(genericArgument1.Namespace).Append(".").Append(genericArgument1.Name);
                     }
@@ -955,15 +947,15 @@ namespace Com.Zoho.Crm.API.Util
             return sb.ToString();
         }
 
-        private object GetMapData(JObject response, JObject memberDetail)
+        object GetMapData(JObject response, JObject memberDetail)
         {
-            Dictionary<string, object> mapInstance = new Dictionary<string, object>();
+            var mapInstance = new Dictionary<string, object>();
 
             if (response.Count > 0)
             {
                 if (memberDetail == null || (memberDetail != null && !memberDetail.ContainsKey(Constants.KEYS)))
                 {
-                    foreach (KeyValuePair<string, JToken> responseData in response)
+                    foreach (var responseData in response)
                     {
                         mapInstance.Add(responseData.Key, RedirectorForJSONToObject(responseData.Value));
                     }
@@ -972,13 +964,13 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     if (memberDetail.ContainsKey(Constants.KEYS))
                     {
-                        JArray keysDetail = (JArray)memberDetail[Constants.KEYS];
+                        var keysDetail = (JArray)memberDetail[Constants.KEYS];
 
-                        for (int keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
+                        for (var keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
                         {
-                            JObject keyDetail = (JObject)keysDetail[keyIndex];
+                            var keyDetail = (JObject)keysDetail[keyIndex];
 
-                            string keyName = (string)keyDetail[Constants.NAME];
+                            var keyName = (string)keyDetail[Constants.NAME];
 
                             object keyValue = null;
 
@@ -996,9 +988,9 @@ namespace Com.Zoho.Crm.API.Util
             return mapInstance;
         }
 
-        private object GetCollectionsData(JArray responses, JObject memberDetail)
+        object GetCollectionsData(JArray responses, JObject memberDetail)
         {
-            List<object> values = new List<object>();
+            var values = new List<object>();
 
             if (responses.Count > 0)
             {
@@ -1011,25 +1003,25 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else// need to have structure Name in memberDetail
                 {
-                    string pack = (string)memberDetail[Constants.STRUCTURE_NAME];
+                    var pack = (string)memberDetail[Constants.STRUCTURE_NAME];
 
                     if (pack.Equals(Constants.CHOICE_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                     {
                         foreach (object response in responses)
                         {
-                            JToken keyData = (JToken)response;
+                            var keyData = (JToken)response;
 
-                            JTokenType tokenType = keyData.Type;
+                            var tokenType = keyData.Type;
 
                             if (response.GetType().Name.Equals("JValue", StringComparison.OrdinalIgnoreCase))
                             {
-                                Type type = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, GetType(tokenType)));
+                                var type = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, GetType(tokenType)));
 
                                 values.Add(Activator.CreateInstance(type, ((JValue)response).Value));
                             }
                             else
                             {
-                                Type type = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, GetType(tokenType)));
+                                var type = Type.GetType(Constants.CHOICE.Replace(Constants._TYPE, GetType(tokenType)));
 
                                 values.Add(Activator.CreateInstance(type, ((JValue)response).Value));
                             }
@@ -1054,15 +1046,13 @@ namespace Com.Zoho.Crm.API.Util
 
             IList list = null;
 
-            if (values is List<Object> && memberDetail != null)
+            if (values is List<Object> list1 && memberDetail != null)
             {
-                List<Object> list1 = (List<Object>)values;
+                var listTypeName = memberDetail[Constants.TYPE] + "[" + memberDetail[Constants.STRUCTURE_NAME] + "]";
 
-                string listTypeName = memberDetail[Constants.TYPE] + "[" + memberDetail[Constants.STRUCTURE_NAME] + "]";
+                var type = list1.Count > 0 ? list1[0].GetType().FullName : null;
 
-                string type = list1.Count > 0 ? list1[0].GetType().FullName : null;
-
-                string type1 = type;
+                var type1 = type;
 
                 if (type != null && (type.Contains("JValue") || (memberDetail.ContainsKey(Constants.STRUCTURE_NAME) && memberDetail[Constants.STRUCTURE_NAME].ToString().Equals(Constants.CHOICE_NAMESPACE, StringComparison.OrdinalIgnoreCase))))
                 {
@@ -1070,9 +1060,9 @@ namespace Com.Zoho.Crm.API.Util
 
                     if (type.Contains("JValue"))
                     {
-                        JToken keyData = (JToken)list1[0];
+                        var keyData = (JToken)list1[0];
 
-                        JTokenType tokenType = keyData.Type;
+                        var tokenType = keyData.Type;
 
                         if(memberDetail[Constants.TYPE].Contains("Choice"))
                         {
@@ -1087,22 +1077,22 @@ namespace Com.Zoho.Crm.API.Util
                     listTypeName = memberDetail[Constants.TYPE] + "[" + type1 + "]";
                 }
 
-                Type t = Type.GetType(listTypeName);
+                var t = Type.GetType(listTypeName);
 
                 if (list == null && t != null && (memberDetail.ContainsKey(Constants.STRUCTURE_NAME) || type1 != null))
                 {
                     list = (IList)Activator.CreateInstance(t);
                 }
 
-                foreach (Object record in list1)
+                foreach (var record in list1)
                 {
-                    JValue value = record is JValue ? (JValue)record : null;
+                    var value = record is JValue jValue ? jValue : null;
 
                     if (record != null && (value != null && value.Value == null) && record.GetType().Name.Equals("JValue"))
                     {
-                        JToken keyData = (JToken)list1[0];
+                        var keyData = (JToken)list1[0];
 
-                        JTokenType tokenType = keyData.Type;
+                        var tokenType = keyData.Type;
 
                         if (record.GetType().Name.Equals("JValue", StringComparison.OrdinalIgnoreCase))
                         {
@@ -1121,9 +1111,9 @@ namespace Com.Zoho.Crm.API.Util
                     {
                         if(!memberDetail.ContainsKey(Constants.STRUCTURE_NAME))
                         {
-                            Type dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type1));
+                            var dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type1));
 
-                            MethodInfo method = dataTypeConverter.GetMethod(Constants.PRE_CONVERT);
+                            var method = dataTypeConverter.GetMethod(Constants.PRE_CONVERT);
 
                             list.Add(method.Invoke(null, new Object[] { record, type }));
                         }
@@ -1140,24 +1130,24 @@ namespace Com.Zoho.Crm.API.Util
             return values;
         }
 
-        private JObject GetModuleDetailFromUserSpecJSON(string module)
+        JObject GetModuleDetailFromUserSpecJSON(string module)
         {
-            JObject moduleDetail = new JObject();
+            var moduleDetail = new JObject();
 
-            string recordFieldDetailsPath = Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY + Path.DirectorySeparatorChar + GetEncodedFileName();
+            var recordFieldDetailsPath = Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY + Path.DirectorySeparatorChar + GetEncodedFileName();
 
             return Utility.GetJSONObject(Initializer.GetJSON((recordFieldDetailsPath)), module);
         }
 
-        private object RedirectorForJSONToObject(object keyData)
+        object RedirectorForJSONToObject(object keyData)
         {
-            if (keyData is JObject)
+            if (keyData is JObject data)
             {
-                return GetMapData((JObject)keyData, null);
+                return GetMapData(data, null);
             }
-            else if (keyData is JArray)
+            else if (keyData is JArray array)
             {
-                return GetCollectionsData((JArray)keyData, null);
+                return GetCollectionsData(array, null);
             }
             else
             {
@@ -1165,15 +1155,15 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private object FindMatch(JArray classes, JObject responseJson)
+        object FindMatch(JArray classes, JObject responseJson)
         {
-            string pack = "";
+            var pack = "";
 
             float ratio = 0;
 
             foreach (string className in classes)
             {
-                float matchRatio = FindRatio(className, responseJson);
+                var matchRatio = FindRatio(className, responseJson);
 
                 if (matchRatio == 1.0)
                 {
@@ -1194,9 +1184,9 @@ namespace Com.Zoho.Crm.API.Util
             return GetResponse(responseJson, pack);
         }
 
-        private float FindRatio(string className, JObject responseJson)
+        float FindRatio(string className, JObject responseJson)
         {
-            JObject classDetail = (JObject)Initializer.jsonDetails.GetValue(className); // JSONdetails of class
+            var classDetail = (JObject)Initializer.jsonDetails.GetValue(className); // JSONdetails of class
 
             float totalPoints = classDetail.Count;
 
@@ -1208,21 +1198,21 @@ namespace Com.Zoho.Crm.API.Util
             }
             else
             {
-                foreach (KeyValuePair<string, JToken> memberName in classDetail)
+                foreach (var memberName in classDetail)
                 {
-                    JObject memberDetail = (JObject)memberName.Value;
+                    var memberDetail = (JObject)memberName.Value;
 
-                    string keyName = memberDetail.ContainsKey(Constants.NAME) ? (string)memberDetail[Constants.NAME] : null;
+                    var keyName = memberDetail.ContainsKey(Constants.NAME) ? (string)memberDetail[Constants.NAME] : null;
 
                     if ((keyName != null && !string.IsNullOrEmpty(keyName) && !string.IsNullOrWhiteSpace(keyName)) && responseJson.ContainsKey(keyName) && responseJson[keyName] != null)
                     {// key not empty
-                        JToken keyData = responseJson[keyName];
+                        var keyData = responseJson[keyName];
 
-                        JTokenType tokenType = keyData.Type;
+                        var tokenType = keyData.Type;
 
-                        string structureName = memberDetail.ContainsKey(Constants.STRUCTURE_NAME) ? (string)memberDetail[Constants.STRUCTURE_NAME] : null;
+                        var structureName = memberDetail.ContainsKey(Constants.STRUCTURE_NAME) ? (string)memberDetail[Constants.STRUCTURE_NAME] : null;
 
-                        string type = GetType(tokenType);
+                        var type = GetType(tokenType);
 
                         if (type.Equals((string)memberDetail[Constants.TYPE]))
                         {
@@ -1234,7 +1224,7 @@ namespace Com.Zoho.Crm.API.Util
                         }
                         else if (((string)memberDetail[Constants.TYPE]).Equals(Constants.CHOICE_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                         {
-                            JArray values = (JArray)memberDetail[Constants.VALUES];
+                            var values = (JArray)memberDetail[Constants.VALUES];
 
                             foreach (object value in values)
                             {
@@ -1251,7 +1241,7 @@ namespace Com.Zoho.Crm.API.Util
                         {
                             if (memberDetail.ContainsKey(Constants.VALUES))
                             {
-                                JArray values = (JArray)memberDetail[Constants.VALUES];
+                                var values = (JArray)memberDetail[Constants.VALUES];
 
                                 foreach (object value in values)
                                 {
@@ -1276,9 +1266,9 @@ namespace Com.Zoho.Crm.API.Util
 
         public static string BuildName(string memberName)
         {
-            List<string> name = memberName.ToLower().Split('_').ToList();
+            var name = memberName.ToLower().Split('_').ToList();
 
-            string sdkName = "";
+            var sdkName = "";
 
             int index;
 
@@ -1292,9 +1282,9 @@ namespace Com.Zoho.Crm.API.Util
 
             index = 1;
 
-            for (int nameIndex = index; nameIndex < name.Count; nameIndex++)
+            for (var nameIndex = index; nameIndex < name.Count; nameIndex++)
             {
-                string firstLetterUppercase = "";
+                var firstLetterUppercase = "";
 
                 if (name[nameIndex].Length > 0)
                 {
@@ -1309,7 +1299,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static string GetProperMethodName(string methodName)
         {
-            string method = "";
+            var method = "";
 
             if (!string.IsNullOrEmpty(methodName))
             {
@@ -1319,9 +1309,9 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else if (methodName.Contains("_"))
                 {
-                    string[] splits = methodName.Split('_');
+                    var splits = methodName.Split('_');
 
-                    for (int i = 0; i < splits.Length; i++)
+                    for (var i = 0; i < splits.Length; i++)
                     {
                         method += char.ToUpper(splits[i][0]) + splits[i].Substring(1);
                     }
@@ -1336,7 +1326,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static object ConvertList(List<object> value, Type type)
         {
-            IList list = (IList)Activator.CreateInstance(type);
+            var list = (IList)Activator.CreateInstance(type);
 
             foreach (var item in value)
             {

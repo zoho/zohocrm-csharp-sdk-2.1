@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Dc
     /// </summary>
     public class AUDataCenter : DataCenter
     {
-        private static readonly AUDataCenter AU = new AUDataCenter();
+        static readonly AUDataCenter AU = new AUDataCenter();
 
-        private AUDataCenter()
+        AUDataCenter()
         {
         }
 

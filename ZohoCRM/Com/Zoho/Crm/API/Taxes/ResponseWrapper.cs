@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Taxes
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Tax> taxes;
-		private Preference preference;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Tax> taxes;
+		Preference preference;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Tax> Taxes
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Taxes
 			/// <returns>Instance of List<Tax></returns>
 			get
 			{
-				return  this.taxes;
+				return  taxes;
 
 			}
 			/// <summary>The method to set the value to taxes</summary>
 			/// <param name="taxes">Instance of List<Tax></param>
 			set
 			{
-				 this.taxes=value;
+				 taxes=value;
 
-				 this.keyModified["taxes"] = 1;
+				 keyModified["taxes"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Taxes
 			/// <returns>Instance of Preference</returns>
 			get
 			{
-				return  this.preference;
+				return  preference;
 
 			}
 			/// <summary>The method to set the value to preference</summary>
 			/// <param name="preference">Instance of Preference</param>
 			set
 			{
-				 this.preference=value;
+				 preference=value;
 
-				 this.keyModified["preference"] = 1;
+				 keyModified["preference"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Taxes
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Taxes
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Roles
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Role> roles;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Role> roles;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Role> Roles
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Roles
 			/// <returns>Instance of List<Role></returns>
 			get
 			{
-				return  this.roles;
+				return  roles;
 
 			}
 			/// <summary>The method to set the value to roles</summary>
 			/// <param name="roles">Instance of List<Role></param>
 			set
 			{
-				 this.roles=value;
+				 roles=value;
 
-				 this.keyModified["roles"] = 1;
+				 keyModified["roles"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Roles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Roles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

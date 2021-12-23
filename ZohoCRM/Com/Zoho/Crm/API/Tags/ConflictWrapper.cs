@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Tags
 
 	public class ConflictWrapper : Model
 	{
-		private string conflictId;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string conflictId;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string ConflictId
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>string representing the conflictId</returns>
 			get
 			{
-				return  this.conflictId;
+				return  conflictId;
 
 			}
 			/// <summary>The method to set the value to conflictId</summary>
 			/// <param name="conflictId">string</param>
 			set
 			{
-				 this.conflictId=value;
+				 conflictId=value;
 
-				 this.keyModified["conflict_id"] = 1;
+				 keyModified["conflict_id"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

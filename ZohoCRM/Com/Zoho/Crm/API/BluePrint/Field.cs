@@ -10,63 +10,63 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class Field : Model
 	{
-		private bool? systemMandatory;
-		private bool? webhook;
-		private Private private1;
-		private Layout layouts;
-		private List<Profile> profiles;
-		private int? sequenceNumber;
-		private string content;
-		private string columnName;
-		private string type;
-		private int? transitionSequence;
-		private string personalityName;
-		private string message;
-		private bool? mandatory;
-		private Criteria criteria;
-		private RelatedDetails relatedDetails;
-		private string jsonType;
-		private Crypt crypt;
-		private string fieldLabel;
-		private ToolTip tooltip;
-		private string createdSource;
-		private bool? fieldReadOnly;
-		private string displayLabel;
-		private int? uiType;
-		private bool? readOnly;
-		private AssociationDetails associationDetails;
-		private int? quickSequenceNumber;
-		private bool? businesscardSupported;
-		private MultiModuleLookup multiModuleLookup;
-		private Currency currency;
-		private long? id;
-		private bool? customField;
-		private Module lookup;
-		private bool? filterable;
-		private bool? visible;
-		private bool? pickListValuesSortedLexically;
-		private int? length;
-		private ViewType viewType;
-		private Module subform;
-		private string apiName;
-		private bool? sortable;
-		private Unique unique;
-		private string dataType;
-		private Formula formula;
-		private int? decimalPlace;
-		private bool? massUpdate;
-		private bool? blueprintSupported;
-		private MultiSelectLookup multiselectlookup;
-		private MultiUserLookup multiuserlookup;
-		private List<PickListValue> pickListValues;
-		private AutoNumber autoNumber;
-		private string defaultValue;
-		private Dictionary<string, object> validationRule;
-		private Dictionary<string, object> convertMapping;
-		private External external;
-		private HistoryTracking historyTracking;
-		private Choice<int?> displayType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? systemMandatory;
+		bool? webhook;
+		Private private1;
+		Layout layouts;
+		List<Profile> profiles;
+		int? sequenceNumber;
+		string content;
+		string columnName;
+		string type;
+		int? transitionSequence;
+		string personalityName;
+		string message;
+		bool? mandatory;
+		Criteria criteria;
+		RelatedDetails relatedDetails;
+		string jsonType;
+		Crypt crypt;
+		string fieldLabel;
+		ToolTip tooltip;
+		string createdSource;
+		bool? fieldReadOnly;
+		string displayLabel;
+		int? uiType;
+		bool? readOnly;
+		AssociationDetails associationDetails;
+		int? quickSequenceNumber;
+		bool? businesscardSupported;
+		MultiModuleLookup multiModuleLookup;
+		Currency currency;
+		long? id;
+		bool? customField;
+		Module lookup;
+		bool? filterable;
+		bool? visible;
+		bool? pickListValuesSortedLexically;
+		int? length;
+		ViewType viewType;
+		Module subform;
+		string apiName;
+		bool? sortable;
+		Unique unique;
+		string dataType;
+		Formula formula;
+		int? decimalPlace;
+		bool? massUpdate;
+		bool? blueprintSupported;
+		MultiSelectLookup multiselectlookup;
+		MultiUserLookup multiuserlookup;
+		List<PickListValue> pickListValues;
+		AutoNumber autoNumber;
+		string defaultValue;
+		Dictionary<string, object> validationRule;
+		Dictionary<string, object> convertMapping;
+		External external;
+		HistoryTracking historyTracking;
+		Choice<int?> displayType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? SystemMandatory
 		{
@@ -74,16 +74,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the systemMandatory</returns>
 			get
 			{
-				return  this.systemMandatory;
+				return  systemMandatory;
 
 			}
 			/// <summary>The method to set the value to systemMandatory</summary>
 			/// <param name="systemMandatory">bool?</param>
 			set
 			{
-				 this.systemMandatory=value;
+				 systemMandatory=value;
 
-				 this.keyModified["system_mandatory"] = 1;
+				 keyModified["system_mandatory"] = 1;
 
 			}
 		}
@@ -94,16 +94,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the webhook</returns>
 			get
 			{
-				return  this.webhook;
+				return  webhook;
 
 			}
 			/// <summary>The method to set the value to webhook</summary>
 			/// <param name="webhook">bool?</param>
 			set
 			{
-				 this.webhook=value;
+				 webhook=value;
 
-				 this.keyModified["webhook"] = 1;
+				 keyModified["webhook"] = 1;
 
 			}
 		}
@@ -114,16 +114,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Private</returns>
 			get
 			{
-				return  this.private1;
+				return  private1;
 
 			}
 			/// <summary>The method to set the value to private</summary>
 			/// <param name="private1">Instance of Private</param>
 			set
 			{
-				 this.private1=value;
+				 private1=value;
 
-				 this.keyModified["private"] = 1;
+				 keyModified["private"] = 1;
 
 			}
 		}
@@ -134,16 +134,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Layout</returns>
 			get
 			{
-				return  this.layouts;
+				return  layouts;
 
 			}
 			/// <summary>The method to set the value to layouts</summary>
 			/// <param name="layouts">Instance of Layout</param>
 			set
 			{
-				 this.layouts=value;
+				 layouts=value;
 
-				 this.keyModified["layouts"] = 1;
+				 keyModified["layouts"] = 1;
 
 			}
 		}
@@ -154,16 +154,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of List<Profile></returns>
 			get
 			{
-				return  this.profiles;
+				return  profiles;
 
 			}
 			/// <summary>The method to set the value to profiles</summary>
 			/// <param name="profiles">Instance of List<Profile></param>
 			set
 			{
-				 this.profiles=value;
+				 profiles=value;
 
-				 this.keyModified["profiles"] = 1;
+				 keyModified["profiles"] = 1;
 
 			}
 		}
@@ -174,16 +174,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -194,16 +194,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the content</returns>
 			get
 			{
-				return  this.content;
+				return  content;
 
 			}
 			/// <summary>The method to set the value to content</summary>
 			/// <param name="content">string</param>
 			set
 			{
-				 this.content=value;
+				 content=value;
 
-				 this.keyModified["content"] = 1;
+				 keyModified["content"] = 1;
 
 			}
 		}
@@ -214,16 +214,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the columnName</returns>
 			get
 			{
-				return  this.columnName;
+				return  columnName;
 
 			}
 			/// <summary>The method to set the value to columnName</summary>
 			/// <param name="columnName">string</param>
 			set
 			{
-				 this.columnName=value;
+				 columnName=value;
 
-				 this.keyModified["column_name"] = 1;
+				 keyModified["column_name"] = 1;
 
 			}
 		}
@@ -234,16 +234,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["_type"] = 1;
+				 keyModified["_type"] = 1;
 
 			}
 		}
@@ -254,16 +254,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the transitionSequence</returns>
 			get
 			{
-				return  this.transitionSequence;
+				return  transitionSequence;
 
 			}
 			/// <summary>The method to set the value to transitionSequence</summary>
 			/// <param name="transitionSequence">int?</param>
 			set
 			{
-				 this.transitionSequence=value;
+				 transitionSequence=value;
 
-				 this.keyModified["transition_sequence"] = 1;
+				 keyModified["transition_sequence"] = 1;
 
 			}
 		}
@@ -274,16 +274,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the personalityName</returns>
 			get
 			{
-				return  this.personalityName;
+				return  personalityName;
 
 			}
 			/// <summary>The method to set the value to personalityName</summary>
 			/// <param name="personalityName">string</param>
 			set
 			{
-				 this.personalityName=value;
+				 personalityName=value;
 
-				 this.keyModified["personality_name"] = 1;
+				 keyModified["personality_name"] = 1;
 
 			}
 		}
@@ -294,16 +294,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the message</returns>
 			get
 			{
-				return  this.message;
+				return  message;
 
 			}
 			/// <summary>The method to set the value to message</summary>
 			/// <param name="message">string</param>
 			set
 			{
-				 this.message=value;
+				 message=value;
 
-				 this.keyModified["message"] = 1;
+				 keyModified["message"] = 1;
 
 			}
 		}
@@ -314,16 +314,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the mandatory</returns>
 			get
 			{
-				return  this.mandatory;
+				return  mandatory;
 
 			}
 			/// <summary>The method to set the value to mandatory</summary>
 			/// <param name="mandatory">bool?</param>
 			set
 			{
-				 this.mandatory=value;
+				 mandatory=value;
 
-				 this.keyModified["mandatory"] = 1;
+				 keyModified["mandatory"] = 1;
 
 			}
 		}
@@ -334,16 +334,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.criteria;
+				return  criteria;
 
 			}
 			/// <summary>The method to set the value to criteria</summary>
 			/// <param name="criteria">Instance of Criteria</param>
 			set
 			{
-				 this.criteria=value;
+				 criteria=value;
 
-				 this.keyModified["criteria"] = 1;
+				 keyModified["criteria"] = 1;
 
 			}
 		}
@@ -354,16 +354,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of RelatedDetails</returns>
 			get
 			{
-				return  this.relatedDetails;
+				return  relatedDetails;
 
 			}
 			/// <summary>The method to set the value to relatedDetails</summary>
 			/// <param name="relatedDetails">Instance of RelatedDetails</param>
 			set
 			{
-				 this.relatedDetails=value;
+				 relatedDetails=value;
 
-				 this.keyModified["related_details"] = 1;
+				 keyModified["related_details"] = 1;
 
 			}
 		}
@@ -374,16 +374,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the jsonType</returns>
 			get
 			{
-				return  this.jsonType;
+				return  jsonType;
 
 			}
 			/// <summary>The method to set the value to jsonType</summary>
 			/// <param name="jsonType">string</param>
 			set
 			{
-				 this.jsonType=value;
+				 jsonType=value;
 
-				 this.keyModified["json_type"] = 1;
+				 keyModified["json_type"] = 1;
 
 			}
 		}
@@ -394,16 +394,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Crypt</returns>
 			get
 			{
-				return  this.crypt;
+				return  crypt;
 
 			}
 			/// <summary>The method to set the value to crypt</summary>
 			/// <param name="crypt">Instance of Crypt</param>
 			set
 			{
-				 this.crypt=value;
+				 crypt=value;
 
-				 this.keyModified["crypt"] = 1;
+				 keyModified["crypt"] = 1;
 
 			}
 		}
@@ -414,16 +414,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the fieldLabel</returns>
 			get
 			{
-				return  this.fieldLabel;
+				return  fieldLabel;
 
 			}
 			/// <summary>The method to set the value to fieldLabel</summary>
 			/// <param name="fieldLabel">string</param>
 			set
 			{
-				 this.fieldLabel=value;
+				 fieldLabel=value;
 
-				 this.keyModified["field_label"] = 1;
+				 keyModified["field_label"] = 1;
 
 			}
 		}
@@ -434,16 +434,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of ToolTip</returns>
 			get
 			{
-				return  this.tooltip;
+				return  tooltip;
 
 			}
 			/// <summary>The method to set the value to tooltip</summary>
 			/// <param name="tooltip">Instance of ToolTip</param>
 			set
 			{
-				 this.tooltip=value;
+				 tooltip=value;
 
-				 this.keyModified["tooltip"] = 1;
+				 keyModified["tooltip"] = 1;
 
 			}
 		}
@@ -454,16 +454,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the createdSource</returns>
 			get
 			{
-				return  this.createdSource;
+				return  createdSource;
 
 			}
 			/// <summary>The method to set the value to createdSource</summary>
 			/// <param name="createdSource">string</param>
 			set
 			{
-				 this.createdSource=value;
+				 createdSource=value;
 
-				 this.keyModified["created_source"] = 1;
+				 keyModified["created_source"] = 1;
 
 			}
 		}
@@ -474,16 +474,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the fieldReadOnly</returns>
 			get
 			{
-				return  this.fieldReadOnly;
+				return  fieldReadOnly;
 
 			}
 			/// <summary>The method to set the value to fieldReadOnly</summary>
 			/// <param name="fieldReadOnly">bool?</param>
 			set
 			{
-				 this.fieldReadOnly=value;
+				 fieldReadOnly=value;
 
-				 this.keyModified["field_read_only"] = 1;
+				 keyModified["field_read_only"] = 1;
 
 			}
 		}
@@ -494,16 +494,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -514,16 +514,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the uiType</returns>
 			get
 			{
-				return  this.uiType;
+				return  uiType;
 
 			}
 			/// <summary>The method to set the value to uiType</summary>
 			/// <param name="uiType">int?</param>
 			set
 			{
-				 this.uiType=value;
+				 uiType=value;
 
-				 this.keyModified["ui_type"] = 1;
+				 keyModified["ui_type"] = 1;
 
 			}
 		}
@@ -534,16 +534,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the readOnly</returns>
 			get
 			{
-				return  this.readOnly;
+				return  readOnly;
 
 			}
 			/// <summary>The method to set the value to readOnly</summary>
 			/// <param name="readOnly">bool?</param>
 			set
 			{
-				 this.readOnly=value;
+				 readOnly=value;
 
-				 this.keyModified["read_only"] = 1;
+				 keyModified["read_only"] = 1;
 
 			}
 		}
@@ -554,16 +554,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of AssociationDetails</returns>
 			get
 			{
-				return  this.associationDetails;
+				return  associationDetails;
 
 			}
 			/// <summary>The method to set the value to associationDetails</summary>
 			/// <param name="associationDetails">Instance of AssociationDetails</param>
 			set
 			{
-				 this.associationDetails=value;
+				 associationDetails=value;
 
-				 this.keyModified["association_details"] = 1;
+				 keyModified["association_details"] = 1;
 
 			}
 		}
@@ -574,16 +574,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the quickSequenceNumber</returns>
 			get
 			{
-				return  this.quickSequenceNumber;
+				return  quickSequenceNumber;
 
 			}
 			/// <summary>The method to set the value to quickSequenceNumber</summary>
 			/// <param name="quickSequenceNumber">int?</param>
 			set
 			{
-				 this.quickSequenceNumber=value;
+				 quickSequenceNumber=value;
 
-				 this.keyModified["quick_sequence_number"] = 1;
+				 keyModified["quick_sequence_number"] = 1;
 
 			}
 		}
@@ -594,16 +594,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the businesscardSupported</returns>
 			get
 			{
-				return  this.businesscardSupported;
+				return  businesscardSupported;
 
 			}
 			/// <summary>The method to set the value to businesscardSupported</summary>
 			/// <param name="businesscardSupported">bool?</param>
 			set
 			{
-				 this.businesscardSupported=value;
+				 businesscardSupported=value;
 
-				 this.keyModified["businesscard_supported"] = 1;
+				 keyModified["businesscard_supported"] = 1;
 
 			}
 		}
@@ -614,16 +614,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of MultiModuleLookup</returns>
 			get
 			{
-				return  this.multiModuleLookup;
+				return  multiModuleLookup;
 
 			}
 			/// <summary>The method to set the value to multiModuleLookup</summary>
 			/// <param name="multiModuleLookup">Instance of MultiModuleLookup</param>
 			set
 			{
-				 this.multiModuleLookup=value;
+				 multiModuleLookup=value;
 
-				 this.keyModified["multi_module_lookup"] = 1;
+				 keyModified["multi_module_lookup"] = 1;
 
 			}
 		}
@@ -634,16 +634,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Currency</returns>
 			get
 			{
-				return  this.currency;
+				return  currency;
 
 			}
 			/// <summary>The method to set the value to currency</summary>
 			/// <param name="currency">Instance of Currency</param>
 			set
 			{
-				 this.currency=value;
+				 currency=value;
 
-				 this.keyModified["currency"] = 1;
+				 keyModified["currency"] = 1;
 
 			}
 		}
@@ -654,16 +654,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -674,16 +674,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the customField</returns>
 			get
 			{
-				return  this.customField;
+				return  customField;
 
 			}
 			/// <summary>The method to set the value to customField</summary>
 			/// <param name="customField">bool?</param>
 			set
 			{
-				 this.customField=value;
+				 customField=value;
 
-				 this.keyModified["custom_field"] = 1;
+				 keyModified["custom_field"] = 1;
 
 			}
 		}
@@ -694,16 +694,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.lookup;
+				return  lookup;
 
 			}
 			/// <summary>The method to set the value to lookup</summary>
 			/// <param name="lookup">Instance of Module</param>
 			set
 			{
-				 this.lookup=value;
+				 lookup=value;
 
-				 this.keyModified["lookup"] = 1;
+				 keyModified["lookup"] = 1;
 
 			}
 		}
@@ -714,16 +714,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the filterable</returns>
 			get
 			{
-				return  this.filterable;
+				return  filterable;
 
 			}
 			/// <summary>The method to set the value to filterable</summary>
 			/// <param name="filterable">bool?</param>
 			set
 			{
-				 this.filterable=value;
+				 filterable=value;
 
-				 this.keyModified["filterable"] = 1;
+				 keyModified["filterable"] = 1;
 
 			}
 		}
@@ -734,16 +734,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the visible</returns>
 			get
 			{
-				return  this.visible;
+				return  visible;
 
 			}
 			/// <summary>The method to set the value to visible</summary>
 			/// <param name="visible">bool?</param>
 			set
 			{
-				 this.visible=value;
+				 visible=value;
 
-				 this.keyModified["visible"] = 1;
+				 keyModified["visible"] = 1;
 
 			}
 		}
@@ -754,16 +754,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the pickListValuesSortedLexically</returns>
 			get
 			{
-				return  this.pickListValuesSortedLexically;
+				return  pickListValuesSortedLexically;
 
 			}
 			/// <summary>The method to set the value to pickListValuesSortedLexically</summary>
 			/// <param name="pickListValuesSortedLexically">bool?</param>
 			set
 			{
-				 this.pickListValuesSortedLexically=value;
+				 pickListValuesSortedLexically=value;
 
-				 this.keyModified["pick_list_values_sorted_lexically"] = 1;
+				 keyModified["pick_list_values_sorted_lexically"] = 1;
 
 			}
 		}
@@ -774,16 +774,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the length</returns>
 			get
 			{
-				return  this.length;
+				return  length;
 
 			}
 			/// <summary>The method to set the value to length</summary>
 			/// <param name="length">int?</param>
 			set
 			{
-				 this.length=value;
+				 length=value;
 
-				 this.keyModified["length"] = 1;
+				 keyModified["length"] = 1;
 
 			}
 		}
@@ -794,16 +794,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of ViewType</returns>
 			get
 			{
-				return  this.viewType;
+				return  viewType;
 
 			}
 			/// <summary>The method to set the value to viewType</summary>
 			/// <param name="viewType">Instance of ViewType</param>
 			set
 			{
-				 this.viewType=value;
+				 viewType=value;
 
-				 this.keyModified["view_type"] = 1;
+				 keyModified["view_type"] = 1;
 
 			}
 		}
@@ -814,16 +814,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.subform;
+				return  subform;
 
 			}
 			/// <summary>The method to set the value to subform</summary>
 			/// <param name="subform">Instance of Module</param>
 			set
 			{
-				 this.subform=value;
+				 subform=value;
 
-				 this.keyModified["subform"] = 1;
+				 keyModified["subform"] = 1;
 
 			}
 		}
@@ -834,16 +834,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -854,16 +854,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the sortable</returns>
 			get
 			{
-				return  this.sortable;
+				return  sortable;
 
 			}
 			/// <summary>The method to set the value to sortable</summary>
 			/// <param name="sortable">bool?</param>
 			set
 			{
-				 this.sortable=value;
+				 sortable=value;
 
-				 this.keyModified["sortable"] = 1;
+				 keyModified["sortable"] = 1;
 
 			}
 		}
@@ -874,16 +874,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Unique</returns>
 			get
 			{
-				return  this.unique;
+				return  unique;
 
 			}
 			/// <summary>The method to set the value to unique</summary>
 			/// <param name="unique">Instance of Unique</param>
 			set
 			{
-				 this.unique=value;
+				 unique=value;
 
-				 this.keyModified["unique"] = 1;
+				 keyModified["unique"] = 1;
 
 			}
 		}
@@ -894,16 +894,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the dataType</returns>
 			get
 			{
-				return  this.dataType;
+				return  dataType;
 
 			}
 			/// <summary>The method to set the value to dataType</summary>
 			/// <param name="dataType">string</param>
 			set
 			{
-				 this.dataType=value;
+				 dataType=value;
 
-				 this.keyModified["data_type"] = 1;
+				 keyModified["data_type"] = 1;
 
 			}
 		}
@@ -914,16 +914,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Formula</returns>
 			get
 			{
-				return  this.formula;
+				return  formula;
 
 			}
 			/// <summary>The method to set the value to formula</summary>
 			/// <param name="formula">Instance of Formula</param>
 			set
 			{
-				 this.formula=value;
+				 formula=value;
 
-				 this.keyModified["formula"] = 1;
+				 keyModified["formula"] = 1;
 
 			}
 		}
@@ -934,16 +934,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the decimalPlace</returns>
 			get
 			{
-				return  this.decimalPlace;
+				return  decimalPlace;
 
 			}
 			/// <summary>The method to set the value to decimalPlace</summary>
 			/// <param name="decimalPlace">int?</param>
 			set
 			{
-				 this.decimalPlace=value;
+				 decimalPlace=value;
 
-				 this.keyModified["decimal_place"] = 1;
+				 keyModified["decimal_place"] = 1;
 
 			}
 		}
@@ -954,16 +954,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the massUpdate</returns>
 			get
 			{
-				return  this.massUpdate;
+				return  massUpdate;
 
 			}
 			/// <summary>The method to set the value to massUpdate</summary>
 			/// <param name="massUpdate">bool?</param>
 			set
 			{
-				 this.massUpdate=value;
+				 massUpdate=value;
 
-				 this.keyModified["mass_update"] = 1;
+				 keyModified["mass_update"] = 1;
 
 			}
 		}
@@ -974,16 +974,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>bool? representing the blueprintSupported</returns>
 			get
 			{
-				return  this.blueprintSupported;
+				return  blueprintSupported;
 
 			}
 			/// <summary>The method to set the value to blueprintSupported</summary>
 			/// <param name="blueprintSupported">bool?</param>
 			set
 			{
-				 this.blueprintSupported=value;
+				 blueprintSupported=value;
 
-				 this.keyModified["blueprint_supported"] = 1;
+				 keyModified["blueprint_supported"] = 1;
 
 			}
 		}
@@ -994,16 +994,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of MultiSelectLookup</returns>
 			get
 			{
-				return  this.multiselectlookup;
+				return  multiselectlookup;
 
 			}
 			/// <summary>The method to set the value to multiselectlookup</summary>
 			/// <param name="multiselectlookup">Instance of MultiSelectLookup</param>
 			set
 			{
-				 this.multiselectlookup=value;
+				 multiselectlookup=value;
 
-				 this.keyModified["multiselectlookup"] = 1;
+				 keyModified["multiselectlookup"] = 1;
 
 			}
 		}
@@ -1014,16 +1014,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of MultiUserLookup</returns>
 			get
 			{
-				return  this.multiuserlookup;
+				return  multiuserlookup;
 
 			}
 			/// <summary>The method to set the value to multiuserlookup</summary>
 			/// <param name="multiuserlookup">Instance of MultiUserLookup</param>
 			set
 			{
-				 this.multiuserlookup=value;
+				 multiuserlookup=value;
 
-				 this.keyModified["multiuserlookup"] = 1;
+				 keyModified["multiuserlookup"] = 1;
 
 			}
 		}
@@ -1034,16 +1034,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of List<PickListValue></returns>
 			get
 			{
-				return  this.pickListValues;
+				return  pickListValues;
 
 			}
 			/// <summary>The method to set the value to pickListValues</summary>
 			/// <param name="pickListValues">Instance of List<PickListValue></param>
 			set
 			{
-				 this.pickListValues=value;
+				 pickListValues=value;
 
-				 this.keyModified["pick_list_values"] = 1;
+				 keyModified["pick_list_values"] = 1;
 
 			}
 		}
@@ -1054,16 +1054,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of AutoNumber</returns>
 			get
 			{
-				return  this.autoNumber;
+				return  autoNumber;
 
 			}
 			/// <summary>The method to set the value to autoNumber</summary>
 			/// <param name="autoNumber">Instance of AutoNumber</param>
 			set
 			{
-				 this.autoNumber=value;
+				 autoNumber=value;
 
-				 this.keyModified["auto_number"] = 1;
+				 keyModified["auto_number"] = 1;
 
 			}
 		}
@@ -1074,16 +1074,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the defaultValue</returns>
 			get
 			{
-				return  this.defaultValue;
+				return  defaultValue;
 
 			}
 			/// <summary>The method to set the value to defaultValue</summary>
 			/// <param name="defaultValue">string</param>
 			set
 			{
-				 this.defaultValue=value;
+				 defaultValue=value;
 
-				 this.keyModified["default_value"] = 1;
+				 keyModified["default_value"] = 1;
 
 			}
 		}
@@ -1094,16 +1094,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Dictionary representing the validationRule<String,Object></returns>
 			get
 			{
-				return  this.validationRule;
+				return  validationRule;
 
 			}
 			/// <summary>The method to set the value to validationRule</summary>
 			/// <param name="validationRule">Dictionary<string,object></param>
 			set
 			{
-				 this.validationRule=value;
+				 validationRule=value;
 
-				 this.keyModified["validation_rule"] = 1;
+				 keyModified["validation_rule"] = 1;
 
 			}
 		}
@@ -1114,16 +1114,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Dictionary representing the convertMapping<String,Object></returns>
 			get
 			{
-				return  this.convertMapping;
+				return  convertMapping;
 
 			}
 			/// <summary>The method to set the value to convertMapping</summary>
 			/// <param name="convertMapping">Dictionary<string,object></param>
 			set
 			{
-				 this.convertMapping=value;
+				 convertMapping=value;
 
-				 this.keyModified["convert_mapping"] = 1;
+				 keyModified["convert_mapping"] = 1;
 
 			}
 		}
@@ -1134,16 +1134,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of External</returns>
 			get
 			{
-				return  this.external;
+				return  external;
 
 			}
 			/// <summary>The method to set the value to external</summary>
 			/// <param name="external">Instance of External</param>
 			set
 			{
-				 this.external=value;
+				 external=value;
 
-				 this.keyModified["external"] = 1;
+				 keyModified["external"] = 1;
 
 			}
 		}
@@ -1154,16 +1154,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of HistoryTracking</returns>
 			get
 			{
-				return  this.historyTracking;
+				return  historyTracking;
 
 			}
 			/// <summary>The method to set the value to historyTracking</summary>
 			/// <param name="historyTracking">Instance of HistoryTracking</param>
 			set
 			{
-				 this.historyTracking=value;
+				 historyTracking=value;
 
-				 this.keyModified["history_tracking"] = 1;
+				 keyModified["history_tracking"] = 1;
 
 			}
 		}
@@ -1174,16 +1174,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Choice<Integer></returns>
 			get
 			{
-				return  this.displayType;
+				return  displayType;
 
 			}
 			/// <summary>The method to set the value to displayType</summary>
 			/// <param name="displayType">Instance of Choice<int?></param>
 			set
 			{
-				 this.displayType=value;
+				 displayType=value;
 
-				 this.keyModified["display_type"] = 1;
+				 keyModified["display_type"] = 1;
 
 			}
 		}
@@ -1193,9 +1193,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -1208,7 +1208,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

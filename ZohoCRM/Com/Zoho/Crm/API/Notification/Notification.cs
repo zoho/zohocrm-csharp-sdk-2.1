@@ -7,18 +7,18 @@ namespace Com.Zoho.Crm.API.Notification
 
 	public class Notification : Model
 	{
-		private DateTimeOffset? channelExpiry;
-		private string resourceUri;
-		private string resourceId;
-		private string notifyUrl;
-		private string resourceName;
-		private long? channelId;
-		private List<string> events;
-		private string token;
-		private bool? notifyOnRelatedAction;
-		private Dictionary<string, object> fields;
-		private bool? deleteevents;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? channelExpiry;
+		string resourceUri;
+		string resourceId;
+		string notifyUrl;
+		string resourceName;
+		long? channelId;
+		List<string> events;
+		string token;
+		bool? notifyOnRelatedAction;
+		Dictionary<string, object> fields;
+		bool? deleteevents;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? ChannelExpiry
 		{
@@ -26,16 +26,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>DateTimeOffset? representing the channelExpiry</returns>
 			get
 			{
-				return  this.channelExpiry;
+				return  channelExpiry;
 
 			}
 			/// <summary>The method to set the value to channelExpiry</summary>
 			/// <param name="channelExpiry">DateTimeOffset?</param>
 			set
 			{
-				 this.channelExpiry=value;
+				 channelExpiry=value;
 
-				 this.keyModified["channel_expiry"] = 1;
+				 keyModified["channel_expiry"] = 1;
 
 			}
 		}
@@ -46,16 +46,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>string representing the resourceUri</returns>
 			get
 			{
-				return  this.resourceUri;
+				return  resourceUri;
 
 			}
 			/// <summary>The method to set the value to resourceUri</summary>
 			/// <param name="resourceUri">string</param>
 			set
 			{
-				 this.resourceUri=value;
+				 resourceUri=value;
 
-				 this.keyModified["resource_uri"] = 1;
+				 keyModified["resource_uri"] = 1;
 
 			}
 		}
@@ -66,16 +66,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>string representing the resourceId</returns>
 			get
 			{
-				return  this.resourceId;
+				return  resourceId;
 
 			}
 			/// <summary>The method to set the value to resourceId</summary>
 			/// <param name="resourceId">string</param>
 			set
 			{
-				 this.resourceId=value;
+				 resourceId=value;
 
-				 this.keyModified["resource_id"] = 1;
+				 keyModified["resource_id"] = 1;
 
 			}
 		}
@@ -86,16 +86,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>string representing the notifyUrl</returns>
 			get
 			{
-				return  this.notifyUrl;
+				return  notifyUrl;
 
 			}
 			/// <summary>The method to set the value to notifyUrl</summary>
 			/// <param name="notifyUrl">string</param>
 			set
 			{
-				 this.notifyUrl=value;
+				 notifyUrl=value;
 
-				 this.keyModified["notify_url"] = 1;
+				 keyModified["notify_url"] = 1;
 
 			}
 		}
@@ -106,16 +106,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>string representing the resourceName</returns>
 			get
 			{
-				return  this.resourceName;
+				return  resourceName;
 
 			}
 			/// <summary>The method to set the value to resourceName</summary>
 			/// <param name="resourceName">string</param>
 			set
 			{
-				 this.resourceName=value;
+				 resourceName=value;
 
-				 this.keyModified["resource_name"] = 1;
+				 keyModified["resource_name"] = 1;
 
 			}
 		}
@@ -126,16 +126,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>long? representing the channelId</returns>
 			get
 			{
-				return  this.channelId;
+				return  channelId;
 
 			}
 			/// <summary>The method to set the value to channelId</summary>
 			/// <param name="channelId">long?</param>
 			set
 			{
-				 this.channelId=value;
+				 channelId=value;
 
-				 this.keyModified["channel_id"] = 1;
+				 keyModified["channel_id"] = 1;
 
 			}
 		}
@@ -146,16 +146,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.events;
+				return  events;
 
 			}
 			/// <summary>The method to set the value to events</summary>
 			/// <param name="events">Instance of List<string></param>
 			set
 			{
-				 this.events=value;
+				 events=value;
 
-				 this.keyModified["events"] = 1;
+				 keyModified["events"] = 1;
 
 			}
 		}
@@ -166,16 +166,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>string representing the token</returns>
 			get
 			{
-				return  this.token;
+				return  token;
 
 			}
 			/// <summary>The method to set the value to token</summary>
 			/// <param name="token">string</param>
 			set
 			{
-				 this.token=value;
+				 token=value;
 
-				 this.keyModified["token"] = 1;
+				 keyModified["token"] = 1;
 
 			}
 		}
@@ -186,16 +186,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>bool? representing the notifyOnRelatedAction</returns>
 			get
 			{
-				return  this.notifyOnRelatedAction;
+				return  notifyOnRelatedAction;
 
 			}
 			/// <summary>The method to set the value to notifyOnRelatedAction</summary>
 			/// <param name="notifyOnRelatedAction">bool?</param>
 			set
 			{
-				 this.notifyOnRelatedAction=value;
+				 notifyOnRelatedAction=value;
 
-				 this.keyModified["notify_on_related_action"] = 1;
+				 keyModified["notify_on_related_action"] = 1;
 
 			}
 		}
@@ -206,16 +206,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>Dictionary representing the fields<String,Object></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Dictionary<string,object></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -226,16 +226,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>bool? representing the deleteevents</returns>
 			get
 			{
-				return  this.deleteevents;
+				return  deleteevents;
 
 			}
 			/// <summary>The method to set the value to deleteevents</summary>
 			/// <param name="deleteevents">bool?</param>
 			set
 			{
-				 this.deleteevents=value;
+				 deleteevents=value;
 
-				 this.keyModified["_delete_events"] = 1;
+				 keyModified["_delete_events"] = 1;
 
 			}
 		}
@@ -245,9 +245,9 @@ namespace Com.Zoho.Crm.API.Notification
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -260,7 +260,7 @@ namespace Com.Zoho.Crm.API.Notification
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

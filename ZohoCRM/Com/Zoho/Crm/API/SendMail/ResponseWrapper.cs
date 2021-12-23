@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.SendMail
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<UserAddress> fromAddresses;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<UserAddress> fromAddresses;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<UserAddress> FromAddresses
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<UserAddress></returns>
 			get
 			{
-				return  this.fromAddresses;
+				return  fromAddresses;
 
 			}
 			/// <summary>The method to set the value to fromAddresses</summary>
 			/// <param name="fromAddresses">Instance of List<UserAddress></param>
 			set
 			{
-				 this.fromAddresses=value;
+				 fromAddresses=value;
 
-				 this.keyModified["from_addresses"] = 1;
+				 keyModified["from_addresses"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

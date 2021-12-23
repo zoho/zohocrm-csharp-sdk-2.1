@@ -9,26 +9,26 @@ namespace Com.Zoho.Crm.API.Attachments
 
 	public class Attachment : Model
 	{
-		private User owner;
-		private DateTimeOffset? modifiedTime;
-		private string fileName;
-		private DateTimeOffset? createdTime;
-		private long? size;
-		private Record.Record parentId;
-		private bool? editable;
-		private string sharingPermission;
-		private string fileId;
-		private string type;
-		private string seModule;
-		private User modifiedBy;
-		private int? attachmentType;
-		private string state;
-		private string id;
-		private User createdBy;
-		private string linkUrl;
-		private string description;
-		private string category;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		User owner;
+		DateTimeOffset? modifiedTime;
+		string fileName;
+		DateTimeOffset? createdTime;
+		long? size;
+		Record.Record parentId;
+		bool? editable;
+		string sharingPermission;
+		string fileId;
+		string type;
+		string seModule;
+		User modifiedBy;
+		int? attachmentType;
+		string state;
+		string id;
+		User createdBy;
+		string linkUrl;
+		string description;
+		string category;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public User Owner
 		{
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.owner;
+				return  owner;
 
 			}
 			/// <summary>The method to set the value to owner</summary>
 			/// <param name="owner">Instance of User</param>
 			set
 			{
-				 this.owner=value;
+				 owner=value;
 
-				 this.keyModified["Owner"] = 1;
+				 keyModified["Owner"] = 1;
 
 			}
 		}
@@ -56,16 +56,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["Modified_Time"] = 1;
+				 keyModified["Modified_Time"] = 1;
 
 			}
 		}
@@ -76,16 +76,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the fileName</returns>
 			get
 			{
-				return  this.fileName;
+				return  fileName;
 
 			}
 			/// <summary>The method to set the value to fileName</summary>
 			/// <param name="fileName">string</param>
 			set
 			{
-				 this.fileName=value;
+				 fileName=value;
 
-				 this.keyModified["File_Name"] = 1;
+				 keyModified["File_Name"] = 1;
 
 			}
 		}
@@ -96,16 +96,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["Created_Time"] = 1;
+				 keyModified["Created_Time"] = 1;
 
 			}
 		}
@@ -116,16 +116,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>long? representing the size</returns>
 			get
 			{
-				return  this.size;
+				return  size;
 
 			}
 			/// <summary>The method to set the value to size</summary>
 			/// <param name="size">long?</param>
 			set
 			{
-				 this.size=value;
+				 size=value;
 
-				 this.keyModified["Size"] = 1;
+				 keyModified["Size"] = 1;
 
 			}
 		}
@@ -136,16 +136,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>Instance of Record</returns>
 			get
 			{
-				return  this.parentId;
+				return  parentId;
 
 			}
 			/// <summary>The method to set the value to parentId</summary>
 			/// <param name="parentId">Instance of Record</param>
 			set
 			{
-				 this.parentId=value;
+				 parentId=value;
 
-				 this.keyModified["Parent_Id"] = 1;
+				 keyModified["Parent_Id"] = 1;
 
 			}
 		}
@@ -156,16 +156,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>bool? representing the editable</returns>
 			get
 			{
-				return  this.editable;
+				return  editable;
 
 			}
 			/// <summary>The method to set the value to editable</summary>
 			/// <param name="editable">bool?</param>
 			set
 			{
-				 this.editable=value;
+				 editable=value;
 
-				 this.keyModified["$editable"] = 1;
+				 keyModified["$editable"] = 1;
 
 			}
 		}
@@ -176,16 +176,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the sharingPermission</returns>
 			get
 			{
-				return  this.sharingPermission;
+				return  sharingPermission;
 
 			}
 			/// <summary>The method to set the value to sharingPermission</summary>
 			/// <param name="sharingPermission">string</param>
 			set
 			{
-				 this.sharingPermission=value;
+				 sharingPermission=value;
 
-				 this.keyModified["$sharing_permission"] = 1;
+				 keyModified["$sharing_permission"] = 1;
 
 			}
 		}
@@ -196,16 +196,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the fileId</returns>
 			get
 			{
-				return  this.fileId;
+				return  fileId;
 
 			}
 			/// <summary>The method to set the value to fileId</summary>
 			/// <param name="fileId">string</param>
 			set
 			{
-				 this.fileId=value;
+				 fileId=value;
 
-				 this.keyModified["$file_id"] = 1;
+				 keyModified["$file_id"] = 1;
 
 			}
 		}
@@ -216,16 +216,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["$type"] = 1;
+				 keyModified["$type"] = 1;
 
 			}
 		}
@@ -236,16 +236,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the seModule</returns>
 			get
 			{
-				return  this.seModule;
+				return  seModule;
 
 			}
 			/// <summary>The method to set the value to seModule</summary>
 			/// <param name="seModule">string</param>
 			set
 			{
-				 this.seModule=value;
+				 seModule=value;
 
-				 this.keyModified["$se_module"] = 1;
+				 keyModified["$se_module"] = 1;
 
 			}
 		}
@@ -256,16 +256,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["Modified_By"] = 1;
+				 keyModified["Modified_By"] = 1;
 
 			}
 		}
@@ -276,16 +276,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>int? representing the attachmentType</returns>
 			get
 			{
-				return  this.attachmentType;
+				return  attachmentType;
 
 			}
 			/// <summary>The method to set the value to attachmentType</summary>
 			/// <param name="attachmentType">int?</param>
 			set
 			{
-				 this.attachmentType=value;
+				 attachmentType=value;
 
-				 this.keyModified["$attachment_type"] = 1;
+				 keyModified["$attachment_type"] = 1;
 
 			}
 		}
@@ -296,16 +296,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the state</returns>
 			get
 			{
-				return  this.state;
+				return  state;
 
 			}
 			/// <summary>The method to set the value to state</summary>
 			/// <param name="state">string</param>
 			set
 			{
-				 this.state=value;
+				 state=value;
 
-				 this.keyModified["$state"] = 1;
+				 keyModified["$state"] = 1;
 
 			}
 		}
@@ -316,16 +316,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">string</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -336,16 +336,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["Created_By"] = 1;
+				 keyModified["Created_By"] = 1;
 
 			}
 		}
@@ -356,16 +356,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the linkUrl</returns>
 			get
 			{
-				return  this.linkUrl;
+				return  linkUrl;
 
 			}
 			/// <summary>The method to set the value to linkUrl</summary>
 			/// <param name="linkUrl">string</param>
 			set
 			{
-				 this.linkUrl=value;
+				 linkUrl=value;
 
-				 this.keyModified["$link_url"] = 1;
+				 keyModified["$link_url"] = 1;
 
 			}
 		}
@@ -376,16 +376,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -396,16 +396,16 @@ namespace Com.Zoho.Crm.API.Attachments
 			/// <returns>string representing the category</returns>
 			get
 			{
-				return  this.category;
+				return  category;
 
 			}
 			/// <summary>The method to set the value to category</summary>
 			/// <param name="category">string</param>
 			set
 			{
-				 this.category=value;
+				 category=value;
 
-				 this.keyModified["category"] = 1;
+				 keyModified["category"] = 1;
 
 			}
 		}
@@ -415,9 +415,9 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -430,7 +430,7 @@ namespace Com.Zoho.Crm.API.Attachments
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

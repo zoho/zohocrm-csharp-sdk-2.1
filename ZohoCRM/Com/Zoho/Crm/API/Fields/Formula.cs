@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Formula : Model
 	{
-		private string returnType;
-		private string expression;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string returnType;
+		string expression;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string ReturnType
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the returnType</returns>
 			get
 			{
-				return  this.returnType;
+				return  returnType;
 
 			}
 			/// <summary>The method to set the value to returnType</summary>
 			/// <param name="returnType">string</param>
 			set
 			{
-				 this.returnType=value;
+				 returnType=value;
 
-				 this.keyModified["return_type"] = 1;
+				 keyModified["return_type"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the expression</returns>
 			get
 			{
-				return  this.expression;
+				return  expression;
 
 			}
 			/// <summary>The method to set the value to expression</summary>
 			/// <param name="expression">string</param>
 			set
 			{
-				 this.expression=value;
+				 expression=value;
 
-				 this.keyModified["expression"] = 1;
+				 keyModified["expression"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

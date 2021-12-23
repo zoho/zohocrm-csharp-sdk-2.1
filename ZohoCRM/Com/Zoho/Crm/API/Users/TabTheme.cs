@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class TabTheme : Model
 	{
-		private string fontColor;
-		private string background;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string fontColor;
+		string background;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string FontColor
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the fontColor</returns>
 			get
 			{
-				return  this.fontColor;
+				return  fontColor;
 
 			}
 			/// <summary>The method to set the value to fontColor</summary>
 			/// <param name="fontColor">string</param>
 			set
 			{
-				 this.fontColor=value;
+				 fontColor=value;
 
-				 this.keyModified["font_color"] = 1;
+				 keyModified["font_color"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the background</returns>
 			get
 			{
-				return  this.background;
+				return  background;
 
 			}
 			/// <summary>The method to set the value to background</summary>
 			/// <param name="background">string</param>
 			set
 			{
-				 this.background=value;
+				 background=value;
 
-				 this.keyModified["background"] = 1;
+				 keyModified["background"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

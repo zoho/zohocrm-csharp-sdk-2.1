@@ -6,17 +6,17 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class APIException : Model, ActionResponse, ResponseWrapper, ResponseHandler
 	{
-		private Choice<string> code;
-		private Choice<string> message;
-		private Choice<string> status;
-		private Dictionary<string, object> details;
-		private Choice<string> errorMessage;
-		private int? errorCode;
-		private Choice<string> xError;
-		private Choice<string> info;
-		private Choice<string> xInfo;
-		private string httpStatus;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> code;
+		Choice<string> message;
+		Choice<string> status;
+		Dictionary<string, object> details;
+		Choice<string> errorMessage;
+		int? errorCode;
+		Choice<string> xError;
+		Choice<string> info;
+		Choice<string> xInfo;
+		string httpStatus;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Code
 		{
@@ -24,16 +24,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.code;
+				return  code;
 
 			}
 			/// <summary>The method to set the value to code</summary>
 			/// <param name="code">Instance of Choice<string></param>
 			set
 			{
-				 this.code=value;
+				 code=value;
 
-				 this.keyModified["code"] = 1;
+				 keyModified["code"] = 1;
 
 			}
 		}
@@ -44,16 +44,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.message;
+				return  message;
 
 			}
 			/// <summary>The method to set the value to message</summary>
 			/// <param name="message">Instance of Choice<string></param>
 			set
 			{
-				 this.message=value;
+				 message=value;
 
-				 this.keyModified["message"] = 1;
+				 keyModified["message"] = 1;
 
 			}
 		}
@@ -64,16 +64,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">Instance of Choice<string></param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -84,16 +84,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Dictionary representing the details<String,Object></returns>
 			get
 			{
-				return  this.details;
+				return  details;
 
 			}
 			/// <summary>The method to set the value to details</summary>
 			/// <param name="details">Dictionary<string,object></param>
 			set
 			{
-				 this.details=value;
+				 details=value;
 
-				 this.keyModified["details"] = 1;
+				 keyModified["details"] = 1;
 
 			}
 		}
@@ -104,16 +104,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.errorMessage;
+				return  errorMessage;
 
 			}
 			/// <summary>The method to set the value to errorMessage</summary>
 			/// <param name="errorMessage">Instance of Choice<string></param>
 			set
 			{
-				 this.errorMessage=value;
+				 errorMessage=value;
 
-				 this.keyModified["ERROR_MESSAGE"] = 1;
+				 keyModified["ERROR_MESSAGE"] = 1;
 
 			}
 		}
@@ -124,16 +124,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the errorCode</returns>
 			get
 			{
-				return  this.errorCode;
+				return  errorCode;
 
 			}
 			/// <summary>The method to set the value to errorCode</summary>
 			/// <param name="errorCode">int?</param>
 			set
 			{
-				 this.errorCode=value;
+				 errorCode=value;
 
-				 this.keyModified["ERROR_CODE"] = 1;
+				 keyModified["ERROR_CODE"] = 1;
 
 			}
 		}
@@ -144,16 +144,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.xError;
+				return  xError;
 
 			}
 			/// <summary>The method to set the value to xError</summary>
 			/// <param name="xError">Instance of Choice<string></param>
 			set
 			{
-				 this.xError=value;
+				 xError=value;
 
-				 this.keyModified["x-error"] = 1;
+				 keyModified["x-error"] = 1;
 
 			}
 		}
@@ -164,16 +164,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Choice<string></param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -184,16 +184,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.xInfo;
+				return  xInfo;
 
 			}
 			/// <summary>The method to set the value to xInfo</summary>
 			/// <param name="xInfo">Instance of Choice<string></param>
 			set
 			{
-				 this.xInfo=value;
+				 xInfo=value;
 
-				 this.keyModified["x-info"] = 1;
+				 keyModified["x-info"] = 1;
 
 			}
 		}
@@ -204,16 +204,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the httpStatus</returns>
 			get
 			{
-				return  this.httpStatus;
+				return  httpStatus;
 
 			}
 			/// <summary>The method to set the value to httpStatus</summary>
 			/// <param name="httpStatus">string</param>
 			set
 			{
-				 this.httpStatus=value;
+				 httpStatus=value;
 
-				 this.keyModified["http_status"] = 1;
+				 keyModified["http_status"] = 1;
 
 			}
 		}
@@ -223,9 +223,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -238,7 +238,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.Tags
 
 	public class RecordActionWrapper : Model, RecordActionHandler
 	{
-		private List<RecordActionResponse> data;
-		private bool? wfScheduler;
-		private string successCount;
-		private int? lockedCount;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<RecordActionResponse> data;
+		bool? wfScheduler;
+		string successCount;
+		int? lockedCount;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<RecordActionResponse> Data
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of List<RecordActionResponse></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<RecordActionResponse></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>bool? representing the wfScheduler</returns>
 			get
 			{
-				return  this.wfScheduler;
+				return  wfScheduler;
 
 			}
 			/// <summary>The method to set the value to wfScheduler</summary>
 			/// <param name="wfScheduler">bool?</param>
 			set
 			{
-				 this.wfScheduler=value;
+				 wfScheduler=value;
 
-				 this.keyModified["wf_scheduler"] = 1;
+				 keyModified["wf_scheduler"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>string representing the successCount</returns>
 			get
 			{
-				return  this.successCount;
+				return  successCount;
 
 			}
 			/// <summary>The method to set the value to successCount</summary>
 			/// <param name="successCount">string</param>
 			set
 			{
-				 this.successCount=value;
+				 successCount=value;
 
-				 this.keyModified["success_count"] = 1;
+				 keyModified["success_count"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>int? representing the lockedCount</returns>
 			get
 			{
-				return  this.lockedCount;
+				return  lockedCount;
 
 			}
 			/// <summary>The method to set the value to lockedCount</summary>
 			/// <param name="lockedCount">int?</param>
 			set
 			{
-				 this.lockedCount=value;
+				 lockedCount=value;
 
-				 this.keyModified["locked_count"] = 1;
+				 keyModified["locked_count"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,40 +6,40 @@ namespace Com.Zoho.Crm.API.Org
 
 	public class Org : Model
 	{
-		private string country;
-		private HierarchyPreference hierarchyPreferences;
-		private string photoId;
-		private string city;
-		private string description;
-		private bool? mcStatus;
-		private bool? gappsEnabled;
-		private string domainName;
-		private bool? translationEnabled;
-		private string street;
-		private string alias;
-		private string currency;
-		private long? id;
-		private string state;
-		private string fax;
-		private string employeeCount;
-		private string zip;
-		private string website;
-		private string currencySymbol;
-		private string mobile;
-		private string currencyLocale;
-		private string primaryZuid;
-		private string ziaPortalId;
-		private string timeZone;
-		private string zgid;
-		private string countryCode;
-		private LicenseDetails licenseDetails;
-		private string phone;
-		private string companyName;
-		private bool? privacySettings;
-		private string primaryEmail;
-		private bool? hipaaComplianceEnabled;
-		private string isoCode;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string country;
+		HierarchyPreference hierarchyPreferences;
+		string photoId;
+		string city;
+		string description;
+		bool? mcStatus;
+		bool? gappsEnabled;
+		string domainName;
+		bool? translationEnabled;
+		string street;
+		string alias;
+		string currency;
+		long? id;
+		string state;
+		string fax;
+		string employeeCount;
+		string zip;
+		string website;
+		string currencySymbol;
+		string mobile;
+		string currencyLocale;
+		string primaryZuid;
+		string ziaPortalId;
+		string timeZone;
+		string zgid;
+		string countryCode;
+		LicenseDetails licenseDetails;
+		string phone;
+		string companyName;
+		bool? privacySettings;
+		string primaryEmail;
+		bool? hipaaComplianceEnabled;
+		string isoCode;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Country
 		{
@@ -47,16 +47,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the country</returns>
 			get
 			{
-				return  this.country;
+				return  country;
 
 			}
 			/// <summary>The method to set the value to country</summary>
 			/// <param name="country">string</param>
 			set
 			{
-				 this.country=value;
+				 country=value;
 
-				 this.keyModified["country"] = 1;
+				 keyModified["country"] = 1;
 
 			}
 		}
@@ -67,16 +67,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>Instance of HierarchyPreference</returns>
 			get
 			{
-				return  this.hierarchyPreferences;
+				return  hierarchyPreferences;
 
 			}
 			/// <summary>The method to set the value to hierarchyPreferences</summary>
 			/// <param name="hierarchyPreferences">Instance of HierarchyPreference</param>
 			set
 			{
-				 this.hierarchyPreferences=value;
+				 hierarchyPreferences=value;
 
-				 this.keyModified["hierarchy_preferences"] = 1;
+				 keyModified["hierarchy_preferences"] = 1;
 
 			}
 		}
@@ -87,16 +87,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the photoId</returns>
 			get
 			{
-				return  this.photoId;
+				return  photoId;
 
 			}
 			/// <summary>The method to set the value to photoId</summary>
 			/// <param name="photoId">string</param>
 			set
 			{
-				 this.photoId=value;
+				 photoId=value;
 
-				 this.keyModified["photo_id"] = 1;
+				 keyModified["photo_id"] = 1;
 
 			}
 		}
@@ -107,16 +107,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the city</returns>
 			get
 			{
-				return  this.city;
+				return  city;
 
 			}
 			/// <summary>The method to set the value to city</summary>
 			/// <param name="city">string</param>
 			set
 			{
-				 this.city=value;
+				 city=value;
 
-				 this.keyModified["city"] = 1;
+				 keyModified["city"] = 1;
 
 			}
 		}
@@ -127,16 +127,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -147,16 +147,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the mcStatus</returns>
 			get
 			{
-				return  this.mcStatus;
+				return  mcStatus;
 
 			}
 			/// <summary>The method to set the value to mcStatus</summary>
 			/// <param name="mcStatus">bool?</param>
 			set
 			{
-				 this.mcStatus=value;
+				 mcStatus=value;
 
-				 this.keyModified["mc_status"] = 1;
+				 keyModified["mc_status"] = 1;
 
 			}
 		}
@@ -167,16 +167,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the gappsEnabled</returns>
 			get
 			{
-				return  this.gappsEnabled;
+				return  gappsEnabled;
 
 			}
 			/// <summary>The method to set the value to gappsEnabled</summary>
 			/// <param name="gappsEnabled">bool?</param>
 			set
 			{
-				 this.gappsEnabled=value;
+				 gappsEnabled=value;
 
-				 this.keyModified["gapps_enabled"] = 1;
+				 keyModified["gapps_enabled"] = 1;
 
 			}
 		}
@@ -187,16 +187,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the domainName</returns>
 			get
 			{
-				return  this.domainName;
+				return  domainName;
 
 			}
 			/// <summary>The method to set the value to domainName</summary>
 			/// <param name="domainName">string</param>
 			set
 			{
-				 this.domainName=value;
+				 domainName=value;
 
-				 this.keyModified["domain_name"] = 1;
+				 keyModified["domain_name"] = 1;
 
 			}
 		}
@@ -207,16 +207,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the translationEnabled</returns>
 			get
 			{
-				return  this.translationEnabled;
+				return  translationEnabled;
 
 			}
 			/// <summary>The method to set the value to translationEnabled</summary>
 			/// <param name="translationEnabled">bool?</param>
 			set
 			{
-				 this.translationEnabled=value;
+				 translationEnabled=value;
 
-				 this.keyModified["translation_enabled"] = 1;
+				 keyModified["translation_enabled"] = 1;
 
 			}
 		}
@@ -227,16 +227,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the street</returns>
 			get
 			{
-				return  this.street;
+				return  street;
 
 			}
 			/// <summary>The method to set the value to street</summary>
 			/// <param name="street">string</param>
 			set
 			{
-				 this.street=value;
+				 street=value;
 
-				 this.keyModified["street"] = 1;
+				 keyModified["street"] = 1;
 
 			}
 		}
@@ -247,16 +247,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the alias</returns>
 			get
 			{
-				return  this.alias;
+				return  alias;
 
 			}
 			/// <summary>The method to set the value to alias</summary>
 			/// <param name="alias">string</param>
 			set
 			{
-				 this.alias=value;
+				 alias=value;
 
-				 this.keyModified["alias"] = 1;
+				 keyModified["alias"] = 1;
 
 			}
 		}
@@ -267,16 +267,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the currency</returns>
 			get
 			{
-				return  this.currency;
+				return  currency;
 
 			}
 			/// <summary>The method to set the value to currency</summary>
 			/// <param name="currency">string</param>
 			set
 			{
-				 this.currency=value;
+				 currency=value;
 
-				 this.keyModified["currency"] = 1;
+				 keyModified["currency"] = 1;
 
 			}
 		}
@@ -287,16 +287,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -307,16 +307,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the state</returns>
 			get
 			{
-				return  this.state;
+				return  state;
 
 			}
 			/// <summary>The method to set the value to state</summary>
 			/// <param name="state">string</param>
 			set
 			{
-				 this.state=value;
+				 state=value;
 
-				 this.keyModified["state"] = 1;
+				 keyModified["state"] = 1;
 
 			}
 		}
@@ -327,16 +327,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the fax</returns>
 			get
 			{
-				return  this.fax;
+				return  fax;
 
 			}
 			/// <summary>The method to set the value to fax</summary>
 			/// <param name="fax">string</param>
 			set
 			{
-				 this.fax=value;
+				 fax=value;
 
-				 this.keyModified["fax"] = 1;
+				 keyModified["fax"] = 1;
 
 			}
 		}
@@ -347,16 +347,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the employeeCount</returns>
 			get
 			{
-				return  this.employeeCount;
+				return  employeeCount;
 
 			}
 			/// <summary>The method to set the value to employeeCount</summary>
 			/// <param name="employeeCount">string</param>
 			set
 			{
-				 this.employeeCount=value;
+				 employeeCount=value;
 
-				 this.keyModified["employee_count"] = 1;
+				 keyModified["employee_count"] = 1;
 
 			}
 		}
@@ -367,16 +367,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the zip</returns>
 			get
 			{
-				return  this.zip;
+				return  zip;
 
 			}
 			/// <summary>The method to set the value to zip</summary>
 			/// <param name="zip">string</param>
 			set
 			{
-				 this.zip=value;
+				 zip=value;
 
-				 this.keyModified["zip"] = 1;
+				 keyModified["zip"] = 1;
 
 			}
 		}
@@ -387,16 +387,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the website</returns>
 			get
 			{
-				return  this.website;
+				return  website;
 
 			}
 			/// <summary>The method to set the value to website</summary>
 			/// <param name="website">string</param>
 			set
 			{
-				 this.website=value;
+				 website=value;
 
-				 this.keyModified["website"] = 1;
+				 keyModified["website"] = 1;
 
 			}
 		}
@@ -407,16 +407,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the currencySymbol</returns>
 			get
 			{
-				return  this.currencySymbol;
+				return  currencySymbol;
 
 			}
 			/// <summary>The method to set the value to currencySymbol</summary>
 			/// <param name="currencySymbol">string</param>
 			set
 			{
-				 this.currencySymbol=value;
+				 currencySymbol=value;
 
-				 this.keyModified["currency_symbol"] = 1;
+				 keyModified["currency_symbol"] = 1;
 
 			}
 		}
@@ -427,16 +427,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the mobile</returns>
 			get
 			{
-				return  this.mobile;
+				return  mobile;
 
 			}
 			/// <summary>The method to set the value to mobile</summary>
 			/// <param name="mobile">string</param>
 			set
 			{
-				 this.mobile=value;
+				 mobile=value;
 
-				 this.keyModified["mobile"] = 1;
+				 keyModified["mobile"] = 1;
 
 			}
 		}
@@ -447,16 +447,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the currencyLocale</returns>
 			get
 			{
-				return  this.currencyLocale;
+				return  currencyLocale;
 
 			}
 			/// <summary>The method to set the value to currencyLocale</summary>
 			/// <param name="currencyLocale">string</param>
 			set
 			{
-				 this.currencyLocale=value;
+				 currencyLocale=value;
 
-				 this.keyModified["currency_locale"] = 1;
+				 keyModified["currency_locale"] = 1;
 
 			}
 		}
@@ -467,16 +467,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the primaryZuid</returns>
 			get
 			{
-				return  this.primaryZuid;
+				return  primaryZuid;
 
 			}
 			/// <summary>The method to set the value to primaryZuid</summary>
 			/// <param name="primaryZuid">string</param>
 			set
 			{
-				 this.primaryZuid=value;
+				 primaryZuid=value;
 
-				 this.keyModified["primary_zuid"] = 1;
+				 keyModified["primary_zuid"] = 1;
 
 			}
 		}
@@ -487,16 +487,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the ziaPortalId</returns>
 			get
 			{
-				return  this.ziaPortalId;
+				return  ziaPortalId;
 
 			}
 			/// <summary>The method to set the value to ziaPortalId</summary>
 			/// <param name="ziaPortalId">string</param>
 			set
 			{
-				 this.ziaPortalId=value;
+				 ziaPortalId=value;
 
-				 this.keyModified["zia_portal_id"] = 1;
+				 keyModified["zia_portal_id"] = 1;
 
 			}
 		}
@@ -507,16 +507,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the timeZone</returns>
 			get
 			{
-				return  this.timeZone;
+				return  timeZone;
 
 			}
 			/// <summary>The method to set the value to timeZone</summary>
 			/// <param name="timeZone">string</param>
 			set
 			{
-				 this.timeZone=value;
+				 timeZone=value;
 
-				 this.keyModified["time_zone"] = 1;
+				 keyModified["time_zone"] = 1;
 
 			}
 		}
@@ -527,16 +527,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the zgid</returns>
 			get
 			{
-				return  this.zgid;
+				return  zgid;
 
 			}
 			/// <summary>The method to set the value to zgid</summary>
 			/// <param name="zgid">string</param>
 			set
 			{
-				 this.zgid=value;
+				 zgid=value;
 
-				 this.keyModified["zgid"] = 1;
+				 keyModified["zgid"] = 1;
 
 			}
 		}
@@ -547,16 +547,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the countryCode</returns>
 			get
 			{
-				return  this.countryCode;
+				return  countryCode;
 
 			}
 			/// <summary>The method to set the value to countryCode</summary>
 			/// <param name="countryCode">string</param>
 			set
 			{
-				 this.countryCode=value;
+				 countryCode=value;
 
-				 this.keyModified["country_code"] = 1;
+				 keyModified["country_code"] = 1;
 
 			}
 		}
@@ -567,16 +567,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>Instance of LicenseDetails</returns>
 			get
 			{
-				return  this.licenseDetails;
+				return  licenseDetails;
 
 			}
 			/// <summary>The method to set the value to licenseDetails</summary>
 			/// <param name="licenseDetails">Instance of LicenseDetails</param>
 			set
 			{
-				 this.licenseDetails=value;
+				 licenseDetails=value;
 
-				 this.keyModified["license_details"] = 1;
+				 keyModified["license_details"] = 1;
 
 			}
 		}
@@ -587,16 +587,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the phone</returns>
 			get
 			{
-				return  this.phone;
+				return  phone;
 
 			}
 			/// <summary>The method to set the value to phone</summary>
 			/// <param name="phone">string</param>
 			set
 			{
-				 this.phone=value;
+				 phone=value;
 
-				 this.keyModified["phone"] = 1;
+				 keyModified["phone"] = 1;
 
 			}
 		}
@@ -607,16 +607,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the companyName</returns>
 			get
 			{
-				return  this.companyName;
+				return  companyName;
 
 			}
 			/// <summary>The method to set the value to companyName</summary>
 			/// <param name="companyName">string</param>
 			set
 			{
-				 this.companyName=value;
+				 companyName=value;
 
-				 this.keyModified["company_name"] = 1;
+				 keyModified["company_name"] = 1;
 
 			}
 		}
@@ -627,16 +627,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the privacySettings</returns>
 			get
 			{
-				return  this.privacySettings;
+				return  privacySettings;
 
 			}
 			/// <summary>The method to set the value to privacySettings</summary>
 			/// <param name="privacySettings">bool?</param>
 			set
 			{
-				 this.privacySettings=value;
+				 privacySettings=value;
 
-				 this.keyModified["privacy_settings"] = 1;
+				 keyModified["privacy_settings"] = 1;
 
 			}
 		}
@@ -647,16 +647,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the primaryEmail</returns>
 			get
 			{
-				return  this.primaryEmail;
+				return  primaryEmail;
 
 			}
 			/// <summary>The method to set the value to primaryEmail</summary>
 			/// <param name="primaryEmail">string</param>
 			set
 			{
-				 this.primaryEmail=value;
+				 primaryEmail=value;
 
-				 this.keyModified["primary_email"] = 1;
+				 keyModified["primary_email"] = 1;
 
 			}
 		}
@@ -667,16 +667,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the hipaaComplianceEnabled</returns>
 			get
 			{
-				return  this.hipaaComplianceEnabled;
+				return  hipaaComplianceEnabled;
 
 			}
 			/// <summary>The method to set the value to hipaaComplianceEnabled</summary>
 			/// <param name="hipaaComplianceEnabled">bool?</param>
 			set
 			{
-				 this.hipaaComplianceEnabled=value;
+				 hipaaComplianceEnabled=value;
 
-				 this.keyModified["hipaa_compliance_enabled"] = 1;
+				 keyModified["hipaa_compliance_enabled"] = 1;
 
 			}
 		}
@@ -687,16 +687,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the isoCode</returns>
 			get
 			{
-				return  this.isoCode;
+				return  isoCode;
 
 			}
 			/// <summary>The method to set the value to isoCode</summary>
 			/// <param name="isoCode">string</param>
 			set
 			{
-				 this.isoCode=value;
+				 isoCode=value;
 
-				 this.keyModified["iso_code"] = 1;
+				 keyModified["iso_code"] = 1;
 
 			}
 		}
@@ -706,9 +706,9 @@ namespace Com.Zoho.Crm.API.Org
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -721,7 +721,7 @@ namespace Com.Zoho.Crm.API.Org
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

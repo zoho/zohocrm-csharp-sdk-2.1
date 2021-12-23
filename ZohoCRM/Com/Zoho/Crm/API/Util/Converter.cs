@@ -92,15 +92,15 @@ namespace Com.Zoho.Crm.API.Util
         /// <returns>A bool representing the key value is expected pattern, unique, length, and values.</returns>
         public bool ValueChecker(string className, string memberName, JObject keyDetails, object value, Dictionary<string, List<object>> uniqueValuesMap, int? instanceNumber)
         {
-            JObject detailsJO = new JObject();
+            var detailsJO = new JObject();
 
-            string name = keyDetails.GetValue(Constants.NAME).ToString();
+            var name = keyDetails.GetValue(Constants.NAME).ToString();
 
-            string type = keyDetails.GetValue(Constants.TYPE).ToString();
+            var type = keyDetails.GetValue(Constants.TYPE).ToString();
 
             string varType = null;
 
-            bool check = true;
+            var check = true;
 
             if (value != null)
             {
@@ -119,7 +119,7 @@ namespace Com.Zoho.Crm.API.Util
 
                 if(!check)
                 {
-                    Type minterface = valueType.GetInterface(type);
+                    var minterface = valueType.GetInterface(type);
 
                     if(minterface != null)
                     {
@@ -137,19 +137,17 @@ namespace Com.Zoho.Crm.API.Util
                 }
             }
 
-            if (value is IList)
+            if (value is IList listValue)
 		    {
-                bool expectedListType = true;
+                var expectedListType = true;
 
                 if (keyDetails.ContainsKey(Constants.STRUCTURE_NAME))
                 {
-                    string structureName = keyDetails.GetValue(Constants.STRUCTURE_NAME).ToString();
+                    var structureName = keyDetails.GetValue(Constants.STRUCTURE_NAME).ToString();
 
-                    int index = 0;
+                    var index = 0;
 
-                    IList listValue = (IList)value;
-
-                    foreach (object data in listValue)
+                    foreach (var data in listValue)
                     {
                         var dataType = data.GetType();
 
@@ -166,7 +164,7 @@ namespace Com.Zoho.Crm.API.Util
 
                         if (!check)
                         {
-                            Type minterface = dataType.GetInterface(structureName);
+                            var minterface = dataType.GetInterface(structureName);
 
                             if (minterface != null)
                             {
@@ -227,9 +225,9 @@ namespace Com.Zoho.Crm.API.Util
 
             if (keyDetails.ContainsKey(Constants.VALUES) && (!keyDetails.ContainsKey(Constants.PICKLIST) || ((bool)keyDetails[Constants.PICKLIST] && Initializer.GetInitializer().SDKConfig.PickListValidation)))
             {
-                JArray valuesJArray = (JArray)keyDetails.GetValue(Constants.VALUES);
+                var valuesJArray = (JArray)keyDetails.GetValue(Constants.VALUES);
 
-                string[] valuesJA = valuesJArray.ToObject<string[]>();
+                var valuesJA = valuesJArray.ToObject<string[]>();
 
                 if (value.GetType().FullName.Contains(Constants.CHOICE_NAME))
                 {
@@ -257,7 +255,7 @@ namespace Com.Zoho.Crm.API.Util
 
             if (keyDetails.ContainsKey(Constants.UNIQUE))
             {
-                List<object> valuesArray = uniqueValuesMap.ContainsKey(name)? uniqueValuesMap[name] : null;
+                var valuesArray = uniqueValuesMap.ContainsKey(name)? uniqueValuesMap[name] : null;
 
                 if (valuesArray != null && valuesArray.Contains(value))
                 {
@@ -289,11 +287,11 @@ namespace Com.Zoho.Crm.API.Util
 
             if (keyDetails.ContainsKey(Constants.MIN_LENGTH) || keyDetails.ContainsKey(Constants.MAX_LENGTH))
             {
-                int count = value.ToString().Length;
+                var count = value.ToString().Length;
 
-                if (value is IList)
+                if (value is IList list)
                 {
-                    count = ((IList)value).Count;
+                    count = list.Count;
                 }
 
                 if (keyDetails.ContainsKey(Constants.MAX_LENGTH) && count > (int)keyDetails.GetValue(Constants.MAX_LENGTH))
@@ -325,7 +323,7 @@ namespace Com.Zoho.Crm.API.Util
 
             if (keyDetails.ContainsKey(Constants.REGEX))
             {
-                Match match = Regex.Match(value.ToString(),(string) keyDetails.GetValue(Constants.REGEX));
+                var match = Regex.Match(value.ToString(),(string) keyDetails.GetValue(Constants.REGEX));
 
                 if (!match.Success)
                 {
@@ -351,44 +349,44 @@ namespace Com.Zoho.Crm.API.Util
         /// <returns>A string representing the module field JSON details file path.</returns>
         public string GetEncodedFileName()
         {
-            string fileName = Initializer.GetInitializer().User.Email;
+            var fileName = Initializer.GetInitializer().User.Email;
 
             fileName = fileName.Substring(0, fileName.IndexOf("@")) + Initializer.GetInitializer().Environment.GetUrl();
 
-            byte[] input = Encoding.UTF8.GetBytes(fileName);
+            var input = Encoding.UTF8.GetBytes(fileName);
 
-            string str = Convert.ToBase64String(input);
+            var str = Convert.ToBase64String(input);
 
             return str + ".json";
         }
 
-        private object GetChoiceValue(object value)
+        object GetChoiceValue(object value)
         {
-            Type type = value.GetType();
+            var type = value.GetType();
 
-            PropertyInfo prop = type.GetProperty("Value");
+            var prop = type.GetProperty("Value");
 
             return prop.GetValue(value);
         }
 
         public static FieldInfo GetPrivateFieldInfo(Type type, string fieldName)
         {
-            BindingFlags Flags = BindingFlags.Instance
-                                            | BindingFlags.GetProperty
-                                            | BindingFlags.SetProperty
-                                            | BindingFlags.GetField
-                                            | BindingFlags.SetField
-                                            | BindingFlags.NonPublic
-                                            | BindingFlags.Public;
+            var Flags = BindingFlags.Instance
+                        | BindingFlags.GetProperty
+                        | BindingFlags.SetProperty
+                        | BindingFlags.GetField
+                        | BindingFlags.SetField
+                        | BindingFlags.NonPublic
+                        | BindingFlags.Public;
 
-            FieldInfo[] fields = type.GetFields(Flags);
+            var fields = type.GetFields(Flags);
 
             return fields.FirstOrDefault(fieldInfo => fieldInfo.Name == fieldName);
         }
 
         public static string GetType(JTokenType tokenType)
         {
-            string type = "";
+            var type = "";
 
             if (tokenType == JTokenType.Object)
             {

@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Tags
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Tag> tags;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Tag> tags;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Tag> Tags
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of List<Tag></returns>
 			get
 			{
-				return  this.tags;
+				return  tags;
 
 			}
 			/// <summary>The method to set the value to tags</summary>
 			/// <param name="tags">Instance of List<Tag></param>
 			set
 			{
-				 this.tags=value;
+				 tags=value;
 
-				 this.keyModified["tags"] = 1;
+				 keyModified["tags"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -26,7 +26,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public override object GetWrappedResponse(object response, string pack)
         {
-            return this.GetResponse(response, pack);
+            return GetResponse(response, pack);
         }
 
         public override object GetResponse(object response, string pack)

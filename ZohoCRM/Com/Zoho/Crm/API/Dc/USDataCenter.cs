@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Dc
     /// </summary>
     public class USDataCenter : DataCenter
     {
-        private static readonly USDataCenter US = new USDataCenter();
+        static readonly USDataCenter US = new USDataCenter();
 
-        private USDataCenter()
+        USDataCenter()
         {
         }
 

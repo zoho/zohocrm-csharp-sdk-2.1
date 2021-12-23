@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Connection : Model
 	{
-		private Button sourceButton;
-		private Screen targetScreen;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Button sourceButton;
+		Screen targetScreen;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Button SourceButton
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Button</returns>
 			get
 			{
-				return  this.sourceButton;
+				return  sourceButton;
 
 			}
 			/// <summary>The method to set the value to sourceButton</summary>
 			/// <param name="sourceButton">Instance of Button</param>
 			set
 			{
-				 this.sourceButton=value;
+				 sourceButton=value;
 
-				 this.keyModified["source_button"] = 1;
+				 keyModified["source_button"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Screen</returns>
 			get
 			{
-				return  this.targetScreen;
+				return  targetScreen;
 
 			}
 			/// <summary>The method to set the value to targetScreen</summary>
 			/// <param name="targetScreen">Instance of Screen</param>
 			set
 			{
-				 this.targetScreen=value;
+				 targetScreen=value;
 
-				 this.keyModified["target_screen"] = 1;
+				 keyModified["target_screen"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

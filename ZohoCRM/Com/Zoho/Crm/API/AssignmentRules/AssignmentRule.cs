@@ -9,16 +9,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 
 	public class AssignmentRule : Model
 	{
-		private DateTimeOffset? modifiedTime;
-		private DateTimeOffset? createdTime;
-		private DefaultUser defaultAssignee;
-		private Module module;
-		private string name;
-		private User modifiedBy;
-		private long? id;
-		private string description;
-		private User createdBy;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? modifiedTime;
+		DateTimeOffset? createdTime;
+		DefaultUser defaultAssignee;
+		Module module;
+		string name;
+		User modifiedBy;
+		long? id;
+		string description;
+		User createdBy;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? ModifiedTime
 		{
@@ -26,16 +26,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -46,16 +46,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -66,16 +66,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>Instance of DefaultUser</returns>
 			get
 			{
-				return  this.defaultAssignee;
+				return  defaultAssignee;
 
 			}
 			/// <summary>The method to set the value to defaultAssignee</summary>
 			/// <param name="defaultAssignee">Instance of DefaultUser</param>
 			set
 			{
-				 this.defaultAssignee=value;
+				 defaultAssignee=value;
 
-				 this.keyModified["default_assignee"] = 1;
+				 keyModified["default_assignee"] = 1;
 
 			}
 		}
@@ -86,16 +86,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -106,16 +106,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -126,16 +126,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -146,16 +146,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -166,16 +166,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -186,16 +186,16 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -205,9 +205,9 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -220,7 +220,7 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

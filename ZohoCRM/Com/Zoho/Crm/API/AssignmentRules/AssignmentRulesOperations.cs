@@ -10,9 +10,9 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetAssignmentRules()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/automation/assignment_rules");
 
@@ -33,9 +33,9 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetAssignmentRule(long? ruleId, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/automation/assignment_rules/");
 

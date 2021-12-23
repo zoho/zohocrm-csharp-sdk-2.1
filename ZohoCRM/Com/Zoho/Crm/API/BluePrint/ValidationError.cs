@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class ValidationError : Model
 	{
-		private string apiName;
-		private string infoMessage;
-		private string message;
-		private int? index;
-		private string parentAPIName;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string apiName;
+		string infoMessage;
+		string message;
+		int? index;
+		string parentAPIName;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string APIName
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the infoMessage</returns>
 			get
 			{
-				return  this.infoMessage;
+				return  infoMessage;
 
 			}
 			/// <summary>The method to set the value to infoMessage</summary>
 			/// <param name="infoMessage">string</param>
 			set
 			{
-				 this.infoMessage=value;
+				 infoMessage=value;
 
-				 this.keyModified["info_message"] = 1;
+				 keyModified["info_message"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the message</returns>
 			get
 			{
-				return  this.message;
+				return  message;
 
 			}
 			/// <summary>The method to set the value to message</summary>
 			/// <param name="message">string</param>
 			set
 			{
-				 this.message=value;
+				 message=value;
 
-				 this.keyModified["message"] = 1;
+				 keyModified["message"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the index</returns>
 			get
 			{
-				return  this.index;
+				return  index;
 
 			}
 			/// <summary>The method to set the value to index</summary>
 			/// <param name="index">int?</param>
 			set
 			{
-				 this.index=value;
+				 index=value;
 
-				 this.keyModified["index"] = 1;
+				 keyModified["index"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the parentAPIName</returns>
 			get
 			{
-				return  this.parentAPIName;
+				return  parentAPIName;
 
 			}
 			/// <summary>The method to set the value to parentAPIName</summary>
 			/// <param name="parentAPIName">string</param>
 			set
 			{
-				 this.parentAPIName=value;
+				 parentAPIName=value;
 
-				 this.keyModified["parent_api_name"] = 1;
+				 keyModified["parent_api_name"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

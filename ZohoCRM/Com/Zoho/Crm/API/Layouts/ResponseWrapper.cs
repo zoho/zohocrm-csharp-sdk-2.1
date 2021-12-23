@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Layouts
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Layout> layouts;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Layout> layouts;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Layout> Layouts
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of List<Layout></returns>
 			get
 			{
-				return  this.layouts;
+				return  layouts;
 
 			}
 			/// <summary>The method to set the value to layouts</summary>
 			/// <param name="layouts">Instance of List<Layout></param>
 			set
 			{
-				 this.layouts=value;
+				 layouts=value;
 
-				 this.keyModified["layouts"] = 1;
+				 keyModified["layouts"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

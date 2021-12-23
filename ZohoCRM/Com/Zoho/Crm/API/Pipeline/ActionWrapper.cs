@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 	public class ActionWrapper : Model, ActionHandler
 	{
-		private List<ActionResponse> pipeline;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ActionResponse> pipeline;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ActionResponse> Pipeline
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>Instance of List<ActionResponse></returns>
 			get
 			{
-				return  this.pipeline;
+				return  pipeline;
 
 			}
 			/// <summary>The method to set the value to pipeline</summary>
 			/// <param name="pipeline">Instance of List<ActionResponse></param>
 			set
 			{
-				 this.pipeline=value;
+				 pipeline=value;
 
-				 this.keyModified["pipeline"] = 1;
+				 keyModified["pipeline"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

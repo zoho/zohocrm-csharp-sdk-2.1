@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Profiles
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Profile> profiles;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Profile> profiles;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Profile> Profiles
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of List<Profile></returns>
 			get
 			{
-				return  this.profiles;
+				return  profiles;
 
 			}
 			/// <summary>The method to set the value to profiles</summary>
 			/// <param name="profiles">Instance of List<Profile></param>
 			set
 			{
-				 this.profiles=value;
+				 profiles=value;
 
-				 this.keyModified["profiles"] = 1;
+				 keyModified["profiles"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.VariableGroups
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<VariableGroup> variableGroups;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<VariableGroup> variableGroups;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<VariableGroup> VariableGroups
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>Instance of List<VariableGroup></returns>
 			get
 			{
-				return  this.variableGroups;
+				return  variableGroups;
 
 			}
 			/// <summary>The method to set the value to variableGroups</summary>
 			/// <param name="variableGroups">Instance of List<VariableGroup></param>
 			set
 			{
-				 this.variableGroups=value;
+				 variableGroups=value;
 
-				 this.keyModified["variable_groups"] = 1;
+				 keyModified["variable_groups"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.VariableGroups
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.VariableGroups
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

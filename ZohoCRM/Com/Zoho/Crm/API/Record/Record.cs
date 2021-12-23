@@ -10,7 +10,7 @@ namespace Com.Zoho.Crm.API.Record
 	public class Record : Model
 	{
 		protected Dictionary<string, object> keyValues=new Dictionary<string, object>();
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -18,9 +18,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				if((( this.GetKeyValue("id")) != (null)))
+				if((( GetKeyValue("id")) != (null)))
 				{
-					return (long?) this.GetKeyValue("id");
+					return (long?) GetKeyValue("id");
 
 				}
 					return null;
@@ -31,7 +31,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.AddKeyValue("id", value);
+				 AddKeyValue("id", value);
 
 			}
 		}
@@ -42,9 +42,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of User</returns>
 			get
 			{
-				if((( this.GetKeyValue("Created_By")) != (null)))
+				if((( GetKeyValue("Created_By")) != (null)))
 				{
-					return (User) this.GetKeyValue("Created_By");
+					return (User) GetKeyValue("Created_By");
 
 				}
 					return null;
@@ -55,7 +55,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.AddKeyValue("Created_By", value);
+				 AddKeyValue("Created_By", value);
 
 			}
 		}
@@ -66,9 +66,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				if((( this.GetKeyValue("Created_Time")) != (null)))
+				if((( GetKeyValue("Created_Time")) != (null)))
 				{
-					return (DateTimeOffset?) this.GetKeyValue("Created_Time");
+					return (DateTimeOffset?) GetKeyValue("Created_Time");
 
 				}
 					return null;
@@ -79,7 +79,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.AddKeyValue("Created_Time", value);
+				 AddKeyValue("Created_Time", value);
 
 			}
 		}
@@ -90,9 +90,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of User</returns>
 			get
 			{
-				if((( this.GetKeyValue("Modified_By")) != (null)))
+				if((( GetKeyValue("Modified_By")) != (null)))
 				{
-					return (User) this.GetKeyValue("Modified_By");
+					return (User) GetKeyValue("Modified_By");
 
 				}
 					return null;
@@ -103,7 +103,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.AddKeyValue("Modified_By", value);
+				 AddKeyValue("Modified_By", value);
 
 			}
 		}
@@ -114,9 +114,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				if((( this.GetKeyValue("Modified_Time")) != (null)))
+				if((( GetKeyValue("Modified_Time")) != (null)))
 				{
-					return (DateTimeOffset?) this.GetKeyValue("Modified_Time");
+					return (DateTimeOffset?) GetKeyValue("Modified_Time");
 
 				}
 					return null;
@@ -127,7 +127,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.AddKeyValue("Modified_Time", value);
+				 AddKeyValue("Modified_Time", value);
 
 			}
 		}
@@ -138,9 +138,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<Tag></returns>
 			get
 			{
-				if((( this.GetKeyValue("Tag")) != (null)))
+				if((( GetKeyValue("Tag")) != (null)))
 				{
-					return (List<Tag>) this.GetKeyValue("Tag");
+					return (List<Tag>) GetKeyValue("Tag");
 
 				}
 					return null;
@@ -151,7 +151,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="tag">Instance of List<Tag></param>
 			set
 			{
-				 this.AddKeyValue("Tag", value);
+				 AddKeyValue("Tag", value);
 
 			}
 		}
@@ -162,7 +162,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="value">T</param>
 		public void AddFieldValue <T>(Field<T> field, T value)
 		{
-			 this.AddKeyValue(field.APIName, value);
+			 AddKeyValue(field.APIName, value);
 
 
 		}
@@ -172,9 +172,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="value">object</param>
 		public void AddKeyValue(string apiName, object value)
 		{
-			 this.keyValues[apiName] = value;
+			 keyValues[apiName] = value;
 
-			 this.keyModified[apiName] = 1;
+			 keyModified[apiName] = 1;
 
 
 		}
@@ -184,9 +184,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>object representing the keyValue</returns>
 		public object GetKeyValue(string apiName)
 		{
-			if((( this.keyValues.ContainsKey(apiName))))
+			if((( keyValues.ContainsKey(apiName))))
 			{
-				return  this.keyValues[apiName];
+				return  keyValues[apiName];
 
 			}
 			return null;
@@ -198,7 +198,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Dictionary representing the keyValues<String,Object></returns>
 		public Dictionary<string, object> GetKeyValues()
 		{
-			return  this.keyValues;
+			return  keyValues;
 
 
 		}
@@ -208,9 +208,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -223,7 +223,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

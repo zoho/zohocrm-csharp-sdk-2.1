@@ -25,23 +25,23 @@ namespace Com.Zoho.Crm.API.Util
     {
         public FormDataConverter(CommonAPIHandler commonAPIHandler) : base(commonAPIHandler) {}
 
-        private Dictionary<string, List<object>> uniqueValuesMap = new Dictionary<string, List<object>>();
+        Dictionary<string, List<object>> uniqueValuesMap = new Dictionary<string, List<object>>();
 
         public override object FormRequest(object requestInstance, string pack, int? instanceNumber, JObject classMemberDetail)
         {
-            JObject classDetail = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
+            var classDetail = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
 
-            Dictionary<string, object> request = new Dictionary<string, object>();
+            var request = new Dictionary<string, object>();
 
-            foreach (KeyValuePair<string, JToken> data in classDetail) // all members
+            foreach (var data in classDetail) // all members
             {
                 object modification = null;
 
-                string memberName = data.Key;
+                var memberName = data.Key;
 
                 MethodInfo method = null;
 
-                JObject memberDetail = (JObject)classDetail.GetValue(memberName);
+                var memberDetail = (JObject)classDetail.GetValue(memberName);
 
                 if ((memberDetail.ContainsKey(Constants.READ_ONLY) && (bool)memberDetail.GetValue(Constants.READ_ONLY)) || !memberDetail.ContainsKey(Constants.NAME))
                 {
@@ -52,7 +52,7 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     method = requestInstance.GetType().GetMethod(Constants.IS_KEY_MODIFIED);
 
-                    object[] param = new object[1];
+                    var param = new object[1];
 
                     param[0] = memberDetail.GetValue(Constants.NAME).ToString();
 
@@ -69,17 +69,17 @@ namespace Com.Zoho.Crm.API.Util
                     throw new SDKException(Constants.MANDATORY_VALUE_ERROR, Constants.MANDATORY_KEY_ERROR + memberName);
                 }
 
-                FieldInfo field = GetPrivateFieldInfo(requestInstance.GetType(), memberName);
+                var field = GetPrivateFieldInfo(requestInstance.GetType(), memberName);
 
                 if (field != null)
                 {
-                    object fieldValue = field.GetValue(requestInstance);// value of the member
+                    var fieldValue = field.GetValue(requestInstance);// value of the member
 
-                    if (modification != null && (int)modification != 0 && fieldValue != null && this.ValueChecker(requestInstance.GetType().FullName, memberName, memberDetail, fieldValue, uniqueValuesMap, instanceNumber) == true)
+                    if (modification != null && (int)modification != 0 && fieldValue != null && ValueChecker(requestInstance.GetType().FullName, memberName, memberDetail, fieldValue, uniqueValuesMap, instanceNumber) == true)
                     {
-                        string keyName = (string)memberDetail.GetValue(Constants.NAME);
+                        var keyName = (string)memberDetail.GetValue(Constants.NAME);
 
-                        string type = (string)memberDetail.GetValue(Constants.TYPE);
+                        var type = (string)memberDetail.GetValue(Constants.TYPE);
 
                         if (type.Equals(Constants.LIST_NAMESPACE, StringComparison.OrdinalIgnoreCase))
                         {
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Util
                         }
                         else if (memberDetail.ContainsKey(Constants.STRUCTURE_NAME))
                         {
-                            object fieldData = FormRequest(fieldValue, (string)memberDetail.GetValue(Constants.STRUCTURE_NAME), 1, memberDetail);
+                            var fieldData = FormRequest(fieldValue, (string)memberDetail.GetValue(Constants.STRUCTURE_NAME), 1, memberDetail);
 
                             request.Add(keyName, fieldData != null ? JToken.FromObject(fieldData) : JValue.CreateNull());
                         }
@@ -108,7 +108,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public override void AppendToRequest(HttpWebRequest requestBase, object requestObject)
         {
-            string boundary = "----FILEBOUNDARY----";
+            var boundary = "----FILEBOUNDARY----";
 
             requestBase.ContentType = "multipart/form-data; boundary=" + boundary;
 
@@ -118,22 +118,22 @@ namespace Com.Zoho.Crm.API.Util
 
             var endBoundaryBytes = Encoding.UTF8.GetBytes("\r\n--" + boundary + "--");
 
-            string headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\n" + "Content-Type: application/octet-stream\r\n\r\n";
+            var headerTemplate = "Content-Disposition: form-data; name=\"{0}\"; filename=\"{1}\"\r\n" + "Content-Type: application/octet-stream\r\n\r\n";
 
             if (requestObject is IDictionary)
             {
-                this.AddFileBody(requestObject, fileDataStream, boundarybytes, endBoundaryBytes, headerTemplate);
+                AddFileBody(requestObject, fileDataStream, boundarybytes, endBoundaryBytes, headerTemplate);
             }
 
             fileDataStream.Write(endBoundaryBytes, 0, endBoundaryBytes.Length);
 
             requestBase.ContentLength = fileDataStream.Length;
 
-            using (Stream requestStream = requestBase.GetRequestStream())
+            using (var requestStream = requestBase.GetRequestStream())
             {
                 fileDataStream.Position = 0;
 
-                byte[] tempBuffer = new byte[fileDataStream.Length];
+                var tempBuffer = new byte[fileDataStream.Length];
 
                 fileDataStream.Read(tempBuffer, 0, tempBuffer.Length);
 
@@ -143,27 +143,23 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private void AddFileBody(object requestObject, Stream fileDataStream, byte[] boundarybytes, byte[] endBoundaryBytes, string headerTemplate)
+        void AddFileBody(object requestObject, Stream fileDataStream, byte[] boundarybytes, byte[] endBoundaryBytes, string headerTemplate)
         {
-            Dictionary<string, object> requestObjectMap = (Dictionary<string, object>)requestObject;
+            var requestObjectMap = (Dictionary<string, object>)requestObject;
 
-            foreach (KeyValuePair<string, object> requestData in requestObjectMap)
+            foreach (var requestData in requestObjectMap)
             {
-                if (requestData.Value is IList)
+                if (requestData.Value is IList keysDetail)
                 {
-                    IList keysDetail = (IList)requestData.Value;
-
-                    foreach (object fileObject in keysDetail)
+                    foreach (var fileObject in keysDetail)
                     {
-                        if (fileObject is StreamWrapper)
+                        if (fileObject is StreamWrapper streamWrapper)
                         {
-                            StreamWrapper streamWrapper = (StreamWrapper)fileObject;
-
                             fileDataStream.Write(boundarybytes, 0, boundarybytes.Length);
 
                             var header = string.Format(headerTemplate, requestData.Key, streamWrapper.Name);
 
-                            var headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
+                            var headerbytes = Encoding.UTF8.GetBytes(header);
 
                             fileDataStream.Write(headerbytes, 0, headerbytes.Length);
 
@@ -178,15 +174,13 @@ namespace Com.Zoho.Crm.API.Util
                         }
                     }
                 }
-                else if (requestData.Value is StreamWrapper)
+                else if (requestData.Value is StreamWrapper streamWrapper)
                 {
-                    StreamWrapper streamWrapper = (StreamWrapper)requestData.Value;
-
                     fileDataStream.Write(boundarybytes, 0, boundarybytes.Length);
 
                     var header = string.Format(headerTemplate, requestData.Key, streamWrapper.Name);
 
-                    var headerbytes = System.Text.Encoding.UTF8.GetBytes(header);
+                    var headerbytes = Encoding.UTF8.GetBytes(header);
 
                     fileDataStream.Write(headerbytes, 0, headerbytes.Length);
 
@@ -202,30 +196,30 @@ namespace Com.Zoho.Crm.API.Util
             }
         }
 
-        private JObject SetJSONObject(object fieldValue, JObject memberDetail)
+        JObject SetJSONObject(object fieldValue, JObject memberDetail)
         {
-            JObject jsonObject = new JObject();
+            var jsonObject = new JObject();
 
-            IDictionary requestObject = (IDictionary)fieldValue;
+            var requestObject = (IDictionary)fieldValue;
 
             if (memberDetail == null)
             {
                 foreach (KeyValuePair<object, object> requestObjectDetails in requestObject)
                 {
-                    object data = RedirectorForObjectToJSON(requestObjectDetails.Value);
+                    var data = RedirectorForObjectToJSON(requestObjectDetails.Value);
 
                     jsonObject.Add((string)requestObjectDetails.Key, data != null ? JToken.FromObject(data) : JValue.CreateNull());
                 }
             }
             else
             {
-                JArray keysDetail = (JArray)memberDetail.GetValue(Constants.KEYS);
+                var keysDetail = (JArray)memberDetail.GetValue(Constants.KEYS);
 
-                for (int keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
+                for (var keyIndex = 0; keyIndex < keysDetail.Count; keyIndex++)
                 {
-                    JObject keyDetail = (JObject)keysDetail[keyIndex];
+                    var keyDetail = (JObject)keysDetail[keyIndex];
 
-                    string keyName = (string)keyDetail.GetValue(Constants.NAME);
+                    var keyName = (string)keyDetail.GetValue(Constants.NAME);
 
                     object keyValue = null;
 
@@ -241,7 +235,7 @@ namespace Com.Zoho.Crm.API.Util
                         {
                             keyValue = requestObject[keyName];
 
-                            object data = RedirectorForObjectToJSON(keyValue);
+                            var data = RedirectorForObjectToJSON(keyValue);
 
                             jsonObject.Add(keyName, data != null ? JToken.FromObject(data) : JValue.CreateNull());
                         }
@@ -252,15 +246,15 @@ namespace Com.Zoho.Crm.API.Util
             return jsonObject;
         }
 
-        private IList SetJSONArray(object fieldValue, JObject memberDetail)
+        IList SetJSONArray(object fieldValue, JObject memberDetail)
         {
             IList listObject = new List<object>();
 
-            IList requestObjects = (IList)fieldValue;
+            var requestObjects = (IList)fieldValue;
 
             if (memberDetail == null)
             {
-                foreach (object request in requestObjects)
+                foreach (var request in requestObjects)
                 {
                     listObject.Add(RedirectorForObjectToJSON(request));
                 }
@@ -269,18 +263,18 @@ namespace Com.Zoho.Crm.API.Util
             {
                 if (memberDetail.ContainsKey(Constants.STRUCTURE_NAME))
                 {
-                    int instanceCount = 0;
+                    var instanceCount = 0;
 
-                    string pack = (string)memberDetail.GetValue(Constants.STRUCTURE_NAME);
+                    var pack = (string)memberDetail.GetValue(Constants.STRUCTURE_NAME);
 
-                    foreach (object request in requestObjects)
+                    foreach (var request in requestObjects)
                     {
                         listObject.Add(FormRequest(request, pack, ++instanceCount, memberDetail));
                     }
                 }
                 else
                 {
-                    foreach (object request in requestObjects)
+                    foreach (var request in requestObjects)
                     {
                         listObject.Add(RedirectorForObjectToJSON(request));
                     }
@@ -290,7 +284,7 @@ namespace Com.Zoho.Crm.API.Util
             return listObject;
         }
 
-        private object RedirectorForObjectToJSON(object request)
+        object RedirectorForObjectToJSON(object request)
         {
             if (request is IList)
             {

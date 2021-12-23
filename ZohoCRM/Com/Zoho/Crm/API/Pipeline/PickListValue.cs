@@ -6,14 +6,14 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 	public class PickListValue : Model
 	{
-		private string displayValue;
-		private bool? delete;
-		private int? sequenceNumber;
-		private string actualValue;
-		private long? id;
-		private string forecastType;
-		private ForecastCategory forecastCategory;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayValue;
+		bool? delete;
+		int? sequenceNumber;
+		string actualValue;
+		long? id;
+		string forecastType;
+		ForecastCategory forecastCategory;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayValue
 		{
@@ -21,16 +21,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>string representing the displayValue</returns>
 			get
 			{
-				return  this.displayValue;
+				return  displayValue;
 
 			}
 			/// <summary>The method to set the value to displayValue</summary>
 			/// <param name="displayValue">string</param>
 			set
 			{
-				 this.displayValue=value;
+				 displayValue=value;
 
-				 this.keyModified["display_value"] = 1;
+				 keyModified["display_value"] = 1;
 
 			}
 		}
@@ -41,16 +41,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>bool? representing the delete</returns>
 			get
 			{
-				return  this.delete;
+				return  delete;
 
 			}
 			/// <summary>The method to set the value to delete</summary>
 			/// <param name="delete">bool?</param>
 			set
 			{
-				 this.delete=value;
+				 delete=value;
 
-				 this.keyModified["_delete"] = 1;
+				 keyModified["_delete"] = 1;
 
 			}
 		}
@@ -61,16 +61,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -81,16 +81,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>string representing the actualValue</returns>
 			get
 			{
-				return  this.actualValue;
+				return  actualValue;
 
 			}
 			/// <summary>The method to set the value to actualValue</summary>
 			/// <param name="actualValue">string</param>
 			set
 			{
-				 this.actualValue=value;
+				 actualValue=value;
 
-				 this.keyModified["actual_value"] = 1;
+				 keyModified["actual_value"] = 1;
 
 			}
 		}
@@ -101,16 +101,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -121,16 +121,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>string representing the forecastType</returns>
 			get
 			{
-				return  this.forecastType;
+				return  forecastType;
 
 			}
 			/// <summary>The method to set the value to forecastType</summary>
 			/// <param name="forecastType">string</param>
 			set
 			{
-				 this.forecastType=value;
+				 forecastType=value;
 
-				 this.keyModified["forecast_type"] = 1;
+				 keyModified["forecast_type"] = 1;
 
 			}
 		}
@@ -141,16 +141,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>Instance of ForecastCategory</returns>
 			get
 			{
-				return  this.forecastCategory;
+				return  forecastCategory;
 
 			}
 			/// <summary>The method to set the value to forecastCategory</summary>
 			/// <param name="forecastCategory">Instance of ForecastCategory</param>
 			set
 			{
-				 this.forecastCategory=value;
+				 forecastCategory=value;
 
-				 this.keyModified["forecast_category"] = 1;
+				 keyModified["forecast_category"] = 1;
 
 			}
 		}
@@ -160,9 +160,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -175,7 +175,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

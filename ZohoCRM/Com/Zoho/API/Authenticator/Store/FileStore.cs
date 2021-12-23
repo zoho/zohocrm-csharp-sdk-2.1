@@ -22,9 +22,9 @@ namespace Com.Zoho.API.Authenticator.Store
     /// </summary>
     public class FileStore : TokenStore
     {
-        private string filePath;
+        string filePath;
 
-        private List<string> headers = new List<string>() { Constants.ID, Constants.USER_MAIL, Constants.CLIENT_ID, Constants.CLIENT_SECRET, Constants.REFRESH_TOKEN, Constants.ACCESS_TOKEN, Constants.GRANT_TOKEN, Constants.EXPIRY_TIME, Constants.REDIRECT_URL };
+        List<string> headers = new List<string>() { Constants.ID, Constants.USER_MAIL, Constants.CLIENT_ID, Constants.CLIENT_SECRET, Constants.REFRESH_TOKEN, Constants.ACCESS_TOKEN, Constants.GRANT_TOKEN, Constants.EXPIRY_TIME, Constants.REDIRECT_URL };
 
         /// <summary>
         /// Creates an FileStore class instance with the specified parameters.
@@ -43,9 +43,9 @@ namespace Com.Zoho.API.Authenticator.Store
 
             if (lines == null || lines.Length < 1)
             {
-                using (FileStream fileStream = new FileStream(this.filePath, FileMode.Append))
+                using (var fileStream = new FileStream(this.filePath, FileMode.Append))
                 {
-                    using (StreamWriter writer = new StreamWriter(fileStream))
+                    using (var writer = new StreamWriter(fileStream))
                     {
                         writer.WriteLine(string.Join(",", headers));
 
@@ -61,26 +61,24 @@ namespace Com.Zoho.API.Authenticator.Store
         {
             try
             {
-                string[] allContents = File.ReadAllLines(this.filePath);
+                var allContents = File.ReadAllLines(filePath);
 
                 if (allContents == null || allContents.Length < 1)
                 {
                     return null;
                 }
 
-                if (token is OAuthToken)
+                if (token is OAuthToken oauthToken)
                 {
-                    OAuthToken oauthToken = (OAuthToken)token;
-
-                    foreach (string line in allContents)
+                    foreach (var line in allContents)
                     {
-                        string[] nextRecord = line.Split(',');
+                        var nextRecord = line.Split(',');
 
                         if (CheckTokenExists(user.Email, oauthToken, nextRecord))
                         {
-                            string grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
+                            var grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
 
-                            string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
+                            var redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
                             oauthToken.Id = nextRecord[0];
 
@@ -119,10 +117,8 @@ namespace Com.Zoho.API.Authenticator.Store
             {
                 List<string> data = null;
 
-                if (token is OAuthToken)
+                if (token is OAuthToken oauthToken)
                 {
-                    OAuthToken oauthToken = (OAuthToken)token;
-
                     oauthToken.UserMail = user.Email;
 
                     DeleteToken(oauthToken);
@@ -149,9 +145,9 @@ namespace Com.Zoho.API.Authenticator.Store
                     };
                 }
 
-                using (FileStream outFile = new FileStream(this.filePath, FileMode.Append))
+                using (var outFile = new FileStream(filePath, FileMode.Append))
                 {
-                    using (StreamWriter writer = new StreamWriter(outFile))
+                    using (var writer = new StreamWriter(outFile))
                     {
                         writer.WriteLine(string.Join(",", data));
 
@@ -171,26 +167,24 @@ namespace Com.Zoho.API.Authenticator.Store
         {
             try
             {
-                string[] lines = File.ReadAllLines(this.filePath);
+                var lines = File.ReadAllLines(filePath);
 
                 if (lines == null || lines.Length < 1)
                 {
                     return;
                 }
 
-                File.WriteAllText(this.filePath, string.Empty);
+                File.WriteAllText(filePath, string.Empty);
 
-                StringBuilder csvData = new StringBuilder();
+                var csvData = new StringBuilder();
 
-                if (token is OAuthToken)
+                if (token is OAuthToken oauthToken)
                 {
-                    OAuthToken oauthToken = (OAuthToken)token;
+                    var allContents = lines.ToList();
 
-                    List<string> allContents = lines.ToList();
-
-                    foreach (string value in allContents)
+                    foreach (var value in allContents)
                     {
-                        string[] nextRecord = value.Split(',');
+                        var nextRecord = value.Split(',');
 
                         if (!CheckTokenExists(oauthToken.UserMail, oauthToken, nextRecord))
                         {
@@ -201,7 +195,7 @@ namespace Com.Zoho.API.Authenticator.Store
                     }
                 }
 
-                File.WriteAllText(this.filePath, csvData.ToString());
+                File.WriteAllText(filePath, csvData.ToString());
             }
             catch (System.Exception ex) when (!(ex is SDKException) && (ex is UnauthorizedAccessException || ex is DirectoryNotFoundException))
             {
@@ -211,28 +205,28 @@ namespace Com.Zoho.API.Authenticator.Store
 
         public List<Token> GetTokens()
         {
-            List<Token> tokens = new List<Token>();
+            var tokens = new List<Token>();
 
             try
             {
-                string[] allContents = File.ReadAllLines(this.filePath);
+                var allContents = File.ReadAllLines(filePath);
 
                 if (allContents == null || allContents.Length < 1)
                 {
                     return null;
                 }
 
-                for (int index = 1; index < allContents.Length; index++)
+                for (var index = 1; index < allContents.Length; index++)
                 {
-                    string line = allContents[index];
+                    var line = allContents[index];
 
-                    string[] nextRecord = line.Split(',');
+                    var nextRecord = line.Split(',');
 
-                    string grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
+                    var grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
 
-                    string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
+                    var redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
-                    OAuthToken token = new OAuthToken.Builder().ClientId(nextRecord[2]).ClientSecret(nextRecord[3]).RefreshToken(nextRecord[4]).Build();
+                    var token = new OAuthToken.Builder().ClientId(nextRecord[2]).ClientSecret(nextRecord[3]).RefreshToken(nextRecord[4]).Build();
 
                     token.Id = nextRecord[0];
 
@@ -261,9 +255,9 @@ namespace Com.Zoho.API.Authenticator.Store
         {
             try
             {
-                File.WriteAllText(this.filePath, string.Empty);
+                File.WriteAllText(filePath, string.Empty);
 
-                File.WriteAllText(this.filePath, string.Join(",", headers));
+                File.WriteAllText(filePath, string.Join(",", headers));
             }
             catch (System.Exception ex) when (ex is UnauthorizedAccessException || ex is DirectoryNotFoundException)
             {
@@ -271,20 +265,20 @@ namespace Com.Zoho.API.Authenticator.Store
             }
         }
 
-        private bool CheckTokenExists(string email, OAuthToken oauthToken, string[] row)
+        bool CheckTokenExists(string email, OAuthToken oauthToken, string[] row)
         {
             if(string.IsNullOrEmpty(email))
             {
                 throw new SDKException(Constants.USER_MAIL_NULL_ERROR, Constants.USER_MAIL_NULL_ERROR_MESSAGE);
             }
 
-            string clientId = oauthToken.ClientId;
+            var clientId = oauthToken.ClientId;
 
-            string grantToken = oauthToken.GrantToken;
+            var grantToken = oauthToken.GrantToken;
 
-            string refreshToken = oauthToken.RefreshToken;
+            var refreshToken = oauthToken.RefreshToken;
 
-            bool tokenCheck = grantToken != null ? grantToken.Equals(row[6]) : refreshToken.Equals(row[4]);
+            var tokenCheck = grantToken != null ? grantToken.Equals(row[6]) : refreshToken.Equals(row[4]);
 
             if(row[1].Equals(email) && row[2].Equals(clientId) && tokenCheck)
             {
@@ -298,25 +292,23 @@ namespace Com.Zoho.API.Authenticator.Store
         {
             try
             {
-                string[] allContents = File.ReadAllLines(this.filePath);
+                var allContents = File.ReadAllLines(filePath);
 
-                bool isRowPresent = false;
+                var isRowPresent = false;
 
-                if (token is OAuthToken)
+                if (token is OAuthToken oauthToken)
                 {
-                    OAuthToken oauthToken = (OAuthToken)token;
-
-                    foreach (string line in allContents)
+                    foreach (var line in allContents)
                     {
-                        string[] nextRecord = line.Split(',');
+                        var nextRecord = line.Split(',');
 
                         if (nextRecord[0].Equals(id))
                         {
                             isRowPresent = true;
 
-                            string grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
+                            var grantToken = !string.IsNullOrEmpty(nextRecord[6]) ? nextRecord[6] : null;
 
-                            string redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
+                            var redirectURL = !string.IsNullOrEmpty(nextRecord[8]) ? nextRecord[8] : null;
 
                             oauthToken.Id = id;
 

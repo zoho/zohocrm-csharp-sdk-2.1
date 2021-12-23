@@ -8,13 +8,13 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class DeletedRecord : Model
 	{
-		private User deletedBy;
-		private long? id;
-		private string displayName;
-		private string type;
-		private User createdBy;
-		private DateTimeOffset? deletedTime;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		User deletedBy;
+		long? id;
+		string displayName;
+		string type;
+		User createdBy;
+		DateTimeOffset? deletedTime;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public User DeletedBy
 		{
@@ -22,16 +22,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.deletedBy;
+				return  deletedBy;
 
 			}
 			/// <summary>The method to set the value to deletedBy</summary>
 			/// <param name="deletedBy">Instance of User</param>
 			set
 			{
-				 this.deletedBy=value;
+				 deletedBy=value;
 
-				 this.keyModified["deleted_by"] = 1;
+				 keyModified["deleted_by"] = 1;
 
 			}
 		}
@@ -42,16 +42,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -62,16 +62,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the displayName</returns>
 			get
 			{
-				return  this.displayName;
+				return  displayName;
 
 			}
 			/// <summary>The method to set the value to displayName</summary>
 			/// <param name="displayName">string</param>
 			set
 			{
-				 this.displayName=value;
+				 displayName=value;
 
-				 this.keyModified["display_name"] = 1;
+				 keyModified["display_name"] = 1;
 
 			}
 		}
@@ -82,16 +82,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -102,16 +102,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -122,16 +122,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTimeOffset? representing the deletedTime</returns>
 			get
 			{
-				return  this.deletedTime;
+				return  deletedTime;
 
 			}
 			/// <summary>The method to set the value to deletedTime</summary>
 			/// <param name="deletedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.deletedTime=value;
+				 deletedTime=value;
 
-				 this.keyModified["deleted_time"] = 1;
+				 keyModified["deleted_time"] = 1;
 
 			}
 		}
@@ -141,9 +141,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -156,7 +156,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

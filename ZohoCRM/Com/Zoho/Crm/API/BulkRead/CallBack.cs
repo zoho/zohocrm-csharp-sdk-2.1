@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class CallBack : Model
 	{
-		private string url;
-		private Choice<string> method;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string url;
+		Choice<string> method;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Url
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>string representing the url</returns>
 			get
 			{
-				return  this.url;
+				return  url;
 
 			}
 			/// <summary>The method to set the value to url</summary>
 			/// <param name="url">string</param>
 			set
 			{
-				 this.url=value;
+				 url=value;
 
-				 this.keyModified["url"] = 1;
+				 keyModified["url"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.method;
+				return  method;
 
 			}
 			/// <summary>The method to set the value to method</summary>
 			/// <param name="method">Instance of Choice<string></param>
 			set
 			{
-				 this.method=value;
+				 method=value;
 
-				 this.keyModified["method"] = 1;
+				 keyModified["method"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 	public class ContactRoleWrapper : Model
 	{
-		private string contactRole;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string contactRole;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string ContactRole
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.ContactRoles
 			/// <returns>string representing the contactRole</returns>
 			get
 			{
-				return  this.contactRole;
+				return  contactRole;
 
 			}
 			/// <summary>The method to set the value to contactRole</summary>
 			/// <param name="contactRole">string</param>
 			set
 			{
-				 this.contactRole=value;
+				 contactRole=value;
 
-				 this.keyModified["Contact_Role"] = 1;
+				 keyModified["Contact_Role"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

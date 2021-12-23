@@ -10,15 +10,15 @@ namespace Com.Zoho.Crm.API.Util
     /// <typeparam name="T">A T is POJO class type</typeparam>
     public class APIResponse<T>
     {
-        private Dictionary<string, string> headers = new Dictionary<string, string>();
+        Dictionary<string, string> headers = new Dictionary<string, string>();
 
-        private int statusCode;
+        int statusCode;
 
-        private Model @object;
+        Model @object;
 
-        private bool isExpected;
+        bool isExpected;
 
-        private string statusDescription;
+        string statusDescription;
 
         /// <summary>
         /// Creates an APIResponse&lt;T&gt; class instance with the specified parameters.
@@ -33,9 +33,9 @@ namespace Com.Zoho.Crm.API.Util
 
             this.statusCode = statusCode;
 
-            this.@object = Object;
+            @object = Object;
 
-            this.isExpected = expectedType;
+            isExpected = expectedType;
 
             this.statusDescription = statusDescription;
         }
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.headers;
+                return headers;
             }
         }
 
@@ -61,7 +61,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.statusCode;
+                return statusCode;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.isExpected;
+                return isExpected;
             }
         }
 
@@ -85,7 +85,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.@object;
+                return @object;
             }
         }
 
@@ -101,7 +101,7 @@ namespace Com.Zoho.Crm.API.Util
                 {
                     if(@object.GetType() == typeof(T))
                     {
-                        return (T)Convert.ChangeType(this.@object, typeof(T));
+                        return (T)Convert.ChangeType(@object, typeof(T));
                     }
 
                     return (T)@object;
@@ -121,7 +121,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.statusDescription;
+                return statusDescription;
             }
         }
     }

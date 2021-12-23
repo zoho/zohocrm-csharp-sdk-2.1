@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Currency : Model
 	{
-		private string roundingOption;
-		private int? precision;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string roundingOption;
+		int? precision;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string RoundingOption
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the roundingOption</returns>
 			get
 			{
-				return  this.roundingOption;
+				return  roundingOption;
 
 			}
 			/// <summary>The method to set the value to roundingOption</summary>
 			/// <param name="roundingOption">string</param>
 			set
 			{
-				 this.roundingOption=value;
+				 roundingOption=value;
 
-				 this.keyModified["rounding_option"] = 1;
+				 keyModified["rounding_option"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>int? representing the precision</returns>
 			get
 			{
-				return  this.precision;
+				return  precision;
 
 			}
 			/// <summary>The method to set the value to precision</summary>
 			/// <param name="precision">int?</param>
 			set
 			{
-				 this.precision=value;
+				 precision=value;
 
-				 this.keyModified["precision"] = 1;
+				 keyModified["precision"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

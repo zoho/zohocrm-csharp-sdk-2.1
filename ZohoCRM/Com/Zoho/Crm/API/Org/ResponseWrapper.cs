@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Org
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Org> org;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Org> org;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Org> Org
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>Instance of List<Org></returns>
 			get
 			{
-				return  this.org;
+				return  org;
 
 			}
 			/// <summary>The method to set the value to org</summary>
 			/// <param name="org">Instance of List<Org></param>
 			set
 			{
-				 this.org=value;
+				 org=value;
 
-				 this.keyModified["org"] = 1;
+				 keyModified["org"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Org
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Org
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class CustomizeInfo : Model
 	{
-		private bool? notesDesc;
-		private string showRightPanel;
-		private string bcView;
-		private bool? showHome;
-		private bool? showDetailView;
-		private string unpinRecentItem;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? notesDesc;
+		string showRightPanel;
+		string bcView;
+		bool? showHome;
+		bool? showDetailView;
+		string unpinRecentItem;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? NotesDesc
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the notesDesc</returns>
 			get
 			{
-				return  this.notesDesc;
+				return  notesDesc;
 
 			}
 			/// <summary>The method to set the value to notesDesc</summary>
 			/// <param name="notesDesc">bool?</param>
 			set
 			{
-				 this.notesDesc=value;
+				 notesDesc=value;
 
-				 this.keyModified["notes_desc"] = 1;
+				 keyModified["notes_desc"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the showRightPanel</returns>
 			get
 			{
-				return  this.showRightPanel;
+				return  showRightPanel;
 
 			}
 			/// <summary>The method to set the value to showRightPanel</summary>
 			/// <param name="showRightPanel">string</param>
 			set
 			{
-				 this.showRightPanel=value;
+				 showRightPanel=value;
 
-				 this.keyModified["show_right_panel"] = 1;
+				 keyModified["show_right_panel"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the bcView</returns>
 			get
 			{
-				return  this.bcView;
+				return  bcView;
 
 			}
 			/// <summary>The method to set the value to bcView</summary>
 			/// <param name="bcView">string</param>
 			set
 			{
-				 this.bcView=value;
+				 bcView=value;
 
-				 this.keyModified["bc_view"] = 1;
+				 keyModified["bc_view"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the showHome</returns>
 			get
 			{
-				return  this.showHome;
+				return  showHome;
 
 			}
 			/// <summary>The method to set the value to showHome</summary>
 			/// <param name="showHome">bool?</param>
 			set
 			{
-				 this.showHome=value;
+				 showHome=value;
 
-				 this.keyModified["show_home"] = 1;
+				 keyModified["show_home"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the showDetailView</returns>
 			get
 			{
-				return  this.showDetailView;
+				return  showDetailView;
 
 			}
 			/// <summary>The method to set the value to showDetailView</summary>
 			/// <param name="showDetailView">bool?</param>
 			set
 			{
-				 this.showDetailView=value;
+				 showDetailView=value;
 
-				 this.keyModified["show_detail_view"] = 1;
+				 keyModified["show_detail_view"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the unpinRecentItem</returns>
 			get
 			{
-				return  this.unpinRecentItem;
+				return  unpinRecentItem;
 
 			}
 			/// <summary>The method to set the value to unpinRecentItem</summary>
 			/// <param name="unpinRecentItem">string</param>
 			set
 			{
-				 this.unpinRecentItem=value;
+				 unpinRecentItem=value;
 
-				 this.keyModified["unpin_recent_item"] = 1;
+				 keyModified["unpin_recent_item"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -7,13 +7,13 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class Criteria : Model
 	{
-		private string apiName;
-		private object value;
-		private Choice<string> groupOperator;
-		private List<Criteria> group;
-		private Field field;
-		private Choice<string> comparator;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string apiName;
+		object value;
+		Choice<string> groupOperator;
+		List<Criteria> group;
+		Field field;
+		Choice<string> comparator;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string APIName
 		{
@@ -21,16 +21,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -41,7 +41,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>object representing the value</returns>
 			get
 			{
-				return  this.value;
+				return  value;
 
 			}
 			/// <summary>The method to set the value to value</summary>
@@ -50,7 +50,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 			{
 				 this.value=value;
 
-				 this.keyModified["value"] = 1;
+				 keyModified["value"] = 1;
 
 			}
 		}
@@ -61,16 +61,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.groupOperator;
+				return  groupOperator;
 
 			}
 			/// <summary>The method to set the value to groupOperator</summary>
 			/// <param name="groupOperator">Instance of Choice<string></param>
 			set
 			{
-				 this.groupOperator=value;
+				 groupOperator=value;
 
-				 this.keyModified["group_operator"] = 1;
+				 keyModified["group_operator"] = 1;
 
 			}
 		}
@@ -81,16 +81,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of List<Criteria></returns>
 			get
 			{
-				return  this.group;
+				return  group;
 
 			}
 			/// <summary>The method to set the value to group</summary>
 			/// <param name="group">Instance of List<Criteria></param>
 			set
 			{
-				 this.group=value;
+				 group=value;
 
-				 this.keyModified["group"] = 1;
+				 keyModified["group"] = 1;
 
 			}
 		}
@@ -101,16 +101,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Field</returns>
 			get
 			{
-				return  this.field;
+				return  field;
 
 			}
 			/// <summary>The method to set the value to field</summary>
 			/// <param name="field">Instance of Field</param>
 			set
 			{
-				 this.field=value;
+				 field=value;
 
-				 this.keyModified["field"] = 1;
+				 keyModified["field"] = 1;
 
 			}
 		}
@@ -121,16 +121,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.comparator;
+				return  comparator;
 
 			}
 			/// <summary>The method to set the value to comparator</summary>
 			/// <param name="comparator">Instance of Choice<string></param>
 			set
 			{
-				 this.comparator=value;
+				 comparator=value;
 
-				 this.keyModified["comparator"] = 1;
+				 keyModified["comparator"] = 1;
 
 			}
 		}
@@ -140,9 +140,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -155,7 +155,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

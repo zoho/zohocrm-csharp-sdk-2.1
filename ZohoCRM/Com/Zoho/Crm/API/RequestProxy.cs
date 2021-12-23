@@ -13,15 +13,15 @@ namespace Com.Zoho.Crm.API
 	{
 		public class Builder
         {
-			private string host;
+	        string host;
 
-			private int port;
+	        int port;
 
-			private string userDomain;
+	        string userDomain;
 
-			private string user;
+	        string user;
 
-			private string password = "";
+	        string password = "";
 
 			public Builder Host(string host)
             {
@@ -68,19 +68,19 @@ namespace Com.Zoho.Crm.API
 
 				Utility.AssertNotNull(port, Constants.REQUEST_PROXY_ERROR, Constants.PORT_ERROR_MESSAGE);
 
-				return new RequestProxy(this.host, this.port, this.user, this.password, this.userDomain);
+				return new RequestProxy(host, port, user, password, userDomain);
 			}
 		}
 
-        private string host;
+		string host;
 
-		private int port;
+		int port;
 
-		private string userDomain;
+		string userDomain;
 
-		private string user;
+		string user;
 
-		private string password;
+		string password;
 
 		/// <summary>
 		/// Creates a RequestProxy class instance with the specified parameters.
@@ -90,7 +90,7 @@ namespace Com.Zoho.Crm.API
 		/// <param name="user">A String containing the user name of the proxy server</param>
 		/// <param name="password">A String containing the password of the proxy server</param>
 		/// <param name="userDomain">A String containing the domain of the proxy server</param>
-		private RequestProxy(string host, int port, string user, string password, string userDomain)
+		RequestProxy(string host, int port, string user, string password, string userDomain)
 		{
 			this.host = host;
 

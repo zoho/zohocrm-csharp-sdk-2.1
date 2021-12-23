@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Currencies
 
 	public class Format : Model
 	{
-		private Choice<string> decimalSeparator;
-		private Choice<string> thousandSeparator;
-		private Choice<string> decimalPlaces;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> decimalSeparator;
+		Choice<string> thousandSeparator;
+		Choice<string> decimalPlaces;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> DecimalSeparator
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.decimalSeparator;
+				return  decimalSeparator;
 
 			}
 			/// <summary>The method to set the value to decimalSeparator</summary>
 			/// <param name="decimalSeparator">Instance of Choice<string></param>
 			set
 			{
-				 this.decimalSeparator=value;
+				 decimalSeparator=value;
 
-				 this.keyModified["decimal_separator"] = 1;
+				 keyModified["decimal_separator"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.thousandSeparator;
+				return  thousandSeparator;
 
 			}
 			/// <summary>The method to set the value to thousandSeparator</summary>
 			/// <param name="thousandSeparator">Instance of Choice<string></param>
 			set
 			{
-				 this.thousandSeparator=value;
+				 thousandSeparator=value;
 
-				 this.keyModified["thousand_separator"] = 1;
+				 keyModified["thousand_separator"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.decimalPlaces;
+				return  decimalPlaces;
 
 			}
 			/// <summary>The method to set the value to decimalPlaces</summary>
 			/// <param name="decimalPlaces">Instance of Choice<string></param>
 			set
 			{
-				 this.decimalPlaces=value;
+				 decimalPlaces=value;
 
-				 this.keyModified["decimal_places"] = 1;
+				 keyModified["decimal_places"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

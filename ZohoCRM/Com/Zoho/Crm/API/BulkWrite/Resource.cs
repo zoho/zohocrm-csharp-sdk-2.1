@@ -7,16 +7,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class Resource : Model
 	{
-		private Choice<string> status;
-		private Choice<string> type;
-		private Module module;
-		private string code;
-		private string fileId;
-		private bool? ignoreEmpty;
-		private string findBy;
-		private List<FieldMapping> fieldMappings;
-		private File file;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> status;
+		Choice<string> type;
+		Module module;
+		string code;
+		string fileId;
+		bool? ignoreEmpty;
+		string findBy;
+		List<FieldMapping> fieldMappings;
+		File file;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Status
 		{
@@ -24,16 +24,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">Instance of Choice<string></param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -44,16 +44,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">Instance of Choice<string></param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -64,16 +64,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -84,16 +84,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the code</returns>
 			get
 			{
-				return  this.code;
+				return  code;
 
 			}
 			/// <summary>The method to set the value to code</summary>
 			/// <param name="code">string</param>
 			set
 			{
-				 this.code=value;
+				 code=value;
 
-				 this.keyModified["code"] = 1;
+				 keyModified["code"] = 1;
 
 			}
 		}
@@ -104,16 +104,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the fileId</returns>
 			get
 			{
-				return  this.fileId;
+				return  fileId;
 
 			}
 			/// <summary>The method to set the value to fileId</summary>
 			/// <param name="fileId">string</param>
 			set
 			{
-				 this.fileId=value;
+				 fileId=value;
 
-				 this.keyModified["file_id"] = 1;
+				 keyModified["file_id"] = 1;
 
 			}
 		}
@@ -124,16 +124,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>bool? representing the ignoreEmpty</returns>
 			get
 			{
-				return  this.ignoreEmpty;
+				return  ignoreEmpty;
 
 			}
 			/// <summary>The method to set the value to ignoreEmpty</summary>
 			/// <param name="ignoreEmpty">bool?</param>
 			set
 			{
-				 this.ignoreEmpty=value;
+				 ignoreEmpty=value;
 
-				 this.keyModified["ignore_empty"] = 1;
+				 keyModified["ignore_empty"] = 1;
 
 			}
 		}
@@ -144,16 +144,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the findBy</returns>
 			get
 			{
-				return  this.findBy;
+				return  findBy;
 
 			}
 			/// <summary>The method to set the value to findBy</summary>
 			/// <param name="findBy">string</param>
 			set
 			{
-				 this.findBy=value;
+				 findBy=value;
 
-				 this.keyModified["find_by"] = 1;
+				 keyModified["find_by"] = 1;
 
 			}
 		}
@@ -164,16 +164,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of List<FieldMapping></returns>
 			get
 			{
-				return  this.fieldMappings;
+				return  fieldMappings;
 
 			}
 			/// <summary>The method to set the value to fieldMappings</summary>
 			/// <param name="fieldMappings">Instance of List<FieldMapping></param>
 			set
 			{
-				 this.fieldMappings=value;
+				 fieldMappings=value;
 
-				 this.keyModified["field_mappings"] = 1;
+				 keyModified["field_mappings"] = 1;
 
 			}
 		}
@@ -184,16 +184,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>FileInfo representing the file</returns>
 			get
 			{
-				return  this.file;
+				return  file;
 
 			}
 			/// <summary>The method to set the value to file</summary>
 			/// <param name="file">FileInfo</param>
 			set
 			{
-				 this.file=value;
+				 file=value;
 
-				 this.keyModified["file"] = 1;
+				 keyModified["file"] = 1;
 
 			}
 		}
@@ -203,9 +203,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -218,7 +218,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

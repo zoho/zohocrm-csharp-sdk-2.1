@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class RecurringActivity : Model
 	{
-		private string rrule;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string rrule;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Rrule
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the rrule</returns>
 			get
 			{
-				return  this.rrule;
+				return  rrule;
 
 			}
 			/// <summary>The method to set the value to rrule</summary>
 			/// <param name="rrule">string</param>
 			set
 			{
-				 this.rrule=value;
+				 rrule=value;
 
-				 this.keyModified["RRULE"] = 1;
+				 keyModified["RRULE"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

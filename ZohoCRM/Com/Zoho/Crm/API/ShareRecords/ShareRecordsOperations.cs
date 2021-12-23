@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 	public class ShareRecordsOperations
 	{
-		private string moduleAPIName;
-		private long? recordId;
+		string moduleAPIName;
+		long? recordId;
 
 		/// <summary>		/// Creates an instance of ShareRecordsOperations with the given parameters
 		/// <param name="recordId">long?</param>
@@ -27,17 +27,17 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetSharedRecordDetails(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/share");
 
@@ -59,17 +59,17 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> ShareRecord(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/share");
 
@@ -95,17 +95,17 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateSharePermissions(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/share");
 
@@ -130,17 +130,17 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>Instance of APIResponse<DeleteActionHandler></returns>
 		public APIResponse<DeleteActionHandler> RevokeSharedRecord()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/share");
 

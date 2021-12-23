@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class ViewType : Model
 	{
-		private bool? view;
-		private bool? edit;
-		private bool? create;
-		private bool? quickCreate;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? view;
+		bool? edit;
+		bool? create;
+		bool? quickCreate;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? View
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the view</returns>
 			get
 			{
-				return  this.view;
+				return  view;
 
 			}
 			/// <summary>The method to set the value to view</summary>
 			/// <param name="view">bool?</param>
 			set
 			{
-				 this.view=value;
+				 view=value;
 
-				 this.keyModified["view"] = 1;
+				 keyModified["view"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the edit</returns>
 			get
 			{
-				return  this.edit;
+				return  edit;
 
 			}
 			/// <summary>The method to set the value to edit</summary>
 			/// <param name="edit">bool?</param>
 			set
 			{
-				 this.edit=value;
+				 edit=value;
 
-				 this.keyModified["edit"] = 1;
+				 keyModified["edit"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the create</returns>
 			get
 			{
-				return  this.create;
+				return  create;
 
 			}
 			/// <summary>The method to set the value to create</summary>
 			/// <param name="create">bool?</param>
 			set
 			{
-				 this.create=value;
+				 create=value;
 
-				 this.keyModified[Constants.REQUEST_CATEGORY_CREATE] = 1;
+				 keyModified[Constants.REQUEST_CATEGORY_CREATE] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the quickCreate</returns>
 			get
 			{
-				return  this.quickCreate;
+				return  quickCreate;
 
 			}
 			/// <summary>The method to set the value to quickCreate</summary>
 			/// <param name="quickCreate">bool?</param>
 			set
 			{
-				 this.quickCreate=value;
+				 quickCreate=value;
 
-				 this.keyModified["quick_create"] = 1;
+				 keyModified["quick_create"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

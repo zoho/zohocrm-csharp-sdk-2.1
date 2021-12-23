@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class MassUpdateBodyWrapper : Model
 	{
-		private List<Record> data;
-		private string cvid;
-		private List<string> ids;
-		private MassUpdateTerritory territory;
-		private bool? overWrite;
-		private List<Criteria> criteria;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Record> data;
+		string cvid;
+		List<string> ids;
+		MassUpdateTerritory territory;
+		bool? overWrite;
+		List<Criteria> criteria;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Record> Data
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<Record></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<Record></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the cvid</returns>
 			get
 			{
-				return  this.cvid;
+				return  cvid;
 
 			}
 			/// <summary>The method to set the value to cvid</summary>
 			/// <param name="cvid">string</param>
 			set
 			{
-				 this.cvid=value;
+				 cvid=value;
 
-				 this.keyModified["cvid"] = 1;
+				 keyModified["cvid"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.ids;
+				return  ids;
 
 			}
 			/// <summary>The method to set the value to ids</summary>
 			/// <param name="ids">Instance of List<string></param>
 			set
 			{
-				 this.ids=value;
+				 ids=value;
 
-				 this.keyModified["ids"] = 1;
+				 keyModified["ids"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of MassUpdateTerritory</returns>
 			get
 			{
-				return  this.territory;
+				return  territory;
 
 			}
 			/// <summary>The method to set the value to territory</summary>
 			/// <param name="territory">Instance of MassUpdateTerritory</param>
 			set
 			{
-				 this.territory=value;
+				 territory=value;
 
-				 this.keyModified["territory"] = 1;
+				 keyModified["territory"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the overWrite</returns>
 			get
 			{
-				return  this.overWrite;
+				return  overWrite;
 
 			}
 			/// <summary>The method to set the value to overWrite</summary>
 			/// <param name="overWrite">bool?</param>
 			set
 			{
-				 this.overWrite=value;
+				 overWrite=value;
 
-				 this.keyModified["over_write"] = 1;
+				 keyModified["over_write"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<Criteria></returns>
 			get
 			{
-				return  this.criteria;
+				return  criteria;
 
 			}
 			/// <summary>The method to set the value to criteria</summary>
 			/// <param name="criteria">Instance of List<Criteria></param>
 			set
 			{
-				 this.criteria=value;
+				 criteria=value;
 
-				 this.keyModified["criteria"] = 1;
+				 keyModified["criteria"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

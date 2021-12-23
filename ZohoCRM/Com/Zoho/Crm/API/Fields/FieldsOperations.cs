@@ -6,7 +6,7 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class FieldsOperations
 	{
-		private string module;
+		string module;
 
 		/// <summary>		/// Creates an instance of FieldsOperations with the given parameters
 		/// <param name="module">string</param>
@@ -23,9 +23,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetFields(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/fields");
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Fields
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Fields.GetFieldsParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Fields.GetFieldsParam"),  module);
 
 			handlerInstance.Param=paramInstance;
 
@@ -49,9 +49,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetField(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/fields/");
 
@@ -63,7 +63,7 @@ namespace Com.Zoho.Crm.API.Fields
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Fields.GetFieldParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Fields.GetFieldParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 

@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.SendMail
 
 	public class UserAddress : Model
 	{
-		private string userName;
-		private string type;
-		private string email;
-		private long? id;
-		private bool? default1;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string userName;
+		string type;
+		string email;
+		long? id;
+		bool? default1;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string UserName
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the userName</returns>
 			get
 			{
-				return  this.userName;
+				return  userName;
 
 			}
 			/// <summary>The method to set the value to userName</summary>
 			/// <param name="userName">string</param>
 			set
 			{
-				 this.userName=value;
+				 userName=value;
 
-				 this.keyModified["user_name"] = 1;
+				 keyModified["user_name"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the email</returns>
 			get
 			{
-				return  this.email;
+				return  email;
 
 			}
 			/// <summary>The method to set the value to email</summary>
 			/// <param name="email">string</param>
 			set
 			{
-				 this.email=value;
+				 email=value;
 
-				 this.keyModified["email"] = 1;
+				 keyModified["email"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>bool? representing the default1</returns>
 			get
 			{
-				return  this.default1;
+				return  default1;
 
 			}
 			/// <summary>The method to set the value to default</summary>
 			/// <param name="default1">bool?</param>
 			set
 			{
-				 this.default1=value;
+				 default1=value;
 
-				 this.keyModified["default"] = 1;
+				 keyModified["default"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

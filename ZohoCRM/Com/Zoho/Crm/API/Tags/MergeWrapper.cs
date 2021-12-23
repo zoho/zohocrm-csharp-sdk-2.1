@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Tags
 
 	public class MergeWrapper : Model
 	{
-		private List<ConflictWrapper> tags;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ConflictWrapper> tags;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ConflictWrapper> Tags
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of List<ConflictWrapper></returns>
 			get
 			{
-				return  this.tags;
+				return  tags;
 
 			}
 			/// <summary>The method to set the value to tags</summary>
 			/// <param name="tags">Instance of List<ConflictWrapper></param>
 			set
 			{
-				 this.tags=value;
+				 tags=value;
 
-				 this.keyModified["tags"] = 1;
+				 keyModified["tags"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

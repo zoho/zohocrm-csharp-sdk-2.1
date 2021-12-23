@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Dc
     /// </summary>
     public class EUDataCenter : DataCenter
     {
-        private static readonly EUDataCenter EU = new EUDataCenter();
+        static readonly EUDataCenter EU = new EUDataCenter();
 
-        private EUDataCenter()
+        EUDataCenter()
         {
         }
 

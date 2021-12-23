@@ -8,13 +8,13 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 	public class ShareRecord : Model
 	{
-		private bool? shareRelatedRecords;
-		private SharedThrough sharedThrough;
-		private DateTimeOffset? sharedTime;
-		private string permission;
-		private User sharedBy;
-		private User user;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? shareRelatedRecords;
+		SharedThrough sharedThrough;
+		DateTimeOffset? sharedTime;
+		string permission;
+		User sharedBy;
+		User user;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? ShareRelatedRecords
 		{
@@ -22,16 +22,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>bool? representing the shareRelatedRecords</returns>
 			get
 			{
-				return  this.shareRelatedRecords;
+				return  shareRelatedRecords;
 
 			}
 			/// <summary>The method to set the value to shareRelatedRecords</summary>
 			/// <param name="shareRelatedRecords">bool?</param>
 			set
 			{
-				 this.shareRelatedRecords=value;
+				 shareRelatedRecords=value;
 
-				 this.keyModified["share_related_records"] = 1;
+				 keyModified["share_related_records"] = 1;
 
 			}
 		}
@@ -42,16 +42,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of SharedThrough</returns>
 			get
 			{
-				return  this.sharedThrough;
+				return  sharedThrough;
 
 			}
 			/// <summary>The method to set the value to sharedThrough</summary>
 			/// <param name="sharedThrough">Instance of SharedThrough</param>
 			set
 			{
-				 this.sharedThrough=value;
+				 sharedThrough=value;
 
-				 this.keyModified["shared_through"] = 1;
+				 keyModified["shared_through"] = 1;
 
 			}
 		}
@@ -62,16 +62,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>DateTimeOffset? representing the sharedTime</returns>
 			get
 			{
-				return  this.sharedTime;
+				return  sharedTime;
 
 			}
 			/// <summary>The method to set the value to sharedTime</summary>
 			/// <param name="sharedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.sharedTime=value;
+				 sharedTime=value;
 
-				 this.keyModified["shared_time"] = 1;
+				 keyModified["shared_time"] = 1;
 
 			}
 		}
@@ -82,16 +82,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>string representing the permission</returns>
 			get
 			{
-				return  this.permission;
+				return  permission;
 
 			}
 			/// <summary>The method to set the value to permission</summary>
 			/// <param name="permission">string</param>
 			set
 			{
-				 this.permission=value;
+				 permission=value;
 
-				 this.keyModified["permission"] = 1;
+				 keyModified["permission"] = 1;
 
 			}
 		}
@@ -102,16 +102,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.sharedBy;
+				return  sharedBy;
 
 			}
 			/// <summary>The method to set the value to sharedBy</summary>
 			/// <param name="sharedBy">Instance of User</param>
 			set
 			{
-				 this.sharedBy=value;
+				 sharedBy=value;
 
-				 this.keyModified["shared_by"] = 1;
+				 keyModified["shared_by"] = 1;
 
 			}
 		}
@@ -122,16 +122,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.user;
+				return  user;
 
 			}
 			/// <summary>The method to set the value to user</summary>
 			/// <param name="user">Instance of User</param>
 			set
 			{
-				 this.user=value;
+				 user=value;
 
-				 this.keyModified["user"] = 1;
+				 keyModified["user"] = 1;
 
 			}
 		}
@@ -141,9 +141,9 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -156,7 +156,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

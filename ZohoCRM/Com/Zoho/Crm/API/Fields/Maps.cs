@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Maps : Model
 	{
-		private string apiName;
-		private List<PickListValue> pickListValues;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string apiName;
+		List<PickListValue> pickListValues;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string APIName
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of List<PickListValue></returns>
 			get
 			{
-				return  this.pickListValues;
+				return  pickListValues;
 
 			}
 			/// <summary>The method to set the value to pickListValues</summary>
 			/// <param name="pickListValues">Instance of List<PickListValue></param>
 			set
 			{
-				 this.pickListValues=value;
+				 pickListValues=value;
 
-				 this.keyModified["pick_list_values"] = 1;
+				 keyModified["pick_list_values"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -8,20 +8,20 @@ namespace Com.Zoho.Crm.API.Currencies
 
 	public class Currency : Model
 	{
-		private string symbol;
-		private DateTimeOffset? createdTime;
-		private bool? isActive;
-		private string exchangeRate;
-		private Format format;
-		private User createdBy;
-		private bool? prefixSymbol;
-		private bool? isBase;
-		private DateTimeOffset? modifiedTime;
-		private string name;
-		private User modifiedBy;
-		private long? id;
-		private string isoCode;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string symbol;
+		DateTimeOffset? createdTime;
+		bool? isActive;
+		string exchangeRate;
+		Format format;
+		User createdBy;
+		bool? prefixSymbol;
+		bool? isBase;
+		DateTimeOffset? modifiedTime;
+		string name;
+		User modifiedBy;
+		long? id;
+		string isoCode;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Symbol
 		{
@@ -29,16 +29,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>string representing the symbol</returns>
 			get
 			{
-				return  this.symbol;
+				return  symbol;
 
 			}
 			/// <summary>The method to set the value to symbol</summary>
 			/// <param name="symbol">string</param>
 			set
 			{
-				 this.symbol=value;
+				 symbol=value;
 
-				 this.keyModified["symbol"] = 1;
+				 keyModified["symbol"] = 1;
 
 			}
 		}
@@ -49,16 +49,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -69,16 +69,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>bool? representing the isActive</returns>
 			get
 			{
-				return  this.isActive;
+				return  isActive;
 
 			}
 			/// <summary>The method to set the value to isActive</summary>
 			/// <param name="isActive">bool?</param>
 			set
 			{
-				 this.isActive=value;
+				 isActive=value;
 
-				 this.keyModified["is_active"] = 1;
+				 keyModified["is_active"] = 1;
 
 			}
 		}
@@ -89,16 +89,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>string representing the exchangeRate</returns>
 			get
 			{
-				return  this.exchangeRate;
+				return  exchangeRate;
 
 			}
 			/// <summary>The method to set the value to exchangeRate</summary>
 			/// <param name="exchangeRate">string</param>
 			set
 			{
-				 this.exchangeRate=value;
+				 exchangeRate=value;
 
-				 this.keyModified["exchange_rate"] = 1;
+				 keyModified["exchange_rate"] = 1;
 
 			}
 		}
@@ -109,16 +109,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of Format</returns>
 			get
 			{
-				return  this.format;
+				return  format;
 
 			}
 			/// <summary>The method to set the value to format</summary>
 			/// <param name="format">Instance of Format</param>
 			set
 			{
-				 this.format=value;
+				 format=value;
 
-				 this.keyModified["format"] = 1;
+				 keyModified["format"] = 1;
 
 			}
 		}
@@ -129,16 +129,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -149,16 +149,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>bool? representing the prefixSymbol</returns>
 			get
 			{
-				return  this.prefixSymbol;
+				return  prefixSymbol;
 
 			}
 			/// <summary>The method to set the value to prefixSymbol</summary>
 			/// <param name="prefixSymbol">bool?</param>
 			set
 			{
-				 this.prefixSymbol=value;
+				 prefixSymbol=value;
 
-				 this.keyModified["prefix_symbol"] = 1;
+				 keyModified["prefix_symbol"] = 1;
 
 			}
 		}
@@ -169,16 +169,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>bool? representing the isBase</returns>
 			get
 			{
-				return  this.isBase;
+				return  isBase;
 
 			}
 			/// <summary>The method to set the value to isBase</summary>
 			/// <param name="isBase">bool?</param>
 			set
 			{
-				 this.isBase=value;
+				 isBase=value;
 
-				 this.keyModified["is_base"] = 1;
+				 keyModified["is_base"] = 1;
 
 			}
 		}
@@ -189,16 +189,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -209,16 +209,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -229,16 +229,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -249,16 +249,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -269,16 +269,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>string representing the isoCode</returns>
 			get
 			{
-				return  this.isoCode;
+				return  isoCode;
 
 			}
 			/// <summary>The method to set the value to isoCode</summary>
 			/// <param name="isoCode">string</param>
 			set
 			{
-				 this.isoCode=value;
+				 isoCode=value;
 
-				 this.keyModified["iso_code"] = 1;
+				 keyModified["iso_code"] = 1;
 
 			}
 		}
@@ -288,9 +288,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -303,7 +303,7 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

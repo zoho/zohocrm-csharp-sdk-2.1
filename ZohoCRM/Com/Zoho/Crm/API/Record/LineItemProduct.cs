@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the productCode</returns>
 			get
 			{
-				if((( this.GetKeyValue("Product_Code")) != (null)))
+				if((( GetKeyValue("Product_Code")) != (null)))
 				{
-					return (string) this.GetKeyValue("Product_Code");
+					return (string) GetKeyValue("Product_Code");
 
 				}
 					return null;
@@ -25,7 +25,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="productCode">string</param>
 			set
 			{
-				 this.AddKeyValue("Product_Code", value);
+				 AddKeyValue("Product_Code", value);
 
 			}
 		}
@@ -36,9 +36,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the currency</returns>
 			get
 			{
-				if((( this.GetKeyValue("Currency")) != (null)))
+				if((( GetKeyValue("Currency")) != (null)))
 				{
-					return (string) this.GetKeyValue("Currency");
+					return (string) GetKeyValue("Currency");
 
 				}
 					return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="currency">string</param>
 			set
 			{
-				 this.AddKeyValue("Currency", value);
+				 AddKeyValue("Currency", value);
 
 			}
 		}
@@ -60,9 +60,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the name</returns>
 			get
 			{
-				if((( this.GetKeyValue("name")) != (null)))
+				if((( GetKeyValue("name")) != (null)))
 				{
-					return (string) this.GetKeyValue("name");
+					return (string) GetKeyValue("name");
 
 				}
 					return null;
@@ -73,7 +73,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="name">string</param>
 			set
 			{
-				 this.AddKeyValue("name", value);
+				 AddKeyValue("name", value);
 
 			}
 		}

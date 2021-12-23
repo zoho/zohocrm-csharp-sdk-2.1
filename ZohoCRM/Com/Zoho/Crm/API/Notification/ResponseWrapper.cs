@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Notification
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Notification> watch;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Notification> watch;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Notification> Watch
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>Instance of List<Notification></returns>
 			get
 			{
-				return  this.watch;
+				return  watch;
 
 			}
 			/// <summary>The method to set the value to watch</summary>
 			/// <param name="watch">Instance of List<Notification></param>
 			set
 			{
-				 this.watch=value;
+				 watch=value;
 
-				 this.keyModified["watch"] = 1;
+				 keyModified["watch"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Notification
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Notification
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Notification
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

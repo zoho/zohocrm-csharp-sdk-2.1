@@ -10,9 +10,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetBulkReadJobDetails(long? jobId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/bulk/v2.1/read/");
 
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> DownloadResult(long? jobId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/bulk/v2.1/read/");
 
@@ -60,9 +60,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreateBulkReadJob(RequestWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/bulk/v2.1/read");
 

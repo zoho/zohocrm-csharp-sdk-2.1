@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class FieldMapping : Model
 	{
-		private string apiName;
-		private int? index;
-		private string format;
-		private string findBy;
-		private Dictionary<string, object> defaultValue;
-		private string module;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string apiName;
+		int? index;
+		string format;
+		string findBy;
+		Dictionary<string, object> defaultValue;
+		string module;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string APIName
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>int? representing the index</returns>
 			get
 			{
-				return  this.index;
+				return  index;
 
 			}
 			/// <summary>The method to set the value to index</summary>
 			/// <param name="index">int?</param>
 			set
 			{
-				 this.index=value;
+				 index=value;
 
-				 this.keyModified["index"] = 1;
+				 keyModified["index"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the format</returns>
 			get
 			{
-				return  this.format;
+				return  format;
 
 			}
 			/// <summary>The method to set the value to format</summary>
 			/// <param name="format">string</param>
 			set
 			{
-				 this.format=value;
+				 format=value;
 
-				 this.keyModified["format"] = 1;
+				 keyModified["format"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the findBy</returns>
 			get
 			{
-				return  this.findBy;
+				return  findBy;
 
 			}
 			/// <summary>The method to set the value to findBy</summary>
 			/// <param name="findBy">string</param>
 			set
 			{
-				 this.findBy=value;
+				 findBy=value;
 
-				 this.keyModified["find_by"] = 1;
+				 keyModified["find_by"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Dictionary representing the defaultValue<String,Object></returns>
 			get
 			{
-				return  this.defaultValue;
+				return  defaultValue;
 
 			}
 			/// <summary>The method to set the value to defaultValue</summary>
 			/// <param name="defaultValue">Dictionary<string,object></param>
 			set
 			{
-				 this.defaultValue=value;
+				 defaultValue=value;
 
-				 this.keyModified["default_value"] = 1;
+				 keyModified["default_value"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">string</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

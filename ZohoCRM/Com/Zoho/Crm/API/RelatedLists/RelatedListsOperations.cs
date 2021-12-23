@@ -6,7 +6,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 	public class RelatedListsOperations
 	{
-		private string module;
+		string module;
 
 		/// <summary>		/// Creates an instance of RelatedListsOperations with the given parameters
 		/// <param name="module">string</param>
@@ -22,9 +22,9 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedLists()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/related_lists");
 
@@ -34,7 +34,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.RelatedLists.GetRelatedListsParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.RelatedLists.GetRelatedListsParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -46,9 +46,9 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRelatedList(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/related_lists/");
 
@@ -60,7 +60,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.RelatedLists.GetRelatedListParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.RelatedLists.GetRelatedListParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 

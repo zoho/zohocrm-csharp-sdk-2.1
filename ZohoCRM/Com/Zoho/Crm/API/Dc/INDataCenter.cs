@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Dc
     /// </summary>
     public class INDataCenter : DataCenter
     {
-        private static readonly INDataCenter IN = new INDataCenter();
+        static readonly INDataCenter IN = new INDataCenter();
 
-        private INDataCenter()
+        INDataCenter()
         {
         }
 

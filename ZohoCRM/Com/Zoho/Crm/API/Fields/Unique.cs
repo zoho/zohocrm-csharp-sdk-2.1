@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Unique : Model
 	{
-		private string casesensitive;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string casesensitive;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Casesensitive
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the casesensitive</returns>
 			get
 			{
-				return  this.casesensitive;
+				return  casesensitive;
 
 			}
 			/// <summary>The method to set the value to casesensitive</summary>
 			/// <param name="casesensitive">string</param>
 			set
 			{
-				 this.casesensitive=value;
+				 casesensitive=value;
 
-				 this.keyModified["casesensitive"] = 1;
+				 keyModified["casesensitive"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

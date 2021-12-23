@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class Theme : Model
 	{
-		private TabTheme normalTab;
-		private TabTheme selectedTab;
-		private string newBackground;
-		private string background;
-		private string screen;
-		private string type;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		TabTheme normalTab;
+		TabTheme selectedTab;
+		string newBackground;
+		string background;
+		string screen;
+		string type;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public TabTheme NormalTab
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of TabTheme</returns>
 			get
 			{
-				return  this.normalTab;
+				return  normalTab;
 
 			}
 			/// <summary>The method to set the value to normalTab</summary>
 			/// <param name="normalTab">Instance of TabTheme</param>
 			set
 			{
-				 this.normalTab=value;
+				 normalTab=value;
 
-				 this.keyModified["normal_tab"] = 1;
+				 keyModified["normal_tab"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of TabTheme</returns>
 			get
 			{
-				return  this.selectedTab;
+				return  selectedTab;
 
 			}
 			/// <summary>The method to set the value to selectedTab</summary>
 			/// <param name="selectedTab">Instance of TabTheme</param>
 			set
 			{
-				 this.selectedTab=value;
+				 selectedTab=value;
 
-				 this.keyModified["selected_tab"] = 1;
+				 keyModified["selected_tab"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the newBackground</returns>
 			get
 			{
-				return  this.newBackground;
+				return  newBackground;
 
 			}
 			/// <summary>The method to set the value to newBackground</summary>
 			/// <param name="newBackground">string</param>
 			set
 			{
-				 this.newBackground=value;
+				 newBackground=value;
 
-				 this.keyModified["new_background"] = 1;
+				 keyModified["new_background"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the background</returns>
 			get
 			{
-				return  this.background;
+				return  background;
 
 			}
 			/// <summary>The method to set the value to background</summary>
 			/// <param name="background">string</param>
 			set
 			{
-				 this.background=value;
+				 background=value;
 
-				 this.keyModified["background"] = 1;
+				 keyModified["background"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the screen</returns>
 			get
 			{
-				return  this.screen;
+				return  screen;
 
 			}
 			/// <summary>The method to set the value to screen</summary>
 			/// <param name="screen">string</param>
 			set
 			{
-				 this.screen=value;
+				 screen=value;
 
-				 this.keyModified["screen"] = 1;
+				 keyModified["screen"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -7,10 +7,10 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 	public class SharedThrough : Model
 	{
-		private Module module;
-		private long? id;
-		private string entityName;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Module module;
+		long? id;
+		string entityName;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Module Module
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>string representing the entityName</returns>
 			get
 			{
-				return  this.entityName;
+				return  entityName;
 
 			}
 			/// <summary>The method to set the value to entityName</summary>
 			/// <param name="entityName">string</param>
 			set
 			{
-				 this.entityName=value;
+				 entityName=value;
 
-				 this.keyModified["entity_name"] = 1;
+				 keyModified["entity_name"] = 1;
 
 			}
 		}
@@ -77,9 +77,9 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -92,7 +92,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

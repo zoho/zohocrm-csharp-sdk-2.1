@@ -8,14 +8,14 @@ namespace Com.Zoho.Crm.API.Tags
 
 	public class Tag : Model
 	{
-		private DateTimeOffset? createdTime;
-		private DateTimeOffset? modifiedTime;
-		private string name;
-		private User modifiedBy;
-		private string colorCode;
-		private long? id;
-		private User createdBy;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? createdTime;
+		DateTimeOffset? modifiedTime;
+		string name;
+		User modifiedBy;
+		string colorCode;
+		long? id;
+		User createdBy;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? CreatedTime
 		{
@@ -23,16 +23,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -43,16 +43,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -63,16 +63,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -83,16 +83,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -103,16 +103,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>string representing the colorCode</returns>
 			get
 			{
-				return  this.colorCode;
+				return  colorCode;
 
 			}
 			/// <summary>The method to set the value to colorCode</summary>
 			/// <param name="colorCode">string</param>
 			set
 			{
-				 this.colorCode=value;
+				 colorCode=value;
 
-				 this.keyModified["color_code"] = 1;
+				 keyModified["color_code"] = 1;
 
 			}
 		}
@@ -123,16 +123,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -143,16 +143,16 @@ namespace Com.Zoho.Crm.API.Tags
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -162,9 +162,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -177,7 +177,7 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

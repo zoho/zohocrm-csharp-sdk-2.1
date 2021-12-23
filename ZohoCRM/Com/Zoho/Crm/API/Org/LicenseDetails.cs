@@ -7,13 +7,13 @@ namespace Com.Zoho.Crm.API.Org
 
 	public class LicenseDetails : Model
 	{
-		private DateTimeOffset? paidExpiry;
-		private long? usersLicensePurchased;
-		private string trialType;
-		private string trialExpiry;
-		private bool? paid;
-		private string paidType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? paidExpiry;
+		long? usersLicensePurchased;
+		string trialType;
+		string trialExpiry;
+		bool? paid;
+		string paidType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? PaidExpiry
 		{
@@ -21,16 +21,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>DateTimeOffset? representing the paidExpiry</returns>
 			get
 			{
-				return  this.paidExpiry;
+				return  paidExpiry;
 
 			}
 			/// <summary>The method to set the value to paidExpiry</summary>
 			/// <param name="paidExpiry">DateTimeOffset?</param>
 			set
 			{
-				 this.paidExpiry=value;
+				 paidExpiry=value;
 
-				 this.keyModified["paid_expiry"] = 1;
+				 keyModified["paid_expiry"] = 1;
 
 			}
 		}
@@ -41,16 +41,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>long? representing the usersLicensePurchased</returns>
 			get
 			{
-				return  this.usersLicensePurchased;
+				return  usersLicensePurchased;
 
 			}
 			/// <summary>The method to set the value to usersLicensePurchased</summary>
 			/// <param name="usersLicensePurchased">long?</param>
 			set
 			{
-				 this.usersLicensePurchased=value;
+				 usersLicensePurchased=value;
 
-				 this.keyModified["users_license_purchased"] = 1;
+				 keyModified["users_license_purchased"] = 1;
 
 			}
 		}
@@ -61,16 +61,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the trialType</returns>
 			get
 			{
-				return  this.trialType;
+				return  trialType;
 
 			}
 			/// <summary>The method to set the value to trialType</summary>
 			/// <param name="trialType">string</param>
 			set
 			{
-				 this.trialType=value;
+				 trialType=value;
 
-				 this.keyModified["trial_type"] = 1;
+				 keyModified["trial_type"] = 1;
 
 			}
 		}
@@ -81,16 +81,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the trialExpiry</returns>
 			get
 			{
-				return  this.trialExpiry;
+				return  trialExpiry;
 
 			}
 			/// <summary>The method to set the value to trialExpiry</summary>
 			/// <param name="trialExpiry">string</param>
 			set
 			{
-				 this.trialExpiry=value;
+				 trialExpiry=value;
 
-				 this.keyModified["trial_expiry"] = 1;
+				 keyModified["trial_expiry"] = 1;
 
 			}
 		}
@@ -101,16 +101,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>bool? representing the paid</returns>
 			get
 			{
-				return  this.paid;
+				return  paid;
 
 			}
 			/// <summary>The method to set the value to paid</summary>
 			/// <param name="paid">bool?</param>
 			set
 			{
-				 this.paid=value;
+				 paid=value;
 
-				 this.keyModified["paid"] = 1;
+				 keyModified["paid"] = 1;
 
 			}
 		}
@@ -121,16 +121,16 @@ namespace Com.Zoho.Crm.API.Org
 			/// <returns>string representing the paidType</returns>
 			get
 			{
-				return  this.paidType;
+				return  paidType;
 
 			}
 			/// <summary>The method to set the value to paidType</summary>
 			/// <param name="paidType">string</param>
 			set
 			{
-				 this.paidType=value;
+				 paidType=value;
 
-				 this.keyModified["paid_type"] = 1;
+				 keyModified["paid_type"] = 1;
 
 			}
 		}
@@ -140,9 +140,9 @@ namespace Com.Zoho.Crm.API.Org
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -155,7 +155,7 @@ namespace Com.Zoho.Crm.API.Org
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

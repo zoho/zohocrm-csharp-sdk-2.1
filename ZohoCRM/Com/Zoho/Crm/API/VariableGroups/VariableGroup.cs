@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.VariableGroups
 
 	public class VariableGroup : Model
 	{
-		private string displayLabel;
-		private string apiName;
-		private string name;
-		private string description;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		string apiName;
+		string name;
+		string description;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.VariableGroups
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.VariableGroups
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.VariableGroups
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

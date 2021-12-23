@@ -36,17 +36,17 @@ namespace Com.Zoho.Crm.API.Util
 
         public override object GetResponse(object response, string pack)
         {
-            JObject recordJsonDetails = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
+            var recordJsonDetails = (JObject)Initializer.jsonDetails.GetValue(pack); // JSONdetails of class
 
             object instance = null;
 
             if (recordJsonDetails.ContainsKey(Constants.INTERFACE) && (bool)recordJsonDetails.GetValue(Constants.INTERFACE))
             {
-                JArray classes = (JArray)recordJsonDetails.GetValue(Constants.CLASSES);
+                var classes = (JArray)recordJsonDetails.GetValue(Constants.CLASSES);
 
                 foreach(object classObject in classes)
                 {
-                    string className = classObject.ToString();
+                    var className = classObject.ToString();
 
                     if(className.Contains(Constants.FILEBODYWRAPPER))
                     {
@@ -60,25 +60,25 @@ namespace Com.Zoho.Crm.API.Util
             {
                 instance = Activator.CreateInstance(Type.GetType(pack));
 
-                foreach (KeyValuePair<string, JToken> memberName in recordJsonDetails)
+                foreach (var memberName in recordJsonDetails)
                 {
-                    JObject memberJsonDetails = (JObject)recordJsonDetails[memberName.Key];// JSONdetails of the member
+                    var memberJsonDetails = (JObject)recordJsonDetails[memberName.Key];// JSONdetails of the member
 
-                    FieldInfo field = GetPrivateFieldInfo(instance.GetType(), memberName.Key);
+                    var field = GetPrivateFieldInfo(instance.GetType(), memberName.Key);
 
                     if(field != null)
                     {
-                        string type = (string)memberJsonDetails[Constants.TYPE];
+                        var type = (string)memberJsonDetails[Constants.TYPE];
 
                         if (type.Equals(Constants.STREAM_WRAPPER_CLASS_PATH, StringComparison.OrdinalIgnoreCase))
                         {
-                            HttpWebResponse responseEntity = ((HttpWebResponse)response);
+                            var responseEntity = ((HttpWebResponse)response);
 
-                            WebHeaderCollection collection = responseEntity.Headers;
+                            var collection = responseEntity.Headers;
 
-                            string contentDisposition = collection[Constants.CONTENT_DISPOSITION];
+                            var contentDisposition = collection[Constants.CONTENT_DISPOSITION];
 
-                            string fileName = contentDisposition.Split(new string[] { "=" }, StringSplitOptions.None)[1];
+                            var fileName = contentDisposition.Split(new string[] { "=" }, StringSplitOptions.None)[1];
 
                             if (fileName.Contains("''"))
                             {
@@ -87,7 +87,7 @@ namespace Com.Zoho.Crm.API.Util
 
                             fileName = fileName.Trim('\"');
 
-                            object instanceValue = Activator.CreateInstance(Type.GetType(type), new object[] { fileName, responseEntity.GetResponseStream() });
+                            var instanceValue = Activator.CreateInstance(Type.GetType(type), new object[] { fileName, responseEntity.GetResponseStream() });
 
                             field.SetValue(instance, instanceValue);
                         }

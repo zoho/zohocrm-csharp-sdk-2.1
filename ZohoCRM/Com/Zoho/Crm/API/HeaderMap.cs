@@ -15,7 +15,7 @@ namespace Com.Zoho.Crm.API
     /// </summary>
     public class HeaderMap
     {
-        private Dictionary<string, string> headerMap = new Dictionary<string, string>();
+        Dictionary<string, string> headerMap = new Dictionary<string, string>();
 
         /// <summary>
         /// This is a getter method to get header map.
@@ -42,7 +42,7 @@ namespace Com.Zoho.Crm.API
                 throw new SDKException(Constants.HEADER_NULL_ERROR, Constants.HEADER_INSTANCE_NULL_ERROR);
             }
 
-            string headerName = header.Name;
+            var headerName = header.Name;
 
             if(headerName == null)
             {
@@ -56,13 +56,13 @@ namespace Com.Zoho.Crm.API
 
             string headerValue = null;
 
-            string type = value.GetType().FullName;
+            var type = value.GetType().FullName;
 
             try
             {
-                Type dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
+                var dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
 
-                MethodInfo method = dataTypeConverter.GetMethod(Constants.POST_CONVERT);
+                var method = dataTypeConverter.GetMethod(Constants.POST_CONVERT);
 
                 headerValue = (string)(method.Invoke(null, new object[] { value, type }));
 
@@ -74,7 +74,7 @@ namespace Com.Zoho.Crm.API
 
             if (headerMap.ContainsKey(headerName) && !string.IsNullOrEmpty(headerMap[headerName]))
             {
-                string existingHeaderValue = this.headerMap[headerName];
+                var existingHeaderValue = headerMap[headerName];
 
                 existingHeaderValue = existingHeaderValue + "," + headerValue.ToString();
 

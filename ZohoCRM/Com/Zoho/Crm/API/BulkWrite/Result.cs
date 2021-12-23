@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class Result : Model
 	{
-		private string downloadUrl;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string downloadUrl;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DownloadUrl
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the downloadUrl</returns>
 			get
 			{
-				return  this.downloadUrl;
+				return  downloadUrl;
 
 			}
 			/// <summary>The method to set the value to downloadUrl</summary>
 			/// <param name="downloadUrl">string</param>
 			set
 			{
-				 this.downloadUrl=value;
+				 downloadUrl=value;
 
-				 this.keyModified["download_url"] = 1;
+				 keyModified["download_url"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

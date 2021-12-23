@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the name</returns>
 			get
 			{
-				if((( this.GetKeyValue("name")) != (null)))
+				if((( GetKeyValue("name")) != (null)))
 				{
-					return (string) this.GetKeyValue("name");
+					return (string) GetKeyValue("name");
 
 				}
 					return null;
@@ -25,7 +25,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="name">string</param>
 			set
 			{
-				 this.AddKeyValue("name", value);
+				 AddKeyValue("name", value);
 
 			}
 		}

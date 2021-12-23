@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Modules
 
 	public class ActionWrapper : Model, ActionHandler
 	{
-		private List<ActionResponse> modules;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ActionResponse> modules;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ActionResponse> Modules
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<ActionResponse></returns>
 			get
 			{
-				return  this.modules;
+				return  modules;
 
 			}
 			/// <summary>The method to set the value to modules</summary>
 			/// <param name="modules">Instance of List<ActionResponse></param>
 			set
 			{
-				 this.modules=value;
+				 modules=value;
 
-				 this.keyModified["modules"] = 1;
+				 keyModified["modules"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

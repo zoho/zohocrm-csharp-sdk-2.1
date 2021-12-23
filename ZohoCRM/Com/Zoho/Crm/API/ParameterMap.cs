@@ -11,7 +11,7 @@ namespace Com.Zoho.Crm.API
     /// </summary>
     public class ParameterMap
     {
-        private Dictionary<string, string> parameterMap = new Dictionary<string, string>();
+        Dictionary<string, string> parameterMap = new Dictionary<string, string>();
 
         /// <summary>
         /// This is a getter method to get parameter map.
@@ -38,7 +38,7 @@ namespace Com.Zoho.Crm.API
                 throw new SDKException(Constants.PARAMETER_NULL_ERROR, Constants.PARAM_INSTANCE_NULL_ERROR);
             }
 
-            string paramName = param.Name;
+            var paramName = param.Name;
 
             if(paramName == null)
             {
@@ -52,13 +52,13 @@ namespace Com.Zoho.Crm.API
 
             string paramValue = null;
 
-            string type = value.GetType().FullName;
+            var type = value.GetType().FullName;
 
             try
             {
-                Type dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
+                var dataTypeConverter = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
 
-                MethodInfo method = dataTypeConverter.GetMethod(Constants.POST_CONVERT);
+                var method = dataTypeConverter.GetMethod(Constants.POST_CONVERT);
 
                 paramValue = Convert.ToString((method.Invoke(null, new object[] { value, type })));
             }
@@ -69,7 +69,7 @@ namespace Com.Zoho.Crm.API
 
             if (ParameterMaps.ContainsKey(paramName) && !string.IsNullOrEmpty(ParameterMaps[paramName]))
             {
-                string existingParamValue = ParameterMaps[paramName];
+                var existingParamValue = ParameterMaps[paramName];
 
                 existingParamValue = existingParamValue + "," + paramValue.ToString();
 

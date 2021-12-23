@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class Criteria : Model
 	{
-		private Choice<string> comparator;
-		private string field;
-		private object value;
-		private Choice<string> groupOperator;
-		private List<Criteria> group;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> comparator;
+		string field;
+		object value;
+		Choice<string> groupOperator;
+		List<Criteria> group;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Comparator
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.comparator;
+				return  comparator;
 
 			}
 			/// <summary>The method to set the value to comparator</summary>
 			/// <param name="comparator">Instance of Choice<string></param>
 			set
 			{
-				 this.comparator=value;
+				 comparator=value;
 
-				 this.keyModified["comparator"] = 1;
+				 keyModified["comparator"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the field</returns>
 			get
 			{
-				return  this.field;
+				return  field;
 
 			}
 			/// <summary>The method to set the value to field</summary>
 			/// <param name="field">string</param>
 			set
 			{
-				 this.field=value;
+				 field=value;
 
-				 this.keyModified["field"] = 1;
+				 keyModified["field"] = 1;
 
 			}
 		}
@@ -59,7 +59,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>object representing the value</returns>
 			get
 			{
-				return  this.value;
+				return  value;
 
 			}
 			/// <summary>The method to set the value to value</summary>
@@ -68,7 +68,7 @@ namespace Com.Zoho.Crm.API.Record
 			{
 				 this.value=value;
 
-				 this.keyModified["value"] = 1;
+				 keyModified["value"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.groupOperator;
+				return  groupOperator;
 
 			}
 			/// <summary>The method to set the value to groupOperator</summary>
 			/// <param name="groupOperator">Instance of Choice<string></param>
 			set
 			{
-				 this.groupOperator=value;
+				 groupOperator=value;
 
-				 this.keyModified["group_operator"] = 1;
+				 keyModified["group_operator"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<Criteria></returns>
 			get
 			{
-				return  this.group;
+				return  group;
 
 			}
 			/// <summary>The method to set the value to group</summary>
 			/// <param name="group">Instance of List<Criteria></param>
 			set
 			{
-				 this.group=value;
+				 group=value;
 
-				 this.keyModified["group"] = 1;
+				 keyModified["group"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

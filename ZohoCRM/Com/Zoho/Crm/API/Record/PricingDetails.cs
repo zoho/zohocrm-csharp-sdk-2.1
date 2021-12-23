@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>double? representing the toRange</returns>
 			get
 			{
-				if((( this.GetKeyValue("to_range")) != (null)))
+				if((( GetKeyValue("to_range")) != (null)))
 				{
-					return (double?) this.GetKeyValue("to_range");
+					return (double?) GetKeyValue("to_range");
 
 				}
 					return null;
@@ -25,7 +25,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="toRange">double?</param>
 			set
 			{
-				 this.AddKeyValue("to_range", value);
+				 AddKeyValue("to_range", value);
 
 			}
 		}
@@ -36,9 +36,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>double? representing the discount</returns>
 			get
 			{
-				if((( this.GetKeyValue("discount")) != (null)))
+				if((( GetKeyValue("discount")) != (null)))
 				{
-					return (double?) this.GetKeyValue("discount");
+					return (double?) GetKeyValue("discount");
 
 				}
 					return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="discount">double?</param>
 			set
 			{
-				 this.AddKeyValue("discount", value);
+				 AddKeyValue("discount", value);
 
 			}
 		}
@@ -60,9 +60,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>double? representing the fromRange</returns>
 			get
 			{
-				if((( this.GetKeyValue("from_range")) != (null)))
+				if((( GetKeyValue("from_range")) != (null)))
 				{
-					return (double?) this.GetKeyValue("from_range");
+					return (double?) GetKeyValue("from_range");
 
 				}
 					return null;
@@ -73,7 +73,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="fromRange">double?</param>
 			set
 			{
-				 this.AddKeyValue("from_range", value);
+				 AddKeyValue("from_range", value);
 
 			}
 		}

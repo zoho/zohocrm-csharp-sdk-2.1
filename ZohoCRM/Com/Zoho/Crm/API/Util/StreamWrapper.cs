@@ -9,9 +9,9 @@ namespace Com.Zoho.Crm.API.Util
     /// </summary>
     public class StreamWrapper : Model
     {
-        private string name;
+        string name;
 
-        private Stream stream;
+        Stream stream;
 
         /// <summary>
         /// Creates a StreamWrapper class instance with the specified parameters.
@@ -33,13 +33,13 @@ namespace Com.Zoho.Crm.API.Util
         {
             try
             {
-                FileInfo fileInfo = new FileInfo(filePath);
+                var fileInfo = new FileInfo(filePath);
 
-                this.name = fileInfo.Name;
+                name = fileInfo.Name;
 
-                this.stream = fileInfo.OpenRead();
+                stream = fileInfo.OpenRead();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 throw new SDKException(Constants.FILE_ERROR, Constants.FILE_DOES_NOT_EXISTS + " " + filePath, ex);
             }
@@ -53,7 +53,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.name;
+                return name;
             }
         }
 
@@ -65,7 +65,7 @@ namespace Com.Zoho.Crm.API.Util
         {
             get
             {
-                return this.stream;
+                return stream;
             }
         }
     }

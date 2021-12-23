@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class RemindAt : Model
 	{
-		private string alarm;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string alarm;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Alarm
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the alarm</returns>
 			get
 			{
-				return  this.alarm;
+				return  alarm;
 
 			}
 			/// <summary>The method to set the value to alarm</summary>
 			/// <param name="alarm">string</param>
 			set
 			{
-				 this.alarm=value;
+				 alarm=value;
 
-				 this.keyModified["ALARM"] = 1;
+				 keyModified["ALARM"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

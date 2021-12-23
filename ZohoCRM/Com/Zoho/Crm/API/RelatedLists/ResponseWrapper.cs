@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<RelatedList> relatedLists;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<RelatedList> relatedLists;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<RelatedList> RelatedLists
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>Instance of List<RelatedList></returns>
 			get
 			{
-				return  this.relatedLists;
+				return  relatedLists;
 
 			}
 			/// <summary>The method to set the value to relatedLists</summary>
 			/// <param name="relatedLists">Instance of List<RelatedList></param>
 			set
 			{
-				 this.relatedLists=value;
+				 relatedLists=value;
 
-				 this.keyModified["related_lists"] = 1;
+				 keyModified["related_lists"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

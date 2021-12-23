@@ -445,7 +445,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string PRE_CONVERT = "PreConvert";
 
-        public static readonly string JSON_DETAILS_FILE_PATH = "Resources.JSONDetails.json";
+        public static readonly string JSON_DETAILS_FILE_PATH = "Resources\\JSONDetails.json";
 
         public static readonly string EMAIL_REGEX = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 
@@ -705,7 +705,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string GIVEN_VALUE = "given-value";
 
-        public static readonly List<string> GENERATE_REQUEST_BODY = new List<string>() { Constants.REQUEST_METHOD_PATCH, Constants.REQUEST_METHOD_POST, Constants.REQUEST_METHOD_PUT };
+        public static readonly List<string> GENERATE_REQUEST_BODY = new List<string>() { REQUEST_METHOD_PATCH, REQUEST_METHOD_POST, REQUEST_METHOD_PUT };
 
         public static readonly string PRODUCTS = "Products";
 

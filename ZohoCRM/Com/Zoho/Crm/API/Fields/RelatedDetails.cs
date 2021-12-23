@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class RelatedDetails : Model
 	{
-		private string displayLabel;
-		private string fieldLabel;
-		private string apiName;
-		private Module module;
-		private long? id;
-		private string type;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		string fieldLabel;
+		string apiName;
+		Module module;
+		long? id;
+		string type;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the fieldLabel</returns>
 			get
 			{
-				return  this.fieldLabel;
+				return  fieldLabel;
 
 			}
 			/// <summary>The method to set the value to fieldLabel</summary>
 			/// <param name="fieldLabel">string</param>
 			set
 			{
-				 this.fieldLabel=value;
+				 fieldLabel=value;
 
-				 this.keyModified["field_label"] = 1;
+				 keyModified["field_label"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["_type"] = 1;
+				 keyModified["_type"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

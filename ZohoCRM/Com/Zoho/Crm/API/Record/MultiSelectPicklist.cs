@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class MultiSelectPicklist : Model
 	{
-		private long? id;
-		private Dictionary<string, object> fieldname;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		Dictionary<string, object> fieldname;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Dictionary representing the fieldname<String,Object></returns>
 			get
 			{
-				return  this.fieldname;
+				return  fieldname;
 
 			}
 			/// <summary>The method to set the value to fieldname</summary>
 			/// <param name="fieldname">Dictionary<string,object></param>
 			set
 			{
-				 this.fieldname=value;
+				 fieldname=value;
 
-				 this.keyModified["fieldName"] = 1;
+				 keyModified["fieldName"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

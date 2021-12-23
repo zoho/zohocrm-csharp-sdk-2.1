@@ -9,26 +9,26 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 	public class CustomView : Model
 	{
-		private long? id;
-		private string name;
-		private string systemName;
-		private string displayValue;
-		private DateTimeOffset? createdTime;
-		private string accessType;
-		private string category;
-		private string sortBy;
-		private string sortOrder;
-		private int? favorite;
-		private bool? default1;
-		private bool? systemDefined;
-		private Criteria criteria;
-		private List<SharedTo> sharedTo;
-		private List<Field> fields;
-		private DateTimeOffset? modifiedTime;
-		private User modifiedBy;
-		private DateTimeOffset? lastAccessedTime;
-		private User createdBy;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		string name;
+		string systemName;
+		string displayValue;
+		DateTimeOffset? createdTime;
+		string accessType;
+		string category;
+		string sortBy;
+		string sortOrder;
+		int? favorite;
+		bool? default1;
+		bool? systemDefined;
+		Criteria criteria;
+		List<SharedTo> sharedTo;
+		List<Field> fields;
+		DateTimeOffset? modifiedTime;
+		User modifiedBy;
+		DateTimeOffset? lastAccessedTime;
+		User createdBy;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -56,16 +56,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -76,16 +76,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the systemName</returns>
 			get
 			{
-				return  this.systemName;
+				return  systemName;
 
 			}
 			/// <summary>The method to set the value to systemName</summary>
 			/// <param name="systemName">string</param>
 			set
 			{
-				 this.systemName=value;
+				 systemName=value;
 
-				 this.keyModified["system_name"] = 1;
+				 keyModified["system_name"] = 1;
 
 			}
 		}
@@ -96,16 +96,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the displayValue</returns>
 			get
 			{
-				return  this.displayValue;
+				return  displayValue;
 
 			}
 			/// <summary>The method to set the value to displayValue</summary>
 			/// <param name="displayValue">string</param>
 			set
 			{
-				 this.displayValue=value;
+				 displayValue=value;
 
-				 this.keyModified["display_value"] = 1;
+				 keyModified["display_value"] = 1;
 
 			}
 		}
@@ -116,16 +116,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -136,16 +136,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the accessType</returns>
 			get
 			{
-				return  this.accessType;
+				return  accessType;
 
 			}
 			/// <summary>The method to set the value to accessType</summary>
 			/// <param name="accessType">string</param>
 			set
 			{
-				 this.accessType=value;
+				 accessType=value;
 
-				 this.keyModified["access_type"] = 1;
+				 keyModified["access_type"] = 1;
 
 			}
 		}
@@ -156,16 +156,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the category</returns>
 			get
 			{
-				return  this.category;
+				return  category;
 
 			}
 			/// <summary>The method to set the value to category</summary>
 			/// <param name="category">string</param>
 			set
 			{
-				 this.category=value;
+				 category=value;
 
-				 this.keyModified["category"] = 1;
+				 keyModified["category"] = 1;
 
 			}
 		}
@@ -176,16 +176,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the sortBy</returns>
 			get
 			{
-				return  this.sortBy;
+				return  sortBy;
 
 			}
 			/// <summary>The method to set the value to sortBy</summary>
 			/// <param name="sortBy">string</param>
 			set
 			{
-				 this.sortBy=value;
+				 sortBy=value;
 
-				 this.keyModified["sort_by"] = 1;
+				 keyModified["sort_by"] = 1;
 
 			}
 		}
@@ -196,16 +196,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the sortOrder</returns>
 			get
 			{
-				return  this.sortOrder;
+				return  sortOrder;
 
 			}
 			/// <summary>The method to set the value to sortOrder</summary>
 			/// <param name="sortOrder">string</param>
 			set
 			{
-				 this.sortOrder=value;
+				 sortOrder=value;
 
-				 this.keyModified["sort_order"] = 1;
+				 keyModified["sort_order"] = 1;
 
 			}
 		}
@@ -216,16 +216,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>int? representing the favorite</returns>
 			get
 			{
-				return  this.favorite;
+				return  favorite;
 
 			}
 			/// <summary>The method to set the value to favorite</summary>
 			/// <param name="favorite">int?</param>
 			set
 			{
-				 this.favorite=value;
+				 favorite=value;
 
-				 this.keyModified["favorite"] = 1;
+				 keyModified["favorite"] = 1;
 
 			}
 		}
@@ -236,16 +236,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>bool? representing the default1</returns>
 			get
 			{
-				return  this.default1;
+				return  default1;
 
 			}
 			/// <summary>The method to set the value to default</summary>
 			/// <param name="default1">bool?</param>
 			set
 			{
-				 this.default1=value;
+				 default1=value;
 
-				 this.keyModified["default"] = 1;
+				 keyModified["default"] = 1;
 
 			}
 		}
@@ -256,16 +256,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>bool? representing the systemDefined</returns>
 			get
 			{
-				return  this.systemDefined;
+				return  systemDefined;
 
 			}
 			/// <summary>The method to set the value to systemDefined</summary>
 			/// <param name="systemDefined">bool?</param>
 			set
 			{
-				 this.systemDefined=value;
+				 systemDefined=value;
 
-				 this.keyModified["system_defined"] = 1;
+				 keyModified["system_defined"] = 1;
 
 			}
 		}
@@ -276,16 +276,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.criteria;
+				return  criteria;
 
 			}
 			/// <summary>The method to set the value to criteria</summary>
 			/// <param name="criteria">Instance of Criteria</param>
 			set
 			{
-				 this.criteria=value;
+				 criteria=value;
 
-				 this.keyModified["criteria"] = 1;
+				 keyModified["criteria"] = 1;
 
 			}
 		}
@@ -296,16 +296,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of List<SharedTo></returns>
 			get
 			{
-				return  this.sharedTo;
+				return  sharedTo;
 
 			}
 			/// <summary>The method to set the value to sharedTo</summary>
 			/// <param name="sharedTo">Instance of List<SharedTo></param>
 			set
 			{
-				 this.sharedTo=value;
+				 sharedTo=value;
 
-				 this.keyModified["shared_to"] = 1;
+				 keyModified["shared_to"] = 1;
 
 			}
 		}
@@ -316,16 +316,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of List<Field></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<Field></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -336,16 +336,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -356,16 +356,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -376,16 +376,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>DateTimeOffset? representing the lastAccessedTime</returns>
 			get
 			{
-				return  this.lastAccessedTime;
+				return  lastAccessedTime;
 
 			}
 			/// <summary>The method to set the value to lastAccessedTime</summary>
 			/// <param name="lastAccessedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.lastAccessedTime=value;
+				 lastAccessedTime=value;
 
-				 this.keyModified["last_accessed_time"] = 1;
+				 keyModified["last_accessed_time"] = 1;
 
 			}
 		}
@@ -396,16 +396,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -415,9 +415,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -430,7 +430,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

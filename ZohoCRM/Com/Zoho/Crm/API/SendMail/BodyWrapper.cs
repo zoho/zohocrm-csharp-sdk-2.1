@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.SendMail
 
 	public class BodyWrapper : Model
 	{
-		private List<Mail> data;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Mail> data;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Mail> Data
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of List<Mail></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<Mail></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

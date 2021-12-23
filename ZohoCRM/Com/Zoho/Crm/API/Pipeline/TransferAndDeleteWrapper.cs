@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 	public class TransferAndDeleteWrapper : Model
 	{
-		private List<TransferPipeLine> transferPipeline;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<TransferPipeLine> transferPipeline;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<TransferPipeLine> TransferPipeline
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>Instance of List<TransferPipeLine></returns>
 			get
 			{
-				return  this.transferPipeline;
+				return  transferPipeline;
 
 			}
 			/// <summary>The method to set the value to transferPipeline</summary>
 			/// <param name="transferPipeline">Instance of List<TransferPipeLine></param>
 			set
 			{
-				 this.transferPipeline=value;
+				 transferPipeline=value;
 
-				 this.keyModified["transfer_pipeline"] = 1;
+				 keyModified["transfer_pipeline"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

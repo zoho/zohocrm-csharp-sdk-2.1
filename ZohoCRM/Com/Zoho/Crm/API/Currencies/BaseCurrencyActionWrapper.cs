@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Currencies
 
 	public class BaseCurrencyActionWrapper : Model, BaseCurrencyActionHandler
 	{
-		private ActionResponse baseCurrency;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		ActionResponse baseCurrency;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public ActionResponse BaseCurrency
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Currencies
 			/// <returns>Instance of ActionResponse</returns>
 			get
 			{
-				return  this.baseCurrency;
+				return  baseCurrency;
 
 			}
 			/// <summary>The method to set the value to baseCurrency</summary>
 			/// <param name="baseCurrency">Instance of ActionResponse</param>
 			set
 			{
-				 this.baseCurrency=value;
+				 baseCurrency=value;
 
-				 this.keyModified["base_currency"] = 1;
+				 keyModified["base_currency"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

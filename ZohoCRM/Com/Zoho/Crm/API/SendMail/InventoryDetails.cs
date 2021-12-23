@@ -7,10 +7,10 @@ namespace Com.Zoho.Crm.API.SendMail
 
 	public class InventoryDetails : Model
 	{
-		private InventoryTemplate inventoryTemplate;
-		private string paperType;
-		private string viewType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		InventoryTemplate inventoryTemplate;
+		string paperType;
+		string viewType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public InventoryTemplate InventoryTemplate
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>Instance of InventoryTemplate</returns>
 			get
 			{
-				return  this.inventoryTemplate;
+				return  inventoryTemplate;
 
 			}
 			/// <summary>The method to set the value to inventoryTemplate</summary>
 			/// <param name="inventoryTemplate">Instance of InventoryTemplate</param>
 			set
 			{
-				 this.inventoryTemplate=value;
+				 inventoryTemplate=value;
 
-				 this.keyModified["inventory_template"] = 1;
+				 keyModified["inventory_template"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the paperType</returns>
 			get
 			{
-				return  this.paperType;
+				return  paperType;
 
 			}
 			/// <summary>The method to set the value to paperType</summary>
 			/// <param name="paperType">string</param>
 			set
 			{
-				 this.paperType=value;
+				 paperType=value;
 
-				 this.keyModified["paper_type"] = 1;
+				 keyModified["paper_type"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.SendMail
 			/// <returns>string representing the viewType</returns>
 			get
 			{
-				return  this.viewType;
+				return  viewType;
 
 			}
 			/// <summary>The method to set the value to viewType</summary>
 			/// <param name="viewType">string</param>
 			set
 			{
-				 this.viewType=value;
+				 viewType=value;
 
-				 this.keyModified["view_type"] = 1;
+				 keyModified["view_type"] = 1;
 
 			}
 		}
@@ -77,9 +77,9 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -92,7 +92,7 @@ namespace Com.Zoho.Crm.API.SendMail
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

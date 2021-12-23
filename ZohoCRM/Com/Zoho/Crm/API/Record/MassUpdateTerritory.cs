@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class MassUpdateTerritory : Model
 	{
-		private long? id;
-		private bool? includeChild;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		bool? includeChild;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the includeChild</returns>
 			get
 			{
-				return  this.includeChild;
+				return  includeChild;
 
 			}
 			/// <summary>The method to set the value to includeChild</summary>
 			/// <param name="includeChild">bool?</param>
 			set
 			{
-				 this.includeChild=value;
+				 includeChild=value;
 
-				 this.keyModified["include_child"] = 1;
+				 keyModified["include_child"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

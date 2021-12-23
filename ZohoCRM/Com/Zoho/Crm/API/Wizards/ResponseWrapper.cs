@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Wizard> wizards;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Wizard> wizards;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Wizard> Wizards
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Wizard></returns>
 			get
 			{
-				return  this.wizards;
+				return  wizards;
 
 			}
 			/// <summary>The method to set the value to wizards</summary>
 			/// <param name="wizards">Instance of List<Wizard></param>
 			set
 			{
-				 this.wizards=value;
+				 wizards=value;
 
-				 this.keyModified["wizards"] = 1;
+				 keyModified["wizards"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

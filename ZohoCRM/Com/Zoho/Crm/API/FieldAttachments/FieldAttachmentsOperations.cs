@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.FieldAttachments
 
 	public class FieldAttachmentsOperations
 	{
-		private long? fieldsAttachmentId;
-		private long? recordId;
-		private string moduleAPIName;
+		long? fieldsAttachmentId;
+		long? recordId;
+		string moduleAPIName;
 
 		/// <summary>		/// Creates an instance of FieldAttachmentsOperations with the given parameters
 		/// <param name="moduleAPIName">string</param>
@@ -30,17 +30,17 @@ namespace Com.Zoho.Crm.API.FieldAttachments
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetFieldAttachments()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
-			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
+			apiPath=string.Concat(apiPath,  moduleAPIName.ToString());
 
 			apiPath=string.Concat(apiPath, "/");
 
-			apiPath=string.Concat(apiPath,  this.recordId.ToString());
+			apiPath=string.Concat(apiPath,  recordId.ToString());
 
 			apiPath=string.Concat(apiPath, "/actions/download_fields_attachment");
 
@@ -50,7 +50,7 @@ namespace Com.Zoho.Crm.API.FieldAttachments
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<long?>("fields_attachment_id", "com.zoho.crm.api.FieldAttachments.GetFieldAttachmentsParam"),  this.fieldsAttachmentId);
+			handlerInstance.AddParam(new Param<long?>("fields_attachment_id", "com.zoho.crm.api.FieldAttachments.GetFieldAttachmentsParam"),  fieldsAttachmentId);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/x-download");
 

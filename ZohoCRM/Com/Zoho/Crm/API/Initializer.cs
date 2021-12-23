@@ -1,21 +1,4 @@
-﻿/**
-Copyright (c) 2021, ZOHO CORPORATION PRIVATE LIMITED 
-All rights reserved. 
- 
-   Licensed under the Apache License, Version 2.0 (the "License"); 
-   you may not use this file except in compliance with the License. 
-   You may obtain a copy of the License at 
- 
-       http://www.apache.org/licenses/LICENSE-2.0 
- 
-   Unless required by applicable law or agreed to in writing, software 
-   distributed under the License is distributed on an "AS IS" BASIS, 
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
-   See the License for the specific language governing permissions and 
-   limitations under the License.
-*/
-
-using System;
+﻿using System;
 
 using System.IO;
 
@@ -50,35 +33,35 @@ namespace Com.Zoho.Crm.API
     {
         public class Builder
         {
-            private Dc.DataCenter.Environment environment;
+            Dc.DataCenter.Environment environment;
 
-            private TokenStore store;
+            TokenStore store;
 
-            private UserSignature user;
+            UserSignature user;
 
-            private Token token;
+            Token token;
 
-            private string resourcePath;
+            string resourcePath;
 
-            private RequestProxy requestProxy;
+            RequestProxy requestProxy;
 
-            private SDKConfig sdkConfig;
+            SDKConfig sdkConfig;
 
-            private Logger.Logger logger;
+            Logger.Logger logger;
 
-            private string errorMessage = (Initializer.initializer != null) ? Constants.SWITCH_USER_ERROR : Constants.INITIALIZATION_ERROR;
+            string errorMessage = (initializer != null) ? Constants.SWITCH_USER_ERROR : Constants.INITIALIZATION_ERROR;
 
             public Builder()
             {
-                if(Initializer.initializer != null)
+                if(initializer != null)
                 {
-                    user = Initializer.initializer.User;
+                    user = initializer.User;
 
-                    environment = Initializer.initializer.Environment;
+                    environment = initializer.Environment;
 
-                    token = Initializer.initializer.Token;
+                    token = initializer.Token;
 
-                    sdkConfig = Initializer.initializer.SDKConfig;
+                    sdkConfig = initializer.SDKConfig;
                 }
             }
 
@@ -110,14 +93,14 @@ namespace Com.Zoho.Crm.API
                     logger = new Logger.Logger.Builder().Level(API.Logger.Logger.Levels.INFO).FilePath(Path.GetDirectoryName(Assembly.GetCallingAssembly().Location) + Path.DirectorySeparatorChar + Constants.LOG_FILE_NAME).Build();
                 }
 
-                Initializer.Initialize(this.user, this.environment, this.token, this.store, this.sdkConfig, this.resourcePath, this.logger, this.requestProxy);
+                Initializer.Initialize(user, environment, token, store, sdkConfig, resourcePath, logger, requestProxy);
             }
 
             public void SwitchUser()
             {
-                Utility.AssertNotNull(Initializer.initializer, Constants.SDK_UNINITIALIZATION_ERROR, Constants.SDK_UNINITIALIZATION_MESSAGE);
+                Utility.AssertNotNull(initializer, Constants.SDK_UNINITIALIZATION_ERROR, Constants.SDK_UNINITIALIZATION_MESSAGE);
 
-                Initializer.SwitchUser(this.user, this.environment, this.token, this.sdkConfig, this.requestProxy);
+                Initializer.SwitchUser(user, environment, token, sdkConfig, requestProxy);
             }
 
             public Builder Logger(Logger.Logger logger)
@@ -189,25 +172,25 @@ namespace Com.Zoho.Crm.API
             }
         }
 
-        private static  ThreadLocal<Initializer> LOCAL = new ThreadLocal<Initializer>();
+        static  ThreadLocal<Initializer> LOCAL = new ThreadLocal<Initializer>();
 
-        private static Initializer initializer;
+        static Initializer initializer;
 
-        private Dc.DataCenter.Environment environment;
+        Dc.DataCenter.Environment environment;
 
-        private TokenStore store;
+        TokenStore store;
 
-        private UserSignature user;
+        UserSignature user;
 
-        private Token token;
+        Token token;
 
         public static JObject jsonDetails;
 
-	    private string resourcePath;
+        string resourcePath;
 
-        private RequestProxy requestProxy;
+        RequestProxy requestProxy;
 
-        private SDKConfig sdkConfig;
+        SDKConfig sdkConfig;
 
         /// <summary>
         /// This method to initialize the SDK.
@@ -220,7 +203,7 @@ namespace Com.Zoho.Crm.API
         /// <param name="sdkConfig">A SDKConfig class instance containing the configuration.</param>
         /// <param name="logger">A Logger class instance containing the log file path and Logger type.</param>
         /// <param name="proxy">An RequestProxy class instance containing the proxy properties of the user.</param>
-        private static void Initialize(UserSignature user, Dc.DataCenter.Environment environment, Token token, TokenStore store, SDKConfig sdkConfig, string resourcePath, Logger.Logger logger, RequestProxy proxy)
+        static void Initialize(UserSignature user, Dc.DataCenter.Environment environment, Token token, TokenStore store, SDKConfig sdkConfig, string resourcePath, Logger.Logger logger, RequestProxy proxy)
         {
             try
             {
@@ -228,19 +211,11 @@ namespace Com.Zoho.Crm.API
 
                 try
                 {
-                    string result = "";
-
-                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(Constants.JSON_DETAILS_FILE_PATH))
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            result = reader.ReadToEnd();
-                        }
-                    }
+                    var result = System.IO.File.ReadAllText(Constants.JSON_DETAILS_FILE_PATH);
 
                     jsonDetails = JObject.Parse(result);
                 }
-                catch (System.Exception e)
+                catch (Exception e)
                 {
                     throw new SDKException(Constants.JSON_DETAILS_ERROR, e);
                 }
@@ -281,9 +256,9 @@ namespace Com.Zoho.Crm.API
         /// <param name="token">A Token class instance containing the OAuth client application information.</param>
         /// <param name="sdkConfig">A SDKConfig class instance containing the configuration.</param>
         /// <param name="proxy">An RequestProxy class instance containing the proxy properties of the user.
-        private static void SwitchUser(UserSignature user, Dc.DataCenter.Environment environment, Token token, SDKConfig sdkConfig, RequestProxy proxy)
+        static void SwitchUser(UserSignature user, Dc.DataCenter.Environment environment, Token token, SDKConfig sdkConfig, RequestProxy proxy)
         {
-            Initializer initializer = new Initializer();
+            var initializer = new Initializer();
 
             initializer.user = user;
 
@@ -311,9 +286,9 @@ namespace Com.Zoho.Crm.API
         /// <returns></returns>
         public static JObject GetJSON(string filePath)
         {
-            StreamReader sr = new StreamReader(filePath);
+            var sr = new StreamReader(filePath);
 
-            string fileContent = sr.ReadToEnd();
+            var fileContent = sr.ReadToEnd();
 
             sr.Close();
 
@@ -326,9 +301,9 @@ namespace Com.Zoho.Crm.API
         /// <returns>A Initializer class instance representing the SDK configuration details.</returns>
         public static Initializer GetInitializer()
         {
-            if (Initializer.LOCAL.Value != null)
+            if (LOCAL.Value != null)
             {
-                return Initializer.LOCAL.Value;
+                return LOCAL.Value;
             }
 
             return initializer;

@@ -6,7 +6,7 @@ namespace Com.Zoho.Crm.API.Layouts
 
 	public class LayoutsOperations
 	{
-		private string module;
+		string module;
 
 		/// <summary>		/// Creates an instance of LayoutsOperations with the given parameters
 		/// <param name="module">string</param>
@@ -22,9 +22,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetLayouts()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/layouts");
 
@@ -34,7 +34,7 @@ namespace Com.Zoho.Crm.API.Layouts
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Layouts.GetLayoutsParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Layouts.GetLayoutsParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 
@@ -46,9 +46,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetLayout(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/layouts/");
 
@@ -60,7 +60,7 @@ namespace Com.Zoho.Crm.API.Layouts
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Layouts.GetLayoutParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.Layouts.GetLayoutParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 

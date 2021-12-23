@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the name</returns>
 			get
 			{
-				if((( this.GetKeyValue("name")) != (null)))
+				if((( GetKeyValue("name")) != (null)))
 				{
-					return (string) this.GetKeyValue("name");
+					return (string) GetKeyValue("name");
 
 				}
 					return null;
@@ -25,7 +25,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="name">string</param>
 			set
 			{
-				 this.AddKeyValue("name", value);
+				 AddKeyValue("name", value);
 
 			}
 		}
@@ -36,9 +36,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the email</returns>
 			get
 			{
-				if((( this.GetKeyValue("Email")) != (null)))
+				if((( GetKeyValue("Email")) != (null)))
 				{
-					return (string) this.GetKeyValue("Email");
+					return (string) GetKeyValue("Email");
 
 				}
 					return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="email">string</param>
 			set
 			{
-				 this.AddKeyValue("Email", value);
+				 AddKeyValue("Email", value);
 
 			}
 		}
@@ -60,9 +60,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>bool? representing the invited</returns>
 			get
 			{
-				if((( this.GetKeyValue("invited")) != (null)))
+				if((( GetKeyValue("invited")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("invited");
+					return (bool?) GetKeyValue("invited");
 
 				}
 					return null;
@@ -73,7 +73,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="invited">bool?</param>
 			set
 			{
-				 this.AddKeyValue("invited", value);
+				 AddKeyValue("invited", value);
 
 			}
 		}
@@ -84,9 +84,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the type</returns>
 			get
 			{
-				if((( this.GetKeyValue("type")) != (null)))
+				if((( GetKeyValue("type")) != (null)))
 				{
-					return (string) this.GetKeyValue("type");
+					return (string) GetKeyValue("type");
 
 				}
 					return null;
@@ -97,7 +97,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="type">string</param>
 			set
 			{
-				 this.AddKeyValue("type", value);
+				 AddKeyValue("type", value);
 
 			}
 		}
@@ -108,9 +108,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the participant</returns>
 			get
 			{
-				if((( this.GetKeyValue("participant")) != (null)))
+				if((( GetKeyValue("participant")) != (null)))
 				{
-					return (string) this.GetKeyValue("participant");
+					return (string) GetKeyValue("participant");
 
 				}
 					return null;
@@ -121,7 +121,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="participant">string</param>
 			set
 			{
-				 this.AddKeyValue("participant", value);
+				 AddKeyValue("participant", value);
 
 			}
 		}
@@ -132,9 +132,9 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the status</returns>
 			get
 			{
-				if((( this.GetKeyValue("status")) != (null)))
+				if((( GetKeyValue("status")) != (null)))
 				{
-					return (string) this.GetKeyValue("status");
+					return (string) GetKeyValue("status");
 
 				}
 					return null;
@@ -145,7 +145,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <param name="status">string</param>
 			set
 			{
-				 this.AddKeyValue("status", value);
+				 AddKeyValue("status", value);
 
 			}
 		}

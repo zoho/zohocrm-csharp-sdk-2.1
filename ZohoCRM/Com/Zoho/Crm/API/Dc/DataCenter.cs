@@ -24,13 +24,13 @@ namespace Com.Zoho.Crm.API.Dc
         /// </summary>
         public class Environment
         {
-            private string name;
+            string name;
 
-            private string url;
+            string url;
 
-            private string accountsUrl;
+            string accountsUrl;
 
-            private string fileUploadUrl;
+            string fileUploadUrl;
 
             public Environment(string name, string url, string accountsUrl, string fileUploadUrl)
             {
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Dc
             /// <returns>A String representing the Zoho CRM API URL.</returns>
             public string GetUrl()
             {
-                return this.url;
+                return url;
             }
 
             /// <summary>
@@ -58,7 +58,7 @@ namespace Com.Zoho.Crm.API.Dc
             /// <returns>A String representing the accounts URL.</returns>
             public string GetAccountsUrl()
             {
-                return this.accountsUrl;
+                return accountsUrl;
             }
 
             /// <summary>
@@ -67,7 +67,7 @@ namespace Com.Zoho.Crm.API.Dc
             /// <returns>A String representing the FileUpload URL.</returns>
             public string GetFileUploadUrl()
             {
-                return this.fileUploadUrl;
+                return fileUploadUrl;
             }
 
             /// <summary>
@@ -76,7 +76,7 @@ namespace Com.Zoho.Crm.API.Dc
             /// <returns>A String representing the Environment Name.</returns>
             public string GetName()
             {
-                return this.name;
+                return name;
             }
         }
     }

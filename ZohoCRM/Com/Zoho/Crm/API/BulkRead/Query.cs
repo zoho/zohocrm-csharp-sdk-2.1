@@ -7,12 +7,12 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class Query : Model
 	{
-		private Module module;
-		private string cvid;
-		private List<string> fields;
-		private int? page;
-		private Criteria criteria;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Module module;
+		string cvid;
+		List<string> fields;
+		int? page;
+		Criteria criteria;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Module Module
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>string representing the cvid</returns>
 			get
 			{
-				return  this.cvid;
+				return  cvid;
 
 			}
 			/// <summary>The method to set the value to cvid</summary>
 			/// <param name="cvid">string</param>
 			set
 			{
-				 this.cvid=value;
+				 cvid=value;
 
-				 this.keyModified["cvid"] = 1;
+				 keyModified["cvid"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<string></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>int? representing the page</returns>
 			get
 			{
-				return  this.page;
+				return  page;
 
 			}
 			/// <summary>The method to set the value to page</summary>
 			/// <param name="page">int?</param>
 			set
 			{
-				 this.page=value;
+				 page=value;
 
-				 this.keyModified["page"] = 1;
+				 keyModified["page"] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.criteria;
+				return  criteria;
 
 			}
 			/// <summary>The method to set the value to criteria</summary>
 			/// <param name="criteria">Instance of Criteria</param>
 			set
 			{
-				 this.criteria=value;
+				 criteria=value;
 
-				 this.keyModified["criteria"] = 1;
+				 keyModified["criteria"] = 1;
 
 			}
 		}
@@ -119,9 +119,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -134,7 +134,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

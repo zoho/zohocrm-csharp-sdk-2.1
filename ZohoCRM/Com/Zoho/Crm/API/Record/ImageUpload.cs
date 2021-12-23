@@ -6,16 +6,16 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class ImageUpload : Model
 	{
-		private string description;
-		private string previewId;
-		private string encryptedId;
-		private string fileName;
-		private string state;
-		private string fileId;
-		private long? size;
-		private int? sequenceNumber;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string description;
+		string previewId;
+		string encryptedId;
+		string fileName;
+		string state;
+		string fileId;
+		long? size;
+		int? sequenceNumber;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Description
 		{
@@ -23,16 +23,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["Description"] = 1;
+				 keyModified["Description"] = 1;
 
 			}
 		}
@@ -43,16 +43,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the previewId</returns>
 			get
 			{
-				return  this.previewId;
+				return  previewId;
 
 			}
 			/// <summary>The method to set the value to previewId</summary>
 			/// <param name="previewId">string</param>
 			set
 			{
-				 this.previewId=value;
+				 previewId=value;
 
-				 this.keyModified["Preview_Id"] = 1;
+				 keyModified["Preview_Id"] = 1;
 
 			}
 		}
@@ -63,16 +63,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the encryptedId</returns>
 			get
 			{
-				return  this.encryptedId;
+				return  encryptedId;
 
 			}
 			/// <summary>The method to set the value to encryptedId</summary>
 			/// <param name="encryptedId">string</param>
 			set
 			{
-				 this.encryptedId=value;
+				 encryptedId=value;
 
-				 this.keyModified["Encrypted_Id"] = 1;
+				 keyModified["Encrypted_Id"] = 1;
 
 			}
 		}
@@ -83,16 +83,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the fileName</returns>
 			get
 			{
-				return  this.fileName;
+				return  fileName;
 
 			}
 			/// <summary>The method to set the value to fileName</summary>
 			/// <param name="fileName">string</param>
 			set
 			{
-				 this.fileName=value;
+				 fileName=value;
 
-				 this.keyModified["File_Name"] = 1;
+				 keyModified["File_Name"] = 1;
 
 			}
 		}
@@ -103,16 +103,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the state</returns>
 			get
 			{
-				return  this.state;
+				return  state;
 
 			}
 			/// <summary>The method to set the value to state</summary>
 			/// <param name="state">string</param>
 			set
 			{
-				 this.state=value;
+				 state=value;
 
-				 this.keyModified["State"] = 1;
+				 keyModified["State"] = 1;
 
 			}
 		}
@@ -123,16 +123,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the fileId</returns>
 			get
 			{
-				return  this.fileId;
+				return  fileId;
 
 			}
 			/// <summary>The method to set the value to fileId</summary>
 			/// <param name="fileId">string</param>
 			set
 			{
-				 this.fileId=value;
+				 fileId=value;
 
-				 this.keyModified["File_Id"] = 1;
+				 keyModified["File_Id"] = 1;
 
 			}
 		}
@@ -143,16 +143,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the size</returns>
 			get
 			{
-				return  this.size;
+				return  size;
 
 			}
 			/// <summary>The method to set the value to size</summary>
 			/// <param name="size">long?</param>
 			set
 			{
-				 this.size=value;
+				 size=value;
 
-				 this.keyModified["Size"] = 1;
+				 keyModified["Size"] = 1;
 
 			}
 		}
@@ -163,16 +163,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["Sequence_Number"] = 1;
+				 keyModified["Sequence_Number"] = 1;
 
 			}
 		}
@@ -183,16 +183,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -202,9 +202,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -217,7 +217,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

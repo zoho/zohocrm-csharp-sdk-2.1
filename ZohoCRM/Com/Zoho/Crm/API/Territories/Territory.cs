@@ -9,19 +9,19 @@ namespace Com.Zoho.Crm.API.Territories
 
 	public class Territory : Model
 	{
-		private DateTimeOffset? createdTime;
-		private DateTimeOffset? modifiedTime;
-		private User manager;
-		private Criteria accountRuleCriteria;
-		private Criteria dealRuleCriteria;
-		private string name;
-		private User modifiedBy;
-		private string description;
-		private long? id;
-		private User createdBy;
-		private Territory reportingTo;
-		private string permissionType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? createdTime;
+		DateTimeOffset? modifiedTime;
+		User manager;
+		Criteria accountRuleCriteria;
+		Criteria dealRuleCriteria;
+		string name;
+		User modifiedBy;
+		string description;
+		long? id;
+		User createdBy;
+		Territory reportingTo;
+		string permissionType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? CreatedTime
 		{
@@ -29,16 +29,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -49,16 +49,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -69,16 +69,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.manager;
+				return  manager;
 
 			}
 			/// <summary>The method to set the value to manager</summary>
 			/// <param name="manager">Instance of User</param>
 			set
 			{
-				 this.manager=value;
+				 manager=value;
 
-				 this.keyModified["manager"] = 1;
+				 keyModified["manager"] = 1;
 
 			}
 		}
@@ -89,16 +89,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.accountRuleCriteria;
+				return  accountRuleCriteria;
 
 			}
 			/// <summary>The method to set the value to accountRuleCriteria</summary>
 			/// <param name="accountRuleCriteria">Instance of Criteria</param>
 			set
 			{
-				 this.accountRuleCriteria=value;
+				 accountRuleCriteria=value;
 
-				 this.keyModified["account_rule_criteria"] = 1;
+				 keyModified["account_rule_criteria"] = 1;
 
 			}
 		}
@@ -109,16 +109,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of Criteria</returns>
 			get
 			{
-				return  this.dealRuleCriteria;
+				return  dealRuleCriteria;
 
 			}
 			/// <summary>The method to set the value to dealRuleCriteria</summary>
 			/// <param name="dealRuleCriteria">Instance of Criteria</param>
 			set
 			{
-				 this.dealRuleCriteria=value;
+				 dealRuleCriteria=value;
 
-				 this.keyModified["deal_rule_criteria"] = 1;
+				 keyModified["deal_rule_criteria"] = 1;
 
 			}
 		}
@@ -129,16 +129,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -149,16 +149,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -169,16 +169,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -189,16 +189,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -209,16 +209,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -229,16 +229,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of Territory</returns>
 			get
 			{
-				return  this.reportingTo;
+				return  reportingTo;
 
 			}
 			/// <summary>The method to set the value to reportingTo</summary>
 			/// <param name="reportingTo">Instance of Territory</param>
 			set
 			{
-				 this.reportingTo=value;
+				 reportingTo=value;
 
-				 this.keyModified["reporting_to"] = 1;
+				 keyModified["reporting_to"] = 1;
 
 			}
 		}
@@ -249,16 +249,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>string representing the permissionType</returns>
 			get
 			{
-				return  this.permissionType;
+				return  permissionType;
 
 			}
 			/// <summary>The method to set the value to permissionType</summary>
 			/// <param name="permissionType">string</param>
 			set
 			{
-				 this.permissionType=value;
+				 permissionType=value;
 
-				 this.keyModified["permission_type"] = 1;
+				 keyModified["permission_type"] = 1;
 
 			}
 		}
@@ -268,9 +268,9 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -283,7 +283,7 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

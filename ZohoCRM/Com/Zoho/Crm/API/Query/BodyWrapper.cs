@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Query
 
 	public class BodyWrapper : Model
 	{
-		private string selectQuery;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string selectQuery;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string SelectQuery
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Query
 			/// <returns>string representing the selectQuery</returns>
 			get
 			{
-				return  this.selectQuery;
+				return  selectQuery;
 
 			}
 			/// <summary>The method to set the value to selectQuery</summary>
 			/// <param name="selectQuery">string</param>
 			set
 			{
-				 this.selectQuery=value;
+				 selectQuery=value;
 
-				 this.keyModified["select_query"] = 1;
+				 keyModified["select_query"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Query
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Query
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

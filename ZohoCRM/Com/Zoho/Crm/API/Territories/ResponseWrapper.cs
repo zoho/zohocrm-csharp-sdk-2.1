@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Territories
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Territory> territories;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Territory> territories;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Territory> Territories
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of List<Territory></returns>
 			get
 			{
-				return  this.territories;
+				return  territories;
 
 			}
 			/// <summary>The method to set the value to territories</summary>
 			/// <param name="territories">Instance of List<Territory></param>
 			set
 			{
-				 this.territories=value;
+				 territories=value;
 
-				 this.keyModified["territories"] = 1;
+				 keyModified["territories"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Territories
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -56,9 +56,9 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.Territories
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

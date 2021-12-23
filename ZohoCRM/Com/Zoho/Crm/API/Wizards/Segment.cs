@@ -7,14 +7,14 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Segment : Model
 	{
-		private long? id;
-		private int? sequenceNumber;
-		private string displayLabel;
-		private string type;
-		private int? columnCount;
-		private List<Field> fields;
-		private List<Button> buttons;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		int? sequenceNumber;
+		string displayLabel;
+		string type;
+		int? columnCount;
+		List<Field> fields;
+		List<Button> buttons;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -22,16 +22,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -42,16 +42,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -62,16 +62,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -82,16 +82,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -102,16 +102,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>int? representing the columnCount</returns>
 			get
 			{
-				return  this.columnCount;
+				return  columnCount;
 
 			}
 			/// <summary>The method to set the value to columnCount</summary>
 			/// <param name="columnCount">int?</param>
 			set
 			{
-				 this.columnCount=value;
+				 columnCount=value;
 
-				 this.keyModified["column_count"] = 1;
+				 keyModified["column_count"] = 1;
 
 			}
 		}
@@ -122,16 +122,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Field></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<Field></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -142,16 +142,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Button></returns>
 			get
 			{
-				return  this.buttons;
+				return  buttons;
 
 			}
 			/// <summary>The method to set the value to buttons</summary>
 			/// <param name="buttons">Instance of List<Button></param>
 			set
 			{
-				 this.buttons=value;
+				 buttons=value;
 
-				 this.keyModified["buttons"] = 1;
+				 keyModified["buttons"] = 1;
 
 			}
 		}
@@ -161,9 +161,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -176,7 +176,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

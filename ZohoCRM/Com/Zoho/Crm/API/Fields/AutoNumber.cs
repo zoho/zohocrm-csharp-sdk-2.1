@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class AutoNumber : Model
 	{
-		private string prefix;
-		private string suffix;
-		private int? startNumber;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string prefix;
+		string suffix;
+		int? startNumber;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Prefix
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the prefix</returns>
 			get
 			{
-				return  this.prefix;
+				return  prefix;
 
 			}
 			/// <summary>The method to set the value to prefix</summary>
 			/// <param name="prefix">string</param>
 			set
 			{
-				 this.prefix=value;
+				 prefix=value;
 
-				 this.keyModified["prefix"] = 1;
+				 keyModified["prefix"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the suffix</returns>
 			get
 			{
-				return  this.suffix;
+				return  suffix;
 
 			}
 			/// <summary>The method to set the value to suffix</summary>
 			/// <param name="suffix">string</param>
 			set
 			{
-				 this.suffix=value;
+				 suffix=value;
 
-				 this.keyModified["suffix"] = 1;
+				 keyModified["suffix"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>int? representing the startNumber</returns>
 			get
 			{
-				return  this.startNumber;
+				return  startNumber;
 
 			}
 			/// <summary>The method to set the value to startNumber</summary>
 			/// <param name="startNumber">int?</param>
 			set
 			{
-				 this.startNumber=value;
+				 startNumber=value;
 
-				 this.keyModified["start_number"] = 1;
+				 keyModified["start_number"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 	public class Translation : Model
 	{
-		private string publicViews;
-		private string otherUsersViews;
-		private string sharedWithMe;
-		private string createdByMe;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string publicViews;
+		string otherUsersViews;
+		string sharedWithMe;
+		string createdByMe;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string PublicViews
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the publicViews</returns>
 			get
 			{
-				return  this.publicViews;
+				return  publicViews;
 
 			}
 			/// <summary>The method to set the value to publicViews</summary>
 			/// <param name="publicViews">string</param>
 			set
 			{
-				 this.publicViews=value;
+				 publicViews=value;
 
-				 this.keyModified["public_views"] = 1;
+				 keyModified["public_views"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the otherUsersViews</returns>
 			get
 			{
-				return  this.otherUsersViews;
+				return  otherUsersViews;
 
 			}
 			/// <summary>The method to set the value to otherUsersViews</summary>
 			/// <param name="otherUsersViews">string</param>
 			set
 			{
-				 this.otherUsersViews=value;
+				 otherUsersViews=value;
 
-				 this.keyModified["other_users_views"] = 1;
+				 keyModified["other_users_views"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the sharedWithMe</returns>
 			get
 			{
-				return  this.sharedWithMe;
+				return  sharedWithMe;
 
 			}
 			/// <summary>The method to set the value to sharedWithMe</summary>
 			/// <param name="sharedWithMe">string</param>
 			set
 			{
-				 this.sharedWithMe=value;
+				 sharedWithMe=value;
 
-				 this.keyModified["shared_with_me"] = 1;
+				 keyModified["shared_with_me"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>string representing the createdByMe</returns>
 			get
 			{
-				return  this.createdByMe;
+				return  createdByMe;
 
 			}
 			/// <summary>The method to set the value to createdByMe</summary>
 			/// <param name="createdByMe">string</param>
 			set
 			{
-				 this.createdByMe=value;
+				 createdByMe=value;
 
-				 this.keyModified["created_by_me"] = 1;
+				 keyModified["created_by_me"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

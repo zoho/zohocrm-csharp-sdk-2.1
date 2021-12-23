@@ -10,7 +10,7 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class Field<T>
 	{
-		private string apiName;
+		string apiName;
 
 		/// <summary>		/// Creates an instance of Field with the given parameters
 		/// <param name="apiName">string</param>
@@ -28,7 +28,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 

@@ -7,18 +7,18 @@ namespace Com.Zoho.Crm.API.Layouts
 
 	public class Section : Model
 	{
-		private string displayLabel;
-		private int? sequenceNumber;
-		private bool? issubformsection;
-		private int? tabTraversal;
-		private string apiName;
-		private int? columnCount;
-		private string name;
-		private string generatedType;
-		private List<Field> fields;
-		private Properties properties;
-		private string type;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		int? sequenceNumber;
+		bool? issubformsection;
+		int? tabTraversal;
+		string apiName;
+		int? columnCount;
+		string name;
+		string generatedType;
+		List<Field> fields;
+		Properties properties;
+		string type;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -26,16 +26,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -46,16 +46,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -66,16 +66,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>bool? representing the issubformsection</returns>
 			get
 			{
-				return  this.issubformsection;
+				return  issubformsection;
 
 			}
 			/// <summary>The method to set the value to issubformsection</summary>
 			/// <param name="issubformsection">bool?</param>
 			set
 			{
-				 this.issubformsection=value;
+				 issubformsection=value;
 
-				 this.keyModified["isSubformSection"] = 1;
+				 keyModified["isSubformSection"] = 1;
 
 			}
 		}
@@ -86,16 +86,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the tabTraversal</returns>
 			get
 			{
-				return  this.tabTraversal;
+				return  tabTraversal;
 
 			}
 			/// <summary>The method to set the value to tabTraversal</summary>
 			/// <param name="tabTraversal">int?</param>
 			set
 			{
-				 this.tabTraversal=value;
+				 tabTraversal=value;
 
-				 this.keyModified["tab_traversal"] = 1;
+				 keyModified["tab_traversal"] = 1;
 
 			}
 		}
@@ -106,16 +106,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -126,16 +126,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>int? representing the columnCount</returns>
 			get
 			{
-				return  this.columnCount;
+				return  columnCount;
 
 			}
 			/// <summary>The method to set the value to columnCount</summary>
 			/// <param name="columnCount">int?</param>
 			set
 			{
-				 this.columnCount=value;
+				 columnCount=value;
 
-				 this.keyModified["column_count"] = 1;
+				 keyModified["column_count"] = 1;
 
 			}
 		}
@@ -146,16 +146,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -166,16 +166,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the generatedType</returns>
 			get
 			{
-				return  this.generatedType;
+				return  generatedType;
 
 			}
 			/// <summary>The method to set the value to generatedType</summary>
 			/// <param name="generatedType">string</param>
 			set
 			{
-				 this.generatedType=value;
+				 generatedType=value;
 
-				 this.keyModified["generated_type"] = 1;
+				 keyModified["generated_type"] = 1;
 
 			}
 		}
@@ -186,16 +186,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of List<Field></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<Field></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -206,16 +206,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>Instance of Properties</returns>
 			get
 			{
-				return  this.properties;
+				return  properties;
 
 			}
 			/// <summary>The method to set the value to properties</summary>
 			/// <param name="properties">Instance of Properties</param>
 			set
 			{
-				 this.properties=value;
+				 properties=value;
 
-				 this.keyModified["properties"] = 1;
+				 keyModified["properties"] = 1;
 
 			}
 		}
@@ -226,16 +226,16 @@ namespace Com.Zoho.Crm.API.Layouts
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -245,9 +245,9 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -260,7 +260,7 @@ namespace Com.Zoho.Crm.API.Layouts
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

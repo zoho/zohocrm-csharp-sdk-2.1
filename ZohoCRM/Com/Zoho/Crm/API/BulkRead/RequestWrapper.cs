@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class RequestWrapper : Model
 	{
-		private CallBack callback;
-		private Query query;
-		private Choice<string> fileType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		CallBack callback;
+		Query query;
+		Choice<string> fileType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public CallBack Callback
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of CallBack</returns>
 			get
 			{
-				return  this.callback;
+				return  callback;
 
 			}
 			/// <summary>The method to set the value to callback</summary>
 			/// <param name="callback">Instance of CallBack</param>
 			set
 			{
-				 this.callback=value;
+				 callback=value;
 
-				 this.keyModified["callback"] = 1;
+				 keyModified["callback"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Query</returns>
 			get
 			{
-				return  this.query;
+				return  query;
 
 			}
 			/// <summary>The method to set the value to query</summary>
 			/// <param name="query">Instance of Query</param>
 			set
 			{
-				 this.query=value;
+				 query=value;
 
-				 this.keyModified["query"] = 1;
+				 keyModified["query"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.fileType;
+				return  fileType;
 
 			}
 			/// <summary>The method to set the value to fileType</summary>
 			/// <param name="fileType">Instance of Choice<string></param>
 			set
 			{
-				 this.fileType=value;
+				 fileType=value;
 
-				 this.keyModified["file_type"] = 1;
+				 keyModified["file_type"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

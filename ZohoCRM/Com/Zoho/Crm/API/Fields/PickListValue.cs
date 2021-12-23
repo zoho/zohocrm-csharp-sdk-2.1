@@ -6,18 +6,18 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class PickListValue : Model
 	{
-		private string displayValue;
-		private int? probability;
-		private long? forecastCategory;
-		private string actualValue;
-		private long? id;
-		private string forecastType;
-		private int? sequenceNumber;
-		private string expectedDataType;
-		private List<Maps> maps;
-		private string sysRefName;
-		private string type;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayValue;
+		int? probability;
+		long? forecastCategory;
+		string actualValue;
+		long? id;
+		string forecastType;
+		int? sequenceNumber;
+		string expectedDataType;
+		List<Maps> maps;
+		string sysRefName;
+		string type;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayValue
 		{
@@ -25,16 +25,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the displayValue</returns>
 			get
 			{
-				return  this.displayValue;
+				return  displayValue;
 
 			}
 			/// <summary>The method to set the value to displayValue</summary>
 			/// <param name="displayValue">string</param>
 			set
 			{
-				 this.displayValue=value;
+				 displayValue=value;
 
-				 this.keyModified["display_value"] = 1;
+				 keyModified["display_value"] = 1;
 
 			}
 		}
@@ -45,16 +45,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>int? representing the probability</returns>
 			get
 			{
-				return  this.probability;
+				return  probability;
 
 			}
 			/// <summary>The method to set the value to probability</summary>
 			/// <param name="probability">int?</param>
 			set
 			{
-				 this.probability=value;
+				 probability=value;
 
-				 this.keyModified["probability"] = 1;
+				 keyModified["probability"] = 1;
 
 			}
 		}
@@ -65,16 +65,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>long? representing the forecastCategory</returns>
 			get
 			{
-				return  this.forecastCategory;
+				return  forecastCategory;
 
 			}
 			/// <summary>The method to set the value to forecastCategory</summary>
 			/// <param name="forecastCategory">long?</param>
 			set
 			{
-				 this.forecastCategory=value;
+				 forecastCategory=value;
 
-				 this.keyModified["forecast_category"] = 1;
+				 keyModified["forecast_category"] = 1;
 
 			}
 		}
@@ -85,16 +85,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the actualValue</returns>
 			get
 			{
-				return  this.actualValue;
+				return  actualValue;
 
 			}
 			/// <summary>The method to set the value to actualValue</summary>
 			/// <param name="actualValue">string</param>
 			set
 			{
-				 this.actualValue=value;
+				 actualValue=value;
 
-				 this.keyModified["actual_value"] = 1;
+				 keyModified["actual_value"] = 1;
 
 			}
 		}
@@ -105,16 +105,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -125,16 +125,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the forecastType</returns>
 			get
 			{
-				return  this.forecastType;
+				return  forecastType;
 
 			}
 			/// <summary>The method to set the value to forecastType</summary>
 			/// <param name="forecastType">string</param>
 			set
 			{
-				 this.forecastType=value;
+				 forecastType=value;
 
-				 this.keyModified["forecast_type"] = 1;
+				 keyModified["forecast_type"] = 1;
 
 			}
 		}
@@ -145,16 +145,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>int? representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">int?</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -165,16 +165,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the expectedDataType</returns>
 			get
 			{
-				return  this.expectedDataType;
+				return  expectedDataType;
 
 			}
 			/// <summary>The method to set the value to expectedDataType</summary>
 			/// <param name="expectedDataType">string</param>
 			set
 			{
-				 this.expectedDataType=value;
+				 expectedDataType=value;
 
-				 this.keyModified["expected_data_type"] = 1;
+				 keyModified["expected_data_type"] = 1;
 
 			}
 		}
@@ -185,16 +185,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of List<Maps></returns>
 			get
 			{
-				return  this.maps;
+				return  maps;
 
 			}
 			/// <summary>The method to set the value to maps</summary>
 			/// <param name="maps">Instance of List<Maps></param>
 			set
 			{
-				 this.maps=value;
+				 maps=value;
 
-				 this.keyModified["maps"] = 1;
+				 keyModified["maps"] = 1;
 
 			}
 		}
@@ -205,16 +205,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the sysRefName</returns>
 			get
 			{
-				return  this.sysRefName;
+				return  sysRefName;
 
 			}
 			/// <summary>The method to set the value to sysRefName</summary>
 			/// <param name="sysRefName">string</param>
 			set
 			{
-				 this.sysRefName=value;
+				 sysRefName=value;
 
-				 this.keyModified["sys_ref_name"] = 1;
+				 keyModified["sys_ref_name"] = 1;
 
 			}
 		}
@@ -225,16 +225,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -244,9 +244,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -259,7 +259,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

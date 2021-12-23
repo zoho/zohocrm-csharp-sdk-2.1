@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Modules
 
 	public class RelatedListProperties : Model
 	{
-		private string sortBy;
-		private List<string> fields;
-		private string sortOrder;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string sortBy;
+		List<string> fields;
+		string sortOrder;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string SortBy
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the sortBy</returns>
 			get
 			{
-				return  this.sortBy;
+				return  sortBy;
 
 			}
 			/// <summary>The method to set the value to sortBy</summary>
 			/// <param name="sortBy">string</param>
 			set
 			{
-				 this.sortBy=value;
+				 sortBy=value;
 
-				 this.keyModified["sort_by"] = 1;
+				 keyModified["sort_by"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<string></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Modules
 			/// <returns>string representing the sortOrder</returns>
 			get
 			{
-				return  this.sortOrder;
+				return  sortOrder;
 
 			}
 			/// <summary>The method to set the value to sortOrder</summary>
 			/// <param name="sortOrder">string</param>
 			set
 			{
-				 this.sortOrder=value;
+				 sortOrder=value;
 
-				 this.keyModified["sort_order"] = 1;
+				 keyModified["sort_order"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Modules
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

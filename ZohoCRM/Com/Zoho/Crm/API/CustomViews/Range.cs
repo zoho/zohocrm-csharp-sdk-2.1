@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 	public class Range : Model
 	{
-		private int? from;
-		private int? to;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		int? from;
+		int? to;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public int? From
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>int? representing the from</returns>
 			get
 			{
-				return  this.from;
+				return  from;
 
 			}
 			/// <summary>The method to set the value to from</summary>
 			/// <param name="from">int?</param>
 			set
 			{
-				 this.from=value;
+				 from=value;
 
-				 this.keyModified["from"] = 1;
+				 keyModified["from"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.CustomViews
 			/// <returns>int? representing the to</returns>
 			get
 			{
-				return  this.to;
+				return  to;
 
 			}
 			/// <summary>The method to set the value to to</summary>
 			/// <param name="to">int?</param>
 			set
 			{
-				 this.to=value;
+				 to=value;
 
-				 this.keyModified["to"] = 1;
+				 keyModified["to"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -12,9 +12,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>Instance of APIResponse<ActionResponse></returns>
 		public APIResponse<ActionResponse> UploadFile(FileBodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "https://content.zohoapis.com/crm/v2.1/upload");
 
@@ -42,9 +42,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>Instance of APIResponse<ActionResponse></returns>
 		public APIResponse<ActionResponse> CreateBulkWriteJob(RequestWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/bulk/v2.1/write");
 
@@ -70,9 +70,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>Instance of APIResponse<ResponseWrapper></returns>
 		public APIResponse<ResponseWrapper> GetBulkWriteJobDetails(long? jobId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/bulk/v2.1/write/");
 
@@ -94,9 +94,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> DownloadBulkWriteResult(string downloadUrl)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/");
 

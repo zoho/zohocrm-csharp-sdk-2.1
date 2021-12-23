@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class Private : Model
 	{
-		private bool? restricted;
-		private bool? export;
-		private string type;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? restricted;
+		bool? export;
+		string type;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? Restricted
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the restricted</returns>
 			get
 			{
-				return  this.restricted;
+				return  restricted;
 
 			}
 			/// <summary>The method to set the value to restricted</summary>
 			/// <param name="restricted">bool?</param>
 			set
 			{
-				 this.restricted=value;
+				 restricted=value;
 
-				 this.keyModified["restricted"] = 1;
+				 keyModified["restricted"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the export</returns>
 			get
 			{
-				return  this.export;
+				return  export;
 
 			}
 			/// <summary>The method to set the value to export</summary>
 			/// <param name="export">bool?</param>
 			set
 			{
-				 this.export=value;
+				 export=value;
 
-				 this.keyModified["export"] = 1;
+				 keyModified["export"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

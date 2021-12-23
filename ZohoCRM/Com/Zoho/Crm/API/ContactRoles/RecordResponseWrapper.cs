@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 	public class RecordResponseWrapper : Model, RecordResponseHandler
 	{
-		private List<Record.Record> data;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Record.Record> data;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Record.Record> Data
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.ContactRoles
 			/// <returns>Instance of List<Record></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<Record></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.ContactRoles
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -56,9 +56,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

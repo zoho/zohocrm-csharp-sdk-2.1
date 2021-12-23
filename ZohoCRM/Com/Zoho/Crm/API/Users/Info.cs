@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class Info : Model
 	{
-		private int? perPage;
-		private int? count;
-		private int? page;
-		private bool? moreRecords;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		int? perPage;
+		int? count;
+		int? page;
+		bool? moreRecords;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public int? PerPage
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>int? representing the perPage</returns>
 			get
 			{
-				return  this.perPage;
+				return  perPage;
 
 			}
 			/// <summary>The method to set the value to perPage</summary>
 			/// <param name="perPage">int?</param>
 			set
 			{
-				 this.perPage=value;
+				 perPage=value;
 
-				 this.keyModified["per_page"] = 1;
+				 keyModified["per_page"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>int? representing the count</returns>
 			get
 			{
-				return  this.count;
+				return  count;
 
 			}
 			/// <summary>The method to set the value to count</summary>
 			/// <param name="count">int?</param>
 			set
 			{
-				 this.count=value;
+				 count=value;
 
-				 this.keyModified["count"] = 1;
+				 keyModified["count"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>int? representing the page</returns>
 			get
 			{
-				return  this.page;
+				return  page;
 
 			}
 			/// <summary>The method to set the value to page</summary>
 			/// <param name="page">int?</param>
 			set
 			{
-				 this.page=value;
+				 page=value;
 
-				 this.keyModified["page"] = 1;
+				 keyModified["page"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the moreRecords</returns>
 			get
 			{
-				return  this.moreRecords;
+				return  moreRecords;
 
 			}
 			/// <summary>The method to set the value to moreRecords</summary>
 			/// <param name="moreRecords">bool?</param>
 			set
 			{
-				 this.moreRecords=value;
+				 moreRecords=value;
 
-				 this.keyModified["more_records"] = 1;
+				 keyModified["more_records"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

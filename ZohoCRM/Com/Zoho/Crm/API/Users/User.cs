@@ -16,9 +16,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the country</returns>
 			get
 			{
-				if((( this.GetKeyValue("country")) != (null)))
+				if((( GetKeyValue("country")) != (null)))
 				{
-					return (string) this.GetKeyValue("country");
+					return (string) GetKeyValue("country");
 
 				}
 					return null;
@@ -29,7 +29,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="country">string</param>
 			set
 			{
-				 this.AddKeyValue("country", value);
+				 AddKeyValue("country", value);
 
 			}
 		}
@@ -40,9 +40,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of CustomizeInfo</returns>
 			get
 			{
-				if((( this.GetKeyValue("customize_info")) != (null)))
+				if((( GetKeyValue("customize_info")) != (null)))
 				{
-					return (CustomizeInfo) this.GetKeyValue("customize_info");
+					return (CustomizeInfo) GetKeyValue("customize_info");
 
 				}
 					return null;
@@ -53,7 +53,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="customizeInfo">Instance of CustomizeInfo</param>
 			set
 			{
-				 this.AddKeyValue("customize_info", value);
+				 AddKeyValue("customize_info", value);
 
 			}
 		}
@@ -64,9 +64,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of Role</returns>
 			get
 			{
-				if((( this.GetKeyValue("role")) != (null)))
+				if((( GetKeyValue("role")) != (null)))
 				{
-					return (Role) this.GetKeyValue("role");
+					return (Role) GetKeyValue("role");
 
 				}
 					return null;
@@ -77,7 +77,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="role">Instance of Role</param>
 			set
 			{
-				 this.AddKeyValue("role", value);
+				 AddKeyValue("role", value);
 
 			}
 		}
@@ -88,9 +88,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the signature</returns>
 			get
 			{
-				if((( this.GetKeyValue("signature")) != (null)))
+				if((( GetKeyValue("signature")) != (null)))
 				{
-					return (string) this.GetKeyValue("signature");
+					return (string) GetKeyValue("signature");
 
 				}
 					return null;
@@ -101,7 +101,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="signature">string</param>
 			set
 			{
-				 this.AddKeyValue("signature", value);
+				 AddKeyValue("signature", value);
 
 			}
 		}
@@ -112,9 +112,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the sortOrderPreference</returns>
 			get
 			{
-				if((( this.GetKeyValue("sort_order_preference")) != (null)))
+				if((( GetKeyValue("sort_order_preference")) != (null)))
 				{
-					return (string) this.GetKeyValue("sort_order_preference");
+					return (string) GetKeyValue("sort_order_preference");
 
 				}
 					return null;
@@ -125,7 +125,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="sortOrderPreference">string</param>
 			set
 			{
-				 this.AddKeyValue("sort_order_preference", value);
+				 AddKeyValue("sort_order_preference", value);
 
 			}
 		}
@@ -136,9 +136,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the city</returns>
 			get
 			{
-				if((( this.GetKeyValue("city")) != (null)))
+				if((( GetKeyValue("city")) != (null)))
 				{
-					return (string) this.GetKeyValue("city");
+					return (string) GetKeyValue("city");
 
 				}
 					return null;
@@ -149,7 +149,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="city">string</param>
 			set
 			{
-				 this.AddKeyValue("city", value);
+				 AddKeyValue("city", value);
 
 			}
 		}
@@ -160,9 +160,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the nameFormat</returns>
 			get
 			{
-				if((( this.GetKeyValue("name_format")) != (null)))
+				if((( GetKeyValue("name_format")) != (null)))
 				{
-					return (string) this.GetKeyValue("name_format");
+					return (string) GetKeyValue("name_format");
 
 				}
 					return null;
@@ -173,7 +173,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="nameFormat">string</param>
 			set
 			{
-				 this.AddKeyValue("name_format", value);
+				 AddKeyValue("name_format", value);
 
 			}
 		}
@@ -184,9 +184,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the personalAccount</returns>
 			get
 			{
-				if((( this.GetKeyValue("personal_account")) != (null)))
+				if((( GetKeyValue("personal_account")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("personal_account");
+					return (bool?) GetKeyValue("personal_account");
 
 				}
 					return null;
@@ -197,7 +197,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="personalAccount">bool?</param>
 			set
 			{
-				 this.AddKeyValue("personal_account", value);
+				 AddKeyValue("personal_account", value);
 
 			}
 		}
@@ -208,9 +208,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the defaultTabGroup</returns>
 			get
 			{
-				if((( this.GetKeyValue("default_tab_group")) != (null)))
+				if((( GetKeyValue("default_tab_group")) != (null)))
 				{
-					return (string) this.GetKeyValue("default_tab_group");
+					return (string) GetKeyValue("default_tab_group");
 
 				}
 					return null;
@@ -221,7 +221,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="defaultTabGroup">string</param>
 			set
 			{
-				 this.AddKeyValue("default_tab_group", value);
+				 AddKeyValue("default_tab_group", value);
 
 			}
 		}
@@ -232,9 +232,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the language</returns>
 			get
 			{
-				if((( this.GetKeyValue("language")) != (null)))
+				if((( GetKeyValue("language")) != (null)))
 				{
-					return (string) this.GetKeyValue("language");
+					return (string) GetKeyValue("language");
 
 				}
 					return null;
@@ -245,7 +245,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="language">string</param>
 			set
 			{
-				 this.AddKeyValue("language", value);
+				 AddKeyValue("language", value);
 
 			}
 		}
@@ -256,9 +256,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the locale</returns>
 			get
 			{
-				if((( this.GetKeyValue("locale")) != (null)))
+				if((( GetKeyValue("locale")) != (null)))
 				{
-					return (string) this.GetKeyValue("locale");
+					return (string) GetKeyValue("locale");
 
 				}
 					return null;
@@ -269,7 +269,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="locale">string</param>
 			set
 			{
-				 this.AddKeyValue("locale", value);
+				 AddKeyValue("locale", value);
 
 			}
 		}
@@ -280,9 +280,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the microsoft</returns>
 			get
 			{
-				if((( this.GetKeyValue("microsoft")) != (null)))
+				if((( GetKeyValue("microsoft")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("microsoft");
+					return (bool?) GetKeyValue("microsoft");
 
 				}
 					return null;
@@ -293,7 +293,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="microsoft">bool?</param>
 			set
 			{
-				 this.AddKeyValue("microsoft", value);
+				 AddKeyValue("microsoft", value);
 
 			}
 		}
@@ -304,9 +304,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the isonline</returns>
 			get
 			{
-				if((( this.GetKeyValue("Isonline")) != (null)))
+				if((( GetKeyValue("Isonline")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("Isonline");
+					return (bool?) GetKeyValue("Isonline");
 
 				}
 					return null;
@@ -317,7 +317,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="isonline">bool?</param>
 			set
 			{
-				 this.AddKeyValue("Isonline", value);
+				 AddKeyValue("Isonline", value);
 
 			}
 		}
@@ -328,9 +328,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the street</returns>
 			get
 			{
-				if((( this.GetKeyValue("street")) != (null)))
+				if((( GetKeyValue("street")) != (null)))
 				{
-					return (string) this.GetKeyValue("street");
+					return (string) GetKeyValue("street");
 
 				}
 					return null;
@@ -341,7 +341,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="street">string</param>
 			set
 			{
-				 this.AddKeyValue("street", value);
+				 AddKeyValue("street", value);
 
 			}
 		}
@@ -352,9 +352,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the currency</returns>
 			get
 			{
-				if((( this.GetKeyValue("Currency")) != (null)))
+				if((( GetKeyValue("Currency")) != (null)))
 				{
-					return (string) this.GetKeyValue("Currency");
+					return (string) GetKeyValue("Currency");
 
 				}
 					return null;
@@ -365,7 +365,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="currency">string</param>
 			set
 			{
-				 this.AddKeyValue("Currency", value);
+				 AddKeyValue("Currency", value);
 
 			}
 		}
@@ -376,9 +376,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the alias</returns>
 			get
 			{
-				if((( this.GetKeyValue("alias")) != (null)))
+				if((( GetKeyValue("alias")) != (null)))
 				{
-					return (string) this.GetKeyValue("alias");
+					return (string) GetKeyValue("alias");
 
 				}
 					return null;
@@ -389,7 +389,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="alias">string</param>
 			set
 			{
-				 this.AddKeyValue("alias", value);
+				 AddKeyValue("alias", value);
 
 			}
 		}
@@ -400,9 +400,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of Theme</returns>
 			get
 			{
-				if((( this.GetKeyValue("theme")) != (null)))
+				if((( GetKeyValue("theme")) != (null)))
 				{
-					return (Theme) this.GetKeyValue("theme");
+					return (Theme) GetKeyValue("theme");
 
 				}
 					return null;
@@ -413,7 +413,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="theme">Instance of Theme</param>
 			set
 			{
-				 this.AddKeyValue("theme", value);
+				 AddKeyValue("theme", value);
 
 			}
 		}
@@ -424,9 +424,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the state</returns>
 			get
 			{
-				if((( this.GetKeyValue("state")) != (null)))
+				if((( GetKeyValue("state")) != (null)))
 				{
-					return (string) this.GetKeyValue("state");
+					return (string) GetKeyValue("state");
 
 				}
 					return null;
@@ -437,7 +437,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="state">string</param>
 			set
 			{
-				 this.AddKeyValue("state", value);
+				 AddKeyValue("state", value);
 
 			}
 		}
@@ -448,9 +448,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the fax</returns>
 			get
 			{
-				if((( this.GetKeyValue("fax")) != (null)))
+				if((( GetKeyValue("fax")) != (null)))
 				{
-					return (string) this.GetKeyValue("fax");
+					return (string) GetKeyValue("fax");
 
 				}
 					return null;
@@ -461,7 +461,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="fax">string</param>
 			set
 			{
-				 this.AddKeyValue("fax", value);
+				 AddKeyValue("fax", value);
 
 			}
 		}
@@ -472,9 +472,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the countryLocale</returns>
 			get
 			{
-				if((( this.GetKeyValue("country_locale")) != (null)))
+				if((( GetKeyValue("country_locale")) != (null)))
 				{
-					return (string) this.GetKeyValue("country_locale");
+					return (string) GetKeyValue("country_locale");
 
 				}
 					return null;
@@ -485,7 +485,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="countryLocale">string</param>
 			set
 			{
-				 this.AddKeyValue("country_locale", value);
+				 AddKeyValue("country_locale", value);
 
 			}
 		}
@@ -496,9 +496,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the sandboxdeveloper</returns>
 			get
 			{
-				if((( this.GetKeyValue("sandboxDeveloper")) != (null)))
+				if((( GetKeyValue("sandboxDeveloper")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("sandboxDeveloper");
+					return (bool?) GetKeyValue("sandboxDeveloper");
 
 				}
 					return null;
@@ -509,7 +509,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="sandboxdeveloper">bool?</param>
 			set
 			{
-				 this.AddKeyValue("sandboxDeveloper", value);
+				 AddKeyValue("sandboxDeveloper", value);
 
 			}
 		}
@@ -520,9 +520,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the firstName</returns>
 			get
 			{
-				if((( this.GetKeyValue("first_name")) != (null)))
+				if((( GetKeyValue("first_name")) != (null)))
 				{
-					return (string) this.GetKeyValue("first_name");
+					return (string) GetKeyValue("first_name");
 
 				}
 					return null;
@@ -533,7 +533,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="firstName">string</param>
 			set
 			{
-				 this.AddKeyValue("first_name", value);
+				 AddKeyValue("first_name", value);
 
 			}
 		}
@@ -544,9 +544,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the email</returns>
 			get
 			{
-				if((( this.GetKeyValue("email")) != (null)))
+				if((( GetKeyValue("email")) != (null)))
 				{
-					return (string) this.GetKeyValue("email");
+					return (string) GetKeyValue("email");
 
 				}
 					return null;
@@ -557,7 +557,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="email">string</param>
 			set
 			{
-				 this.AddKeyValue("email", value);
+				 AddKeyValue("email", value);
 
 			}
 		}
@@ -568,9 +568,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of User</returns>
 			get
 			{
-				if((( this.GetKeyValue("Reporting_To")) != (null)))
+				if((( GetKeyValue("Reporting_To")) != (null)))
 				{
-					return (User) this.GetKeyValue("Reporting_To");
+					return (User) GetKeyValue("Reporting_To");
 
 				}
 					return null;
@@ -581,7 +581,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="reportingTo">Instance of User</param>
 			set
 			{
-				 this.AddKeyValue("Reporting_To", value);
+				 AddKeyValue("Reporting_To", value);
 
 			}
 		}
@@ -592,9 +592,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the decimalSeparator</returns>
 			get
 			{
-				if((( this.GetKeyValue("decimal_separator")) != (null)))
+				if((( GetKeyValue("decimal_separator")) != (null)))
 				{
-					return (string) this.GetKeyValue("decimal_separator");
+					return (string) GetKeyValue("decimal_separator");
 
 				}
 					return null;
@@ -605,7 +605,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="decimalSeparator">string</param>
 			set
 			{
-				 this.AddKeyValue("decimal_separator", value);
+				 AddKeyValue("decimal_separator", value);
 
 			}
 		}
@@ -616,9 +616,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the zip</returns>
 			get
 			{
-				if((( this.GetKeyValue("zip")) != (null)))
+				if((( GetKeyValue("zip")) != (null)))
 				{
-					return (string) this.GetKeyValue("zip");
+					return (string) GetKeyValue("zip");
 
 				}
 					return null;
@@ -629,7 +629,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="zip">string</param>
 			set
 			{
-				 this.AddKeyValue("zip", value);
+				 AddKeyValue("zip", value);
 
 			}
 		}
@@ -640,9 +640,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the website</returns>
 			get
 			{
-				if((( this.GetKeyValue("website")) != (null)))
+				if((( GetKeyValue("website")) != (null)))
 				{
-					return (string) this.GetKeyValue("website");
+					return (string) GetKeyValue("website");
 
 				}
 					return null;
@@ -653,7 +653,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="website">string</param>
 			set
 			{
-				 this.AddKeyValue("website", value);
+				 AddKeyValue("website", value);
 
 			}
 		}
@@ -664,9 +664,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the timeFormat</returns>
 			get
 			{
-				if((( this.GetKeyValue("time_format")) != (null)))
+				if((( GetKeyValue("time_format")) != (null)))
 				{
-					return (string) this.GetKeyValue("time_format");
+					return (string) GetKeyValue("time_format");
 
 				}
 					return null;
@@ -677,7 +677,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="timeFormat">string</param>
 			set
 			{
-				 this.AddKeyValue("time_format", value);
+				 AddKeyValue("time_format", value);
 
 			}
 		}
@@ -688,9 +688,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>long? representing the offset</returns>
 			get
 			{
-				if((( this.GetKeyValue("offset")) != (null)))
+				if((( GetKeyValue("offset")) != (null)))
 				{
-					return (long?) this.GetKeyValue("offset");
+					return (long?) GetKeyValue("offset");
 
 				}
 					return null;
@@ -701,7 +701,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="offset">long?</param>
 			set
 			{
-				 this.AddKeyValue("offset", value);
+				 AddKeyValue("offset", value);
 
 			}
 		}
@@ -712,9 +712,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of Profile</returns>
 			get
 			{
-				if((( this.GetKeyValue("profile")) != (null)))
+				if((( GetKeyValue("profile")) != (null)))
 				{
-					return (Profile) this.GetKeyValue("profile");
+					return (Profile) GetKeyValue("profile");
 
 				}
 					return null;
@@ -725,7 +725,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="profile">Instance of Profile</param>
 			set
 			{
-				 this.AddKeyValue("profile", value);
+				 AddKeyValue("profile", value);
 
 			}
 		}
@@ -736,9 +736,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the mobile</returns>
 			get
 			{
-				if((( this.GetKeyValue("mobile")) != (null)))
+				if((( GetKeyValue("mobile")) != (null)))
 				{
-					return (string) this.GetKeyValue("mobile");
+					return (string) GetKeyValue("mobile");
 
 				}
 					return null;
@@ -749,7 +749,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="mobile">string</param>
 			set
 			{
-				 this.AddKeyValue("mobile", value);
+				 AddKeyValue("mobile", value);
 
 			}
 		}
@@ -760,9 +760,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the lastName</returns>
 			get
 			{
-				if((( this.GetKeyValue("last_name")) != (null)))
+				if((( GetKeyValue("last_name")) != (null)))
 				{
-					return (string) this.GetKeyValue("last_name");
+					return (string) GetKeyValue("last_name");
 
 				}
 					return null;
@@ -773,7 +773,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="lastName">string</param>
 			set
 			{
-				 this.AddKeyValue("last_name", value);
+				 AddKeyValue("last_name", value);
 
 			}
 		}
@@ -784,9 +784,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the timeZone</returns>
 			get
 			{
-				if((( this.GetKeyValue("time_zone")) != (null)))
+				if((( GetKeyValue("time_zone")) != (null)))
 				{
-					return (string) this.GetKeyValue("time_zone");
+					return (string) GetKeyValue("time_zone");
 
 				}
 					return null;
@@ -797,7 +797,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="timeZone">string</param>
 			set
 			{
-				 this.AddKeyValue("time_zone", value);
+				 AddKeyValue("time_zone", value);
 
 			}
 		}
@@ -808,9 +808,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the zuid</returns>
 			get
 			{
-				if((( this.GetKeyValue("zuid")) != (null)))
+				if((( GetKeyValue("zuid")) != (null)))
 				{
-					return (string) this.GetKeyValue("zuid");
+					return (string) GetKeyValue("zuid");
 
 				}
 					return null;
@@ -821,7 +821,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="zuid">string</param>
 			set
 			{
-				 this.AddKeyValue("zuid", value);
+				 AddKeyValue("zuid", value);
 
 			}
 		}
@@ -832,9 +832,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the confirm</returns>
 			get
 			{
-				if((( this.GetKeyValue("confirm")) != (null)))
+				if((( GetKeyValue("confirm")) != (null)))
 				{
-					return (bool?) this.GetKeyValue("confirm");
+					return (bool?) GetKeyValue("confirm");
 
 				}
 					return null;
@@ -845,7 +845,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="confirm">bool?</param>
 			set
 			{
-				 this.AddKeyValue("confirm", value);
+				 AddKeyValue("confirm", value);
 
 			}
 		}
@@ -856,9 +856,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the fullName</returns>
 			get
 			{
-				if((( this.GetKeyValue("full_name")) != (null)))
+				if((( GetKeyValue("full_name")) != (null)))
 				{
-					return (string) this.GetKeyValue("full_name");
+					return (string) GetKeyValue("full_name");
 
 				}
 					return null;
@@ -869,7 +869,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="fullName">string</param>
 			set
 			{
-				 this.AddKeyValue("full_name", value);
+				 AddKeyValue("full_name", value);
 
 			}
 		}
@@ -880,9 +880,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of List<Territory></returns>
 			get
 			{
-				if((( this.GetKeyValue("territories")) != (null)))
+				if((( GetKeyValue("territories")) != (null)))
 				{
-					return (List<Territory>) this.GetKeyValue("territories");
+					return (List<Territory>) GetKeyValue("territories");
 
 				}
 					return null;
@@ -893,7 +893,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="territories">Instance of List<Territory></param>
 			set
 			{
-				 this.AddKeyValue("territories", value);
+				 AddKeyValue("territories", value);
 
 			}
 		}
@@ -904,9 +904,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the phone</returns>
 			get
 			{
-				if((( this.GetKeyValue("phone")) != (null)))
+				if((( GetKeyValue("phone")) != (null)))
 				{
-					return (string) this.GetKeyValue("phone");
+					return (string) GetKeyValue("phone");
 
 				}
 					return null;
@@ -917,7 +917,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="phone">string</param>
 			set
 			{
-				 this.AddKeyValue("phone", value);
+				 AddKeyValue("phone", value);
 
 			}
 		}
@@ -928,9 +928,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the dob</returns>
 			get
 			{
-				if((( this.GetKeyValue("dob")) != (null)))
+				if((( GetKeyValue("dob")) != (null)))
 				{
-					return (string) this.GetKeyValue("dob");
+					return (string) GetKeyValue("dob");
 
 				}
 					return null;
@@ -941,7 +941,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="dob">string</param>
 			set
 			{
-				 this.AddKeyValue("dob", value);
+				 AddKeyValue("dob", value);
 
 			}
 		}
@@ -952,9 +952,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the dateFormat</returns>
 			get
 			{
-				if((( this.GetKeyValue("date_format")) != (null)))
+				if((( GetKeyValue("date_format")) != (null)))
 				{
-					return (string) this.GetKeyValue("date_format");
+					return (string) GetKeyValue("date_format");
 
 				}
 					return null;
@@ -965,7 +965,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="dateFormat">string</param>
 			set
 			{
-				 this.AddKeyValue("date_format", value);
+				 AddKeyValue("date_format", value);
 
 			}
 		}
@@ -976,9 +976,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the status</returns>
 			get
 			{
-				if((( this.GetKeyValue("status")) != (null)))
+				if((( GetKeyValue("status")) != (null)))
 				{
-					return (string) this.GetKeyValue("status");
+					return (string) GetKeyValue("status");
 
 				}
 					return null;
@@ -989,7 +989,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="status">string</param>
 			set
 			{
-				 this.AddKeyValue("status", value);
+				 AddKeyValue("status", value);
 
 			}
 		}
@@ -1000,9 +1000,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the name</returns>
 			get
 			{
-				if((( this.GetKeyValue("name")) != (null)))
+				if((( GetKeyValue("name")) != (null)))
 				{
-					return (string) this.GetKeyValue("name");
+					return (string) GetKeyValue("name");
 
 				}
 					return null;
@@ -1013,7 +1013,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="name">string</param>
 			set
 			{
-				 this.AddKeyValue("name", value);
+				 AddKeyValue("name", value);
 
 			}
 		}
@@ -1024,9 +1024,9 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the category</returns>
 			get
 			{
-				if((( this.GetKeyValue("category")) != (null)))
+				if((( GetKeyValue("category")) != (null)))
 				{
-					return (string) this.GetKeyValue("category");
+					return (string) GetKeyValue("category");
 
 				}
 					return null;
@@ -1037,7 +1037,7 @@ namespace Com.Zoho.Crm.API.Users
 			/// <param name="category">string</param>
 			set
 			{
-				 this.AddKeyValue("category", value);
+				 AddKeyValue("category", value);
 
 			}
 		}

@@ -11,9 +11,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetTags(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
 
@@ -36,9 +36,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreateTags(BodyWrapper request, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
 
@@ -67,9 +67,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateTags(BodyWrapper request, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
 
@@ -99,9 +99,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateTag(long? id, BodyWrapper request, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
 
@@ -129,9 +129,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteTag(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
 
@@ -154,9 +154,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> MergeTags(long? id, MergeWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
 
@@ -188,9 +188,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> AddTagsToRecord(long? recordId, string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -224,9 +224,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> RemoveTagsFromRecord(long? recordId, string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -259,9 +259,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> AddTagsToMultipleRecords(string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -290,9 +290,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> RemoveTagsFromMultipleRecords(string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -321,9 +321,9 @@ namespace Com.Zoho.Crm.API.Tags
 		/// <returns>Instance of APIResponse<CountHandler></returns>
 		public APIResponse<CountHandler> GetRecordCountForTag(long? id, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
 

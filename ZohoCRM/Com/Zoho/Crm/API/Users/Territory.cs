@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class Territory : Model
 	{
-		private bool? manager;
-		private string name;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? manager;
+		string name;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? Manager
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>bool? representing the manager</returns>
 			get
 			{
-				return  this.manager;
+				return  manager;
 
 			}
 			/// <summary>The method to set the value to manager</summary>
 			/// <param name="manager">bool?</param>
 			set
 			{
-				 this.manager=value;
+				 manager=value;
 
-				 this.keyModified["manager"] = 1;
+				 keyModified["manager"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Users
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<User> users;
-		private Info info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<User> users;
+		Info info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<User> Users
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of List<User></returns>
 			get
 			{
-				return  this.users;
+				return  users;
 
 			}
 			/// <summary>The method to set the value to users</summary>
 			/// <param name="users">Instance of List<User></param>
 			set
 			{
-				 this.users=value;
+				 users=value;
 
-				 this.keyModified["users"] = 1;
+				 keyModified["users"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Users
 			/// <returns>Instance of Info</returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Instance of Info</param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Users
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Users
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

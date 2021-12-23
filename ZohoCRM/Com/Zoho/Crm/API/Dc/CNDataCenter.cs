@@ -7,9 +7,9 @@ namespace Com.Zoho.Crm.API.Dc
     /// </summary>
     public class CNDataCenter : DataCenter
     {
-        private static readonly CNDataCenter CN = new CNDataCenter();
+        static readonly CNDataCenter CN = new CNDataCenter();
 
-        private CNDataCenter()
+        CNDataCenter()
         {
         }
 

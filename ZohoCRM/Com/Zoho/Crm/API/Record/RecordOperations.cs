@@ -15,9 +15,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRecord(long? id, string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -54,9 +54,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRecord(long? id, string moduleAPIName, BodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -95,9 +95,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteRecord(long? id, string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -131,9 +131,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRecords(string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -165,9 +165,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreateRecords(string moduleAPIName, BodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -201,9 +201,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRecords(string moduleAPIName, BodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -237,9 +237,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteRecords(string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -269,9 +269,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpsertRecords(string moduleAPIName, BodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -307,9 +307,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<DeletedRecordsHandler></returns>
 		public APIResponse<DeletedRecordsHandler> GetDeletedRecords(string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -341,9 +341,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> SearchRecords(string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -376,9 +376,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ConvertActionHandler></returns>
 		public APIResponse<ConvertActionHandler> ConvertLead(long? id, ConvertBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Leads/");
 
@@ -411,9 +411,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<DownloadHandler></returns>
 		public APIResponse<DownloadHandler> GetPhoto(long? id, string moduleAPIName)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -445,9 +445,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<FileHandler></returns>
 		public APIResponse<FileHandler> UploadPhoto(long? id, string moduleAPIName, FileBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -486,9 +486,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<FileHandler></returns>
 		public APIResponse<FileHandler> DeletePhoto(long? id, string moduleAPIName)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -519,9 +519,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<MassUpdateActionHandler></returns>
 		public APIResponse<MassUpdateActionHandler> MassUpdateRecords(string moduleAPIName, MassUpdateBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -556,9 +556,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<MassUpdateResponseHandler></returns>
 		public APIResponse<MassUpdateResponseHandler> GetMassUpdateStatus(string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -587,9 +587,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> AssignTerritoriesToMultipleRecords(string moduleAPIName, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -625,9 +625,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> AssignTerritoryToRecord(string moduleAPIName, long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -664,9 +664,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> RemoveTerritoriesFromMultipleRecords(string moduleAPIName, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -702,9 +702,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> RemoveTerritoriesFromRecord(string moduleAPIName, long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -741,9 +741,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<CountHandler></returns>
 		public APIResponse<CountHandler> RecordCount(string moduleAPIName, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -772,9 +772,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetRecordUsingExternalId(string externalFieldValue, string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -811,9 +811,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateRecordUsingExternalId(string externalFieldValue, string moduleAPIName, BodyWrapper request, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 
@@ -852,9 +852,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteRecordUsingExternalId(string externalFieldValue, string moduleAPIName, ParameterMap paramInstance, HeaderMap headerInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/");
 

@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 	public class ActionWrapper : Model, ActionHandler
 	{
-		private List<ActionResponse> share;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ActionResponse> share;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ActionResponse> Share
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.ShareRecords
 			/// <returns>Instance of List<ActionResponse></returns>
 			get
 			{
-				return  this.share;
+				return  share;
 
 			}
 			/// <summary>The method to set the value to share</summary>
 			/// <param name="share">Instance of List<ActionResponse></param>
 			set
 			{
-				 this.share=value;
+				 share=value;
 
-				 this.keyModified["share"] = 1;
+				 keyModified["share"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

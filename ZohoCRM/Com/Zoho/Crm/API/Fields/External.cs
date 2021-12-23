@@ -6,10 +6,10 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class External : Model
 	{
-		private bool? show;
-		private string type;
-		private bool? allowMultipleConfig;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		bool? show;
+		string type;
+		bool? allowMultipleConfig;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public bool? Show
 		{
@@ -17,16 +17,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the show</returns>
 			get
 			{
-				return  this.show;
+				return  show;
 
 			}
 			/// <summary>The method to set the value to show</summary>
 			/// <param name="show">bool?</param>
 			set
 			{
-				 this.show=value;
+				 show=value;
 
-				 this.keyModified["show"] = 1;
+				 keyModified["show"] = 1;
 
 			}
 		}
@@ -37,16 +37,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -57,16 +57,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>bool? representing the allowMultipleConfig</returns>
 			get
 			{
-				return  this.allowMultipleConfig;
+				return  allowMultipleConfig;
 
 			}
 			/// <summary>The method to set the value to allowMultipleConfig</summary>
 			/// <param name="allowMultipleConfig">bool?</param>
 			set
 			{
-				 this.allowMultipleConfig=value;
+				 allowMultipleConfig=value;
 
-				 this.keyModified["allow_multiple_config"] = 1;
+				 keyModified["allow_multiple_config"] = 1;
 
 			}
 		}
@@ -76,9 +76,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

@@ -6,7 +6,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 	public class CustomViewsOperations
 	{
-		private string module;
+		string module;
 
 		/// <summary>		/// Creates an instance of CustomViewsOperations with the given parameters
 		/// <param name="module">string</param>
@@ -23,9 +23,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetCustomViews(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/custom_views");
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.CustomViews.GetCustomViewsParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.CustomViews.GetCustomViewsParam"),  module);
 
 			handlerInstance.Param=paramInstance;
 
@@ -49,9 +49,9 @@ namespace Com.Zoho.Crm.API.CustomViews
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetCustomView(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/custom_views/");
 
@@ -63,7 +63,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 			handlerInstance.CategoryMethod=Constants.REQUEST_CATEGORY_READ;
 
-			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.CustomViews.GetCustomViewParam"),  this.module);
+			handlerInstance.AddParam(new Param<string>("module", "com.zoho.crm.api.CustomViews.GetCustomViewParam"),  module);
 
 			return handlerInstance.APICall<ResponseHandler>(typeof(ResponseHandler), "application/json");
 

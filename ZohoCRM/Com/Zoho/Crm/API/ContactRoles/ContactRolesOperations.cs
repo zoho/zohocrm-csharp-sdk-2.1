@@ -10,9 +10,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetContactRoles()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
 
@@ -32,9 +32,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> CreateContactRoles(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
 
@@ -60,9 +60,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateContactRoles(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
 
@@ -88,9 +88,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteContactRoles(ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
 
@@ -112,9 +112,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetContactRole(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
 
@@ -137,9 +137,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateContactRole(long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
 
@@ -165,9 +165,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> DeleteContactRole(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
 
@@ -190,9 +190,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<RecordResponseHandler></returns>
 		public APIResponse<RecordResponseHandler> GetAllContactRolesOfDeal(long? dealId, ParameterMap paramInstance)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
 
@@ -223,9 +223,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<RecordResponseHandler></returns>
 		public APIResponse<RecordResponseHandler> GetContactRoleOfDeal(long? contactId, long? dealId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
 
@@ -257,9 +257,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> AddContactRoleToDeal(long? contactId, long? dealId, RecordBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
 
@@ -290,9 +290,9 @@ namespace Com.Zoho.Crm.API.ContactRoles
 		/// <returns>Instance of APIResponse<RecordActionHandler></returns>
 		public APIResponse<RecordActionHandler> RemoveContactRoleFromDeal(long? contactId, long? dealId)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
 

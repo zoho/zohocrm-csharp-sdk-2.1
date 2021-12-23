@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class Escalation : Model
 	{
-		private int? days;
-		private string status;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		int? days;
+		string status;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public int? Days
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>int? representing the days</returns>
 			get
 			{
-				return  this.days;
+				return  days;
 
 			}
 			/// <summary>The method to set the value to days</summary>
 			/// <param name="days">int?</param>
 			set
 			{
-				 this.days=value;
+				 days=value;
 
-				 this.keyModified["days"] = 1;
+				 keyModified["days"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>string representing the status</returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">string</param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

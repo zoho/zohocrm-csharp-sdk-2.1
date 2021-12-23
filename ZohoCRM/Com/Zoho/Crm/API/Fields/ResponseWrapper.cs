@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class ResponseWrapper : Model, ResponseHandler
 	{
-		private List<Field> fields;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Field> fields;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Field> Fields
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of List<Field></returns>
 			get
 			{
-				return  this.fields;
+				return  fields;
 
 			}
 			/// <summary>The method to set the value to fields</summary>
 			/// <param name="fields">Instance of List<Field></param>
 			set
 			{
-				 this.fields=value;
+				 fields=value;
 
-				 this.keyModified["fields"] = 1;
+				 keyModified["fields"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

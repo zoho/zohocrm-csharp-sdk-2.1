@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 
 	public class ActionWrapper : Model, ActionHandler
 	{
-		private List<ActionResponse> data;
-		private Dictionary<string, object> info;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<ActionResponse> data;
+		Dictionary<string, object> info;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<ActionResponse> Data
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Instance of List<ActionResponse></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<ActionResponse></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.BulkRead
 			/// <returns>Dictionary representing the info<String,Object></returns>
 			get
 			{
-				return  this.info;
+				return  info;
 
 			}
 			/// <summary>The method to set the value to info</summary>
 			/// <param name="info">Dictionary<string,object></param>
 			set
 			{
-				 this.info=value;
+				 info=value;
 
-				 this.keyModified["info"] = 1;
+				 keyModified["info"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.BulkRead
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

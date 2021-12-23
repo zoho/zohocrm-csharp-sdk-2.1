@@ -6,13 +6,13 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class SuccessResponse : Model, ActionResponse, FileHandler
 	{
-		private Choice<string> status;
-		private Choice<string> code;
-		private string duplicateField;
-		private Choice<string> action;
-		private Choice<string> message;
-		private Dictionary<string, object> details;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Choice<string> status;
+		Choice<string> code;
+		string duplicateField;
+		Choice<string> action;
+		Choice<string> message;
+		Dictionary<string, object> details;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Choice<string> Status
 		{
@@ -20,16 +20,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">Instance of Choice<string></param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -40,16 +40,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.code;
+				return  code;
 
 			}
 			/// <summary>The method to set the value to code</summary>
 			/// <param name="code">Instance of Choice<string></param>
 			set
 			{
-				 this.code=value;
+				 code=value;
 
-				 this.keyModified["code"] = 1;
+				 keyModified["code"] = 1;
 
 			}
 		}
@@ -60,16 +60,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the duplicateField</returns>
 			get
 			{
-				return  this.duplicateField;
+				return  duplicateField;
 
 			}
 			/// <summary>The method to set the value to duplicateField</summary>
 			/// <param name="duplicateField">string</param>
 			set
 			{
-				 this.duplicateField=value;
+				 duplicateField=value;
 
-				 this.keyModified["duplicate_field"] = 1;
+				 keyModified["duplicate_field"] = 1;
 
 			}
 		}
@@ -80,16 +80,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.action;
+				return  action;
 
 			}
 			/// <summary>The method to set the value to action</summary>
 			/// <param name="action">Instance of Choice<string></param>
 			set
 			{
-				 this.action=value;
+				 action=value;
 
-				 this.keyModified[Constants.REQUEST_CATEGORY_ACTION] = 1;
+				 keyModified[Constants.REQUEST_CATEGORY_ACTION] = 1;
 
 			}
 		}
@@ -100,16 +100,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of Choice<String></returns>
 			get
 			{
-				return  this.message;
+				return  message;
 
 			}
 			/// <summary>The method to set the value to message</summary>
 			/// <param name="message">Instance of Choice<string></param>
 			set
 			{
-				 this.message=value;
+				 message=value;
 
-				 this.keyModified["message"] = 1;
+				 keyModified["message"] = 1;
 
 			}
 		}
@@ -120,16 +120,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Dictionary representing the details<String,Object></returns>
 			get
 			{
-				return  this.details;
+				return  details;
 
 			}
 			/// <summary>The method to set the value to details</summary>
 			/// <param name="details">Dictionary<string,object></param>
 			set
 			{
-				 this.details=value;
+				 details=value;
 
-				 this.keyModified["details"] = 1;
+				 keyModified["details"] = 1;
 
 			}
 		}
@@ -139,9 +139,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

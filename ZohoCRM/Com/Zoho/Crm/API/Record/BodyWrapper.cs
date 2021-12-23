@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class BodyWrapper : Model
 	{
-		private List<Record> data;
-		private List<string> trigger;
-		private List<string> duplicateCheckFields;
-		private string wfTrigger;
-		private string larId;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		List<Record> data;
+		List<string> trigger;
+		List<string> duplicateCheckFields;
+		string wfTrigger;
+		string larId;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public List<Record> Data
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<Record></returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of List<Record></param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.trigger;
+				return  trigger;
 
 			}
 			/// <summary>The method to set the value to trigger</summary>
 			/// <param name="trigger">Instance of List<string></param>
 			set
 			{
-				 this.trigger=value;
+				 trigger=value;
 
-				 this.keyModified["trigger"] = 1;
+				 keyModified["trigger"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>Instance of List<String></returns>
 			get
 			{
-				return  this.duplicateCheckFields;
+				return  duplicateCheckFields;
 
 			}
 			/// <summary>The method to set the value to duplicateCheckFields</summary>
 			/// <param name="duplicateCheckFields">Instance of List<string></param>
 			set
 			{
-				 this.duplicateCheckFields=value;
+				 duplicateCheckFields=value;
 
-				 this.keyModified["duplicate_check_fields"] = 1;
+				 keyModified["duplicate_check_fields"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the wfTrigger</returns>
 			get
 			{
-				return  this.wfTrigger;
+				return  wfTrigger;
 
 			}
 			/// <summary>The method to set the value to wfTrigger</summary>
 			/// <param name="wfTrigger">string</param>
 			set
 			{
-				 this.wfTrigger=value;
+				 wfTrigger=value;
 
-				 this.keyModified["wf_trigger"] = 1;
+				 keyModified["wf_trigger"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the larId</returns>
 			get
 			{
-				return  this.larId;
+				return  larId;
 
 			}
 			/// <summary>The method to set the value to larId</summary>
 			/// <param name="larId">string</param>
 			set
 			{
-				 this.larId=value;
+				 larId=value;
 
-				 this.keyModified["lar_id"] = 1;
+				 keyModified["lar_id"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

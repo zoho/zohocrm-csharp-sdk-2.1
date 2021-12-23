@@ -6,18 +6,18 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 	public class RelatedList : Model
 	{
-		private long? id;
-		private string sequenceNumber;
-		private string displayLabel;
-		private string apiName;
-		private string module;
-		private string name;
-		private string action;
-		private string href;
-		private string type;
-		private string connectedmodule;
-		private string linkingmodule;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? id;
+		string sequenceNumber;
+		string displayLabel;
+		string apiName;
+		string module;
+		string name;
+		string action;
+		string href;
+		string type;
+		string connectedmodule;
+		string linkingmodule;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Id
 		{
@@ -25,16 +25,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -45,16 +45,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the sequenceNumber</returns>
 			get
 			{
-				return  this.sequenceNumber;
+				return  sequenceNumber;
 
 			}
 			/// <summary>The method to set the value to sequenceNumber</summary>
 			/// <param name="sequenceNumber">string</param>
 			set
 			{
-				 this.sequenceNumber=value;
+				 sequenceNumber=value;
 
-				 this.keyModified["sequence_number"] = 1;
+				 keyModified["sequence_number"] = 1;
 
 			}
 		}
@@ -65,16 +65,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -85,16 +85,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -105,16 +105,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">string</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -125,16 +125,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -145,16 +145,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the action</returns>
 			get
 			{
-				return  this.action;
+				return  action;
 
 			}
 			/// <summary>The method to set the value to action</summary>
 			/// <param name="action">string</param>
 			set
 			{
-				 this.action=value;
+				 action=value;
 
-				 this.keyModified[Constants.REQUEST_CATEGORY_ACTION] = 1;
+				 keyModified[Constants.REQUEST_CATEGORY_ACTION] = 1;
 
 			}
 		}
@@ -165,16 +165,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the href</returns>
 			get
 			{
-				return  this.href;
+				return  href;
 
 			}
 			/// <summary>The method to set the value to href</summary>
 			/// <param name="href">string</param>
 			set
 			{
-				 this.href=value;
+				 href=value;
 
-				 this.keyModified["href"] = 1;
+				 keyModified["href"] = 1;
 
 			}
 		}
@@ -185,16 +185,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -205,16 +205,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the connectedmodule</returns>
 			get
 			{
-				return  this.connectedmodule;
+				return  connectedmodule;
 
 			}
 			/// <summary>The method to set the value to connectedmodule</summary>
 			/// <param name="connectedmodule">string</param>
 			set
 			{
-				 this.connectedmodule=value;
+				 connectedmodule=value;
 
-				 this.keyModified["connectedmodule"] = 1;
+				 keyModified["connectedmodule"] = 1;
 
 			}
 		}
@@ -225,16 +225,16 @@ namespace Com.Zoho.Crm.API.RelatedLists
 			/// <returns>string representing the linkingmodule</returns>
 			get
 			{
-				return  this.linkingmodule;
+				return  linkingmodule;
 
 			}
 			/// <summary>The method to set the value to linkingmodule</summary>
 			/// <param name="linkingmodule">string</param>
 			set
 			{
-				 this.linkingmodule=value;
+				 linkingmodule=value;
 
-				 this.keyModified["linkingmodule"] = 1;
+				 keyModified["linkingmodule"] = 1;
 
 			}
 		}
@@ -244,9 +244,9 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -259,7 +259,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

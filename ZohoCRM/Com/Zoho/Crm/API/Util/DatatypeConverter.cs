@@ -17,13 +17,13 @@ namespace Com.Zoho.Crm.API.Util
 	/// <typeparam name="T">T is CSharp permitted data type</typeparam>
 	public class DataTypeConverter<T>
     {
-        private delegate T PreConverter(object obj);
+	    delegate T PreConverter(object obj);
 
-        private delegate object PostConverter(T obj);
+	    delegate object PostConverter(T obj);
 
-        private static readonly Dictionary<string, PreConverter> PRE_CONVERTER_MAP = new Dictionary<string, PreConverter>();
+	    static readonly Dictionary<string, PreConverter> PRE_CONVERTER_MAP = new Dictionary<string, PreConverter>();
 
-        private static readonly Dictionary<string, PostConverter> POST_CONVERTER_MAP = new Dictionary<string, PostConverter>();
+	    static readonly Dictionary<string, PostConverter> POST_CONVERTER_MAP = new Dictionary<string, PostConverter>();
 
 		static readonly PreConverter preCommonTypeConverter = (obj) =>
 		{
@@ -38,7 +38,7 @@ namespace Com.Zoho.Crm.API.Util
 		/// <summary>
 		/// This method is to initialize the PreConverter and PostConverter lambda functions.
 		/// </summary>
-		private static void Init()
+		static void Init()
 		{
 			if (PRE_CONVERTER_MAP.Count > 0 && POST_CONVERTER_MAP.Count > 0)
 			{
@@ -48,13 +48,13 @@ namespace Com.Zoho.Crm.API.Util
 			AddToDictionary(typeof(DateTimeOffset).FullName,
             (obj) =>
 			{
-				DateTimeOffset dateTime = DateTimeOffset.Parse(obj.ToString()).ToLocalTime();
+				var dateTime = DateTimeOffset.Parse(obj.ToString()).ToLocalTime();
 
 				return (T)Convert.ChangeType(dateTime, typeof(T));
 			},
             (obj) =>
 			{
-				DateTimeOffset dateTime = (DateTimeOffset)Convert.ChangeType(obj, typeof(T));
+				var dateTime = (DateTimeOffset)Convert.ChangeType(obj, typeof(T));
 
 				return dateTime.ToString("yyyy-MM-ddTHH\\:mm\\:sszzz");
 			});
@@ -62,7 +62,7 @@ namespace Com.Zoho.Crm.API.Util
 			AddToDictionary(typeof(long).FullName,
 			(obj) =>
 			{
-				long value = long.Parse(obj.ToString());
+				var value = long.Parse(obj.ToString());
 
 				return (T)Convert.ChangeType(value, typeof(T));
 			},
@@ -74,7 +74,7 @@ namespace Com.Zoho.Crm.API.Util
 			AddToDictionary(typeof(double).FullName,
 			(obj) =>
 			{
-				double value = double.Parse(obj.ToString());
+				var value = double.Parse(obj.ToString());
 
 				return (T)Convert.ChangeType(value, typeof(T));
 			},
@@ -86,7 +86,7 @@ namespace Com.Zoho.Crm.API.Util
 			AddToDictionary(typeof(bool).FullName,
 			(obj) =>
 			{
-				bool value = bool.Parse(obj.ToString());
+				var value = bool.Parse(obj.ToString());
 
 				return (T)Convert.ChangeType(value, typeof(T));
 			},
@@ -119,13 +119,13 @@ namespace Com.Zoho.Crm.API.Util
 			AddToDictionary(typeof(DateTime).FullName,
 			(obj) =>
 			{
-				DateTime dateTime = DateTime.Parse(obj.ToString());
+				var dateTime = DateTime.Parse(obj.ToString());
 
 				return (T)Convert.ChangeType(dateTime, typeof(T));
 			},
 			(obj) =>
 			{
-				DateTime dateTime = (DateTime)Convert.ChangeType(obj, typeof(T));
+				var dateTime = (DateTime)Convert.ChangeType(obj, typeof(T));
 
 				return dateTime.ToString("yyyy-MM-dd");
 			});
@@ -133,11 +133,9 @@ namespace Com.Zoho.Crm.API.Util
 
 		public static object PreConvertObjectData(object obj)
 		{
-			if (obj is JToken)
+			if (obj is JToken token)
 			{
-				JToken keyData = (JToken)obj;
-
-				JTokenType tokenType = keyData.Type;
+				var tokenType = token.Type;
 
 				if (tokenType is JTokenType.Null)
 				{
@@ -145,11 +143,9 @@ namespace Com.Zoho.Crm.API.Util
 				}
 			}
 
-			if (obj is JArray)
+			if (obj is JArray jsonArray)
 			{
-				JArray jsonArray = (JArray)obj;
-
-				List<object> values = new List<object>();
+				var values = new List<object>();
 
 				if(jsonArray.Count > 0)
 				{
@@ -161,15 +157,13 @@ namespace Com.Zoho.Crm.API.Util
 
 				return values;
 			}
-			else if (obj is JObject)
+			else if (obj is JObject jsonObject)
 			{
-				JObject jsonObject = (JObject)obj;
-
-				Dictionary<object, object> mapInstance = new Dictionary<object, object>();
+				var mapInstance = new Dictionary<object, object>();
 
 				if (jsonObject.Count > 0)
 				{
-                    foreach (KeyValuePair<string, JToken> memberName in jsonObject)
+                    foreach (var memberName in jsonObject)
 					{
 						object jsonValue = memberName.Value;
 
@@ -187,9 +181,9 @@ namespace Com.Zoho.Crm.API.Util
 			{
 				if(obj is JToken || obj is JValue)
                 {
-					JToken keyData = (JToken)obj;
+					var keyData = (JToken)obj;
 
-					JTokenType tokenType = keyData.Type;
+					var tokenType = keyData.Type;
 
 					if (tokenType is JTokenType.Null)
 					{
@@ -197,11 +191,11 @@ namespace Com.Zoho.Crm.API.Util
 					}
 					else
                     {
-						string type = Converter.GetType(tokenType);
+						var type = Converter.GetType(tokenType);
 
 						if (type.Equals(Constants.CSHARP_INT_NAME))
 						{
-							long number = (long)keyData;
+							var number = (long)keyData;
 
 							if (!(number >= Int32.MinValue && number <= Int32.MaxValue))
 							{
@@ -209,9 +203,9 @@ namespace Com.Zoho.Crm.API.Util
 							}
 						}
 
-						Type t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
+						var t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, type));
 
-						MethodInfo method = t.GetMethod("PreConvert");
+						var method = t.GetMethod("PreConvert");
 
 						var data = (T)method.Invoke(null, new object[] { obj, type });
 
@@ -230,28 +224,26 @@ namespace Com.Zoho.Crm.API.Util
 				return JValue.CreateNull();
 			}
 
-			if(obj is IList)
+			if(obj is IList iList)
 			{
-				JArray list = new JArray();
+				var list = new JArray();
 
-				foreach (object value in (IList)obj)
+				foreach (var value in iList)
 				{
 					list.Add(PostConvertObjectData(value));
 				}
 
 				return list;
 			}
-			else if (obj is IDictionary)
+			else if (obj is IDictionary requestObject)
 			{
-				JObject value = new JObject();
-
-				IDictionary requestObject = (IDictionary) obj;
+				var value = new JObject();
 
 				if (requestObject.Count > 0)
 				{
-					foreach (object key in requestObject.Keys)
+					foreach (var key in requestObject.Keys)
 					{
-						object keyValue = requestObject[key];
+						var keyValue = requestObject[key];
 
 						value.Add((string)key, JToken.FromObject(PostConvertObjectData(keyValue)));
 					}
@@ -265,22 +257,22 @@ namespace Com.Zoho.Crm.API.Util
 			}
 			else
 			{
-				Type t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, obj.GetType().FullName));
+				var t = Type.GetType(Constants.DATATYPECONVERTER.Replace(Constants._TYPE, obj.GetType().FullName));
 
-				MethodInfo method = t.GetMethod("PostConvert");
+				var method = t.GetMethod("PostConvert");
 
 				return method.Invoke(null, new object[] { obj, obj.GetType().FullName });
 			}
 		}
 
-        private static void AddToDictionary(string name, PreConverter preConverter, PostConverter postConverter)
+		static void AddToDictionary(string name, PreConverter preConverter, PostConverter postConverter)
         {
 			PRE_CONVERTER_MAP[name] = preConverter;
 
 			POST_CONVERTER_MAP[name] = postConverter;
 		}
 
-        private static PreConverter GetPreConverter(string type)
+		static PreConverter GetPreConverter(string type)
         {
 			if(PRE_CONVERTER_MAP.ContainsKey(type))
             {
@@ -290,7 +282,7 @@ namespace Com.Zoho.Crm.API.Util
 			return preCommonTypeConverter;
 		}
 
-		private static PostConverter GetPostConverter(string type)
+		static PostConverter GetPostConverter(string type)
 		{
 			if (POST_CONVERTER_MAP.ContainsKey(type))
 			{

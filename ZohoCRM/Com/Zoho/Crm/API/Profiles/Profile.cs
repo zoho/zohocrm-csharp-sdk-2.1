@@ -8,22 +8,22 @@ namespace Com.Zoho.Crm.API.Profiles
 
 	public class Profile : Model
 	{
-		private string displayLabel;
-		private DateTimeOffset? createdTime;
-		private DateTimeOffset? modifiedTime;
-		private List<PermissionDetail> permissionsDetails;
-		private string name;
-		private User modifiedBy;
-		private DefaultView defaultview;
-		private bool? default1;
-		private string description;
-		private long? id;
-		private bool? custom;
-		private User createdBy;
-		private List<Section> sections;
-		private bool? delete;
-		private string permissionType;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		DateTimeOffset? createdTime;
+		DateTimeOffset? modifiedTime;
+		List<PermissionDetail> permissionsDetails;
+		string name;
+		User modifiedBy;
+		DefaultView defaultview;
+		bool? default1;
+		string description;
+		long? id;
+		bool? custom;
+		User createdBy;
+		List<Section> sections;
+		bool? delete;
+		string permissionType;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -31,16 +31,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -51,16 +51,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -71,16 +71,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -91,16 +91,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of List<PermissionDetail></returns>
 			get
 			{
-				return  this.permissionsDetails;
+				return  permissionsDetails;
 
 			}
 			/// <summary>The method to set the value to permissionsDetails</summary>
 			/// <param name="permissionsDetails">Instance of List<PermissionDetail></param>
 			set
 			{
-				 this.permissionsDetails=value;
+				 permissionsDetails=value;
 
-				 this.keyModified["permissions_details"] = 1;
+				 keyModified["permissions_details"] = 1;
 
 			}
 		}
@@ -111,16 +111,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -131,16 +131,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -151,16 +151,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of DefaultView</returns>
 			get
 			{
-				return  this.defaultview;
+				return  defaultview;
 
 			}
 			/// <summary>The method to set the value to defaultview</summary>
 			/// <param name="defaultview">Instance of DefaultView</param>
 			set
 			{
-				 this.defaultview=value;
+				 defaultview=value;
 
-				 this.keyModified["_default_view"] = 1;
+				 keyModified["_default_view"] = 1;
 
 			}
 		}
@@ -171,16 +171,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>bool? representing the default1</returns>
 			get
 			{
-				return  this.default1;
+				return  default1;
 
 			}
 			/// <summary>The method to set the value to default</summary>
 			/// <param name="default1">bool?</param>
 			set
 			{
-				 this.default1=value;
+				 default1=value;
 
-				 this.keyModified["default"] = 1;
+				 keyModified["default"] = 1;
 
 			}
 		}
@@ -191,16 +191,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -211,16 +211,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -231,16 +231,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>bool? representing the custom</returns>
 			get
 			{
-				return  this.custom;
+				return  custom;
 
 			}
 			/// <summary>The method to set the value to custom</summary>
 			/// <param name="custom">bool?</param>
 			set
 			{
-				 this.custom=value;
+				 custom=value;
 
-				 this.keyModified["custom"] = 1;
+				 keyModified["custom"] = 1;
 
 			}
 		}
@@ -251,16 +251,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -271,16 +271,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>Instance of List<Section></returns>
 			get
 			{
-				return  this.sections;
+				return  sections;
 
 			}
 			/// <summary>The method to set the value to sections</summary>
 			/// <param name="sections">Instance of List<Section></param>
 			set
 			{
-				 this.sections=value;
+				 sections=value;
 
-				 this.keyModified["sections"] = 1;
+				 keyModified["sections"] = 1;
 
 			}
 		}
@@ -291,16 +291,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>bool? representing the delete</returns>
 			get
 			{
-				return  this.delete;
+				return  delete;
 
 			}
 			/// <summary>The method to set the value to delete</summary>
 			/// <param name="delete">bool?</param>
 			set
 			{
-				 this.delete=value;
+				 delete=value;
 
-				 this.keyModified["_delete"] = 1;
+				 keyModified["_delete"] = 1;
 
 			}
 		}
@@ -311,16 +311,16 @@ namespace Com.Zoho.Crm.API.Profiles
 			/// <returns>string representing the permissionType</returns>
 			get
 			{
-				return  this.permissionType;
+				return  permissionType;
 
 			}
 			/// <summary>The method to set the value to permissionType</summary>
 			/// <param name="permissionType">string</param>
 			set
 			{
-				 this.permissionType=value;
+				 permissionType=value;
 
-				 this.keyModified["permission_type"] = 1;
+				 keyModified["permission_type"] = 1;
 
 			}
 		}
@@ -330,9 +330,9 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -345,7 +345,7 @@ namespace Com.Zoho.Crm.API.Profiles
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

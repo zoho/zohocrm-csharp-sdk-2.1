@@ -10,24 +10,24 @@ namespace Com.Zoho.Crm.API.Notes
 
 	public class Note : Model
 	{
-		private User owner;
-		private DateTimeOffset? modifiedTime;
-		private List<Attachment> attachments;
-		private DateTimeOffset? createdTime;
-		private Record.Record parentId;
-		private bool? editable;
-		private string sharingPermission;
-		private string seModule;
-		private bool? isSharedToClient;
-		private User modifiedBy;
-		private string size;
-		private string state;
-		private bool? voiceNote;
-		private long? id;
-		private User createdBy;
-		private string noteTitle;
-		private string noteContent;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		User owner;
+		DateTimeOffset? modifiedTime;
+		List<Attachment> attachments;
+		DateTimeOffset? createdTime;
+		Record.Record parentId;
+		bool? editable;
+		string sharingPermission;
+		string seModule;
+		bool? isSharedToClient;
+		User modifiedBy;
+		string size;
+		string state;
+		bool? voiceNote;
+		long? id;
+		User createdBy;
+		string noteTitle;
+		string noteContent;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public User Owner
 		{
@@ -35,16 +35,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.owner;
+				return  owner;
 
 			}
 			/// <summary>The method to set the value to owner</summary>
 			/// <param name="owner">Instance of User</param>
 			set
 			{
-				 this.owner=value;
+				 owner=value;
 
-				 this.keyModified["Owner"] = 1;
+				 keyModified["Owner"] = 1;
 
 			}
 		}
@@ -55,16 +55,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["Modified_Time"] = 1;
+				 keyModified["Modified_Time"] = 1;
 
 			}
 		}
@@ -75,16 +75,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>Instance of List<Attachment></returns>
 			get
 			{
-				return  this.attachments;
+				return  attachments;
 
 			}
 			/// <summary>The method to set the value to attachments</summary>
 			/// <param name="attachments">Instance of List<Attachment></param>
 			set
 			{
-				 this.attachments=value;
+				 attachments=value;
 
-				 this.keyModified["$attachments"] = 1;
+				 keyModified["$attachments"] = 1;
 
 			}
 		}
@@ -95,16 +95,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["Created_Time"] = 1;
+				 keyModified["Created_Time"] = 1;
 
 			}
 		}
@@ -115,16 +115,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>Instance of Record</returns>
 			get
 			{
-				return  this.parentId;
+				return  parentId;
 
 			}
 			/// <summary>The method to set the value to parentId</summary>
 			/// <param name="parentId">Instance of Record</param>
 			set
 			{
-				 this.parentId=value;
+				 parentId=value;
 
-				 this.keyModified["Parent_Id"] = 1;
+				 keyModified["Parent_Id"] = 1;
 
 			}
 		}
@@ -135,16 +135,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>bool? representing the editable</returns>
 			get
 			{
-				return  this.editable;
+				return  editable;
 
 			}
 			/// <summary>The method to set the value to editable</summary>
 			/// <param name="editable">bool?</param>
 			set
 			{
-				 this.editable=value;
+				 editable=value;
 
-				 this.keyModified["$editable"] = 1;
+				 keyModified["$editable"] = 1;
 
 			}
 		}
@@ -155,16 +155,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the sharingPermission</returns>
 			get
 			{
-				return  this.sharingPermission;
+				return  sharingPermission;
 
 			}
 			/// <summary>The method to set the value to sharingPermission</summary>
 			/// <param name="sharingPermission">string</param>
 			set
 			{
-				 this.sharingPermission=value;
+				 sharingPermission=value;
 
-				 this.keyModified["$sharing_permission"] = 1;
+				 keyModified["$sharing_permission"] = 1;
 
 			}
 		}
@@ -175,16 +175,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the seModule</returns>
 			get
 			{
-				return  this.seModule;
+				return  seModule;
 
 			}
 			/// <summary>The method to set the value to seModule</summary>
 			/// <param name="seModule">string</param>
 			set
 			{
-				 this.seModule=value;
+				 seModule=value;
 
-				 this.keyModified["$se_module"] = 1;
+				 keyModified["$se_module"] = 1;
 
 			}
 		}
@@ -195,16 +195,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>bool? representing the isSharedToClient</returns>
 			get
 			{
-				return  this.isSharedToClient;
+				return  isSharedToClient;
 
 			}
 			/// <summary>The method to set the value to isSharedToClient</summary>
 			/// <param name="isSharedToClient">bool?</param>
 			set
 			{
-				 this.isSharedToClient=value;
+				 isSharedToClient=value;
 
-				 this.keyModified["$is_shared_to_client"] = 1;
+				 keyModified["$is_shared_to_client"] = 1;
 
 			}
 		}
@@ -215,16 +215,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["Modified_By"] = 1;
+				 keyModified["Modified_By"] = 1;
 
 			}
 		}
@@ -235,16 +235,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the size</returns>
 			get
 			{
-				return  this.size;
+				return  size;
 
 			}
 			/// <summary>The method to set the value to size</summary>
 			/// <param name="size">string</param>
 			set
 			{
-				 this.size=value;
+				 size=value;
 
-				 this.keyModified["$size"] = 1;
+				 keyModified["$size"] = 1;
 
 			}
 		}
@@ -255,16 +255,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the state</returns>
 			get
 			{
-				return  this.state;
+				return  state;
 
 			}
 			/// <summary>The method to set the value to state</summary>
 			/// <param name="state">string</param>
 			set
 			{
-				 this.state=value;
+				 state=value;
 
-				 this.keyModified["$state"] = 1;
+				 keyModified["$state"] = 1;
 
 			}
 		}
@@ -275,16 +275,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>bool? representing the voiceNote</returns>
 			get
 			{
-				return  this.voiceNote;
+				return  voiceNote;
 
 			}
 			/// <summary>The method to set the value to voiceNote</summary>
 			/// <param name="voiceNote">bool?</param>
 			set
 			{
-				 this.voiceNote=value;
+				 voiceNote=value;
 
-				 this.keyModified["$voice_note"] = 1;
+				 keyModified["$voice_note"] = 1;
 
 			}
 		}
@@ -295,16 +295,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -315,16 +315,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["Created_By"] = 1;
+				 keyModified["Created_By"] = 1;
 
 			}
 		}
@@ -335,16 +335,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the noteTitle</returns>
 			get
 			{
-				return  this.noteTitle;
+				return  noteTitle;
 
 			}
 			/// <summary>The method to set the value to noteTitle</summary>
 			/// <param name="noteTitle">string</param>
 			set
 			{
-				 this.noteTitle=value;
+				 noteTitle=value;
 
-				 this.keyModified["Note_Title"] = 1;
+				 keyModified["Note_Title"] = 1;
 
 			}
 		}
@@ -355,16 +355,16 @@ namespace Com.Zoho.Crm.API.Notes
 			/// <returns>string representing the noteContent</returns>
 			get
 			{
-				return  this.noteContent;
+				return  noteContent;
 
 			}
 			/// <summary>The method to set the value to noteContent</summary>
 			/// <param name="noteContent">string</param>
 			set
 			{
-				 this.noteContent=value;
+				 noteContent=value;
 
-				 this.keyModified["Note_Content"] = 1;
+				 keyModified["Note_Content"] = 1;
 
 			}
 		}
@@ -374,9 +374,9 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -389,7 +389,7 @@ namespace Com.Zoho.Crm.API.Notes
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

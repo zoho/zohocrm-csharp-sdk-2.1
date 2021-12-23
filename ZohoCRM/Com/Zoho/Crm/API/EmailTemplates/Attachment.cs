@@ -6,11 +6,11 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 	public class Attachment : Model
 	{
-		private long? size;
-		private string fileName;
-		private string fileId;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? size;
+		string fileName;
+		string fileId;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Size
 		{
@@ -18,16 +18,16 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 			/// <returns>long? representing the size</returns>
 			get
 			{
-				return  this.size;
+				return  size;
 
 			}
 			/// <summary>The method to set the value to size</summary>
 			/// <param name="size">long?</param>
 			set
 			{
-				 this.size=value;
+				 size=value;
 
-				 this.keyModified["size"] = 1;
+				 keyModified["size"] = 1;
 
 			}
 		}
@@ -38,16 +38,16 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 			/// <returns>string representing the fileName</returns>
 			get
 			{
-				return  this.fileName;
+				return  fileName;
 
 			}
 			/// <summary>The method to set the value to fileName</summary>
 			/// <param name="fileName">string</param>
 			set
 			{
-				 this.fileName=value;
+				 fileName=value;
 
-				 this.keyModified["file_name"] = 1;
+				 keyModified["file_name"] = 1;
 
 			}
 		}
@@ -58,16 +58,16 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 			/// <returns>string representing the fileId</returns>
 			get
 			{
-				return  this.fileId;
+				return  fileId;
 
 			}
 			/// <summary>The method to set the value to fileId</summary>
 			/// <param name="fileId">string</param>
 			set
 			{
-				 this.fileId=value;
+				 fileId=value;
 
-				 this.keyModified["file_id"] = 1;
+				 keyModified["file_id"] = 1;
 
 			}
 		}
@@ -78,16 +78,16 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -97,9 +97,9 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -112,7 +112,7 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

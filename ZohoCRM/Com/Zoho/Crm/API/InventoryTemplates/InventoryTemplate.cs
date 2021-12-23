@@ -10,23 +10,23 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 	public class InventoryTemplate : Template, Model
 	{
-		private string content;
-		private DateTimeOffset? createdTime;
-		private string subject;
-		private Module module;
-		private string type;
-		private User createdBy;
-		private DateTimeOffset? modifiedTime;
-		private DateTimeOffset? lastUsageTime;
-		private bool? associated;
-		private string name;
-		private User modifiedBy;
-		private string description;
-		private long? id;
-		private string editorMode;
-		private bool? favorite;
-		private InventoryTemplate folder;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string content;
+		DateTimeOffset? createdTime;
+		string subject;
+		Module module;
+		string type;
+		User createdBy;
+		DateTimeOffset? modifiedTime;
+		DateTimeOffset? lastUsageTime;
+		bool? associated;
+		string name;
+		User modifiedBy;
+		string description;
+		long? id;
+		string editorMode;
+		bool? favorite;
+		InventoryTemplate folder;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Content
 		{
@@ -34,16 +34,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the content</returns>
 			get
 			{
-				return  this.content;
+				return  content;
 
 			}
 			/// <summary>The method to set the value to content</summary>
 			/// <param name="content">string</param>
 			set
 			{
-				 this.content=value;
+				 content=value;
 
-				 this.keyModified["content"] = 1;
+				 keyModified["content"] = 1;
 
 			}
 		}
@@ -54,16 +54,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -74,16 +74,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the subject</returns>
 			get
 			{
-				return  this.subject;
+				return  subject;
 
 			}
 			/// <summary>The method to set the value to subject</summary>
 			/// <param name="subject">string</param>
 			set
 			{
-				 this.subject=value;
+				 subject=value;
 
-				 this.keyModified["subject"] = 1;
+				 keyModified["subject"] = 1;
 
 			}
 		}
@@ -94,16 +94,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -114,16 +114,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -134,16 +134,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -154,16 +154,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -174,16 +174,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>DateTimeOffset? representing the lastUsageTime</returns>
 			get
 			{
-				return  this.lastUsageTime;
+				return  lastUsageTime;
 
 			}
 			/// <summary>The method to set the value to lastUsageTime</summary>
 			/// <param name="lastUsageTime">DateTimeOffset?</param>
 			set
 			{
-				 this.lastUsageTime=value;
+				 lastUsageTime=value;
 
-				 this.keyModified["last_usage_time"] = 1;
+				 keyModified["last_usage_time"] = 1;
 
 			}
 		}
@@ -194,16 +194,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>bool? representing the associated</returns>
 			get
 			{
-				return  this.associated;
+				return  associated;
 
 			}
 			/// <summary>The method to set the value to associated</summary>
 			/// <param name="associated">bool?</param>
 			set
 			{
-				 this.associated=value;
+				 associated=value;
 
-				 this.keyModified["associated"] = 1;
+				 keyModified["associated"] = 1;
 
 			}
 		}
@@ -214,16 +214,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -234,16 +234,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -254,16 +254,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -274,16 +274,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -294,16 +294,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>string representing the editorMode</returns>
 			get
 			{
-				return  this.editorMode;
+				return  editorMode;
 
 			}
 			/// <summary>The method to set the value to editorMode</summary>
 			/// <param name="editorMode">string</param>
 			set
 			{
-				 this.editorMode=value;
+				 editorMode=value;
 
-				 this.keyModified["editor_mode"] = 1;
+				 keyModified["editor_mode"] = 1;
 
 			}
 		}
@@ -314,16 +314,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>bool? representing the favorite</returns>
 			get
 			{
-				return  this.favorite;
+				return  favorite;
 
 			}
 			/// <summary>The method to set the value to favorite</summary>
 			/// <param name="favorite">bool?</param>
 			set
 			{
-				 this.favorite=value;
+				 favorite=value;
 
-				 this.keyModified["favorite"] = 1;
+				 keyModified["favorite"] = 1;
 
 			}
 		}
@@ -334,16 +334,16 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 			/// <returns>Instance of InventoryTemplate</returns>
 			get
 			{
-				return  this.folder;
+				return  folder;
 
 			}
 			/// <summary>The method to set the value to folder</summary>
 			/// <param name="folder">Instance of InventoryTemplate</param>
 			set
 			{
-				 this.folder=value;
+				 folder=value;
 
-				 this.keyModified["folder"] = 1;
+				 keyModified["folder"] = 1;
 
 			}
 		}
@@ -353,9 +353,9 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -368,7 +368,7 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

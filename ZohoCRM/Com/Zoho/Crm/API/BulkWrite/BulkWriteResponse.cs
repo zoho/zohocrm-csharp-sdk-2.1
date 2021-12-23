@@ -8,16 +8,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 	public class BulkWriteResponse : Model, ResponseWrapper
 	{
-		private string status;
-		private string characterEncoding;
-		private List<Resource> resource;
-		private long? id;
-		private CallBack callback;
-		private Result result;
-		private User createdBy;
-		private string operation;
-		private DateTimeOffset? createdTime;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string status;
+		string characterEncoding;
+		List<Resource> resource;
+		long? id;
+		CallBack callback;
+		Result result;
+		User createdBy;
+		string operation;
+		DateTimeOffset? createdTime;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Status
 		{
@@ -25,16 +25,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the status</returns>
 			get
 			{
-				return  this.status;
+				return  status;
 
 			}
 			/// <summary>The method to set the value to status</summary>
 			/// <param name="status">string</param>
 			set
 			{
-				 this.status=value;
+				 status=value;
 
-				 this.keyModified["status"] = 1;
+				 keyModified["status"] = 1;
 
 			}
 		}
@@ -45,16 +45,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the characterEncoding</returns>
 			get
 			{
-				return  this.characterEncoding;
+				return  characterEncoding;
 
 			}
 			/// <summary>The method to set the value to characterEncoding</summary>
 			/// <param name="characterEncoding">string</param>
 			set
 			{
-				 this.characterEncoding=value;
+				 characterEncoding=value;
 
-				 this.keyModified["character_encoding"] = 1;
+				 keyModified["character_encoding"] = 1;
 
 			}
 		}
@@ -65,16 +65,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of List<Resource></returns>
 			get
 			{
-				return  this.resource;
+				return  resource;
 
 			}
 			/// <summary>The method to set the value to resource</summary>
 			/// <param name="resource">Instance of List<Resource></param>
 			set
 			{
-				 this.resource=value;
+				 resource=value;
 
-				 this.keyModified["resource"] = 1;
+				 keyModified["resource"] = 1;
 
 			}
 		}
@@ -85,16 +85,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -105,16 +105,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of CallBack</returns>
 			get
 			{
-				return  this.callback;
+				return  callback;
 
 			}
 			/// <summary>The method to set the value to callback</summary>
 			/// <param name="callback">Instance of CallBack</param>
 			set
 			{
-				 this.callback=value;
+				 callback=value;
 
-				 this.keyModified["callback"] = 1;
+				 keyModified["callback"] = 1;
 
 			}
 		}
@@ -125,16 +125,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of Result</returns>
 			get
 			{
-				return  this.result;
+				return  result;
 
 			}
 			/// <summary>The method to set the value to result</summary>
 			/// <param name="result">Instance of Result</param>
 			set
 			{
-				 this.result=value;
+				 result=value;
 
-				 this.keyModified["result"] = 1;
+				 keyModified["result"] = 1;
 
 			}
 		}
@@ -145,16 +145,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -165,16 +165,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>string representing the operation</returns>
 			get
 			{
-				return  this.operation;
+				return  operation;
 
 			}
 			/// <summary>The method to set the value to operation</summary>
 			/// <param name="operation">string</param>
 			set
 			{
-				 this.operation=value;
+				 operation=value;
 
-				 this.keyModified["operation"] = 1;
+				 keyModified["operation"] = 1;
 
 			}
 		}
@@ -185,16 +185,16 @@ namespace Com.Zoho.Crm.API.BulkWrite
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -204,9 +204,9 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -219,7 +219,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

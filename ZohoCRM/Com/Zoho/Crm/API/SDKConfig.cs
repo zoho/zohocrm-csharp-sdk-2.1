@@ -12,11 +12,11 @@ namespace Com.Zoho.Crm.API
 		/// </summary>
 		public class Builder
 		{
-			private bool autoRefreshFields = false;
+			bool autoRefreshFields = false;
 
-			private bool pickListValidation = true;
+			bool pickListValidation = true;
 
-			private int timeout = 100000;//The number of milliseconds to wait before the request times out. The default value is 100,000 milliseconds (100 seconds).
+			int timeout = 100000;//The number of milliseconds to wait before the request times out. The default value is 100,000 milliseconds (100 seconds).
 
 			/// <summary>
 			/// This is a setter method to set autoRefreshFields.
@@ -60,15 +60,15 @@ namespace Com.Zoho.Crm.API
 			/// <returns>An instance of SDKConfig</returns>
 			public SDKConfig Build()
 			{
-				return new SDKConfig(this.autoRefreshFields, this.pickListValidation, this.timeout);
+				return new SDKConfig(autoRefreshFields, pickListValidation, timeout);
 			}
 		}
 
-		private bool autoRefreshFields;
+		bool autoRefreshFields;
 
-		private bool pickListValidation;
+		bool pickListValidation;
 
-		private int timeout = 100000;
+		int timeout = 100000;
 
 		/// <summary>
 		/// Creates an instance of SDKConfig with the given parameters
@@ -76,7 +76,7 @@ namespace Com.Zoho.Crm.API
 		/// <param name="autoRefreshFields">A boolean representing autoRefreshFields</param>
 		/// <param name="pickListValidation">A boolean representing pickListValidation</param>
 		/// <param name="timeout">An integer representing request timeout</param>
-		private SDKConfig(bool autoRefreshFields, bool pickListValidation, int timeout)
+		SDKConfig(bool autoRefreshFields, bool pickListValidation, int timeout)
 		{
 			this.autoRefreshFields = autoRefreshFields;
 

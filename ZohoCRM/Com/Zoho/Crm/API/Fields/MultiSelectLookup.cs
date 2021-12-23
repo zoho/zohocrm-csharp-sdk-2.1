@@ -6,14 +6,14 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class MultiSelectLookup : Model
 	{
-		private string displayLabel;
-		private string linkingModule;
-		private string lookupApiname;
-		private string apiName;
-		private string connectedModule;
-		private string connectedlookupApiname;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string displayLabel;
+		string linkingModule;
+		string lookupApiname;
+		string apiName;
+		string connectedModule;
+		string connectedlookupApiname;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string DisplayLabel
 		{
@@ -21,16 +21,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the displayLabel</returns>
 			get
 			{
-				return  this.displayLabel;
+				return  displayLabel;
 
 			}
 			/// <summary>The method to set the value to displayLabel</summary>
 			/// <param name="displayLabel">string</param>
 			set
 			{
-				 this.displayLabel=value;
+				 displayLabel=value;
 
-				 this.keyModified["display_label"] = 1;
+				 keyModified["display_label"] = 1;
 
 			}
 		}
@@ -41,16 +41,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the linkingModule</returns>
 			get
 			{
-				return  this.linkingModule;
+				return  linkingModule;
 
 			}
 			/// <summary>The method to set the value to linkingModule</summary>
 			/// <param name="linkingModule">string</param>
 			set
 			{
-				 this.linkingModule=value;
+				 linkingModule=value;
 
-				 this.keyModified["linking_module"] = 1;
+				 keyModified["linking_module"] = 1;
 
 			}
 		}
@@ -61,16 +61,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the lookupApiname</returns>
 			get
 			{
-				return  this.lookupApiname;
+				return  lookupApiname;
 
 			}
 			/// <summary>The method to set the value to lookupApiname</summary>
 			/// <param name="lookupApiname">string</param>
 			set
 			{
-				 this.lookupApiname=value;
+				 lookupApiname=value;
 
-				 this.keyModified["lookup_apiname"] = 1;
+				 keyModified["lookup_apiname"] = 1;
 
 			}
 		}
@@ -81,16 +81,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -101,16 +101,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the connectedModule</returns>
 			get
 			{
-				return  this.connectedModule;
+				return  connectedModule;
 
 			}
 			/// <summary>The method to set the value to connectedModule</summary>
 			/// <param name="connectedModule">string</param>
 			set
 			{
-				 this.connectedModule=value;
+				 connectedModule=value;
 
-				 this.keyModified["connected_module"] = 1;
+				 keyModified["connected_module"] = 1;
 
 			}
 		}
@@ -121,16 +121,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>string representing the connectedlookupApiname</returns>
 			get
 			{
-				return  this.connectedlookupApiname;
+				return  connectedlookupApiname;
 
 			}
 			/// <summary>The method to set the value to connectedlookupApiname</summary>
 			/// <param name="connectedlookupApiname">string</param>
 			set
 			{
-				 this.connectedlookupApiname=value;
+				 connectedlookupApiname=value;
 
-				 this.keyModified["connectedlookup_apiname"] = 1;
+				 keyModified["connectedlookup_apiname"] = 1;
 
 			}
 		}
@@ -141,16 +141,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -160,9 +160,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -175,7 +175,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

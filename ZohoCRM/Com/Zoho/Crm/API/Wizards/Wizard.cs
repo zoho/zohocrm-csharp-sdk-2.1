@@ -10,19 +10,19 @@ namespace Com.Zoho.Crm.API.Wizards
 
 	public class Wizard : Model
 	{
-		private DateTimeOffset? createdTime;
-		private DateTimeOffset? modifiedTime;
-		private Module module;
-		private string name;
-		private User modifiedBy;
-		private List<Profile> profiles;
-		private bool? active;
-		private List<Container> containers;
-		private User createdBy;
-		private Wizard parentWizard;
-		private bool? draft;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		DateTimeOffset? createdTime;
+		DateTimeOffset? modifiedTime;
+		Module module;
+		string name;
+		User modifiedBy;
+		List<Profile> profiles;
+		bool? active;
+		List<Container> containers;
+		User createdBy;
+		Wizard parentWizard;
+		bool? draft;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public DateTimeOffset? CreatedTime
 		{
@@ -30,16 +30,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>DateTimeOffset? representing the createdTime</returns>
 			get
 			{
-				return  this.createdTime;
+				return  createdTime;
 
 			}
 			/// <summary>The method to set the value to createdTime</summary>
 			/// <param name="createdTime">DateTimeOffset?</param>
 			set
 			{
-				 this.createdTime=value;
+				 createdTime=value;
 
-				 this.keyModified["created_time"] = 1;
+				 keyModified["created_time"] = 1;
 
 			}
 		}
@@ -50,16 +50,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>DateTimeOffset? representing the modifiedTime</returns>
 			get
 			{
-				return  this.modifiedTime;
+				return  modifiedTime;
 
 			}
 			/// <summary>The method to set the value to modifiedTime</summary>
 			/// <param name="modifiedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.modifiedTime=value;
+				 modifiedTime=value;
 
-				 this.keyModified["modified_time"] = 1;
+				 keyModified["modified_time"] = 1;
 
 			}
 		}
@@ -70,16 +70,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -90,16 +90,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -110,16 +110,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.modifiedBy;
+				return  modifiedBy;
 
 			}
 			/// <summary>The method to set the value to modifiedBy</summary>
 			/// <param name="modifiedBy">Instance of User</param>
 			set
 			{
-				 this.modifiedBy=value;
+				 modifiedBy=value;
 
-				 this.keyModified["modified_by"] = 1;
+				 keyModified["modified_by"] = 1;
 
 			}
 		}
@@ -130,16 +130,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Profile></returns>
 			get
 			{
-				return  this.profiles;
+				return  profiles;
 
 			}
 			/// <summary>The method to set the value to profiles</summary>
 			/// <param name="profiles">Instance of List<Profile></param>
 			set
 			{
-				 this.profiles=value;
+				 profiles=value;
 
-				 this.keyModified["profiles"] = 1;
+				 keyModified["profiles"] = 1;
 
 			}
 		}
@@ -150,16 +150,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>bool? representing the active</returns>
 			get
 			{
-				return  this.active;
+				return  active;
 
 			}
 			/// <summary>The method to set the value to active</summary>
 			/// <param name="active">bool?</param>
 			set
 			{
-				 this.active=value;
+				 active=value;
 
-				 this.keyModified["active"] = 1;
+				 keyModified["active"] = 1;
 
 			}
 		}
@@ -170,16 +170,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of List<Container></returns>
 			get
 			{
-				return  this.containers;
+				return  containers;
 
 			}
 			/// <summary>The method to set the value to containers</summary>
 			/// <param name="containers">Instance of List<Container></param>
 			set
 			{
-				 this.containers=value;
+				 containers=value;
 
-				 this.keyModified["containers"] = 1;
+				 keyModified["containers"] = 1;
 
 			}
 		}
@@ -190,16 +190,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of User</returns>
 			get
 			{
-				return  this.createdBy;
+				return  createdBy;
 
 			}
 			/// <summary>The method to set the value to createdBy</summary>
 			/// <param name="createdBy">Instance of User</param>
 			set
 			{
-				 this.createdBy=value;
+				 createdBy=value;
 
-				 this.keyModified["created_by"] = 1;
+				 keyModified["created_by"] = 1;
 
 			}
 		}
@@ -210,16 +210,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>Instance of Wizard</returns>
 			get
 			{
-				return  this.parentWizard;
+				return  parentWizard;
 
 			}
 			/// <summary>The method to set the value to parentWizard</summary>
 			/// <param name="parentWizard">Instance of Wizard</param>
 			set
 			{
-				 this.parentWizard=value;
+				 parentWizard=value;
 
-				 this.keyModified["parent_wizard"] = 1;
+				 keyModified["parent_wizard"] = 1;
 
 			}
 		}
@@ -230,16 +230,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>bool? representing the draft</returns>
 			get
 			{
-				return  this.draft;
+				return  draft;
 
 			}
 			/// <summary>The method to set the value to draft</summary>
 			/// <param name="draft">bool?</param>
 			set
 			{
-				 this.draft=value;
+				 draft=value;
 
-				 this.keyModified["draft"] = 1;
+				 keyModified["draft"] = 1;
 
 			}
 		}
@@ -250,16 +250,16 @@ namespace Com.Zoho.Crm.API.Wizards
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -269,9 +269,9 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -284,7 +284,7 @@ namespace Com.Zoho.Crm.API.Wizards
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

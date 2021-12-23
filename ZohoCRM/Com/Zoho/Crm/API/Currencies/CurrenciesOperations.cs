@@ -9,9 +9,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetCurrencies()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
@@ -31,9 +31,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> AddCurrencies(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
@@ -59,9 +59,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateCurrencies(BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
@@ -87,9 +87,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<BaseCurrencyActionHandler></returns>
 		public APIResponse<BaseCurrencyActionHandler> EnableMultipleCurrencies(BaseCurrencyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/actions/enable");
 
@@ -115,9 +115,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<BaseCurrencyActionHandler></returns>
 		public APIResponse<BaseCurrencyActionHandler> UpdateBaseCurrency(BaseCurrencyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/actions/enable");
 
@@ -143,9 +143,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetCurrency(long? id)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/");
 
@@ -168,9 +168,9 @@ namespace Com.Zoho.Crm.API.Currencies
 		/// <returns>Instance of APIResponse<ActionHandler></returns>
 		public APIResponse<ActionHandler> UpdateCurrency(long? id, BodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/");
 

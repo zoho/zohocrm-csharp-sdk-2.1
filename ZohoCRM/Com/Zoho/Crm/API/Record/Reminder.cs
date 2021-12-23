@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class Reminder : Model
 	{
-		private string period;
-		private string unit;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string period;
+		string unit;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string Period
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the period</returns>
 			get
 			{
-				return  this.period;
+				return  period;
 
 			}
 			/// <summary>The method to set the value to period</summary>
 			/// <param name="period">string</param>
 			set
 			{
-				 this.period=value;
+				 period=value;
 
-				 this.keyModified["period"] = 1;
+				 keyModified["period"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the unit</returns>
 			get
 			{
-				return  this.unit;
+				return  unit;
 
 			}
 			/// <summary>The method to set the value to unit</summary>
 			/// <param name="unit">string</param>
 			set
 			{
-				 this.unit=value;
+				 unit=value;
 
-				 this.keyModified["unit"] = 1;
+				 keyModified["unit"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

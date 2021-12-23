@@ -6,8 +6,8 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class CountWrapper : Model, CountHandler
 	{
-		private long? count;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? count;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? Count
 		{
@@ -15,16 +15,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the count</returns>
 			get
 			{
-				return  this.count;
+				return  count;
 
 			}
 			/// <summary>The method to set the value to count</summary>
 			/// <param name="count">long?</param>
 			set
 			{
-				 this.count=value;
+				 count=value;
 
-				 this.keyModified["count"] = 1;
+				 keyModified["count"] = 1;
 
 			}
 		}
@@ -34,9 +34,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -49,7 +49,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

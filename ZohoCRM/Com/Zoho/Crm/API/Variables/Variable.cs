@@ -7,15 +7,15 @@ namespace Com.Zoho.Crm.API.Variables
 
 	public class Variable : Model
 	{
-		private string apiName;
-		private string name;
-		private string description;
-		private long? id;
-		private string source;
-		private string type;
-		private VariableGroup variableGroup;
-		private object value;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string apiName;
+		string name;
+		string description;
+		long? id;
+		string source;
+		string type;
+		VariableGroup variableGroup;
+		object value;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string APIName
 		{
@@ -23,16 +23,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>string representing the apiName</returns>
 			get
 			{
-				return  this.apiName;
+				return  apiName;
 
 			}
 			/// <summary>The method to set the value to aPIName</summary>
 			/// <param name="apiName">string</param>
 			set
 			{
-				 this.apiName=value;
+				 apiName=value;
 
-				 this.keyModified["api_name"] = 1;
+				 keyModified["api_name"] = 1;
 
 			}
 		}
@@ -43,16 +43,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -63,16 +63,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>string representing the description</returns>
 			get
 			{
-				return  this.description;
+				return  description;
 
 			}
 			/// <summary>The method to set the value to description</summary>
 			/// <param name="description">string</param>
 			set
 			{
-				 this.description=value;
+				 description=value;
 
-				 this.keyModified["description"] = 1;
+				 keyModified["description"] = 1;
 
 			}
 		}
@@ -83,16 +83,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -103,16 +103,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>string representing the source</returns>
 			get
 			{
-				return  this.source;
+				return  source;
 
 			}
 			/// <summary>The method to set the value to source</summary>
 			/// <param name="source">string</param>
 			set
 			{
-				 this.source=value;
+				 source=value;
 
-				 this.keyModified["source"] = 1;
+				 keyModified["source"] = 1;
 
 			}
 		}
@@ -123,16 +123,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>string representing the type</returns>
 			get
 			{
-				return  this.type;
+				return  type;
 
 			}
 			/// <summary>The method to set the value to type</summary>
 			/// <param name="type">string</param>
 			set
 			{
-				 this.type=value;
+				 type=value;
 
-				 this.keyModified["type"] = 1;
+				 keyModified["type"] = 1;
 
 			}
 		}
@@ -143,16 +143,16 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>Instance of VariableGroup</returns>
 			get
 			{
-				return  this.variableGroup;
+				return  variableGroup;
 
 			}
 			/// <summary>The method to set the value to variableGroup</summary>
 			/// <param name="variableGroup">Instance of VariableGroup</param>
 			set
 			{
-				 this.variableGroup=value;
+				 variableGroup=value;
 
-				 this.keyModified["variable_group"] = 1;
+				 keyModified["variable_group"] = 1;
 
 			}
 		}
@@ -163,7 +163,7 @@ namespace Com.Zoho.Crm.API.Variables
 			/// <returns>object representing the value</returns>
 			get
 			{
-				return  this.value;
+				return  value;
 
 			}
 			/// <summary>The method to set the value to value</summary>
@@ -172,7 +172,7 @@ namespace Com.Zoho.Crm.API.Variables
 			{
 				 this.value=value;
 
-				 this.keyModified["value"] = 1;
+				 keyModified["value"] = 1;
 
 			}
 		}
@@ -182,9 +182,9 @@ namespace Com.Zoho.Crm.API.Variables
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -197,7 +197,7 @@ namespace Com.Zoho.Crm.API.Variables
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

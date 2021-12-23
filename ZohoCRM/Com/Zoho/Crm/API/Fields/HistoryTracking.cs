@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class HistoryTracking : Model
 	{
-		private Module module;
-		private Field durationConfiguredField;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		Module module;
+		Field durationConfiguredField;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public Module Module
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of Module</returns>
 			get
 			{
-				return  this.module;
+				return  module;
 
 			}
 			/// <summary>The method to set the value to module</summary>
 			/// <param name="module">Instance of Module</param>
 			set
 			{
-				 this.module=value;
+				 module=value;
 
-				 this.keyModified["module"] = 1;
+				 keyModified["module"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of Field</returns>
 			get
 			{
-				return  this.durationConfiguredField;
+				return  durationConfiguredField;
 
 			}
 			/// <summary>The method to set the value to durationConfiguredField</summary>
 			/// <param name="durationConfiguredField">Instance of Field</param>
 			set
 			{
-				 this.durationConfiguredField=value;
+				 durationConfiguredField=value;
 
-				 this.keyModified["duration_configured_field"] = 1;
+				 keyModified["duration_configured_field"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

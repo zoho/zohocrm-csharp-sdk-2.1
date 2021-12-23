@@ -9,9 +9,9 @@ namespace Com.Zoho.Crm.API.Org
 		/// <returns>Instance of APIResponse<ResponseHandler></returns>
 		public APIResponse<ResponseHandler> GetOrganization()
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org");
 
@@ -31,9 +31,9 @@ namespace Com.Zoho.Crm.API.Org
 		/// <returns>Instance of APIResponse<ActionResponse></returns>
 		public APIResponse<ActionResponse> UploadOrganizationPhoto(FileBodyWrapper request)
 		{
-			CommonAPIHandler handlerInstance=new CommonAPIHandler();
+			var handlerInstance=new CommonAPIHandler();
 
-			string apiPath="";
+			var apiPath="";
 
 			apiPath=string.Concat(apiPath, "/crm/v2.1/org/photo");
 

@@ -7,11 +7,11 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class Comment : Model
 	{
-		private string commentedBy;
-		private DateTimeOffset? commentedTime;
-		private string commentContent;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		string commentedBy;
+		DateTimeOffset? commentedTime;
+		string commentContent;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public string CommentedBy
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the commentedBy</returns>
 			get
 			{
-				return  this.commentedBy;
+				return  commentedBy;
 
 			}
 			/// <summary>The method to set the value to commentedBy</summary>
 			/// <param name="commentedBy">string</param>
 			set
 			{
-				 this.commentedBy=value;
+				 commentedBy=value;
 
-				 this.keyModified["commented_by"] = 1;
+				 keyModified["commented_by"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>DateTimeOffset? representing the commentedTime</returns>
 			get
 			{
-				return  this.commentedTime;
+				return  commentedTime;
 
 			}
 			/// <summary>The method to set the value to commentedTime</summary>
 			/// <param name="commentedTime">DateTimeOffset?</param>
 			set
 			{
-				 this.commentedTime=value;
+				 commentedTime=value;
 
-				 this.keyModified["commented_time"] = 1;
+				 keyModified["commented_time"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the commentContent</returns>
 			get
 			{
-				return  this.commentContent;
+				return  commentContent;
 
 			}
 			/// <summary>The method to set the value to commentContent</summary>
 			/// <param name="commentContent">string</param>
 			set
 			{
-				 this.commentContent=value;
+				 commentContent=value;
 
-				 this.keyModified["comment_content"] = 1;
+				 keyModified["comment_content"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -98,9 +98,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -113,7 +113,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

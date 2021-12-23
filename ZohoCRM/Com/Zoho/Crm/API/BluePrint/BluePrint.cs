@@ -7,11 +7,11 @@ namespace Com.Zoho.Crm.API.BluePrint
 
 	public class BluePrint : Model
 	{
-		private long? transitionId;
-		private Record.Record data;
-		private ProcessInfo processInfo;
-		private List<Transition> transitions;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? transitionId;
+		Record.Record data;
+		ProcessInfo processInfo;
+		List<Transition> transitions;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? TransitionId
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>long? representing the transitionId</returns>
 			get
 			{
-				return  this.transitionId;
+				return  transitionId;
 
 			}
 			/// <summary>The method to set the value to transitionId</summary>
 			/// <param name="transitionId">long?</param>
 			set
 			{
-				 this.transitionId=value;
+				 transitionId=value;
 
-				 this.keyModified["transition_id"] = 1;
+				 keyModified["transition_id"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of Record</returns>
 			get
 			{
-				return  this.data;
+				return  data;
 
 			}
 			/// <summary>The method to set the value to data</summary>
 			/// <param name="data">Instance of Record</param>
 			set
 			{
-				 this.data=value;
+				 data=value;
 
-				 this.keyModified["data"] = 1;
+				 keyModified["data"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of ProcessInfo</returns>
 			get
 			{
-				return  this.processInfo;
+				return  processInfo;
 
 			}
 			/// <summary>The method to set the value to processInfo</summary>
 			/// <param name="processInfo">Instance of ProcessInfo</param>
 			set
 			{
-				 this.processInfo=value;
+				 processInfo=value;
 
-				 this.keyModified["process_info"] = 1;
+				 keyModified["process_info"] = 1;
 
 			}
 		}
@@ -79,16 +79,16 @@ namespace Com.Zoho.Crm.API.BluePrint
 			/// <returns>Instance of List<Transition></returns>
 			get
 			{
-				return  this.transitions;
+				return  transitions;
 
 			}
 			/// <summary>The method to set the value to transitions</summary>
 			/// <param name="transitions">Instance of List<Transition></param>
 			set
 			{
-				 this.transitions=value;
+				 transitions=value;
 
-				 this.keyModified["transitions"] = 1;
+				 keyModified["transitions"] = 1;
 
 			}
 		}
@@ -98,9 +98,9 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -113,7 +113,7 @@ namespace Com.Zoho.Crm.API.BluePrint
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

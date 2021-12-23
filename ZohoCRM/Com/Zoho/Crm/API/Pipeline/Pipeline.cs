@@ -6,16 +6,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 	public class Pipeline : Model
 	{
-		private long? from;
-		private long? to;
-		private Pipeline parent;
-		private bool? childAvailable;
-		private string displayValue;
-		private bool? default1;
-		private List<PickListValue> maps;
-		private string actualValue;
-		private long? id;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		long? from;
+		long? to;
+		Pipeline parent;
+		bool? childAvailable;
+		string displayValue;
+		bool? default1;
+		List<PickListValue> maps;
+		string actualValue;
+		long? id;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public long? From
 		{
@@ -23,16 +23,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>long? representing the from</returns>
 			get
 			{
-				return  this.from;
+				return  from;
 
 			}
 			/// <summary>The method to set the value to from</summary>
 			/// <param name="from">long?</param>
 			set
 			{
-				 this.from=value;
+				 from=value;
 
-				 this.keyModified["from"] = 1;
+				 keyModified["from"] = 1;
 
 			}
 		}
@@ -43,16 +43,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>long? representing the to</returns>
 			get
 			{
-				return  this.to;
+				return  to;
 
 			}
 			/// <summary>The method to set the value to to</summary>
 			/// <param name="to">long?</param>
 			set
 			{
-				 this.to=value;
+				 to=value;
 
-				 this.keyModified["to"] = 1;
+				 keyModified["to"] = 1;
 
 			}
 		}
@@ -63,16 +63,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>Instance of Pipeline</returns>
 			get
 			{
-				return  this.parent;
+				return  parent;
 
 			}
 			/// <summary>The method to set the value to parent</summary>
 			/// <param name="parent">Instance of Pipeline</param>
 			set
 			{
-				 this.parent=value;
+				 parent=value;
 
-				 this.keyModified["parent"] = 1;
+				 keyModified["parent"] = 1;
 
 			}
 		}
@@ -83,16 +83,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>bool? representing the childAvailable</returns>
 			get
 			{
-				return  this.childAvailable;
+				return  childAvailable;
 
 			}
 			/// <summary>The method to set the value to childAvailable</summary>
 			/// <param name="childAvailable">bool?</param>
 			set
 			{
-				 this.childAvailable=value;
+				 childAvailable=value;
 
-				 this.keyModified["child_available"] = 1;
+				 keyModified["child_available"] = 1;
 
 			}
 		}
@@ -103,16 +103,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>string representing the displayValue</returns>
 			get
 			{
-				return  this.displayValue;
+				return  displayValue;
 
 			}
 			/// <summary>The method to set the value to displayValue</summary>
 			/// <param name="displayValue">string</param>
 			set
 			{
-				 this.displayValue=value;
+				 displayValue=value;
 
-				 this.keyModified["display_value"] = 1;
+				 keyModified["display_value"] = 1;
 
 			}
 		}
@@ -123,16 +123,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>bool? representing the default1</returns>
 			get
 			{
-				return  this.default1;
+				return  default1;
 
 			}
 			/// <summary>The method to set the value to default</summary>
 			/// <param name="default1">bool?</param>
 			set
 			{
-				 this.default1=value;
+				 default1=value;
 
-				 this.keyModified["default"] = 1;
+				 keyModified["default"] = 1;
 
 			}
 		}
@@ -143,16 +143,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>Instance of List<PickListValue></returns>
 			get
 			{
-				return  this.maps;
+				return  maps;
 
 			}
 			/// <summary>The method to set the value to maps</summary>
 			/// <param name="maps">Instance of List<PickListValue></param>
 			set
 			{
-				 this.maps=value;
+				 maps=value;
 
-				 this.keyModified["maps"] = 1;
+				 keyModified["maps"] = 1;
 
 			}
 		}
@@ -163,16 +163,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>string representing the actualValue</returns>
 			get
 			{
-				return  this.actualValue;
+				return  actualValue;
 
 			}
 			/// <summary>The method to set the value to actualValue</summary>
 			/// <param name="actualValue">string</param>
 			set
 			{
-				 this.actualValue=value;
+				 actualValue=value;
 
-				 this.keyModified["actual_value"] = 1;
+				 keyModified["actual_value"] = 1;
 
 			}
 		}
@@ -183,16 +183,16 @@ namespace Com.Zoho.Crm.API.Pipeline
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -202,9 +202,9 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -217,7 +217,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

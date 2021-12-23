@@ -31,19 +31,19 @@ namespace Com.Zoho.API.Authenticator
     {
         public class Builder
         {
-            private string clientId;
+            string clientId;
 
-            private string clientSecret;
+            string clientSecret;
 
-            private string redirectURL;
+            string redirectURL;
 
-            private string refreshToken;
+            string refreshToken;
 
-            private string grantToken;
+            string grantToken;
 
-            private string accessToken;
+            string accessToken;
 
-            private string id;
+            string id;
 
             public Builder Id(string id)
             {
@@ -100,32 +100,32 @@ namespace Com.Zoho.API.Authenticator
 
             public OAuthToken Build()
             {
-                if (this.grantToken == null && this.refreshToken == null && this.id == null && this.accessToken == null)
+                if (grantToken == null && refreshToken == null && id == null && accessToken == null)
                 {
                     throw new SDKException(Constants.MANDATORY_VALUE_ERROR, Constants.MANDATORY_KEY_ERROR + "-" + JsonConvert.SerializeObject(Constants.OAUTH_MANDATORY_KEYS));
                 }
 
-                return new OAuthToken(this.clientId, this.clientSecret, this.grantToken, this.refreshToken, this.redirectURL, this.id, this.accessToken);
+                return new OAuthToken(clientId, clientSecret, grantToken, refreshToken, redirectURL, id, accessToken);
             }
         }
 
-        private string clientID;
+        string clientID;
 
-        private string clientSecret;
+        string clientSecret;
 
-        private string redirectURL;
+        string redirectURL;
 
-        private string grantToken;
+        string grantToken;
 
-        private string refreshToken;
+        string refreshToken;
 
-        private string accessToken;
+        string accessToken;
 
-        private string expiresIn;
+        string expiresIn;
 
-        private string userMail;
+        string userMail;
 
-        private string id;
+        string id;
 
         /// <summary>
         /// This is a getter method to get OAuth client id.
@@ -272,19 +272,19 @@ namespace Com.Zoho.API.Authenticator
             {
                 try
                 {
-                    Initializer initializer = Initializer.GetInitializer();
+                    var initializer = Initializer.GetInitializer();
 
-                    TokenStore store = initializer.Store;
+                    var store = initializer.Store;
 
-                    UserSignature user = initializer.User;
+                    var user = initializer.User;
 
                     OAuthToken oauthToken = null;
 
-                    if (this.accessToken == null)
+                    if (accessToken == null)
                     {
-                        if (this.id != null)
+                        if (id != null)
                         {
-                            oauthToken = (OAuthToken)store.GetTokenById(this.id, this);
+                            oauthToken = (OAuthToken)store.GetTokenById(id, this);
                         }
                         else
                         {
@@ -296,11 +296,11 @@ namespace Com.Zoho.API.Authenticator
                         oauthToken = this;
                     }
 
-                    string token = "";
+                    var token = "";
 
                     if (oauthToken == null)//first time
                     {
-                        token = this.refreshToken != null ? this.RefreshAccessToken(user, store).AccessToken : this.GenerateAccessToken(user, store).AccessToken;
+                        token = refreshToken != null ? RefreshAccessToken(user, store).AccessToken : GenerateAccessToken(user, store).AccessToken;
                     }
                     else if (oauthToken.ExpiresIn != null && GetExpiryLapseInMillis(oauthToken.ExpiresIn) < 5L)//access token will expire in next 5 seconds or less
                     {
@@ -323,21 +323,21 @@ namespace Com.Zoho.API.Authenticator
             }
         }
 
-        private string GetResponseFromServer(Dictionary<string, string> requestParams)
+        string GetResponseFromServer(Dictionary<string, string> requestParams)
         {
             try
             {
-                string USER_AGENT = Constants.USER_AGENT;
+                var USER_AGENT = Constants.USER_AGENT;
 
-                string url = Initializer.GetInitializer().Environment.GetAccountsUrl();
+                var url = Initializer.GetInitializer().Environment.GetAccountsUrl();
 
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                var request = (HttpWebRequest)WebRequest.Create(url);
 
                 string urlParameters = null;
 
                 if (requestParams != null && requestParams.Count != 0)
                 {
-                    foreach (KeyValuePair<string, string> param in requestParams)
+                    foreach (var param in requestParams)
                     {
                         if (urlParameters == null)
                         {
@@ -375,25 +375,23 @@ namespace Com.Zoho.API.Authenticator
             }
         }
 
-        private OAuthToken RefreshAccessToken(UserSignature user, TokenStore store)
+        OAuthToken RefreshAccessToken(UserSignature user, TokenStore store)
         {
             try
             {
-                Dictionary<string, string> requestParams = new Dictionary<string, string>();
+                var requestParams = new Dictionary<string, string>
+                {
+                    { Constants.CLIENT_ID, ClientId },
+                    { Constants.CLIENT_SECRET, ClientSecret },
+                    { Constants.GRANT_TYPE, Constants.REFRESH_TOKEN },
+                    { Constants.REFRESH_TOKEN, RefreshToken }
+                };
 
-                requestParams.Add(Constants.CLIENT_ID, ClientId);
-
-                requestParams.Add(Constants.CLIENT_SECRET, ClientSecret);
-
-                requestParams.Add(Constants.GRANT_TYPE, Constants.REFRESH_TOKEN);
-
-                requestParams.Add(Constants.REFRESH_TOKEN, RefreshToken);
-
-                string response = GetResponseFromServer(requestParams);
+                var response = GetResponseFromServer(requestParams);
 
                 ParseResponse(response);
 
-                if(string.IsNullOrEmpty(this.id) || string.IsNullOrWhiteSpace(this.id))
+                if(string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id))
                 {
                     GenerateId();
                 }
@@ -409,15 +407,15 @@ namespace Com.Zoho.API.Authenticator
         }
 
 
-        private OAuthToken GenerateAccessToken(UserSignature user,TokenStore store)
+        OAuthToken GenerateAccessToken(UserSignature user,TokenStore store)
         {
             try
             {
-                Dictionary<string, string> requestParams = new Dictionary<string, string>();
-
-                requestParams.Add(Constants.CLIENT_ID, ClientId);
-
-                requestParams.Add(Constants.CLIENT_SECRET, ClientSecret);
+                var requestParams = new Dictionary<string, string>
+                {
+                    { Constants.CLIENT_ID, ClientId },
+                    { Constants.CLIENT_SECRET, ClientSecret }
+                };
 
                 if (RedirectURL != null)
                 {
@@ -428,7 +426,7 @@ namespace Com.Zoho.API.Authenticator
 
                 requestParams.Add(Constants.CODE, GrantToken);
 
-                string response = GetResponseFromServer(requestParams);
+                var response = GetResponseFromServer(requestParams);
 
                 ParseResponse(response);
                 
@@ -444,9 +442,9 @@ namespace Com.Zoho.API.Authenticator
             return this;
         }
 
-        private OAuthToken ParseResponse(string response)
+        OAuthToken ParseResponse(string response)
         {
-            JObject responseJSON = JObject.Parse(response);
+            var responseJSON = JObject.Parse(response);
 
             if (!responseJSON.ContainsKey(Constants.ACCESS_TOKEN))
             {
@@ -465,16 +463,16 @@ namespace Com.Zoho.API.Authenticator
             return this;
         }
 
-        private long GetTokenExpiresIn(JObject response)
+        long GetTokenExpiresIn(JObject response)
         {
-            long expiresInTime = response.ContainsKey(Constants.EXPIRES_IN_SEC) ? Convert.ToInt64(response[Constants.EXPIRES_IN]) : Convert.ToInt64(response[Constants.EXPIRES_IN]) * 1000;
+            var expiresInTime = response.ContainsKey(Constants.EXPIRES_IN_SEC) ? Convert.ToInt64(response[Constants.EXPIRES_IN]) : Convert.ToInt64(response[Constants.EXPIRES_IN]) * 1000;
 
             return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() + expiresInTime - 600000;
         }
 
         public long GetExpiryLapseInMillis(string ExpiryTime)
         {
-            long time = Convert.ToInt64(ExpiryTime) - (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
+            var time = Convert.ToInt64(ExpiryTime) - (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds;
 
             return time;
         }
@@ -505,7 +503,7 @@ namespace Com.Zoho.API.Authenticator
         /// <param name="token">A string containing the REFRESH/GRANT token.</param>
         /// <param name="type">A enum containing the given token type.</param>
         /// <param name="redirectURL">A string containing the OAuth redirect URL.</param>
-        private OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id, string accessToken)
+        OAuthToken(string clientID, string clientSecret, string grantToken, string refreshToken, string redirectURL, string id, string accessToken)
         {
             this.clientID = clientID;
 
@@ -522,19 +520,19 @@ namespace Com.Zoho.API.Authenticator
             this.id = id;
         }
 
-        private void GenerateId()
+        void GenerateId()
         {
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
 
-            string email = Initializer.GetInitializer().User.Email;
+            var email = Initializer.GetInitializer().User.Email;
 
             builder.Append(Constants.CSHARP).Append(email.Substring(0, email.IndexOf("@"))).Append("_");
 
             builder.Append(Initializer.GetInitializer().Environment.GetName()).Append("_");
 
-            builder.Append(this.refreshToken.Substring(this.refreshToken.Length - 4));
+            builder.Append(refreshToken.Substring(refreshToken.Length - 4));
 
-            this.id = builder.ToString();
+            id = builder.ToString();
         }
     }
 }

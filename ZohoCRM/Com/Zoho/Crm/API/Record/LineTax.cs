@@ -6,12 +6,12 @@ namespace Com.Zoho.Crm.API.Record
 
 	public class LineTax : Model
 	{
-		private double? percentage;
-		private string name;
-		private long? id;
-		private double? value;
-		private string displayName;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		double? percentage;
+		string name;
+		long? id;
+		double? value;
+		string displayName;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public double? Percentage
 		{
@@ -19,16 +19,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>double? representing the percentage</returns>
 			get
 			{
-				return  this.percentage;
+				return  percentage;
 
 			}
 			/// <summary>The method to set the value to percentage</summary>
 			/// <param name="percentage">double?</param>
 			set
 			{
-				 this.percentage=value;
+				 percentage=value;
 
-				 this.keyModified["percentage"] = 1;
+				 keyModified["percentage"] = 1;
 
 			}
 		}
@@ -39,16 +39,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the name</returns>
 			get
 			{
-				return  this.name;
+				return  name;
 
 			}
 			/// <summary>The method to set the value to name</summary>
 			/// <param name="name">string</param>
 			set
 			{
-				 this.name=value;
+				 name=value;
 
-				 this.keyModified["name"] = 1;
+				 keyModified["name"] = 1;
 
 			}
 		}
@@ -59,16 +59,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>long? representing the id</returns>
 			get
 			{
-				return  this.id;
+				return  id;
 
 			}
 			/// <summary>The method to set the value to id</summary>
 			/// <param name="id">long?</param>
 			set
 			{
-				 this.id=value;
+				 id=value;
 
-				 this.keyModified["id"] = 1;
+				 keyModified["id"] = 1;
 
 			}
 		}
@@ -79,7 +79,7 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>double? representing the value</returns>
 			get
 			{
-				return  this.value;
+				return  value;
 
 			}
 			/// <summary>The method to set the value to value</summary>
@@ -88,7 +88,7 @@ namespace Com.Zoho.Crm.API.Record
 			{
 				 this.value=value;
 
-				 this.keyModified["value"] = 1;
+				 keyModified["value"] = 1;
 
 			}
 		}
@@ -99,16 +99,16 @@ namespace Com.Zoho.Crm.API.Record
 			/// <returns>string representing the displayName</returns>
 			get
 			{
-				return  this.displayName;
+				return  displayName;
 
 			}
 			/// <summary>The method to set the value to displayName</summary>
 			/// <param name="displayName">string</param>
 			set
 			{
-				 this.displayName=value;
+				 displayName=value;
 
-				 this.keyModified["display_name"] = 1;
+				 keyModified["display_name"] = 1;
 
 			}
 		}
@@ -118,9 +118,9 @@ namespace Com.Zoho.Crm.API.Record
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.Record
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}

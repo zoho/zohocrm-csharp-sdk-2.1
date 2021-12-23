@@ -6,9 +6,9 @@ namespace Com.Zoho.Crm.API.Fields
 
 	public class AssociationDetails : Model
 	{
-		private LookupField lookupField;
-		private LookupField relatedField;
-		private Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
+		LookupField lookupField;
+		LookupField relatedField;
+		Dictionary<string, int?> keyModified=new Dictionary<string, int?>();
 
 		public LookupField LookupField
 		{
@@ -16,16 +16,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of LookupField</returns>
 			get
 			{
-				return  this.lookupField;
+				return  lookupField;
 
 			}
 			/// <summary>The method to set the value to lookupField</summary>
 			/// <param name="lookupField">Instance of LookupField</param>
 			set
 			{
-				 this.lookupField=value;
+				 lookupField=value;
 
-				 this.keyModified["lookup_field"] = 1;
+				 keyModified["lookup_field"] = 1;
 
 			}
 		}
@@ -36,16 +36,16 @@ namespace Com.Zoho.Crm.API.Fields
 			/// <returns>Instance of LookupField</returns>
 			get
 			{
-				return  this.relatedField;
+				return  relatedField;
 
 			}
 			/// <summary>The method to set the value to relatedField</summary>
 			/// <param name="relatedField">Instance of LookupField</param>
 			set
 			{
-				 this.relatedField=value;
+				 relatedField=value;
 
-				 this.keyModified["related_field"] = 1;
+				 keyModified["related_field"] = 1;
 
 			}
 		}
@@ -55,9 +55,9 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <returns>int? representing the modification</returns>
 		public int? IsKeyModified(string key)
 		{
-			if((( this.keyModified.ContainsKey(key))))
+			if((( keyModified.ContainsKey(key))))
 			{
-				return  this.keyModified[key];
+				return  keyModified[key];
 
 			}
 			return null;
@@ -70,7 +70,7 @@ namespace Com.Zoho.Crm.API.Fields
 		/// <param name="modification">int?</param>
 		public void SetKeyModified(string key, int? modification)
 		{
-			 this.keyModified[key] = modification;
+			 keyModified[key] = modification;
 
 
 		}
