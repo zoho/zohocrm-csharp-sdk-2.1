@@ -445,7 +445,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string PRE_CONVERT = "PreConvert";
 
-        public static readonly string JSON_DETAILS_FILE_PATH = "Resources.JSONDetails.json";
+        public static readonly string JSON_DETAILS_FILE_PATH = "Resources\\JSONDetails.json";
 
         public static readonly string EMAIL_REGEX = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 

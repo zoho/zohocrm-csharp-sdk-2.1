@@ -228,15 +228,17 @@ namespace Com.Zoho.Crm.API
 
                 try
                 {
-                    string result = "";
-
-                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(Constants.JSON_DETAILS_FILE_PATH))
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            result = reader.ReadToEnd();
-                        }
-                    }
+                    // string result = "";
+                    //
+                    // using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(Constants.JSON_DETAILS_FILE_PATH))
+                    // {
+                    //     using (StreamReader reader = new StreamReader(stream))
+                    //     {
+                    //         result = reader.ReadToEnd();
+                    //     }
+                    // }
+                    
+                    var result = System.IO.File.ReadAllText(Constants.JSON_DETAILS_FILE_PATH);
 
                     jsonDetails = JObject.Parse(result);
                 }
