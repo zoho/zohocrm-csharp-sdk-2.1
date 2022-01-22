@@ -5,6 +5,7 @@
     <OutputType>Library</OutputType>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Zoho CRM API Team</Authors>
+    <AssemblyName>ZOHOCRMSDK-2.1</AssemblyName>
     <Owners>Zoho CRM API Team</Owners>
     <Description>Provides C# SDK support for Zoho CRM APIs.</Description>
     <PackageProjectUrl>https://github.com/zoho/zohocrm-csharp-sdk-2.1</PackageProjectUrl>
