@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    
+    <OutputType>Library</OutputType>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Zoho CRM API Team</Authors>
+    <Owners>Zoho CRM API Team</Owners>
+    <Description>Provides C# SDK support for Zoho CRM APIs.</Description>
+    <PackageProjectUrl>https://github.com/zoho/zohocrm-csharp-sdk-2.1</PackageProjectUrl>
+    <Summary>C# SDK offers a way to create client C# applications that can be integrated with Zoho CRM. This SDK makes the access and use of necessary CRM APIs with ease.</Summary>
+    <PackageTags>ZOHOCRMSDK-2.1,zohocrm,sdk,zcrmsdk,zoho</PackageTags>
+    <Title>ZOHOCRMSDK-2.1</Title>
+    
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\JSONDetails.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Com\Zoho\API\Authenticator\Store\DBStore.cs" />
+  </ItemGroup>
+</Project>

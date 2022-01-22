@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZohoCRM.SDK.2.1.Extender.Usage", "ZohoCRM.SDK.2.1.Extender.Usage\ZohoCRM.SDK.2.1.Extender.Usage.csproj", "{A4CB24E0-D508-400B-846E-47DBCCB31E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZohoCRM.SDK.2.1.Extender", "ZohoCRM.SDK.2.1.Extender\ZohoCRM.SDK.2.1.Extender.csproj", "{6AA443ED-C1BE-426B-980E-9D8C1AE3FD3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZOHOCRMSDK-2.1", "ZohoCRM\ZOHOCRMSDK-2.1.netstandard2.0.csproj", "{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4CB24E0-D508-400B-846E-47DBCCB31E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4CB24E0-D508-400B-846E-47DBCCB31E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4CB24E0-D508-400B-846E-47DBCCB31E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4CB24E0-D508-400B-846E-47DBCCB31E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AA443ED-C1BE-426B-980E-9D8C1AE3FD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA443ED-C1BE-426B-980E-9D8C1AE3FD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA443ED-C1BE-426B-980E-9D8C1AE3FD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA443ED-C1BE-426B-980E-9D8C1AE3FD3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>ZohoCRM.SDK._2._1.Extender.Usage</RootNamespace>
+        <OutputType>Exe</OutputType>
+        <LangVersion>10</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ZohoCRM.SDK.2.1.Extender\ZohoCRM.SDK.2.1.Extender.csproj" />
+    </ItemGroup>
+
+</Project>
