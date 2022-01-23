@@ -2,9 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+<!--        <ImplicitUsings>enable</ImplicitUsings>-->
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
+        <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+        <RootNamespace>ZohoCRM.SDK_2_1.Extender</RootNamespace>
+
     </PropertyGroup>
 
     <ItemGroup>

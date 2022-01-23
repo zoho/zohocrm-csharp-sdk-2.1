@@ -1,11 +1,11 @@
-﻿using System.Xml;
+﻿using System.IO;
 using Com.Zoho.API.Authenticator;
 using Com.Zoho.API.Authenticator.Store;
 using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Dc;
 using Com.Zoho.Crm.API.Logger;
 
-namespace ZohoCRM.SDK._2._1.Tester.Console;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
 public static class Initialize
 {
