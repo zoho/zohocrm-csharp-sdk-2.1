@@ -11,7 +11,7 @@ public static class Initialize
 {
     public static bool IsInitialized { get; private set; }
 
-    public static void SdkInitialize(string grantToken, string clientId, string clientSecret)
+    public static void SdkInitialize(string clientId, string clientSecret, string grantToken)
     {
         if (IsInitialized) return;
         /*
