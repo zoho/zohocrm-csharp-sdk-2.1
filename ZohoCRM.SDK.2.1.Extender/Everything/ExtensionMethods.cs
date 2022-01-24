@@ -8,6 +8,9 @@ namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
 public static class ExtensionMethods
 {
+    static ILogger? _logger;
+    public static void SetLogger(ILogger? logger) => _logger = logger;
+
     public static TInput UseThenReturnSelf<TInput>(this TInput o, Action<TInput> action)
     {
         action?.Invoke(o);
@@ -31,7 +34,10 @@ public static class ExtensionMethods
             ? timeSpan.ToString(@"hh\:mm\:ss")
             : item?.ToString();
 
-        System.Console.WriteLine($"{display}");
+        if (_logger != null) _logger.Log(item?.ToString());
+        else
+            Console.WriteLine($"{display} - {item}");
+
         return item;
     }
 

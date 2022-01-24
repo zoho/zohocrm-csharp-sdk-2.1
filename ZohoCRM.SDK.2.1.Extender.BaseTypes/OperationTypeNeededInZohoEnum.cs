@@ -7,3 +7,8 @@ public enum OperationTypeNeededInZohoEnum
     LeaveUnchanged = 2,
     IgnoreDueToError = 3
 }
+
+public interface ILogger
+{
+    public void Log(string? message, params string?[] args);
+}
