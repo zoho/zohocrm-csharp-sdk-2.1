@@ -6,9 +6,9 @@ namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
 public static class ZohoItemBaseWithId
 {
-    public static ZohoItemBaseWithId<T> ForCreating<T>(this T item) where T : ZohoItemBase => new(Maybe<long>.None, item);
+    // public static ZohoItemBaseWithId<T> ForCreating<T>(this T item) where T : ZohoItemBase => new(Maybe<long>.None, item);
     public static ZohoItemBaseWithId<T> ForTransferring<T>(this T item) where T : ZohoItemBase => new(item.ZohoId, item);
-    public static ZohoItemBaseWithId<T> ForUpdating<T>(this T item, long zohoId) where T : ZohoItemBase => new(zohoId, item);
+    // public static ZohoItemBaseWithId<T> ForUpdating<T>(this T item, long zohoId) where T : ZohoItemBase => new(zohoId, item);
 }
 
 public class ZohoItemBaseWithId<T> where T : ZohoItemBase
@@ -28,9 +28,9 @@ public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 
     public OperationTypeNeededInZohoEnum OperationTypeNeededInZoho => ZohoId
         .HasNoValue
-        .UseThenReturnSelf(z =>
+        .UseThenReturnSelf(hasNoValue =>
         {
-            if (Item.OperationTypeNeededInZoho != OperationTypeNeededInZohoEnum.Create)
+            if (hasNoValue && Item.OperationTypeNeededInZoho != OperationTypeNeededInZohoEnum.Create)
                 throw new InvalidOperationException("You must specify OperationTypeNeededInZohoEnum.Create for when ZohoId is missing");
         })
         ? OperationTypeNeededInZohoEnum.Create
