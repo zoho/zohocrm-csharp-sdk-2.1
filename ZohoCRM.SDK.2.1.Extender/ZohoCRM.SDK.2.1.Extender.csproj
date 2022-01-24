@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\ZohoCRM.SDK.2.1.Extender.BaseTypes\ZohoCRM.SDK.2.1.Extender.BaseTypes.csproj" />
+      <ProjectReference Include="..\ZohoCRM.SDK.2.1.Extender.BaseTypes\ZohoCRM.SDK.2.1.Extender.BaseTypes.csproj" />
       <ProjectReference Include="..\ZohoCRM\ZOHOCRMSDK-2.1.netstandard2.0.csproj" />
     </ItemGroup>
 
