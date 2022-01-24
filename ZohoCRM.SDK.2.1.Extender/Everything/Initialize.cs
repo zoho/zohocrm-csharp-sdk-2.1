@@ -5,7 +5,7 @@ using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Dc;
 using Com.Zoho.Crm.API.Logger;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
 
 public static class Initialize
 {

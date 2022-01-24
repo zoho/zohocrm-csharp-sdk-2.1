@@ -1,7 +1,7 @@
 ﻿using Com.Zoho.Crm.API.Record;
 using Com.Zoho.Crm.API.Util;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
 
 // public class  Record : Record
 // {

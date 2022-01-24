@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using CSharpFunctionalExtensions;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
 
 public static class ExtensionMethods
 {

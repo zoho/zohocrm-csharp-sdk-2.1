@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZohoCRM.SDK.2.1.Extender", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZOHOCRMSDK-2.1", "ZohoCRM\ZOHOCRMSDK-2.1.netstandard2.0.csproj", "{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZohoCRM.SDK.2.1.Extender.BaseTypes", "ZohoCRM.SDK.2.1.Extender.BaseTypes\ZohoCRM.SDK.2.1.Extender.BaseTypes.csproj", "{2D2D1FE1-2F2A-4E99-9F64-9378A399DB5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D28CEE9-297B-4EBE-8D5C-EAD574829DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2D1FE1-2F2A-4E99-9F64-9378A399DB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2D1FE1-2F2A-4E99-9F64-9378A399DB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2D1FE1-2F2A-4E99-9F64-9378A399DB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2D1FE1-2F2A-4E99-9F64-9378A399DB5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

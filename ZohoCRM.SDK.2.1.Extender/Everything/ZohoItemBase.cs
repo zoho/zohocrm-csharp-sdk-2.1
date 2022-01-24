@@ -2,7 +2,7 @@
 using Com.Zoho.Crm.API.Record;
 using CSharpFunctionalExtensions;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
 
 public static class ZohoItemBaseWithId
 {
@@ -28,22 +28,25 @@ public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 
     public OperationTypeNeededInZohoEnum OperationTypeNeededInZoho => ZohoId
         .HasNoValue
+        // ReSharper disable once ParameterOnlyUsedForPreconditionCheck.Local
         .UseThenReturnSelf(hasNoValue =>
         {
             if (hasNoValue && Item.OperationTypeNeededInZoho != OperationTypeNeededInZohoEnum.Create)
                 throw new InvalidOperationException("You must specify OperationTypeNeededInZohoEnum.Create for when ZohoId is missing");
         })
         ? OperationTypeNeededInZohoEnum.Create
-        : Item.OperationTypeNeededInZoho;
+        : Item.OperationTypeNeededInZoho == OperationTypeNeededInZohoEnum.Create // ZohoItemBase doesn't YET know that the record has already been updated
+            ? OperationTypeNeededInZohoEnum.Update
+            : Item.OperationTypeNeededInZoho;
 
     readonly Maybe<long> _zohoId;
 
     public Maybe<long> ZohoId => Item.ZohoId.HasValue ? Item.ZohoId.Value : _zohoId;
     public T Item { get; }
 
-    public ZohoItemBaseWithId<T> SetZohoId(long zohoId) => new ZohoItemBaseWithId<T>(zohoId, Item);
-    public ZohoItemBaseWithId<T> UpdateItem(T item) => new ZohoItemBaseWithId<T>(_zohoId, item);
-    public ZohoItemBaseWithId<T> UpdateItem(Func<T, T> itemFunc) => new ZohoItemBaseWithId<T>(_zohoId, itemFunc(Item));
+    public ZohoItemBaseWithId<T> SetZohoId(long zohoId) => new(zohoId, Item);
+    public ZohoItemBaseWithId<T> UpdateItem(T item) => new(_zohoId, item);
+    public ZohoItemBaseWithId<T> UpdateItem(Func<T, T> itemFunc) => new(_zohoId, itemFunc(Item));
 
     Record ZohoRecordInternal()
     {
