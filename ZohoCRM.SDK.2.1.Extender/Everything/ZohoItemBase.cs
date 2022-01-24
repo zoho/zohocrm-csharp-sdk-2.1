@@ -21,23 +21,29 @@ public class ZohoItemBaseWithId<T> where T : ZohoItemBase
         if (_zohoId.HasValue && item.ZohoId.HasValue && _zohoId.Value != item.ZohoId.Value)
             throw new InvalidOperationException($"Existing and New ZohoId's can't be different: Existing [{item.ZohoId}], New [{zohoId.Value}]");
     }
-    
-    public ZohoItemBaseWithId(T item):this(Maybe.None, item)
+
+    public ZohoItemBaseWithId(T item) : this(Maybe.None, item)
     {
     }
 
-    public OperationTypeNeededInZohoEnum OperationTypeNeededInZoho => _zohoId.HasValue
-        ? OperationTypeNeededInZohoEnum.Update
-        : OperationTypeNeededInZohoEnum.Create;
+    public OperationTypeNeededInZohoEnum OperationTypeNeededInZoho => ZohoId
+        .HasNoValue
+        .UseThenReturnSelf(z =>
+        {
+            if (Item.OperationTypeNeededInZoho != OperationTypeNeededInZohoEnum.Create)
+                throw new InvalidOperationException("You must specify OperationTypeNeededInZohoEnum.Create for when ZohoId is missing");
+        })
+        ? OperationTypeNeededInZohoEnum.Create
+        : Item.OperationTypeNeededInZoho;
 
     readonly Maybe<long> _zohoId;
-    
+
     public Maybe<long> ZohoId => Item.ZohoId.HasValue ? Item.ZohoId.Value : _zohoId;
     public T Item { get; }
 
     public ZohoItemBaseWithId<T> SetZohoId(long zohoId) => new ZohoItemBaseWithId<T>(zohoId, Item);
     public ZohoItemBaseWithId<T> UpdateItem(T item) => new ZohoItemBaseWithId<T>(_zohoId, item);
-    public ZohoItemBaseWithId<T> UpdateItem(Func<T,T> itemFunc) => new ZohoItemBaseWithId<T>(_zohoId, itemFunc(Item));
+    public ZohoItemBaseWithId<T> UpdateItem(Func<T, T> itemFunc) => new ZohoItemBaseWithId<T>(_zohoId, itemFunc(Item));
 
     Record ZohoRecordInternal()
     {
@@ -53,6 +59,7 @@ public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 
 public abstract class ZohoItemBase
 {
+    public abstract OperationTypeNeededInZohoEnum OperationTypeNeededInZoho { get; }
     public abstract Maybe<long> ZohoId { get; }
     public abstract ZohoModules ZohoModule { get; }
 

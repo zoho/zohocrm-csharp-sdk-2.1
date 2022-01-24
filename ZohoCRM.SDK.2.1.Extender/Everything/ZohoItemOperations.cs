@@ -230,10 +230,3 @@ public static class ZohoItemOperations
     }
 }
 
-public enum OperationTypeNeededInZohoEnum
-{
-    Create,
-    Update,
-    LeaveUnchanged,
-    IgnoreDueToError
-}

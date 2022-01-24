@@ -31,3 +31,4 @@ _ReSharper*/
 #Nuget packages folder
 packages/
 .idea/
+/ZohoCRM.SDK.2.1.Extender/ZohoCRM.SDK.2.1.Extender.csproj.DotSettings
