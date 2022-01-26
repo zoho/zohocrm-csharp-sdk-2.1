@@ -4,14 +4,65 @@ using Com.Zoho.API.Authenticator.Store;
 using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Dc;
 using Com.Zoho.Crm.API.Logger;
+using CSharpFunctionalExtensions;
 
 namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+
+public class ClientId : SimpleValueObject<string>
+{
+    public ClientId(string value) : base(value)
+    {
+    }
+}
+
+public class ClientSecret : SimpleValueObject<string>
+{
+    public ClientSecret(string value) : base(value)
+    {
+    }
+}
+
+public class GrantToken : SimpleValueObject<string>
+{
+    public GrantToken(string value) : base(value)
+    {
+    }
+}
+
+public class SdkLogFileName : SimpleValueObject<string>
+{
+    public SdkLogFileName(string value) : base(value)
+    {
+    }
+}
+
+public class UserEmail : SimpleValueObject<string>
+{
+    public UserEmail(string value) : base(value)
+    {
+    }
+}
+
+public class ResourcesDirectory : SimpleValueObject<string>
+{
+    public ResourcesDirectory(string value) : base(value)
+    {
+    }
+}
+
+public class TokenStorePath : SimpleValueObject<string>
+{
+    public TokenStorePath(string value) : base(value)
+    {
+    }
+}
 
 public static class Initialize
 {
     public static bool IsInitialized { get; private set; }
 
-    public static void SdkInitialize(string clientId, string clientSecret, string grantToken, string sdkLogFileName, string userEmail, string resourceDirectoryName, string tokenStorePath)
+    public static void SdkInitialize(ClientId clientId, ClientSecret clientSecret, GrantToken grantToken, SdkLogFileName sdkLogFileName, UserEmail userEmail, ResourcesDirectory resourceDirectoryName,
+        TokenStorePath tokenStorePath)
     {
         if (IsInitialized) return;
         /*

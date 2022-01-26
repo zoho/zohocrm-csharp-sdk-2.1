@@ -6,13 +6,13 @@ using ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
 using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
 
 Initialize.SdkInitialize(
-    "1000.VAG312OFJIAV50WN9MQG3ESTSJPC7L",
-    "91afdc65d0a7f360479f5433f419cdacaa621e6dbc",
-    "1000.ba0a37f385079258466fd5b130981f41.c2852432466bb8f650e291462398e02a",
-    "sdk.log",
-    "randomemail@gmail.com",
-    "Resources",
-    "tokenstore.path"
+    new ClientId("1000.VAG312OFJIAV50WN9MQG3ESTSJPC7L"),
+    new ClientSecret("91afdc65d0a7f360479f5433f419cdacaa621e6dbc"),
+    new GrantToken("1000.ba0a37f385079258466fd5b130981f41.c2852432466bb8f650e291462398e02a"),
+    new SdkLogFileName("sdk.log"),
+    new UserEmail("eurocreditcrm@gmail.com"),
+    new ResourcesDirectory("Resources"),
+    new TokenStorePath("tokenstore.path")
 );
 
 // var deleteResult = ZohoModules.Deals.DeleteAll();
