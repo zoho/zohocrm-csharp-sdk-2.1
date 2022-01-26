@@ -1,7 +1,9 @@
-﻿using Com.Zoho.Crm.API.Record;
+﻿using System.Collections.Generic;
+using Com.Zoho.Crm.API.Record;
 using Com.Zoho.Crm.API.Util;
+using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
 
 // public class  Record : Record
 // {
@@ -39,6 +41,12 @@ public static class RecordExtensions
     public static Record AddRecordValue<T>(this Record record, string fieldName, ZohoItemBaseWithId<T>? zohoItem) where T : ZohoItemBase
     {
         record.AddFieldValue(new Field<Record?>(fieldName), zohoItem?.ZohoRecord);
+        return record;
+    }
+    
+    public static Record AddRecordValueByKeyValues<T>(this Record record, string fieldName, ZohoItemBaseWithId<T>? zohoItem) where T : ZohoItemBase
+    {
+        record.AddFieldValue(new Field<Dictionary<string, object>?>(fieldName), zohoItem?.ZohoRecord.GetKeyValues());
         return record;
     }
 

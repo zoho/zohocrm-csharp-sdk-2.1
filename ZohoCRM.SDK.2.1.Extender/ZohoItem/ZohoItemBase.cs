@@ -1,15 +1,9 @@
 ﻿using System;
 using Com.Zoho.Crm.API.Record;
 using CSharpFunctionalExtensions;
+using ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
-
-public static class ZohoItemBaseWithId
-{
-    // public static ZohoItemBaseWithId<T> ForCreating<T>(this T item) where T : ZohoItemBase => new(Maybe<long>.None, item);
-    public static ZohoItemBaseWithId<T> ForTransferring<T>(this T item) where T : ZohoItemBase => new(item.ZohoId, item);
-    // public static ZohoItemBaseWithId<T> ForUpdating<T>(this T item, long zohoId) where T : ZohoItemBase => new(zohoId, item);
-}
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
 
 public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 {
@@ -62,7 +56,11 @@ public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 
 public abstract class ZohoItemBase
 {
-    public abstract OperationTypeNeededInZohoEnum OperationTypeNeededInZoho { get; }
+    public OperationTypeNeededInZohoEnum OperationTypeNeededInZoho => ZohoId
+        .HasNoValue
+        ? OperationTypeNeededInZohoEnum.Create
+        : OperationTypeNeededInZohoEnum.Update;
+
     public abstract Maybe<long> ZohoId { get; }
     public abstract ZohoModules ZohoModule { get; }
 

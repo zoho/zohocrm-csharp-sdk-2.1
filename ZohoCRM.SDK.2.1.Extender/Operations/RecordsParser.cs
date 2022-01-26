@@ -6,7 +6,7 @@ using Com.Zoho.Crm.API.Record;
 using Com.Zoho.Crm.API.Util;
 using CSharpFunctionalExtensions;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
 
 public static class RecordsParser
 {
@@ -67,7 +67,7 @@ public static class RecordsParser
         {
             //Get the KeyValue map
             KeyValues = record.GetKeyValues().Select(k => (k.Key, k.Value)).ToList().AsReadOnly()!;
-            NonEmptyKeyValues = KeyValues.Where(k => k.Value != null).ToList().AsReadOnly();
+            NonEmptyKeyValues = KeyValues.OrderBy(kv => kv.Key).Where(k => k.Value != null).ToList().AsReadOnly();
             Record = record;
         }
 
