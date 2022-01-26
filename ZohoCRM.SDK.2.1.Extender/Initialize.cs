@@ -5,13 +5,13 @@ using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Dc;
 using Com.Zoho.Crm.API.Logger;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Everything;
+namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
 public static class Initialize
 {
     public static bool IsInitialized { get; private set; }
 
-    public static void SdkInitialize(string clientId, string clientSecret, string grantToken)
+    public static void SdkInitialize(string clientId, string clientSecret, string grantToken, string sdkLogFileName, string userEmail, string resourceDirectoryName, string tokenStorePath)
     {
         if (IsInitialized) return;
         /*
@@ -21,11 +21,11 @@ public static class Initialize
     */
         var logger = new Logger.Builder()
             .Level(Logger.Levels.ALL)
-            .FilePath("/Users/user_name/Documents/csharp_sdk_log.log")
+            .FilePath(sdkLogFileName)
             .Build();
 
         //Create an UserSignature instance that takes user Email as parameter
-        var user = new UserSignature("eurocreditcrm@gmail.com");
+        var user = new UserSignature(userEmail);
 
         /*
     * Configure the environment
@@ -67,7 +67,7 @@ public static class Initialize
     */
         //TokenStore tokenstore = new DBStore.Builder().Build();
 
-        TokenStore tokenstore = new FileStore("tokenstore.path");
+        TokenStore tokenstore = new FileStore(tokenStorePath); //"tokenstore.path");
         // DBStore.Builder()
         // .Host("hostName")
         // .DatabaseName("dataBaseName")
@@ -94,10 +94,10 @@ public static class Initialize
             .Timeout(10)
             .Build();
 
-        var resourcePath = "csharpsdk-application";
+        // var resourcePath = "csharpsdk-application";
 
         // if (!Directory.Exists(resourcePath))
-        Directory.CreateDirectory(resourcePath);
+        Directory.CreateDirectory(resourceDirectoryName);
 
         // /**
         // * Create an instance of RequestProxy class that takes the following parameters
@@ -134,7 +134,7 @@ public static class Initialize
             .Token(token)
             .Store(tokenstore)
             .SDKConfig(config)
-            .ResourcePath(resourcePath)
+            .ResourcePath(resourceDirectoryName)
             .Logger(logger)
             // .RequestProxy(requestProxy)
             .Initialize();
