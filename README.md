@@ -74,7 +74,7 @@ You can include the SDK to your project using:
     - Package Manager
 
         ```sh
-        Install-Package ZOHOCRMSDK-2.1 -Version 1.0.0
+        Install-Package ZOHOCRMSDK-2.1 -Version 2.0.0
         Install-Package MySql.Data -Version 6.9.12
         Install-Package Newtonsoft.Json -Version 11.0.1
         ```
@@ -82,7 +82,7 @@ You can include the SDK to your project using:
     - .NET  CLI
 
         ```sh
-        dotnet add package ZOHOCRMSDK-2.1 --version 1.0.0
+        dotnet add package ZOHOCRMSDK-2.1 --version 2.0.0
         dotnet add package Newtonsoft.Json --version 11.0.1
         dotnet add package MySql.Data --version 6.9.12
         ```
@@ -93,7 +93,7 @@ You can include the SDK to your project using:
 
         ```sh
         <ItemGroup>
-            <PackageReference Include="ZOHOCRMSDK-2.1" Version="1.0.0" />
+            <PackageReference Include="ZOHOCRMSDK-2.1" Version="2.0.0" />
             <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
             <PackageReference Include="MySql.Data" Version="6.9.12" />
         </ItemGroup>

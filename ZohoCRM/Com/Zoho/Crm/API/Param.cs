@@ -8,9 +8,9 @@ namespace Com.Zoho.Crm.API
     /// <typeparam name="T">A CSharp DataType</typeparam>
     public class Param<T>
     {
-        private string name;
+        string name;
 
-        private string className;
+        string className;
 
         /// <summary>
         /// Creates an Param class instance with the specified parameter name.
