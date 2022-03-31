@@ -8,6 +8,7 @@ namespace Com.Zoho.Crm.API.Record
 	{
 		private List<Record> data;
 		private List<string> trigger;
+		private List<string> process;
 		private List<string> duplicateCheckFields;
 		private string wfTrigger;
 		private string larId;
@@ -49,6 +50,26 @@ namespace Com.Zoho.Crm.API.Record
 				 this.trigger=value;
 
 				 this.keyModified["trigger"] = 1;
+
+			}
+		}
+
+		public List<string> Process
+		{
+			/// <summary>The method to get the process</summary>
+			/// <returns>Instance of List<String></returns>
+			get
+			{
+				return  this.process;
+
+			}
+			/// <summary>The method to set the value to process</summary>
+			/// <param name="process">Instance of List<string></param>
+			set
+			{
+				 this.process=value;
+
+				 this.keyModified["process"] = 1;
 
 			}
 		}
