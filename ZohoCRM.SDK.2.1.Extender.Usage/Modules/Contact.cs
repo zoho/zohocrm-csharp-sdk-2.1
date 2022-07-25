@@ -1,8 +1,8 @@
 ﻿using Com.Zoho.Crm.API.Record;
 using CSharpFunctionalExtensions;
+using ZohoCRM.SDK_2_1.Core.Operations;
+using ZohoCRM.SDK_2_1.Core.ZohoItem;
 using ZohoCRM.SDK_2_1.Extender.BaseTypes;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
 
 namespace ZohoCRM.SDK._2._1.Extender.Usage.Modules;
 

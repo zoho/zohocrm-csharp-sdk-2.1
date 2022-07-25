@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Com.Zoho.Crm.API.Record;
 using Com.Zoho.Crm.API.Util;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
+using ZohoCRM.SDK_2_1.Core.ZohoItem;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
+namespace ZohoCRM.SDK_2_1.Core.Operations;
 
 // public class  Record : Record
 // {

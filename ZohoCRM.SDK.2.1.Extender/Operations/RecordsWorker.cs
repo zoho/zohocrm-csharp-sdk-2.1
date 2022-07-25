@@ -4,7 +4,7 @@ using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Record;
 using CSharpFunctionalExtensions;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
+namespace ZohoCRM.SDK_2_1.Core.Operations;
 
 public static class RecordsWorker
 {

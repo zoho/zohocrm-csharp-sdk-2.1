@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using CSharpFunctionalExtensions;
+using ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
+namespace ZohoCRM.SDK_2_1.Core.Operations;
 
 public static class ExtensionMethods
 {

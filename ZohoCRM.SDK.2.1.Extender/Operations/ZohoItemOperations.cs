@@ -6,9 +6,10 @@ using Com.Zoho.Crm.API;
 using Com.Zoho.Crm.API.Record;
 using Com.Zoho.Crm.API.Util;
 using CSharpFunctionalExtensions;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
+using ZohoCRM.SDK_2_1.Core.ZohoItem;
+using ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
+namespace ZohoCRM.SDK_2_1.Core.Operations;
 
 public static class ResultExtensions
 {

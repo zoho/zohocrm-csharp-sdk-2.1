@@ -6,7 +6,7 @@ using Com.Zoho.Crm.API.Dc;
 using Com.Zoho.Crm.API.Logger;
 using CSharpFunctionalExtensions;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes;
+namespace ZohoCRM.SDK_2_1.Core;
 
 public class ClientId : SimpleValueObject<string>
 {

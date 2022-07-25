@@ -1,4 +1,4 @@
-﻿namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
+﻿namespace ZohoCRM.SDK_2_1.Core.ZohoItem;
 
 public static class ZohoItemBaseWithId
 {

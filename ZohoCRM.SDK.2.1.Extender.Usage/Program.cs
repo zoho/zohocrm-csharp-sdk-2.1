@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
 using CSharpFunctionalExtensions;
 using ZohoCRM.SDK._2._1.Extender.Usage.Modules;
+using ZohoCRM.SDK_2_1.Core;
+using ZohoCRM.SDK_2_1.Core.Operations;
+using ZohoCRM.SDK_2_1.Core.ZohoItem;
 using ZohoCRM.SDK_2_1.Extender.BaseTypes;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
 
 Initialize.SdkInitialize(
     new ClientId("1000.VAG312OFJIAV50WN9MQG3ESTSJPC7L"),

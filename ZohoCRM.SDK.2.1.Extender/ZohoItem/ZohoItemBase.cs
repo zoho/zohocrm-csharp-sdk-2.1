@@ -1,9 +1,10 @@
 ﻿using System;
 using Com.Zoho.Crm.API.Record;
 using CSharpFunctionalExtensions;
-using ZohoCRM.SDK_2_1.Extender.BaseTypes.Operations;
+using ZohoCRM.SDK_2_1.Core.Operations;
+using ZohoCRM.SDK_2_1.Extender.BaseTypes;
 
-namespace ZohoCRM.SDK_2_1.Extender.BaseTypes.ZohoItem;
+namespace ZohoCRM.SDK_2_1.Core.ZohoItem;
 
 public class ZohoItemBaseWithId<T> where T : ZohoItemBase
 {

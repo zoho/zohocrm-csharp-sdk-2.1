@@ -4,7 +4,7 @@
     
     <OutputType>Library</OutputType>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Authors>Zoho CRM API Team</Authors>
+    <Authors>Petre Chitashvili @ AppifySheets</Authors>
     <AssemblyName>ZOHOCRMSDK-2.1</AssemblyName>
     <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
     <Owners>Zoho CRM API Team</Owners>
