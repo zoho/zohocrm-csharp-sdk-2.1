@@ -28,6 +28,6 @@
 		<PackageReference Include="MySqlConnector" Version="2.2.6" />
 	</ItemGroup>
 	<ItemGroup>
-		<None Update="Resources.JSONDetails.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Resources/*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 </Project>

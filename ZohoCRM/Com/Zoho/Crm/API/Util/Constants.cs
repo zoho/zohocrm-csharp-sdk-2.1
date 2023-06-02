@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 
 using System.Diagnostics;
+using System.IO;
 
 namespace Com.Zoho.Crm.API.Util
 {
@@ -445,7 +446,9 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string PRE_CONVERT = "PreConvert";
 
-        public static readonly string JSON_DETAILS_FILE_PATH = "Resources.JSONDetails.json";
+        public static readonly string RESOURCES_FOLDER = "Resources";
+
+        public static readonly string JSON_DETAILS_FILE_PATH = Path.Combine(RESOURCES_FOLDER, "JSONDetails.json");
 
         public static readonly string EMAIL_REGEX = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 
@@ -731,7 +734,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string OWNER_LOOKUP = "ownerlookup";
 
-        public static readonly List<string> SKIP_MODULES = new List<string>(){"deals"};
+        public static readonly List<string> SKIP_MODULES = new List<string>() { "deals" };
         //TODO: Write enum class for RequestMethod and ResponseCode and implement their functions;
     }
 }
