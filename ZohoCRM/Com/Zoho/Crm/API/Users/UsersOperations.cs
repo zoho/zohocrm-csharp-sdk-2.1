@@ -17,7 +17,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users");
+			apiPath=string.Concat(apiPath, "/crm/v4/users");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -43,7 +43,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users");
+			apiPath=string.Concat(apiPath, "/crm/v4/users");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users");
+			apiPath=string.Concat(apiPath, "/crm/v4/users");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -100,7 +100,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users/");
+			apiPath=string.Concat(apiPath, "/crm/v4/users/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -127,7 +127,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users/");
+			apiPath=string.Concat(apiPath, "/crm/v4/users/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -155,7 +155,7 @@ namespace Com.Zoho.Crm.API.Users
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/users/");
+			apiPath=string.Concat(apiPath, "/crm/v4/users/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

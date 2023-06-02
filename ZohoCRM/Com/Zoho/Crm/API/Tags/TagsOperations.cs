@@ -15,7 +15,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -40,7 +40,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -103,7 +103,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -133,7 +133,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -158,7 +158,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -192,7 +192,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath, moduleAPIName.ToString());
 
@@ -228,7 +228,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath, moduleAPIName.ToString());
 
@@ -263,7 +263,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath, moduleAPIName.ToString());
 
@@ -294,7 +294,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath, moduleAPIName.ToString());
 
@@ -325,7 +325,7 @@ namespace Com.Zoho.Crm.API.Tags
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/tags/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/tags/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

@@ -15,7 +15,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -43,7 +43,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -67,7 +67,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -95,7 +95,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -123,7 +123,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -147,7 +147,7 @@ namespace Com.Zoho.Crm.API.Notification
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/actions/watch");
+			apiPath=string.Concat(apiPath, "/crm/v4/actions/watch");
 
 			handlerInstance.APIPath=apiPath;
 

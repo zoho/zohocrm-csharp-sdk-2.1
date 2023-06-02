@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.Roles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/roles");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/roles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Roles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/roles/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/roles/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

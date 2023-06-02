@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/inventory_templates");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/inventory_templates");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -65,7 +65,7 @@ namespace Com.Zoho.Crm.API.InventoryTemplates
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/inventory_templates/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/inventory_templates/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

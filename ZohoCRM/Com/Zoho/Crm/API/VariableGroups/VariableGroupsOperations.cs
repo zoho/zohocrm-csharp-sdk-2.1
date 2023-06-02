@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.VariableGroups
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/variable_groups");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/variable_groups");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.VariableGroups
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/variable_groups/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/variable_groups/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -59,7 +59,7 @@ namespace Com.Zoho.Crm.API.VariableGroups
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/variable_groups/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/variable_groups/");
 
 			apiPath=string.Concat(apiPath, apiName.ToString());
 

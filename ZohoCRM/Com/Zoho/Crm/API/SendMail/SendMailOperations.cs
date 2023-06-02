@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.SendMail
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/emails/actions/from_addresses");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/emails/actions/from_addresses");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -37,7 +37,7 @@ namespace Com.Zoho.Crm.API.SendMail
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath, moduleAPIName.ToString());
 

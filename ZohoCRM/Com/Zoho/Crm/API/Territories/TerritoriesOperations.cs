@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.Territories
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/territories");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/territories");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Territories
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/territories/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/territories/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

@@ -26,7 +26,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/related_lists");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/related_lists");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -50,7 +50,7 @@ namespace Com.Zoho.Crm.API.RelatedLists
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/related_lists/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/related_lists/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

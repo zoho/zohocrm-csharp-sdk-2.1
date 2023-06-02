@@ -27,7 +27,7 @@ namespace Com.Zoho.Crm.API.Fields
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/fields");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/fields");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -53,7 +53,7 @@ namespace Com.Zoho.Crm.API.Fields
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/fields/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/fields/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

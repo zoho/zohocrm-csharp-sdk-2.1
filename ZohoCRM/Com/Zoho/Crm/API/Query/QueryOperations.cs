@@ -14,7 +14,7 @@ namespace Com.Zoho.Crm.API.Query
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/coql");
+			apiPath=string.Concat(apiPath, "/crm/v4/coql");
 
 			handlerInstance.APIPath=apiPath;
 

@@ -31,7 +31,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
 
@@ -63,7 +63,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
 
@@ -99,7 +99,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
 
@@ -134,7 +134,7 @@ namespace Com.Zoho.Crm.API.ShareRecords
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/");
+			apiPath=string.Concat(apiPath, "/crm/v4/");
 
 			apiPath=string.Concat(apiPath,  this.moduleAPIName.ToString());
 

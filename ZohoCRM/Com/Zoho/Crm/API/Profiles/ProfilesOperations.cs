@@ -27,7 +27,7 @@ namespace Com.Zoho.Crm.API.Profiles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/profiles");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/profiles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -51,7 +51,7 @@ namespace Com.Zoho.Crm.API.Profiles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/profiles/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/profiles/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

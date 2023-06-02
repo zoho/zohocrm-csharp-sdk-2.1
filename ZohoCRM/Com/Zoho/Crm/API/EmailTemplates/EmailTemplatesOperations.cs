@@ -15,7 +15,7 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/email_templates");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/email_templates");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -39,7 +39,7 @@ namespace Com.Zoho.Crm.API.EmailTemplates
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/email_templates/");
+			apiPath=string.Concat(apiPath, "/crm/v4/settings/email_templates/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

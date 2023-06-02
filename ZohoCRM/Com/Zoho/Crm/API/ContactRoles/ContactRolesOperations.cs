@@ -14,7 +14,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -36,7 +36,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -64,7 +64,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -92,7 +92,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -116,7 +116,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -141,7 +141,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -169,7 +169,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Contacts/roles/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Contacts/roles/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -194,7 +194,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Deals/");
 
 			apiPath=string.Concat(apiPath, dealId.ToString());
 
@@ -227,7 +227,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Deals/");
 
 			apiPath=string.Concat(apiPath, dealId.ToString());
 
@@ -261,7 +261,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Deals/");
 
 			apiPath=string.Concat(apiPath, dealId.ToString());
 
@@ -294,7 +294,7 @@ namespace Com.Zoho.Crm.API.ContactRoles
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Deals/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Deals/");
 
 			apiPath=string.Concat(apiPath, dealId.ToString());
 

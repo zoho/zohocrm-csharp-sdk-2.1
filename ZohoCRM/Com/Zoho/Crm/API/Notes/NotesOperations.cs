@@ -17,7 +17,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -43,7 +43,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -71,7 +71,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -99,7 +99,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -125,7 +125,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -154,7 +154,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -182,7 +182,7 @@ namespace Com.Zoho.Crm.API.Notes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v2.1/Notes/");
+			apiPath=string.Concat(apiPath, "/crm/v4/Notes/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
