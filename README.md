@@ -1,4 +1,14 @@
-License
+
+# ZOHO CRM C# SDK 2.1 for API version 2.1
+
+## Changes for this fork
+
+- Update from .NET to .NET standard
+- Updated dependencies
+- Updated MySql.Data to MySqlConnector to support MariaDB@11
+
+## License
+
 =======
 
     Copyright (c) 2021, ZOHO CORPORATION PRIVATE LIMITED 
@@ -16,26 +26,37 @@ License
     See the License for the specific language governing permissions and 
     limitations under the License.
 
-# ZOHO CRM C# SDK 2.1 for API version 2.1
 
 ## Table Of Contents
 
-* [Overview](#overview)
-* [Registering a Zoho Client](#registering-a-zoho-client)
-* [Environmental Setup](#environmental-setup)
-* [Including the SDK in your project](#including-the-sdk-in-your-project)
-* [Persistence](#token-persistence)
-  * [DataBase Persistence](#database-persistence)
-  * [File Persistence](#file-persistence)
-  * [Custom Persistence](#custom-persistence)
-* [Configuration](#configuration)
-* [Initialization](#initializing-the-application)
-* [Class Hierarchy](#class-hierarchy)
-* [Responses And Exceptions](#responses-and-exceptions)
-* [Threading](#threading-in-the-c#-sdk)
-  * [Multithreading in a Multi-User App](#multithreading-in-a-multi-user-app)
-  * [Multi-threading in a Single User App](#multi-threading-in-a-single-user-app)
-* [Sample Code](#sdk-sample-code)
+- [ZOHO CRM C# SDK 2.1 for API version 2.1](#zoho-crm-c-sdk-21-for-api-version-21)
+  - [Changes for this fork](#changes-for-this-fork)
+  - [License](#license)
+  - [Table Of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Registering a Zoho Client](#registering-a-zoho-client)
+  - [Environmental Setup](#environmental-setup)
+  - [Including the SDK in your project](#including-the-sdk-in-your-project)
+  - [Token Persistence](#token-persistence)
+    - [Table of Contents](#table-of-contents-1)
+    - [Implementing OAuth Persistence](#implementing-oauth-persistence)
+    - [DataBase Persistence](#database-persistence)
+      - [MySQL Query](#mysql-query)
+      - [Create DBStore object](#create-dbstore-object)
+    - [File Persistence](#file-persistence)
+      - [Create FileStore object](#create-filestore-object)
+    - [Custom Persistence](#custom-persistence)
+  - [Configuration](#configuration)
+  - [|                | resourcePath  |](#-----------------resourcepath--)
+  - [Initializing the Application](#initializing-the-application)
+  - [Class Hierarchy](#class-hierarchy)
+  - [Responses and Exceptions](#responses-and-exceptions)
+    - [GET Requests](#get-requests)
+    - [POST, PUT, DELETE Requests](#post-put-delete-requests)
+  - [Threading in the C# SDK](#threading-in-the-c-sdk)
+    - [Multithreading in a Multi-User App](#multithreading-in-a-multi-user-app)
+    - [Multi-threading in a Single User App](#multi-threading-in-a-single-user-app)
+  - [SDK Sample code](#sdk-sample-code)
 
 ## Overview
 
@@ -307,13 +328,13 @@ namespace user.store
 
 Before you get started with creating your C# application, you need to register your client and authenticate the app with Zoho.
 
-| Mandatory Keys    | Optional Keys |
-| :---------------- | :------------ |
-| user              | logger        |
-| environment       | store         |
-| token             | SDKConfig     |
-|                   | requestProxy  |
-|                   | resourcePath  |
+| Mandatory Keys | Optional Keys |
+| :------------- | :------------ |
+| user           | logger        |
+| environment    | store         |
+| token          | SDKConfig     |
+|                | requestProxy  |
+|                | resourcePath  |
 ----
 
 - Create an instance of **UserSignature** that identifies the current user.
