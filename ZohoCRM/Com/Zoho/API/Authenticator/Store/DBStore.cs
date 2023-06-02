@@ -7,7 +7,7 @@ using Com.Zoho.Crm.API;
 
 using Com.Zoho.Crm.API.Util;
 
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 using System.Text;
 

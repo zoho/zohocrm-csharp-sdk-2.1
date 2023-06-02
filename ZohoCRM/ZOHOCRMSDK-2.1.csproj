@@ -24,8 +24,8 @@
 			- Support JP DC Environment.</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
-		<PackageReference Include="MySql.Data" Version="6.9.12" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="MySqlConnector" Version="2.2.6" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="Resources.JSONDetails.json" CopyToOutputDirectory="PreserveNewest" />
