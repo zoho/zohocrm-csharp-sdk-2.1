@@ -27,7 +27,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/custom_views");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/custom_views");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -53,7 +53,7 @@ namespace Com.Zoho.Crm.API.CustomViews
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/custom_views/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/custom_views/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

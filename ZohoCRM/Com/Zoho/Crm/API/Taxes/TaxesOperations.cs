@@ -14,7 +14,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -36,7 +36,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -64,7 +64,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -92,7 +92,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -116,7 +116,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -140,7 +140,7 @@ namespace Com.Zoho.Crm.API.Taxes
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/taxes/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/taxes/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

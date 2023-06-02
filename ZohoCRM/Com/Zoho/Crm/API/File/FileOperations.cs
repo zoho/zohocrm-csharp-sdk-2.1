@@ -16,7 +16,7 @@ namespace Com.Zoho.Crm.API.File
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/files");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/files");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -46,7 +46,7 @@ namespace Com.Zoho.Crm.API.File
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/files");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/files");
 
 			handlerInstance.APIPath=apiPath;
 

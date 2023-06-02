@@ -26,7 +26,7 @@ namespace Com.Zoho.Crm.API.Layouts
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/layouts");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/layouts");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -50,7 +50,7 @@ namespace Com.Zoho.Crm.API.Layouts
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/layouts/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/layouts/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

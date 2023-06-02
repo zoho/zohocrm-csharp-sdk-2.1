@@ -16,7 +16,7 @@ namespace Com.Zoho.Crm.API.Modules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/modules");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -40,7 +40,7 @@ namespace Com.Zoho.Crm.API.Modules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/modules/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 
 			apiPath=string.Concat(apiPath, apiName.ToString());
 
@@ -65,7 +65,7 @@ namespace Com.Zoho.Crm.API.Modules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/modules/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 
 			apiPath=string.Concat(apiPath, apiName.ToString());
 
@@ -94,7 +94,7 @@ namespace Com.Zoho.Crm.API.Modules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/modules/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/modules/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

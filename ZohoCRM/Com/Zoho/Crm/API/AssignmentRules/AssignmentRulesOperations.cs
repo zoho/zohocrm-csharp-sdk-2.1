@@ -14,7 +14,7 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/automation/assignment_rules");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/automation/assignment_rules");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -37,7 +37,7 @@ namespace Com.Zoho.Crm.API.AssignmentRules
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/automation/assignment_rules/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/automation/assignment_rules/");
 
 			apiPath=string.Concat(apiPath, ruleId.ToString());
 

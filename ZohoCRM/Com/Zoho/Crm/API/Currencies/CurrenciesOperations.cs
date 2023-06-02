@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -63,7 +63,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -91,7 +91,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies/actions/enable");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/actions/enable");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -119,7 +119,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies/actions/enable");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/actions/enable");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -147,7 +147,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 
@@ -172,7 +172,7 @@ namespace Com.Zoho.Crm.API.Currencies
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/currencies/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/currencies/");
 
 			apiPath=string.Concat(apiPath, id.ToString());
 

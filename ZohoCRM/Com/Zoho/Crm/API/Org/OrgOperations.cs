@@ -13,7 +13,7 @@ namespace Com.Zoho.Crm.API.Org
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -35,7 +35,7 @@ namespace Com.Zoho.Crm.API.Org
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/org/photo");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/org/photo");
 
 			handlerInstance.APIPath=apiPath;
 

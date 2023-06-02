@@ -16,7 +16,7 @@ namespace Com.Zoho.Crm.API.BulkWrite
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "https://content.zohoapis.com/crm/v4/upload");
+			apiPath=string.Concat(apiPath, "https://content.zohoapis.com/crm/v2.1/upload");
 
 			handlerInstance.APIPath=apiPath;
 

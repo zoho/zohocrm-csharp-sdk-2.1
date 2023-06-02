@@ -27,7 +27,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline/actions/transfer");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/actions/transfer");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -56,7 +56,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -80,7 +80,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -110,7 +110,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -140,7 +140,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/");
 
 			apiPath=string.Concat(apiPath, pipelineId.ToString());
 
@@ -167,7 +167,7 @@ namespace Com.Zoho.Crm.API.Pipeline
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/pipeline/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/pipeline/");
 
 			apiPath=string.Concat(apiPath, pipelineId.ToString());
 

@@ -14,7 +14,7 @@ namespace Com.Zoho.Crm.API.Wizards
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/wizards");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/wizards");
 
 			handlerInstance.APIPath=apiPath;
 
@@ -37,7 +37,7 @@ namespace Com.Zoho.Crm.API.Wizards
 
 			string apiPath="";
 
-			apiPath=string.Concat(apiPath, "/crm/v4/settings/wizards/");
+			apiPath=string.Concat(apiPath, "/crm/v2.1/settings/wizards/");
 
 			apiPath=string.Concat(apiPath, wizardId.ToString());
 
