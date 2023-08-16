@@ -146,12 +146,12 @@ namespace Com.Zoho.Crm.API.Util
         {
             set
             {
-                if(value == null)
+                if (value == null)
                 {
                     return;
                 }
 
-                if(param.ParameterMaps != null && param.ParameterMaps.Count > 0)
+                if (param.ParameterMaps != null && param.ParameterMaps.Count > 0)
                 {
                     value.ParameterMaps.ToList().ForEach(x => param.ParameterMaps[x.Key] = x.Value);
                 }
@@ -334,7 +334,7 @@ namespace Com.Zoho.Crm.API.Util
 
             try
             {
-                connector.AddHeader(Constants.ZOHO_SDK,  Environment.OSVersion.Platform.ToString() + "/" +
+                connector.AddHeader(Constants.ZOHO_SDK, Environment.OSVersion.Platform.ToString() + "/" +
                                                     Environment.OSVersion.Version.ToString() + "/csharp-2.1/" +
                                                     Environment.Version.Major.ToString() + "." +
                                                     Environment.Version.Minor.ToString() + ":" + Constants.SDK_VERSION);
@@ -362,7 +362,14 @@ namespace Com.Zoho.Crm.API.Util
 
                     convertInstance = GetConverterClassInstance(mimeType.ToLower());
 
-                    returnObject = (Model)convertInstance.GetWrappedResponse(response, pack);
+                    try
+                    {
+                        returnObject = (Model)convertInstance.GetWrappedResponse(response, pack);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
 
                     if (returnObject != null && (pack.Equals(returnObject.GetType().FullName) || IsExpectedType(returnObject, pack)))
                     {
@@ -371,7 +378,7 @@ namespace Com.Zoho.Crm.API.Util
                 }
                 else
                 {
-                    if(response != null)
+                    if (response != null)
                     {
                         HttpWebResponse responseEntity = ((HttpWebResponse)response);
 
@@ -498,9 +505,9 @@ namespace Com.Zoho.Crm.API.Util
         {
             Type[] interfaces = model.GetType().GetInterfaces();
 
-            foreach(Type interfaceDetails in interfaces)
+            foreach (Type interfaceDetails in interfaces)
             {
-                if(interfaceDetails.FullName.Equals(className))
+                if (interfaceDetails.FullName.Equals(className))
                 {
                     return true;
                 }
@@ -515,7 +522,7 @@ namespace Com.Zoho.Crm.API.Util
 
             if (apiPath.Contains(Constants.HTTP))
             {
-                if(apiPath.Contains(Constants.CONTENT_API_URL))
+                if (apiPath.Contains(Constants.CONTENT_API_URL))
                 {
                     APIPath = string.Concat(APIPath, Initializer.GetInitializer().Environment.GetFileUploadUrl());
 
