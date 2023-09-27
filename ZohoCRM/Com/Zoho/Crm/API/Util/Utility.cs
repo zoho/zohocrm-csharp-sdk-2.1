@@ -43,8 +43,6 @@ namespace Com.Zoho.Crm.API.Util
 
         private static Dictionary<string, string> apiTypeVsStructureName = new Dictionary<string, string>();
 
-        private static JObject JSONDETAILS = Initializer.jsonDetails;
-
         private static bool newFile = false;
 
 	    private static bool getModifiedModules = false;
@@ -205,11 +203,6 @@ namespace Com.Zoho.Crm.API.Util
 
                 try
                 {
-                    if (moduleAPIName != null && SearchJSONDetails(moduleAPIName) != null)
-                    {
-                        return;
-                    }
-
                     string resourcesPath = Initializer.GetInitializer().ResourcePath + Path.DirectorySeparatorChar + Constants.FIELD_DETAILS_DIRECTORY;
 
                     if (!Directory.Exists(resourcesPath))
@@ -776,34 +769,6 @@ namespace Com.Zoho.Crm.API.Util
 
 		    return fieldsDetails;
 	    }
-
-        public static JObject SearchJSONDetails(string key)
-        {
-            key = Constants.PACKAGE_NAMESPACE + ".Record." + key;
-
-            if(JSONDETAILS == null)
-            {
-                JSONDETAILS = Initializer.jsonDetails;
-            }
-
-            foreach (KeyValuePair<string, JToken> member in JSONDETAILS)
-            {
-                string keyInJSON = member.Key;
-
-                if(keyInJSON.Equals(key, StringComparison.OrdinalIgnoreCase))
-                {
-                    JObject returnJSON = new JObject();
-
-                    returnJSON.Add(Constants.MODULEPACKAGENAME, keyInJSON);
-
-                    returnJSON.Add(Constants.MODULEDETAILS, (JObject)member.Value);
-
-                    return returnJSON;
-                }
-            }
-
-            return null;
-        }
 
         public static bool VerifyPhotoSupport(string moduleAPIName)
         {

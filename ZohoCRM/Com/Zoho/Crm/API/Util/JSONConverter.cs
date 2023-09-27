@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.IO;
 
 using System.Linq;
-
 using System.Net;
 
 using System.Reflection;
@@ -346,16 +345,7 @@ namespace Com.Zoho.Crm.API.Util
             {
                 this.commonAPIHandler.ModuleAPIName = null;
 
-                JObject fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
-
-                if (fullDetail != null)// from Jsondetails
-                {
-                    moduleDetail = (JObject)fullDetail[Constants.MODULEDETAILS];
-                }
-                else// from user spec
-                {
-                    moduleDetail = GetModuleDetailFromUserSpecJSON(moduleAPIName);
-                }
+                moduleDetail = GetModuleDetailFromUserSpecJSON(moduleAPIName);
             }
             else// inner case
             {
@@ -422,16 +412,16 @@ namespace Com.Zoho.Crm.API.Util
                 }
             }
 
-            foreach (KeyValuePair<string, int?> keyDetail in keyModified)
+            foreach (KeyValuePair<string, int?> keyNamevsValue in keyModified)
             {
-                string keyName = keyDetail.Key;
+                string keyName = keyNamevsValue.Key;
 
-                if (keyDetail.Value != null && keyDetail.Value != 1)
+                if (keyNamevsValue.Value != null && keyNamevsValue.Value != 1)
                 {
                     continue;
                 }
 
-                JObject keyDetails = new JObject();
+                JObject keyDetail = new JObject();
 
                 object keyValue = keyValues.ContainsKey(keyName) ? keyValues[keyName] : null;
 
@@ -439,39 +429,84 @@ namespace Com.Zoho.Crm.API.Util
 
                 string memberName = BuildName(keyName);
 
+                bool customHandling = false;
+
                 if (moduleDetail.Count > 0 && (moduleDetail.ContainsKey(keyName) || moduleDetail.ContainsKey(memberName)))
                 {
                     if (moduleDetail.ContainsKey(keyName))
                     {
-                        keyDetails = (JObject)moduleDetail[keyName];// incase of user spec json
+                        keyDetail = (JObject)moduleDetail[keyName];// incase of user spec json
                     }
                     else
                     {
-                        keyDetails = (JObject)moduleDetail[memberName];// json details
+                        keyDetail = (JObject)moduleDetail[memberName];// json details
                     }
                 }
                 else if (classDetail.ContainsKey(memberName))
                 {
-                    keyDetails = (JObject)classDetail[memberName];
-                }
-
-                if (keyDetails.Count > 0)
-                {
-                    if ((keyDetails.ContainsKey(Constants.READ_ONLY) && (bool)keyDetails[Constants.READ_ONLY]) || !keyDetails.ContainsKey(Constants.NAME))// read only or no keyName
-                    {
-                        continue;
-                    }
-
-                    if (this.ValueChecker(cl.GetType().FullName, memberName, keyDetails, keyValue, uniqueValuesMap, instanceNumber) == true)
-                    {
-                        jsonValue = SetData(keyDetails, keyValue);
-                    }
+                    keyDetail = (JObject)classDetail[memberName];
                 }
                 else
                 {
-                    jsonValue = RedirectorForObjectToJSON(keyValue);
+                    customHandling = true;
                 }
 
+                if(keyValue != null)
+                {
+                    if (keyDetail.Count > 0)
+                    {
+                        if ((keyDetail.ContainsKey(Constants.READ_ONLY) && (bool)keyDetail[Constants.READ_ONLY]) || !keyDetail.ContainsKey(Constants.NAME))// read only or no keyName
+                        {
+                            continue;
+                        }
+
+                        if (this.ValueChecker(cl.GetType().FullName, memberName, keyDetail, keyValue, uniqueValuesMap, instanceNumber) == true)
+                        {
+                            jsonValue = SetData(keyDetail, keyValue);
+                        }
+                    }
+                    else
+                    {
+                        if (customHandling && !(keyValue is IList)  && !(keyValue is IDictionary) && !(keyValue.GetType().FullName.Contains(Constants.CHOICE_NAMESPACE))) 
+					    {
+                            if (Constants.PRIMITIVE_TYPES.Contains(keyValue.GetType().Name))
+                            {
+                                keyDetail.Add(Constants.TYPE, keyValue.GetType().FullName);
+                                jsonValue = SetData(keyDetail, keyValue);
+                            }
+                            else if (Initializer.jsonDetails.ContainsKey(keyValue.GetType().FullName))
+                            {
+                                keyDetail.Add(Constants.STRUCTURE_NAME, keyValue.GetType().FullName);
+                                keyDetail.Add(Constants.NAME, keyName);
+                                keyDetail.Add(Constants.TYPE, keyValue.GetType().FullName);
+                                jsonValue = SetData(keyDetail, keyValue);
+                            }
+                        }
+
+                        else
+                        {
+                            if (customHandling && keyValue is IList)
+						    {
+                                if (Initializer.jsonDetails.ContainsKey(((IList)keyValue)[0].GetType().FullName)) 
+							    {
+                                    keyDetail.Add(Constants.STRUCTURE_NAME, ((IList)keyValue)[0].GetType().FullName);
+                                    keyDetail.Add(Constants.NAME, keyName);
+                                    keyDetail.Add(Constants.TYPE, ((IList)keyValue)[0].GetType().FullName);
+                                    jsonValue = SetJSONArray(keyValue, keyDetail);
+                                }
+                                else
+                                {
+                                    jsonValue = RedirectorForObjectToJSON(keyValue);
+                                }
+                            }
+                            else
+                            {
+                                jsonValue = RedirectorForObjectToJSON(keyValue);
+                            }
+                        }
+                        
+                    }
+                }
                 if (keyValue != null)
                 {
                     requiredKeys.Remove(keyName);
@@ -644,6 +679,14 @@ namespace Com.Zoho.Crm.API.Util
             {
                 return SetJSONObject(request, null);
             }
+            else if (request.GetType().FullName.Contains(Constants.CHOICE_NAMESPACE))
+            {
+                Type t = request.GetType();
+
+                PropertyInfo prop = t.GetProperty("Value");
+
+                return prop.GetValue(request);
+            }
             else
             {
                 return request;
@@ -767,18 +810,7 @@ namespace Com.Zoho.Crm.API.Util
             {
                 this.commonAPIHandler.ModuleAPIName = null;
 
-                JObject fullDetail = Utility.SearchJSONDetails(moduleAPIName);// to get correct moduleapiname in proper format
-
-                if (fullDetail != null)// from Jsondetails
-                {
-                    moduleDetail = (JObject)fullDetail[Constants.MODULEDETAILS];
-
-                    recordInstance = Activator.CreateInstance(Type.GetType((string)fullDetail[Constants.MODULEPACKAGENAME]));
-                }
-                else// from user spec
-                {
-                    moduleDetail = GetModuleDetailFromUserSpecJSON(moduleAPIName);
-                }
+                moduleDetail = GetModuleDetailFromUserSpecJSON(moduleAPIName);
             }
 
             moduleDetail.Merge(classDetail, new JsonMergeSettings
