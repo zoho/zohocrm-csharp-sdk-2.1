@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace Com.Zoho.Crm.API.Util
 {
@@ -101,7 +102,7 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string ZOHO_SDK = "X-ZOHO-SDK";
 
-        public static readonly string SDK_VERSION = "2.0.0";
+        public static readonly string SDK_VERSION = "3.0.0";
 
         public static readonly string MODULEPACKAGENAME = "modulePackageName";
 
@@ -731,7 +732,8 @@ namespace Com.Zoho.Crm.API.Util
 
         public static readonly string OWNER_LOOKUP = "ownerlookup";
 
-        public static readonly List<string> SKIP_MODULES = new List<string>(){"deals"};
-        //TODO: Write enum class for RequestMethod and ResponseCode and implement their functions;
+        public static readonly List<string> SKIP_MODULES = new List<string>() { "deals" };
+
+        public static readonly List<string> PRIMITIVE_TYPES = new List<string>() { "String", "Int64", "Boolean", "DateTime", "DateTimeOffset", "Int32", "Double", "Object", "TimeZone" };
     }
 }

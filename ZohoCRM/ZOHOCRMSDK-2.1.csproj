@@ -15,9 +15,10 @@
 		<FileAlignment>512</FileAlignment>
 		<NuGetPackageImportStamp>
 		</NuGetPackageImportStamp>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageId>ZOHOCRMSDK-2.1</PackageId>
-		<PackageVersion>2.0.0</PackageVersion>
+		<PackageVersion>3.0.0</PackageVersion>
 		<Authors>Zoho CRM API Team</Authors>
 		<Owners>Zoho CRM API Team</Owners>
 		<Description>Provides C# SDK support for Zoho CRM APIs.</Description>
@@ -25,8 +26,9 @@
 		<Summary>C# SDK offers a way to create client C# applications that can be integrated with Zoho CRM. This SDK makes the access and use of necessary CRM APIs with ease.</Summary>
 		<PackageTags>ZOHOCRMSDK-2.1,zohocrm,sdk,zcrmsdk,zoho</PackageTags>
 		<Title>ZOHOCRMSDK-2.1</Title>
-		<PackageReleaseNotes>    - Internal handling done for mandatory fields during insert and update operations.
-    - Support JP DC Environment.</PackageReleaseNotes>
+		<PackageReleaseNotes>- Internal handling done for custom fields during insert and update operations.
+- User-specific fields: Resolved conflicts in the metaclass names of user-specific fields.</PackageReleaseNotes>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   	</PropertyGroup>
   	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 		<Optimize>true</Optimize>
@@ -549,6 +551,13 @@
 	</ItemGroup>
 	<ItemGroup>
 		<EmbeddedResource Include="Resources\JSONDetails.json" />
+	</ItemGroup>
+	<PropertyGroup>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="LICENSE" Pack="true" PackagePath=""/>
 	</ItemGroup>
   	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 	<!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
